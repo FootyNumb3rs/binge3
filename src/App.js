@@ -3,7 +3,7 @@ import "./App.css";
 import MainBar from "./components/MainBar";
 import { makeStyles, fade } from "@material-ui/core/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
+import { ThemeProvider } from "@material-ui/core/styles";
 
 import PopUp from "./components/PopUp";
 import SideDrawer from "./components/SideDrawer";
@@ -40,6 +40,7 @@ const drawerWidth = 240;
 {
   /* CLASSES */
 }
+
 const useStyles = makeStyles(theme => ({
   // Drawer
   content: {}
