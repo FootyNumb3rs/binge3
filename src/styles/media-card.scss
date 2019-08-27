@@ -1,0 +1,44 @@
+$backgroundColor: black;
+$mainFont: Roboto;
+$cardHeight: 250px;
+$cardWidth: (2/3) * $cardHeight;
+
+.card {
+  flex-direction: column;
+  width: $cardWidth;
+  border: 0px $backgroundColor;
+  border-radius: 0px;
+
+  .action {
+    display: "block";
+    text-align: "initial";
+    background-color: $backgroundColor;
+  }
+
+  .media {
+    height: $cardHeight;
+    width: $cardWidth;
+    background-color: $backgroundColor;
+  }
+}
+
+.cardText {
+  background-color: $backgroundColor;
+  margin-top: 10px;
+
+  .title {
+    color: white;
+    font-family: $mainFont;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  .genres {
+    color: #9e9e9e;
+    font-family: $mainFont;
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 0px;
+  }
+}

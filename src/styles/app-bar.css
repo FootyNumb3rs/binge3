@@ -1,0 +1,130 @@
+.title-div {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 6px;
+  margin-right: 35px;
+  margin-left: 55px;
+}
+
+.title {
+  display: "flex";
+  font-size: 30px;
+  font-family: "DM Serif Display";
+  cursor: pointer;
+}
+
+.buttonContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+.search-icon {
+  width: 7px;
+  margin-left: 23px;
+  color: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  pointer-events: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+}
+
+.mobile-menu-button {
+  display: none;
+}
+
+.mobile-search-button {
+  display: none;
+}
+
+.mobile-title {
+  display: none;
+  font-family: "DM Serif Display";
+  font-size: 22px;
+}
+
+@media (min-width: 620px) {
+  .toolbar {
+    max-width: 1280px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    height: 60px;
+  }
+}
+
+@media (max-width: 620px) {
+  .toolbar {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .title-div {
+    display: none;
+    margin: 0;
+  }
+  .search-bar {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+  .search-icon {
+    display: none;
+  }
+  .buttonContainer {
+    display: none;
+    margin: 0;
+  }
+  /*
+  .mobile-search-button {
+    display: flex;
+    margin: 0px 21px;
+    margin-top: 0px;
+  }
+  */
+  .mobile-menu-button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0px;
+    margin-left: 0px;
+  }
+  /*
+
+  .mobile-title {
+    display: flex;
+  }
+  */
+}
+/*# sourceMappingURL=app-bar.css.map */

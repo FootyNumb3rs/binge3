@@ -1,0 +1,56 @@
+.main-div {
+  display: "flex";
+  max-width: 700;
+  min-width: 700;
+  width: 700;
+  max-height: 900;
+  min-height: 430;
+  height: auto;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.dialog-content {
+  display: flex;
+  flex-grow: 1;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background-color: #121212;
+
+  .dialog-content-inner-div {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    flex-grow: 1;
+  }
+
+  .backdrop-div {
+    width: 35%;
+    height: 100%;
+    background-color: #212121;
+    flex-shrink: 0;
+
+    .backdrop-img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .meta-data {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    padding: 40px;
+
+    .title {
+      font-family: Roboto;
+      font-size: 26px;
+      color: #e0e0e0;
+      font-weight: 500;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+  }
+}

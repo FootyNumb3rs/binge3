@@ -1,0 +1,77 @@
+.main-div {
+  display: "flex";
+  max-width: 700;
+  min-width: 700;
+  width: 700;
+  max-height: 900;
+  min-height: 430;
+  height: auto;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.dialog-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background-color: #121212;
+}
+
+.dialog-content .dialog-content-inner-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: auto;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.dialog-content .backdrop-div {
+  width: 35%;
+  height: 100%;
+  background-color: #212121;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.dialog-content .backdrop-div .backdrop-img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.dialog-content .meta-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 40px;
+}
+
+.dialog-content .meta-data .title {
+  font-family: Roboto;
+  font-size: 26px;
+  color: #e0e0e0;
+  font-weight: 500;
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+/*# sourceMappingURL=pop-up.css.map */
