@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Wrap } from "react";
 import "./App.css";
 import MainBar from "./components/MainBar";
 import { makeStyles, fade } from "@material-ui/core/styles";
@@ -60,6 +60,8 @@ function App() {
   const [genres, setGenres] = useState({});
 
   // Side Drawer ---------------
+  {
+    /*
   const [state, setState] = React.useState({
     top: false,
     left: false,
@@ -78,6 +80,8 @@ function App() {
 
     setState({ ...state, [side]: open });
   };
+*/
+  }
 
   // -----------------
 
@@ -166,13 +170,14 @@ function App() {
       <React.Fragment>
         <Router>
           <MainBar
-            handleDrawerOpen={toggleDrawer("right", true)}
+            //handleDrawerOpen={toggleDrawer("right", true)}
             queryChange={onQueryChange}
             searchSubmit={onSearchSubmit}
             trendingShows={getTrendingShows}
             trendingFilms={getTrendingFilms}
             search={search}
           />
+          {/*
           <SwipeableDrawer
             open={state.right}
             onClose={toggleDrawer("right", false)}
@@ -180,6 +185,7 @@ function App() {
           >
             <SideDrawer />
           </SwipeableDrawer>
+          */}
           <Switch>
             <Route
               path="/"
@@ -190,9 +196,10 @@ function App() {
             />
             <Route
               path="/search"
+              exact
               render={props => <Search search={search} />}
             />
-            <Route path="/browse" component={Browse} />
+            <Route exact path="/browse" render={() => <Browse />} />
             <Route path="/gallery" component={Gallery} />
             <Route path="/title" component={Title} />
           </Switch>

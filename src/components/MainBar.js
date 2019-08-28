@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { makeStyles, fade } from "@material-ui/core/styles";
@@ -10,6 +10,8 @@ import "../styles/app-bar.css";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
+import SideDrawer from "../components/SideDrawer";
+import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -38,14 +40,44 @@ export default function MainBar({
   searchSubmit,
   trendingShows,
   trendingFilms,
-  handleDrawerOpen,
   search
 }) {
   const classes = useStyles();
+
+  const [state, setState] = useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false
+  });
+
+  const toggleDrawer = (side, open) => event => {
+    if (
+      event &&
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+    setState({ ...state, [side]: open });
+  };
+
+  const toggleDrawer_ = () => {
+    setState({ ...state, ["right"]: true });
+  };
+
   return (
     <ThemeProvider>
       <AppBar position="sticky" className={classes.appBar}>
         <Toolbar variant="dense" disableGutters className="toolbar">
+          <SwipeableDrawer
+            open={state.right}
+            onClose={toggleDrawer("right", false)}
+            onOpen={toggleDrawer("right", true)}
+          >
+            <SideDrawer />
+          </SwipeableDrawer>
+
           {/* APP TITLE */}
 
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
@@ -97,7 +129,7 @@ export default function MainBar({
               aria-label="open drawer"
               className={classes.menuButton}
               onClick={() => {
-                handleDrawerOpen();
+                toggleDrawer_();
               }}
             >
               <MenuIcon />
