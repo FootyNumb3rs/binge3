@@ -1,17 +1,15 @@
+.card-container {
+  background-color: black;
+}
+
 .card {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   width: 166.66667px;
-  border: 0px black;
-  border-radius: 0px;
-}
-
-.card .action {
-  display: "block";
-  text-align: "initial";
   background-color: black;
+  border: 0px black;
 }
 
 .card .media {
@@ -23,6 +21,7 @@
 .cardText {
   background-color: black;
   margin-top: 10px;
+  overflow: hidden;
 }
 
 .cardText .title {
@@ -31,6 +30,7 @@
   font-size: 15px;
   font-weight: 400;
   line-height: 1.4;
+  overflow: hidden;
 }
 
 .cardText .genres {
@@ -39,5 +39,26 @@
   font-size: 13px;
   font-weight: 400;
   margin-top: 0px;
+}
+
+/* Custom, iPhone Retina */
+/* Extra Small Devices, Phones */
+@media (max-width: 620px) {
+  .card {
+    width: 71.66667px;
+  }
+  .card .media {
+    height: 107.5px;
+    width: 71.66667px;
+  }
+  .card .cardText {
+    margin-top: 6px;
+  }
+  .card .cardText .title {
+    font-size: 10px;
+  }
+  .card .cardText .genres {
+    font-size: 10px;
+  }
 }
 /*# sourceMappingURL=media-card.css.map */

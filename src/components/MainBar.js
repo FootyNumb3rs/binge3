@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import { makeStyles, fade } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
 import { ThemeProvider } from "@material-ui/styles";
 import SearchBar from "./SearchBar";
@@ -35,13 +35,7 @@ const useStyles = makeStyles(theme => ({
   menuButton: { minHeight: 0, minWidth: 0 }
 }));
 
-export default function MainBar({
-  queryChange,
-  searchSubmit,
-  trendingShows,
-  trendingFilms,
-  search
-}) {
+export default function MainBar({ queryChange, searchSubmit }) {
   const classes = useStyles();
 
   const [state, setState] = useState({
@@ -68,7 +62,7 @@ export default function MainBar({
 
   return (
     <ThemeProvider>
-      <AppBar position="sticky" className={classes.appBar}>
+      <AppBar position="sticky" className={classes.appBar} elevation={0}>
         <Toolbar variant="dense" disableGutters className="toolbar">
           <SwipeableDrawer
             open={state.right}
@@ -84,10 +78,8 @@ export default function MainBar({
             <div className={"title-div"}>
               <span
                 className={"title"}
-                onClick={() => {
-                  trendingShows();
-                }}
-                noWrap
+                onClick={() => {}}
+                //  noWrap
               >
                 Binge
               </span>
@@ -97,23 +89,13 @@ export default function MainBar({
           {/* MENU BUTTONS */}
 
           <div className={"buttonContainer"}>
-            <Link to="/browse" style={{ textDecoration: "none" }}>
-              <Button
-                className={classes.button}
-                onClick={() => {
-                  trendingShows();
-                }}
-              >
+            <Link to="/browse/tv" style={{ textDecoration: "none" }}>
+              <Button className={classes.button} onClick={() => {}}>
                 Shows
               </Button>
             </Link>
-            <Link to="/browse" style={{ textDecoration: "none" }}>
-              <Button
-                className={classes.button}
-                onClick={() => {
-                  trendingFilms();
-                }}
-              >
+            <Link to="/browse/movie" style={{ textDecoration: "none" }}>
+              <Button className={classes.button} onClick={() => {}}>
                 Movies
               </Button>
             </Link>

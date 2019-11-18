@@ -7,6 +7,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  min-height: 100vh;
 }
 
 .root .content {
@@ -18,28 +19,23 @@
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: black;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 100%;
 }
 
 .root .showcase-div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   background-color: black;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   margin-top: 70px;
   padding-bottom: 100px;
-  max-width: 1280px;
+  max-width: 990px;
   width: 100%;
 }
 

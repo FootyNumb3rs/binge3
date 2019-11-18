@@ -1,4 +1,4 @@
-import React, { Component, PureComponent } from "react";
+import React, { PureComponent } from "react";
 
 export default class Search extends PureComponent {
   render(props) {

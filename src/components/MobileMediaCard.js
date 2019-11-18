@@ -2,15 +2,17 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
+/* 
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+*/
 
 import "../styles/mobile-media-card.css";
 
-const _ = require("lodash");
+//const _ = require("lodash");
 const cardHeight = 140;
 const cardWidth = (2 / 3) * cardHeight;
 
@@ -27,7 +29,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function MediaCard({ media_, openDialogue }) {
-  const { title, genres, posterLink, backdropLink } = media_;
+  const { title, genres, posterLink } = media_;
   const classes = useStyles();
 
   return (
@@ -39,6 +41,7 @@ export default function MediaCard({ media_, openDialogue }) {
           >
             <img
               src={posterLink}
+              alt=""
               style={{
                 objectFit: "contain",
                 height: "100%",

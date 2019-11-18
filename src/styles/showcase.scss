@@ -1,22 +1,40 @@
-.wrapper {
-  display: grid;
-  grid-column-gap: 45px;
-  grid-row-gap: 42.5px;
-  grid-template-columns: repeat(5, 167px);
+.carousel-wrapper {
+  margin-left: 17px;
 }
 
-.headers {
-  color: white;
-  font-family: Roboto;
-  font-size: 32px;
-  font-weight: 400;
-  pointer-events: none;
-  margin-bottom: 55px;
-  justify-content: "center";
-  align-items: "center";
-  display: flex;
-  flex-grow: 1;
-  margin-left: 20px;
+.carousel-item {
+  //display: flex;
+  //justify-content: center;
+  //align-items: center;
+  //height: 250px;
+  //margin-left: 15px; // Playing with this vs. changing wrapper width
+  //margin-right: 15px;
+  //height: 100%;
+}
+.preview-panel {
+  margin-bottom: 60px;
+
+  .header {
+    color: white;
+    font-family: Roboto;
+    //font-size: 32px;
+    font-weight: 400;
+    pointer-events: none;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: flex-end;
+    display: flex;
+    flex-grow: 0;
+    //margin-left: 0px;
+
+    .header-title {
+      font-size: 20px;
+      margin-right: 25px;
+      font-weight: 600;
+      color: lightgrey;
+      //margin-bottom: 10px;
+    }
+  }
 }
 
 .mobile-wrapper {

@@ -6,8 +6,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/styles";
 import "../styles/media-card.css";
 import { Link } from "react-router-dom";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
-const _ = require("lodash");
+// const _ = require("lodash"); Throws console warning
 
 const useStyles = makeStyles(theme => ({
   cardAction: {
@@ -23,33 +24,48 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function MediaCard({ media_, openDialogue }) {
-  const { title, genres, posterLink, backdropLink } = media_;
+  const { id, media_type, title, genres, posterLink } = media_;
   const classes = useStyles();
   return (
-    <div>
-      <Link to={{ pathname: "/title", state: { title: title } }}>
-        <Card className={"card"}>
-          <CardActionArea
-            classes={{
-              root: classes.actionArea,
-              focusHighlight: classes.focusHighlight
-            }}
-            onClick={() => console.log("click")}
+    <div className="card-container">
+      <div className="card">
+        <Link
+          to={{
+            pathname: `/title/${media_type}/${id}`
+          }}
+        >
+          <Card className="card" style={{ borderRadius: 0 }}>
+            <CardActionArea
+              classes={{
+                root: classes.actionArea,
+                focusHighlight: classes.focusHighlight
+              }}
+              onClick={() => console.log("click")}
+
+              /* Throwing error
             onTouchTap={e => {
               e.preventDefault();
               console.log("click");
             }}
-          >
-            <CardMedia image={posterLink} className={"media"} />
-          </CardActionArea>
-        </Card>
-      </Link>
+            */
+            >
+              <CardMedia image={posterLink} className={"media"} />
+            </CardActionArea>
+          </Card>
+        </Link>
 
-      <div className={"cardText"}>
-        <Typography className={"title"}>{title}</Typography>
-        <Typography className={"genres"}>
-          {genres.slice(0, 2).join(", ")}
-        </Typography>
+        <div className={"cardText"}>
+          <Typography className={"title"}>{title}</Typography>
+          <SkeletonTheme
+            color="#202020"
+            highlightColor="#444"
+            borderRadius="0px"
+          >
+            <Typography className={"genres"}>
+              {genres.slice(0, 2).join(", ") || <Skeleton />}
+            </Typography>
+          </SkeletonTheme>
+        </div>
       </div>
     </div>
   );

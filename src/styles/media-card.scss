@@ -3,17 +3,16 @@ $mainFont: Roboto;
 $cardHeight: 250px;
 $cardWidth: (2/3) * $cardHeight;
 
+.card-container {
+  background-color: black;
+}
+
 .card {
   flex-direction: column;
   width: $cardWidth;
-  border: 0px $backgroundColor;
-  border-radius: 0px;
+  background-color: black;
 
-  .action {
-    display: "block";
-    text-align: "initial";
-    background-color: $backgroundColor;
-  }
+  border: 0px $backgroundColor;
 
   .media {
     height: $cardHeight;
@@ -25,6 +24,7 @@ $cardWidth: (2/3) * $cardHeight;
 .cardText {
   background-color: $backgroundColor;
   margin-top: 10px;
+  overflow: hidden;
 
   .title {
     color: white;
@@ -32,6 +32,7 @@ $cardWidth: (2/3) * $cardHeight;
     font-size: 15px;
     font-weight: 400;
     line-height: 1.4;
+    overflow: hidden;
   }
 
   .genres {
@@ -40,5 +41,34 @@ $cardWidth: (2/3) * $cardHeight;
     font-size: 13px;
     font-weight: 400;
     margin-top: 0px;
+  }
+}
+
+/* Custom, iPhone Retina */
+
+/* Extra Small Devices, Phones */
+@media (max-width: 620px) {
+  $mod: 0.43;
+  $cardWidth: $cardWidth * $mod;
+  $cardHeight: $cardHeight * $mod;
+
+  .card {
+    width: $cardWidth;
+
+    .media {
+      height: $cardHeight;
+      width: $cardWidth;
+    }
+    .cardText {
+      margin-top: 6px;
+
+      .title {
+        font-size: 10px;
+      }
+
+      .genres {
+        font-size: 10px;
+      }
+    }
   }
 }

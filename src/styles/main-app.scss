@@ -5,24 +5,27 @@ $mainFont: Roboto;
   display: flex;
   background-color: $backgroundColor;
   flex-direction: column;
+  min-height: 100vh;
 
   .content {
     display: flex;
     flex-direction: column;
     background-color: black;
-    flex-grow: 1;
     align-items: center;
     justify-content: center;
+    width: 100%;
   }
 
   .showcase-div {
-    display: flex;
+    //display: flex;
     background-color: $backgroundColor;
     justify-content: center;
     margin-top: 70px;
     padding-bottom: 100px;
-    max-width: 1280px;
+    max-width: 990px;
     width: 100%;
+
+    //flex-direction: column;
   }
 }
 

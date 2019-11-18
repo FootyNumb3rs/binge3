@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import InputBase from "@material-ui/core/InputBase";
 import { makeStyles, fade } from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
+import { withRouter } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   searchBar: {
@@ -44,8 +45,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SearchBar({ queryChange, searchSubmit }) {
+function SearchBar({ searchSubmit, history }) {
   const classes = useStyles();
+  const [search, setSearch] = useState("");
+  const onChange = (e, index, value) => {
+    setSearch(e.target.value);
+  };
 
   return (
     <div className="search-bar">
@@ -57,11 +62,11 @@ export default function SearchBar({ queryChange, searchSubmit }) {
           placeholder="Search..."
           className="search-bar"
           classes={{ root: classes.inputRoot, input: classes.inputInput }}
-          onChange={queryChange}
+          onChange={onChange}
           onKeyPress={ev => {
             console.log(`Pressed keyCode ${ev.key}`);
             if (ev.key === "Enter") {
-              searchSubmit();
+              history.push(`/search/${search}`);
               ev.preventDefault();
             }
           }}
@@ -70,3 +75,5 @@ export default function SearchBar({ queryChange, searchSubmit }) {
     </div>
   );
 }
+
+export default withRouter(SearchBar);

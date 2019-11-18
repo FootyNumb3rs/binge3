@@ -1,32 +1,36 @@
-.wrapper {
-  display: -ms-grid;
-  display: grid;
-  grid-column-gap: 45px;
-  grid-row-gap: 42.5px;
-  -ms-grid-columns: (167px)[5];
-      grid-template-columns: repeat(5, 167px);
+.carousel-wrapper {
+  margin-left: 17px;
 }
 
-.headers {
+.preview-panel {
+  margin-bottom: 60px;
+}
+
+.preview-panel .header {
   color: white;
   font-family: Roboto;
-  font-size: 32px;
   font-weight: 400;
   pointer-events: none;
-  margin-bottom: 55px;
-  -webkit-box-pack: "center";
-      -ms-flex-pack: "center";
-          justify-content: "center";
-  -webkit-box-align: "center";
-      -ms-flex-align: "center";
-          align-items: "center";
+  margin-bottom: 10px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  margin-left: 20px;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+}
+
+.preview-panel .header .header-title {
+  font-size: 20px;
+  margin-right: 25px;
+  font-weight: 600;
+  color: lightgrey;
 }
 
 .mobile-wrapper {
