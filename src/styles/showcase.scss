@@ -1,5 +1,7 @@
 .carousel-wrapper {
-  margin-left: 17px;
+  //
+  margin-left: 17px; // For some reason this pushes extra space into "card"
+  overflow: hidden;
 }
 
 .carousel-item {
@@ -10,6 +12,7 @@
   //margin-left: 15px; // Playing with this vs. changing wrapper width
   //margin-right: 15px;
   //height: 100%;
+  overflow: hidden;
 }
 .preview-panel {
   margin-bottom: 60px;
