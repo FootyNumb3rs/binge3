@@ -1,43 +1,86 @@
-.card {
+.mobile-card-container {
+  height: 12vh;
+  width: 100%;
+  border-radius: 0;
+  margin: 0;
+  background-color: black;
+}
+
+.mobile-card-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  width: 166.66667px;
-  border: 0px black;
-  border-radius: 0px;
+  max-height: 12vh;
+  padding: 7px 11px 7px 13px;
 }
 
-.card .action {
-  display: "block";
-  text-align: "initial";
-  background-color: black;
+.mobile-card-div .mobile-card-img-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-height: 12vh;
+  max-width: 8vh;
 }
 
-.card .media {
-  height: 250px;
-  width: 166.66667px;
-  background-color: black;
+.mobile-card-div .mobile-card-img-div .mobile-card-img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 100%;
+  border-radius: 0;
+}
+
+.mobile-card-div .mobile-card-title {
+  font-family: Roboto;
+  color: white;
+  padding: 3px 10px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.mobile-card-div .mobile-card-genres {
+  font-family: "Roboto";
+  color: rgba(220, 220, 220, 0.466);
+  padding: 0px 10px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/*
+.media {
+  height: $cardHeight;
+  width: $cardWidth;
+  background-color: $backgroundColor;
 }
 
 .cardText {
-  background-color: black;
+  background-color: $backgroundColor;
   margin-top: 10px;
-}
 
-.cardText .title {
-  color: white;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 1.4;
-}
+  .title {
+    color: white;
+    font-family: $mainFont;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
 
-.cardText .genres {
-  color: #9e9e9e;
-  font-family: Roboto;
-  font-size: 13px;
-  font-weight: 400;
-  margin-top: 0px;
+  .genres {
+    color: #9e9e9e;
+    font-family: $mainFont;
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 0px;
+  }
 }
+*/
 /*# sourceMappingURL=mobile-media-card.css.map */

@@ -1,8 +1,11 @@
 .carousel-wrapper {
   //
-  margin-left: 12px;
+  margin-left: 25px;
   // For some reason this pushes extra space into "card"
   overflow: hidden;
+  //display: flex;
+  //justify-content: space-between;
+  //align-items: space-between;
 }
 
 .carousel-item {
@@ -47,6 +50,9 @@
 @media (max-width: 620px) {
   .wrapper {
     display: none;
+  }
+  .carousel-wrapper {
+    margin-left: 12px;
   }
 
   .showcase {

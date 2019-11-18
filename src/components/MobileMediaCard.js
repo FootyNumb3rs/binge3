@@ -13,14 +13,15 @@ import Typography from "@material-ui/core/Typography";
 import "../styles/mobile-media-card.css";
 
 //const _ = require("lodash");
-const cardHeight = 140;
+const cardHeight = "12vh";
 const cardWidth = (2 / 3) * cardHeight;
 
 const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: "100%",
+    height: cardHeight,
+    width: "100vw",
     borderRadius: 0,
-    marginBottom: 10,
+    //margin: 15,
     backgroundColor: "black"
   },
   media: {
@@ -34,44 +35,21 @@ export default function MediaCard({ media_, openDialogue }) {
 
   return (
     <Card className={classes.card}>
-      <CardActionArea>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <div
-            style={{ height: cardHeight, width: cardWidth, paddingLeft: 25 }}
-          >
-            <img
-              src={posterLink}
-              alt=""
-              style={{
-                objectFit: "contain",
-                height: "100%",
-                width: "100%",
-                borderRadius: 10
-              }}
-            />
+      <CardActionArea style={{ width: "100%" }}>
+        <div className="mobile-card-div">
+          <div className="mobile-card-img-div">
+            <img src={posterLink} alt="" className="mobile-card-img" />
           </div>
-          <div>
-            <div
-              style={{
-                fontFamily: "Roboto",
-                color: "white",
-                padding: "3px 14px",
-                fontSize: 15,
-                fontWeight: 400
-              }}
-            >
-              {title}
-            </div>
-            <div
-              style={{
-                fontFamily: "Roboto Thin",
-                color: "white",
-                padding: "2px 14px",
-                fontSize: 15,
-                fontWeight: 500
-              }}
-            >
-              {genres.slice(0, 3).join(", ")}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center"
+            }}
+          >
+            <div className="mobile-card-title">{title}</div>
+            <div className="mobile-card-genres">
+              {genres.slice(0, 2).join(", ")}
             </div>
           </div>
         </div>

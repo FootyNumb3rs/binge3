@@ -24,9 +24,9 @@ const useStyles = makeStyles(theme => ({
   },
 
   button: {
-    color: "#bdbdbd",
-    fontSize: 16,
-    fontWeight: 400,
+    color: "gainsboro",
+    fontSize: 12.5,
+    fontWeight: 200,
     fontFamily: "Roboto",
     borderRadius: 23,
     textTransform: "None",
@@ -76,13 +76,13 @@ export default function MainBar({ queryChange, searchSubmit }) {
 
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
             <div className={"title-div"}>
-              <span
+              <div
                 className={"title"}
                 onClick={() => {}}
                 //  noWrap
               >
-                Binge
-              </span>
+                BINGE
+              </div>
             </div>
           </Link>
 
@@ -91,12 +91,17 @@ export default function MainBar({ queryChange, searchSubmit }) {
           <div className={"buttonContainer"}>
             <Link to="/browse/tv" style={{ textDecoration: "none" }}>
               <Button className={classes.button} onClick={() => {}}>
-                Shows
+                HOME
+              </Button>
+            </Link>
+            <Link to="/browse/tv" style={{ textDecoration: "none" }}>
+              <Button className={classes.button} onClick={() => {}}>
+                SHOWS
               </Button>
             </Link>
             <Link to="/browse/movie" style={{ textDecoration: "none" }}>
               <Button className={classes.button} onClick={() => {}}>
-                Movies
+                MOVIES
               </Button>
             </Link>
           </div>

@@ -1,7 +1,9 @@
 import React, { useState, PureComponent } from "react";
 import { getTrending, getGenres, getSearch } from "../tools/pullData.js";
 import MediaCard from "../components/MediaCard.js";
-import "rc-pagination/assets/index.css";
+import MobileMediaCard from "../components/MobileMediaCard.js";
+import "../styles/browse.css";
+
 import { Icon, Pagination } from "semantic-ui-react";
 
 export default class Browse extends PureComponent {
@@ -66,31 +68,11 @@ export default class Browse extends PureComponent {
 
   render(props) {
     return (
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          margin: "100px"
-        }}
-      >
+      <div className="browse-container">
         <div className="head">
-          <div
-            style={{
-              color: "white",
-              marginBottom: 50
-            }}
-          ></div>
+          <div className="header"></div>
         </div>
-        <div
-          style={{
-            display: "grid",
-            gridColumnGap: "45px",
-            gridRowGap: "42.5px",
-            gridTemplateColumns: "repeat(5, 167px)"
-          }}
-        >
+        <div className="card-grid">
           {this.state.content_list.map(media => {
             return (
               <div key={media.id}>
@@ -98,9 +80,20 @@ export default class Browse extends PureComponent {
               </div>
             );
           })}
-          }
         </div>
+
+        <div className="mobile-card-grid">
+          {this.state.content_list.map(media => {
+            return (
+              <div key={media.id}>
+                <MobileMediaCard media_={media} />
+              </div>
+            );
+          })}
+        </div>
+
         <div>
+          {/*
           <Pagination
             defaultActivePage={5}
             ellipsisItem={{
@@ -119,6 +112,7 @@ export default class Browse extends PureComponent {
             nextItem={{ content: <Icon name="angle right" />, icon: true }}
             totalPages={10}
           />
+          */}
         </div>
       </div>
     );

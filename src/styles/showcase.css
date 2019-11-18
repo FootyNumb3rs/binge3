@@ -1,5 +1,5 @@
 .carousel-wrapper {
-  margin-left: 12px;
+  margin-left: 25px;
   overflow: hidden;
 }
 
@@ -45,6 +45,9 @@
 @media (max-width: 620px) {
   .wrapper {
     display: none;
+  }
+  .carousel-wrapper {
+    margin-left: 12px;
   }
   .showcase {
     display: -webkit-box;

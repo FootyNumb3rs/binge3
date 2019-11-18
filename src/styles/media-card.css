@@ -45,20 +45,20 @@
 /* Extra Small Devices, Phones */
 @media (max-width: 620px) {
   .card {
-    width: 21vw;
+    width: 21.5vw;
   }
   .card .media {
-    height: 31.5vw;
-    width: 21vw;
+    height: 32.25vw;
+    width: 21.5vw;
   }
   .card .cardText {
     margin-top: 6px;
   }
   .card .cardText .title {
-    font-size: 11px;
+    font-size: 12.5px;
   }
   .card .cardText .genres {
-    font-size: 11px;
+    font-size: 12.5px;
   }
 }
 /*# sourceMappingURL=media-card.css.map */

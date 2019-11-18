@@ -42,9 +42,13 @@ function App() {
   return (
     <div className="root">
       <link
-        href="https://fonts.googleapis.com/css?family=Overpass:400,600|Questrial|Heebo:100|Rubik:300|Roboto:300,400,500,700|DM+Serif+Display&display=swap"
+        href="https://fonts.googleapis.com/css?family=Overpass:400,600|Questrial|Heebo|Rubik:300|Roboto:300,400,500,700|DM+Serif+Display&display=swap"
         rel="stylesheet"
       />
+      <link
+        href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:500|Bebas+Neue|Oswald|Staatliches&display=swap"
+        rel="stylesheet"
+      ></link>
 
       <link
         href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600&display=swap"

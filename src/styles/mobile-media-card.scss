@@ -1,20 +1,59 @@
 $backgroundColor: black;
 $mainFont: Roboto;
+$cardHeight: 12vh;
 $cardWidth: (2/3) * $cardHeight;
 
-.card {
-  display: flex;
+.mobile-card-container {
+  height: $cardHeight;
   width: 100%;
-  border: 0px;
-  padding: 0px;
-  margin: 0px;
-  border-radius: 0px;
+  border-radius: 0;
+  margin: 0;
+  background-color: black;
+}
 
-  .media {
-    height: $cardHeight;
-    width: $cardWidth;
-    background-color: $backgroundColor;
+.mobile-card-div {
+  display: flex;
+  flex-direction: row;
+  max-height: $cardHeight;
+  padding: 7px 11px 7px 13px;
+  //padding-right: 0px;
+  //height: 100%;
+
+  .mobile-card-img-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: $cardHeight;
+    max-width: $cardWidth;
+
+    .mobile-card-img {
+      object-fit: contain;
+      height: 100%;
+      border-radius: 0;
+    }
   }
+  .mobile-card-title {
+    font-family: Roboto;
+    color: white;
+    padding: 3px 10px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .mobile-card-genres {
+    font-family: "Roboto";
+    color: rgba(220, 220, 220, 0.466);
+    padding: 0px 10px;
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
+
+/*
+.media {
+  height: $cardHeight;
+  width: $cardWidth;
+  background-color: $backgroundColor;
 }
 
 .cardText {
@@ -37,3 +76,4 @@ $cardWidth: (2/3) * $cardHeight;
     margin-top: 0px;
   }
 }
+*/

@@ -10,16 +10,16 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 6px;
   margin-right: 35px;
   margin-left: 55px;
 }
 
 .title {
-  display: "flex";
-  font-size: 30px;
-  font-family: "DM Serif Display";
+  font-size: 27px;
+  font-family: "Barlow Semi Condensed";
+  font-weight: 100;
   cursor: pointer;
+  margin-bottom: 5px;
 }
 
 .buttonContainer {
