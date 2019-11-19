@@ -49,9 +49,9 @@ $cardWidth: (2/3) * $cardHeight;
 /* Extra Small Devices, Phones */
 @media (max-width: 620px) {
   $mod: 0.58;
-  $cardWidth: 27vw;
+  $cardWidth: 26vw;
   $cardHeight: (3/2) * $cardWidth;
-  $fontSize: 13px;
+  $fontSize: 12.7px;
   // $cardWidth: $cardWidth * $mod;
   // $cardHeight: $cardHeight * $mod;
 
