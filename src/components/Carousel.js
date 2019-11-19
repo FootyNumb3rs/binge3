@@ -1,7 +1,7 @@
 import React from "react";
 import MediaCard from "./MediaCard";
 //import MobileMediaCard from "./MobileMediaCard";
-import "../styles/showcase.css";
+import "../styles/carousel.css";
 import { withRouter } from "react-router-dom";
 import Slider from "react-slick";
 
@@ -23,29 +23,30 @@ function Carousel({ mediaData, type, history }) {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          initialSlide: 1
+          initialSlide: 1,
+          arrows: false
         }
       }
     ]
   };
   return (
-    <div style={{ paddingBottom: "40px" }}>
+    <div style={{ paddingBottom: "27px", paddingLeft: "27px" }}>
       <div
         style={{
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
-          paddingLeft: "26.5px",
           paddingBottom: "19px",
-          paddingRight: "20px",
-          fontFamily: "Roboto",
-          fontWeight: 400
+          paddingRight: "26px",
+          fontFamily: "Roboto Thin"
+          //fontWeight: 400
         }}
       >
         <div
           style={{
             color: "white",
-            fontSize: 19
+            fontSize: 22,
+            fontWeight: 106
           }}
         >
           {type == "movie" ? "Now Playing" : "Popular Shows"}
@@ -55,13 +56,15 @@ function Carousel({ mediaData, type, history }) {
             color: "gray",
             fontSize: 13,
             justifyContent: "flex-end",
-            paddingTop: "2px"
+            paddingTop: "3px",
+            fontFamily: "Roboto"
+            //fontWeight: 600
           }}
         >
           See All
         </div>
       </div>
-      <Slider {...settings} style={{ paddingLeft: "13.3px" }}>
+      <Slider {...settings}>
         {mediaData.slice(0, 10).map((media, i) => {
           return (
             <div className="carousel-item-wrapper">

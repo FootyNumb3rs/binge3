@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
 export default function MediaCard({ media_, openDialogue, rp }) {
   const { id, media_type, title, genres, posterLink } = media_;
   const classes = useStyles();
-  const rightPad = ((rp + 1) % 3 == 0) & (rp > 0) ? "10px" : "0px";
+  const rightPad = ((rp + 1) % 3 == 0) & (rp > 0) ? "16px" : "0px";
   return (
     <div className="card-container" style={{ paddingRight: rightPad }}>
       <div className="card">

@@ -70,14 +70,13 @@ $cardWidth: (2/3) * $cardHeight;
       .title {
         font-size: $fontSize;
         line-height: 1.3;
-        font-family: "Roboto";
+        font-family: "Roboto Thin";
         color: rgb(235, 231, 231);
+        font-weight: 100;
       }
 
       .genres {
         display: none;
-        font-size: $fontSize * 0.88;
-        line-height: 1.3;
       }
     }
   }

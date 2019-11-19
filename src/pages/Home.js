@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
-import PreviewPanel from "../components/Carousel";
+import Carousel from "../components/Carousel";
 import "../styles/main-app.css";
 import { getTrending, getGenres } from "../tools/pullData";
 import Slider from "react-slick";
@@ -78,12 +78,9 @@ export default class Home extends PureComponent {
         <div className="content">
           <div className="showcase-div">
             <div>
-              <PreviewPanel type="tv" mediaData={this.state.preview_shows} />
+              <Carousel type="tv" mediaData={this.state.preview_shows} />
 
-              <PreviewPanel
-                type="movie"
-                mediaData={this.state.preview_movies}
-              />
+              <Carousel type="movie" mediaData={this.state.preview_movies} />
             </div>
           </div>
         </div>
