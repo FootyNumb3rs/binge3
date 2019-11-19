@@ -21,8 +21,8 @@ function Carousel({ mediaData, type, history }) {
       {
         breakpoint: 620,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 2,
+          slidesToScroll: 2,
           initialSlide: 1,
           arrows: false
         }
@@ -30,7 +30,7 @@ function Carousel({ mediaData, type, history }) {
     ]
   };
   return (
-    <div style={{ marginBottom: "37px" }}>
+    <div style={{ marginBottom: "40px" }}>
       <div
         style={{
           display: "flex",
