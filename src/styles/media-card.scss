@@ -3,6 +3,8 @@ $mainFont: Roboto;
 $cardHeight: 250px;
 $cardWidth: (2/3) * $cardHeight;
 
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text|Ibarra+Real+Nova|Libre+Baskerville|Lora|Merriweather|PT+Serif|Playfair+Display|Source+Serif+Pro|Vollkorn&display=swap");
+
 .card-container {
   background-color: black;
 }
@@ -51,7 +53,7 @@ $cardWidth: (2/3) * $cardHeight;
   $mod: 0.58;
   $cardWidth: 32vw;
   $cardHeight: (3/2) * $cardWidth;
-  $fontSize: 14px;
+  $fontSize: 15px;
   // $cardWidth: $cardWidth * $mod;
   // $cardHeight: $cardHeight * $mod;
 
@@ -70,9 +72,9 @@ $cardWidth: (2/3) * $cardHeight;
       .title {
         font-size: $fontSize;
         line-height: 1.3;
-        font-family: "Roboto";
+        font-family: "Crimson Text";
         color: gainsboro;
-        font-weight: 400;
+        font-weight: 100;
       }
 
       .genres {

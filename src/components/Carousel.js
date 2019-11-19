@@ -31,7 +31,7 @@ function Carousel({ mediaData, type, history }) {
         <div className="carousel-title">
           {type == "movie" ? "Now Playing" : "Popular Shows"}
         </div>
-        <div className="carousel-see-all">See All</div>
+        <div className="carousel-see-all">See all</div>
       </div>
       <Slider {...settings}>
         {mediaData.slice(0, 10).map((media, i) => {

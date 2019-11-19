@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text|Ibarra+Real+Nova|Libre+Baskerville|Lora|Merriweather|PT+Serif|Playfair+Display|Source+Serif+Pro|Vollkorn&display=swap");
 .card-container {
   background-color: black;
 }
@@ -61,11 +62,11 @@
             justify-content: flex-start;
   }
   .card .cardText .title {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.3;
-    font-family: "Roboto";
+    font-family: "Crimson Text";
     color: gainsboro;
-    font-weight: 400;
+    font-weight: 100;
   }
   .card .cardText .genres {
     display: none;

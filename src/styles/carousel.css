@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text|Ibarra+Real+Nova|Libre+Baskerville|Lora|Merriweather|PT+Serif|Playfair+Display|Source+Serif+Pro|Vollkorn&display=swap");
 .carousel-container {
   margin-bottom: 40px;
 }
@@ -13,26 +14,25 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding-bottom: 22px;
+  padding-bottom: 25px;
   padding-right: 22px;
   padding-left: 17px;
-  font-family: "Roboto";
-  font-weight: 100;
+  font-family: Crimson Text;
 }
 
 .carousel-header .carousel-title {
   color: gainsboro;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 500;
 }
 
 .carousel-header .carousel-see-all {
   color: gray;
-  font-size: 16px;
+  font-size: 15px;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .carousel-item-wrapper {
@@ -41,6 +41,12 @@
   display: -ms-flexbox;
   display: flex;
   text-align: center;
+}
+
+.carousel-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .preview-panel {

@@ -46,18 +46,10 @@ function App() {
         rel="stylesheet"
       />
       <link
-        href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:500|Bebas+Neue|Oswald|Staatliches&display=swap"
+        href="https://fonts.googleapis.com/css?family=Arvo|Ibarra+Real+Nova|Merriweather|Noto+Serif|Playfair+Display|Roboto+Slab|Varela+Round|Vollkorn&display=swap"
         rel="stylesheet"
       />
-      <link
-        href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
-        rel="stylesheet"
-      ></link>
 
-      <link
-        href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,600&display=swap"
-        rel="stylesheet"
-      />
       <link
         rel="stylesheet"
         href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
