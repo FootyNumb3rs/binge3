@@ -22,7 +22,7 @@ function Carousel({ mediaData, type, history }) {
         breakpoint: 620,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 2,
+          slidesToScroll: 3,
           initialSlide: 1,
           arrows: false
         }
@@ -30,14 +30,15 @@ function Carousel({ mediaData, type, history }) {
     ]
   };
   return (
-    <div style={{ marginBottom: "37px", paddingLeft: "22px" }}>
+    <div style={{ marginBottom: "37px", paddingLeft: "0px" }}>
       <div
         style={{
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
-          paddingBottom: "20px",
+          paddingBottom: "22px",
           paddingRight: "22px",
+          paddingLeft: "20px",
           fontFamily: "Roboto",
           fontWeight: 100
         }}
@@ -56,7 +57,7 @@ function Carousel({ mediaData, type, history }) {
             color: "gray",
             fontSize: 14,
             justifyContent: "flex-end",
-            paddingTop: "2px",
+            //paddingTop: "2px",
             //fontFamily: "Roboto",
             fontWeight: 400
           }}
