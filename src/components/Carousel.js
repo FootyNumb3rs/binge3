@@ -12,7 +12,7 @@ function Carousel({ mediaData, type, history }) {
 
   const settings = {
     infinite: false,
-    speed: 200,
+    speed: 350,
     slidesToShow: 5,
     slidesToScroll: 1,
     touchThreshold: 15,
@@ -21,21 +21,21 @@ function Carousel({ mediaData, type, history }) {
       {
         breakpoint: 620,
         settings: {
-          slidesToShow: 4,
-          slidesToScroll: 1,
+          slidesToShow: 3,
+          slidesToScroll: 3,
           initialSlide: 1
         }
       }
     ]
   };
   return (
-    <div style={{ paddingBottom: "40px" }}>
+    <div style={{ paddingBottom: "45px" }}>
       <div
         style={{
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
-          paddingLeft: "26px",
+          paddingLeft: "26.5px",
           paddingBottom: "19px",
           paddingRight: "20px",
           fontFamily: "Roboto",
@@ -61,7 +61,7 @@ function Carousel({ mediaData, type, history }) {
           See All
         </div>
       </div>
-      <Slider {...settings} style={{ paddingLeft: "14px" }}>
+      <Slider {...settings} style={{ paddingLeft: "13.3px" }}>
         {mediaData.slice(0, 10).map((media, i) => {
           return (
             <div className="carousel-item-wrapper">
