@@ -45,11 +45,11 @@
 /* Extra Small Devices, Phones */
 @media (max-width: 620px) {
   .card {
-    width: 28.5vw;
+    width: 27vw;
   }
   .card .media {
-    height: 42.75vw;
-    width: 28.5vw;
+    height: 40.5vw;
+    width: 27vw;
   }
   .card .cardText {
     margin-top: 10px;

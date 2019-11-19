@@ -26,12 +26,12 @@ const useStyles = makeStyles(theme => ({
 export default function MediaCard({ media_, openDialogue, rp }) {
   const { id, media_type, title, genres, posterLink } = media_;
   const classes = useStyles();
-  const rightPad = ((rp + 1) % 3 == 0) & (rp > 0) ? "0px" : "0px";
-  const leftPad = rp % 3 == 0 ? "20px" : "0px";
+  // const rightPad = ((rp + 1) % 3 == 0) & (rp > 0) ? "0px" : "15px"; // Every third
+  // const leftPad = rp % 3 == 0 ? "15px" : "0px";
   return (
     <div
       className="card-container"
-      style={{ paddingRight: rightPad, paddingLeft: leftPad }}
+      style={{ paddingRight: "0", paddingLeft: "15px" }}
     >
       <div className="card">
         <Link

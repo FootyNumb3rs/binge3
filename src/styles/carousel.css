@@ -1,5 +1,4 @@
 .carousel-item-wrapper {
-  padding-right: 11px;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -45,9 +44,6 @@
 @media (max-width: 620px) {
   .wrapper {
     display: none;
-  }
-  .carousel-item-wrapper {
-    padding-right: 10px;
   }
   .mobile-wrapper {
     display: -webkit-box;

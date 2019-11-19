@@ -27,6 +27,7 @@
           justify-content: center;
   width: 100%;
   margin-top: 10px;
+  overflow: auto;
 }
 
 .root .showcase-div {
@@ -37,6 +38,7 @@
   margin-top: 30px;
   max-width: 990px;
   width: 100%;
+  overflow: auto;
 }
 
 @media (max-width: 620px) {

@@ -30,7 +30,7 @@ function Carousel({ mediaData, type, history }) {
     ]
   };
   return (
-    <div style={{ marginBottom: "37px", paddingLeft: "0px" }}>
+    <div style={{ marginBottom: "37px" }}>
       <div
         style={{
           display: "flex",
@@ -38,7 +38,7 @@ function Carousel({ mediaData, type, history }) {
           justifyContent: "space-between",
           paddingBottom: "22px",
           paddingRight: "22px",
-          paddingLeft: "20px",
+          paddingLeft: "15px",
           fontFamily: "Roboto",
           fontWeight: 100
         }}

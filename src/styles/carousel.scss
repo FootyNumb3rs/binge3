@@ -1,7 +1,7 @@
 .carousel-item-wrapper {
   //
   //padding-left: 14px;
-  padding-right: 11px;
+  //padding-right: 11px;
   // For some reason this pushes extra space into "card"
   overflow: hidden;
   display: flex;
@@ -17,7 +17,6 @@
   //margin-left: 15px; // Playing with this vs. changing wrapper width
   //margin-right: 15px;
   //height: 100%;
-  //overflow: hidden;
 }
 .preview-panel {
   margin-bottom: 60px;
@@ -53,7 +52,7 @@
     display: none;
   }
   .carousel-item-wrapper {
-    padding-right: 10px;
+    //padding-right: 10px;
   }
 
   .mobile-wrapper {
