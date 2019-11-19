@@ -54,21 +54,21 @@ export default class Home extends PureComponent {
           <div>
             <img
               style={{ width: "100%" }}
-              src="https://image.tmdb.org/t/p/original//fudEG1VUWuOqleXv6NwCExK0VLy.jpg"
+              src="https://image.tmdb.org/t/p/original//P7QwQE8HJaB5bIIACyRdXVV7gO.jpg"
               img
             />
           </div>
           <div>
             <img
               style={{ width: "100%" }}
-              src="https://image.tmdb.org/t/p/original//fudEG1VUWuOqleXv6NwCExK0VLy.jpg"
+              src="https://image.tmdb.org/t/p/original//nRXO2SnOA75OsWhNhXstHB8ZmI3.jpg"
               img
             />
           </div>
           <div>
             <img
               style={{ width: "100%" }}
-              src="https://image.tmdb.org/t/p/original//fudEG1VUWuOqleXv6NwCExK0VLy.jpg"
+              src="https://image.tmdb.org/t/p/original//n6bUvigpRFqSwmPp1m2YADdbRBc.jpg"
               img
             />
           </div>

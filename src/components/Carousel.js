@@ -29,7 +29,7 @@ function Carousel({ mediaData, type, history }) {
     ]
   };
   return (
-    <div style={{ paddingBottom: "45px" }}>
+    <div style={{ paddingBottom: "40px" }}>
       <div
         style={{
           display: "flex",
@@ -45,7 +45,7 @@ function Carousel({ mediaData, type, history }) {
         <div
           style={{
             color: "white",
-            fontSize: 17
+            fontSize: 19
           }}
         >
           {type == "movie" ? "Now Playing" : "Popular Shows"}
