@@ -45,20 +45,31 @@
 /* Extra Small Devices, Phones */
 @media (max-width: 620px) {
   .card {
-    width: 21.5vw;
+    width: 19.98vw;
   }
   .card .media {
-    height: 32.25vw;
-    width: 21.5vw;
+    height: 29.97vw;
+    width: 19.98vw;
   }
   .card .cardText {
-    margin-top: 6px;
+    margin-top: 9px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .card .cardText .title {
-    font-size: 12.5px;
+    font-size: 11.3px;
+    line-height: 1.3;
+    font-family: "Roboto";
+    color: #ebe7e7;
   }
   .card .cardText .genres {
-    font-size: 12.5px;
+    display: none;
+    font-size: 9.944px;
+    line-height: 1.3;
   }
 }
 /*# sourceMappingURL=media-card.css.map */

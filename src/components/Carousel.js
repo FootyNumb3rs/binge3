@@ -9,6 +9,7 @@ function Carousel({ mediaData, type, history }) {
   const yo = () => {
     console.log("yo");
   };
+
   const settings = {
     infinite: false,
     speed: 200,
@@ -28,17 +29,50 @@ function Carousel({ mediaData, type, history }) {
     ]
   };
   return (
-    <Slider {...settings}>
-      {mediaData.slice(0, 10).map(media => {
-        return (
-          <div className="carousel-wrapper">
-            <div className="carousel-item" key={media.id}>
-              <MediaCard media_={media} />
+    <div style={{ paddingBottom: "40px" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          paddingLeft: "26px",
+          paddingBottom: "19px",
+          paddingRight: "20px",
+          fontFamily: "Roboto",
+          fontWeight: 400
+        }}
+      >
+        <div
+          style={{
+            color: "white",
+            fontSize: 17
+          }}
+        >
+          {type == "movie" ? "Now Playing" : "Popular Shows"}
+        </div>
+        <div
+          style={{
+            color: "gray",
+            fontSize: 13,
+            justifyContent: "flex-end",
+            paddingTop: "2px"
+          }}
+        >
+          See All
+        </div>
+      </div>
+      <Slider {...settings} style={{ paddingLeft: "14px" }}>
+        {mediaData.slice(0, 10).map((media, i) => {
+          return (
+            <div className="carousel-item-wrapper">
+              <div className="carousel-item" key={media.id}>
+                <MediaCard rp={i} media_={media} />
+              </div>
             </div>
-          </div>
-        );
-      })}
-    </Slider>
+          );
+        })}
+      </Slider>
+    </div>
   );
 }
 

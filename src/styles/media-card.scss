@@ -49,9 +49,9 @@ $cardWidth: (2/3) * $cardHeight;
 /* Extra Small Devices, Phones */
 @media (max-width: 620px) {
   $mod: 0.58;
-  $cardWidth: 21.5vw;
+  $cardWidth: 19.98vw;
   $cardHeight: (3/2) * $cardWidth;
-  $fontSize: 12.5px;
+  $fontSize: 11.3px;
   // $cardWidth: $cardWidth * $mod;
   // $cardHeight: $cardHeight * $mod;
 
@@ -63,14 +63,21 @@ $cardWidth: (2/3) * $cardHeight;
       width: $cardWidth;
     }
     .cardText {
-      margin-top: 6px;
+      margin-top: 9px;
+      display: flex;
+      justify-content: center;
 
       .title {
         font-size: $fontSize;
+        line-height: 1.3;
+        font-family: "Roboto";
+        color: rgb(235, 231, 231);
       }
 
       .genres {
-        font-size: $fontSize;
+        display: none;
+        font-size: $fontSize * 0.88;
+        line-height: 1.3;
       }
     }
   }

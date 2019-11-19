@@ -1,10 +1,11 @@
-.carousel-wrapper {
+.carousel-item-wrapper {
   //
-  margin-left: 25px;
+  //padding-left: 14px;
+  padding-left: 25px;
   // For some reason this pushes extra space into "card"
   overflow: hidden;
-  //display: flex;
-  //justify-content: space-between;
+  display: flex;
+  text-align: center;
   //align-items: space-between;
 }
 
@@ -51,8 +52,8 @@
   .wrapper {
     display: none;
   }
-  .carousel-wrapper {
-    margin-left: 12px;
+  .carousel-item-wrapper {
+    padding-left: 11.8px;
   }
 
   .showcase {

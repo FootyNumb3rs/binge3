@@ -1,9 +1,9 @@
 .browse-container {
   display: flex;
   flex-direction: column;
-  //align-items: center;
-  //justify-content: center;
-  //margin: 100px;
+  align-items: center;
+  justify-content: center;
+  margin: 100px;
   //min-height: 100vh;
   height: 100%;
 
@@ -37,7 +37,12 @@
 
 @media (max-width: 620px) {
   .browse-container {
-    //margin: 5px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    //align-items: flex-start;
+    //justify-content: flex-start;
+    margin: 0;
 
     .card-grid {
       display: none;

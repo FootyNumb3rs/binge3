@@ -1,6 +1,10 @@
-.carousel-wrapper {
-  margin-left: 25px;
+.carousel-item-wrapper {
+  padding-left: 25px;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
 }
 
 .carousel-item {
@@ -46,8 +50,8 @@
   .wrapper {
     display: none;
   }
-  .carousel-wrapper {
-    margin-left: 12px;
+  .carousel-item-wrapper {
+    padding-left: 11.8px;
   }
   .showcase {
     display: -webkit-box;

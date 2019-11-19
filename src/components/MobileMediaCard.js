@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function MediaCard({ media_, openDialogue }) {
-  const { title, genres, posterLink } = media_;
+  const { title, genres, release, posterLink } = media_;
   const classes = useStyles();
 
   return (
@@ -51,6 +51,7 @@ export default function MediaCard({ media_, openDialogue }) {
             <div className="mobile-card-genres">
               {genres.slice(0, 2).join(", ")}
             </div>
+            <div className="mobile-card-genres">{release}</div>
           </div>
         </div>
       </CardActionArea>

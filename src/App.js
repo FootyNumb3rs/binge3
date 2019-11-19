@@ -69,6 +69,10 @@ function App() {
         type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
       />
+      <link
+        href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+        rel="stylesheet"
+      ></link>
       <script src="lodash.js" />
 
       <React.Fragment>

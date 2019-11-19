@@ -35,7 +35,7 @@ $cardWidth: (2/3) * $cardHeight;
   .mobile-card-title {
     font-family: Roboto;
     color: white;
-    padding: 3px 10px;
+    padding: 0.5px 10px;
     font-size: 14px;
     font-weight: 400;
   }
@@ -43,8 +43,8 @@ $cardWidth: (2/3) * $cardHeight;
   .mobile-card-genres {
     font-family: "Roboto";
     color: rgba(220, 220, 220, 0.466);
-    padding: 0px 10px;
-    font-size: 12px;
+    padding: 1.5px 10px;
+    font-size: 11.5px;
     font-weight: 400;
   }
 }
