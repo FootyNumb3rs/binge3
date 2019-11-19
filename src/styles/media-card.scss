@@ -51,7 +51,7 @@ $cardWidth: (2/3) * $cardHeight;
   $mod: 0.58;
   $cardWidth: 26vw;
   $cardHeight: (3/2) * $cardWidth;
-  $fontSize: 12.5px;
+  $fontSize: 13px;
   // $cardWidth: $cardWidth * $mod;
   // $cardHeight: $cardHeight * $mod;
 
@@ -70,8 +70,8 @@ $cardWidth: (2/3) * $cardHeight;
       .title {
         font-size: $fontSize;
         line-height: 1.3;
-        font-family: "Roboto Thin";
-        color: rgb(235, 231, 231);
+        font-family: "Roboto";
+        color: gainsboro;
         font-weight: 100;
       }
 
