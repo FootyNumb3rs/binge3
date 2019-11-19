@@ -38,15 +38,15 @@ function Carousel({ mediaData, type, history }) {
           justifyContent: "space-between",
           paddingBottom: "19px",
           paddingRight: "26px",
-          fontFamily: "Roboto Thin"
-          //fontWeight: 400
+          fontFamily: "Roboto Thin",
+          fontWeight: 400
         }}
       >
         <div
           style={{
             color: "white",
-            fontSize: 22,
-            fontWeight: 106
+            fontSize: 20,
+            fontWeight: 400
           }}
         >
           {type == "movie" ? "Now Playing" : "Popular Shows"}
