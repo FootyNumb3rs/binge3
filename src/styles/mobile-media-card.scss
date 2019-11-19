@@ -1,6 +1,6 @@
 $backgroundColor: black;
 $mainFont: Roboto;
-$cardHeight: 12vh;
+$cardHeight: 14vh;
 $cardWidth: (2/3) * $cardHeight;
 
 .mobile-card-container {
@@ -15,7 +15,7 @@ $cardWidth: (2/3) * $cardHeight;
   display: flex;
   flex-direction: row;
   max-height: $cardHeight;
-  padding: 7px 11px 7px 13px;
+  padding: 7px 11px 7px 12px;
   //padding-right: 0px;
   //height: 100%;
 
@@ -35,16 +35,16 @@ $cardWidth: (2/3) * $cardHeight;
   .mobile-card-title {
     font-family: Roboto;
     color: white;
-    padding: 0.5px 10px;
-    font-size: 14px;
+    padding: 0.5px 12px;
+    font-size: 15px;
     font-weight: 400;
   }
 
   .mobile-card-genres {
     font-family: "Roboto";
-    color: rgba(220, 220, 220, 0.466);
-    padding: 1.5px 10px;
-    font-size: 11.5px;
+    color: rgb(146, 145, 145);
+    padding: 1.5px 12px;
+    font-size: 13px;
     font-weight: 400;
   }
 }

@@ -86,6 +86,15 @@ export default class Browse extends PureComponent {
           {this.state.content_list.map(media => {
             return (
               <div key={media.id}>
+                <div
+                  style={{
+                    height: ".5px",
+                    maxWidth: "100%",
+                    marginLeft: "11px",
+                    backgroundColor: "white",
+                    opacity: 0.2
+                  }}
+                />
                 <MobileMediaCard media_={media} />
               </div>
             );

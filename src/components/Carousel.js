@@ -6,10 +6,6 @@ import { withRouter } from "react-router-dom";
 import Slider from "react-slick";
 
 function Carousel({ mediaData, type, history }) {
-  const yo = () => {
-    console.log("yo");
-  };
-
   const settings = {
     infinite: false,
     speed: 350,
@@ -30,40 +26,12 @@ function Carousel({ mediaData, type, history }) {
     ]
   };
   return (
-    <div style={{ marginBottom: "40px" }}>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          paddingBottom: "22px",
-          paddingRight: "22px",
-          paddingLeft: "15px",
-          fontFamily: "Roboto",
-          fontWeight: 100
-        }}
-      >
-        <div
-          style={{
-            color: "gainsboro",
-            fontSize: 20,
-            fontWeight: 500
-          }}
-        >
+    <div className="carousel-container">
+      <div className="carousel-header">
+        <div className="carousel-title">
           {type == "movie" ? "Now Playing" : "Popular Shows"}
         </div>
-        <div
-          style={{
-            color: "gray",
-            fontSize: 14,
-            justifyContent: "flex-end",
-            //paddingTop: "2px",
-            //fontFamily: "Roboto",
-            fontWeight: 400
-          }}
-        >
-          See All
-        </div>
+        <div className="carousel-see-all">See All</div>
       </div>
       <Slider {...settings}>
         {mediaData.slice(0, 10).map((media, i) => {

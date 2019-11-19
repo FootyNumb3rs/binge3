@@ -31,7 +31,7 @@ export default function MediaCard({ media_, openDialogue, rp }) {
   return (
     <div
       className="card-container"
-      style={{ paddingRight: "0", paddingLeft: "15px" }}
+      style={{ paddingRight: "0", paddingLeft: "17px" }}
     >
       <div className="card">
         <Link

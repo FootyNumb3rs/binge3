@@ -51,7 +51,7 @@ $cardWidth: (2/3) * $cardHeight;
   $mod: 0.58;
   $cardWidth: 32vw;
   $cardHeight: (3/2) * $cardWidth;
-  $fontSize: 13px;
+  $fontSize: 14px;
   // $cardWidth: $cardWidth * $mod;
   // $cardHeight: $cardHeight * $mod;
 
@@ -65,7 +65,7 @@ $cardWidth: (2/3) * $cardHeight;
     .cardText {
       margin-top: 10px;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
 
       .title {
         font-size: $fontSize;

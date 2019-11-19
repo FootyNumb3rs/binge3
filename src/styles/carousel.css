@@ -1,3 +1,40 @@
+.carousel-container {
+  margin-bottom: 40px;
+}
+
+.carousel-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-bottom: 22px;
+  padding-right: 22px;
+  padding-left: 17px;
+  font-family: "Roboto";
+  font-weight: 100;
+}
+
+.carousel-header .carousel-title {
+  color: gainsboro;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.carousel-header .carousel-see-all {
+  color: gray;
+  font-size: 16px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  font-weight: 400;
+}
+
 .carousel-item-wrapper {
   overflow: hidden;
   display: -webkit-box;
