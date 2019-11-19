@@ -45,7 +45,7 @@ function Carousel({ mediaData, type, history }) {
         <div
           style={{
             color: "gainsboro",
-            fontSize: 21,
+            fontSize: 20,
             fontWeight: 500
           }}
         >
@@ -56,7 +56,7 @@ function Carousel({ mediaData, type, history }) {
             color: "gray",
             fontSize: 14,
             justifyContent: "flex-end",
-            paddingTop: "3px",
+            paddingTop: "2px",
             //fontFamily: "Roboto",
             fontWeight: 400
           }}
