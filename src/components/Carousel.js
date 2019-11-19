@@ -37,16 +37,16 @@ function Carousel({ mediaData, type, history }) {
           flexDirection: "row",
           justifyContent: "space-between",
           paddingBottom: "19px",
-          paddingRight: "26px",
+          paddingRight: "22px",
           fontFamily: "Roboto",
           fontWeight: 100
         }}
       >
         <div
           style={{
-            color: "white",
+            color: "gainsboro",
             fontSize: 21,
-            fontWeight: 100
+            fontWeight: 500
           }}
         >
           {type == "movie" ? "Now Playing" : "Popular Shows"}
@@ -54,10 +54,10 @@ function Carousel({ mediaData, type, history }) {
         <div
           style={{
             color: "gray",
-            fontSize: 13,
+            fontSize: 14,
             justifyContent: "flex-end",
             paddingTop: "3px",
-            fontFamily: "Roboto",
+            //fontFamily: "Roboto",
             fontWeight: 400
           }}
         >

@@ -48,6 +48,10 @@ function App() {
       <link
         href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:500|Bebas+Neue|Oswald|Staatliches&display=swap"
         rel="stylesheet"
+      />
+      <link
+        href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
+        rel="stylesheet"
       ></link>
 
       <link
