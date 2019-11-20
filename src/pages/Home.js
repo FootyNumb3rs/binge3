@@ -42,7 +42,7 @@ export default class Home extends PureComponent {
 
   render(props) {
     const settings = {
-      dots: true,
+      dots: false,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
@@ -79,7 +79,19 @@ export default class Home extends PureComponent {
           <div className="showcase-div">
             <div>
               <Carousel type="tv" mediaData={this.state.preview_shows} />
-
+              <div
+                style={{
+                  height: "1px",
+                  maxWidth: "100vw",
+                  background: "white",
+                  opacity: 0.2,
+                  marginTop: "20px",
+                  marginBottom: "30px",
+                  marginLeft: "30px",
+                  marginRight: "0px"
+                  //marginRight: "20px"
+                }}
+              />
               <Carousel type="movie" mediaData={this.state.preview_movies} />
             </div>
           </div>

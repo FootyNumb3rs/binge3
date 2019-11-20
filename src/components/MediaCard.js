@@ -31,7 +31,7 @@ export default function MediaCard({ media_, openDialogue, rp }) {
   return (
     <div
       className="card-container"
-      style={{ paddingRight: "0", paddingLeft: "17px" }}
+      style={{ paddingRight: "0", paddingLeft: "23px" }}
     >
       <div className="card">
         <Link
@@ -67,7 +67,7 @@ export default function MediaCard({ media_, openDialogue, rp }) {
             borderRadius="0px"
           >
             <Typography className={"genres"}>
-              {genres.slice(0, 2).join(", ") || <Skeleton />}
+              {genres.slice(0, 2).join(" • ") || <Skeleton />}
             </Typography>
           </SkeletonTheme>
         </div>

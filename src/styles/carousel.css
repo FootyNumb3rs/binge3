@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text|Ibarra+Real+Nova|Libre+Baskerville|Lora|Merriweather|PT+Serif|Playfair+Display|Source+Serif+Pro|Vollkorn&display=swap");
+@import url("https://rsms.me/inter/inter.css");
 .carousel-container {
-  margin-bottom: 40px;
+  margin-bottom: 0px;
 }
 
 .carousel-header {
@@ -15,24 +16,24 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding-bottom: 25px;
-  padding-right: 22px;
-  padding-left: 17px;
-  font-family: Crimson Text;
+  padding-right: 17px;
+  padding-left: 23px;
+  font-family: "Inter";
 }
 
 .carousel-header .carousel-title {
-  color: gainsboro;
-  font-size: 22px;
-  font-weight: 500;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .carousel-header .carousel-see-all {
   color: gray;
-  font-size: 15px;
+  font-size: 14px;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .carousel-item-wrapper {
@@ -40,7 +41,6 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  text-align: center;
 }
 
 .carousel-item {

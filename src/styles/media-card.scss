@@ -1,18 +1,19 @@
-$backgroundColor: black;
+$backgroundColor: transparent;
 $mainFont: Roboto;
 $cardHeight: 250px;
 $cardWidth: (2/3) * $cardHeight;
 
+@import url("https://rsms.me/inter/inter.css");
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text|Ibarra+Real+Nova|Libre+Baskerville|Lora|Merriweather|PT+Serif|Playfair+Display|Source+Serif+Pro|Vollkorn&display=swap");
 
 .card-container {
-  background-color: black;
+  background-color: $backgroundColor;
 }
 
 .card {
   flex-direction: column;
   width: $cardWidth;
-  background-color: black;
+  background-color: $backgroundColor;
 
   border: 0px $backgroundColor;
 
@@ -26,6 +27,8 @@ $cardWidth: (2/3) * $cardHeight;
 .cardText {
   background-color: $backgroundColor;
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
 
   .title {
@@ -53,7 +56,7 @@ $cardWidth: (2/3) * $cardHeight;
   $mod: 0.58;
   $cardWidth: 32vw;
   $cardHeight: (3/2) * $cardWidth;
-  $fontSize: 15px;
+  $fontSize: 12.5px;
   // $cardWidth: $cardWidth * $mod;
   // $cardHeight: $cardHeight * $mod;
 
@@ -65,20 +68,23 @@ $cardWidth: (2/3) * $cardHeight;
       width: $cardWidth;
     }
     .cardText {
-      margin-top: 10px;
+      margin-top: 8px;
       display: flex;
       justify-content: flex-start;
 
       .title {
         font-size: $fontSize;
-        line-height: 1.3;
-        font-family: "Crimson Text";
-        color: gainsboro;
-        font-weight: 100;
+        line-height: 1.2;
+        font-family: "Inter";
+        color: white;
+        font-weight: 400;
       }
 
       .genres {
-        display: none;
+        font-size: 11.5px;
+        font-weight: 400;
+        margin-top: 1.7px;
+        line-height: 1.3;
       }
     }
   }

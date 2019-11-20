@@ -16,10 +16,10 @@ import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 const useStyles = makeStyles(theme => ({
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
-    backgroundColor: "black",
+    background: "black",
     padding: 0,
     display: "flex",
-
+    //borderRadius: "10px",
     alignItems: "center"
   },
 
@@ -81,7 +81,7 @@ export default function MainBar({ queryChange, searchSubmit }) {
                 onClick={() => {}}
                 //  noWrap
               >
-                Binge
+                Home
               </div>
             </div>
           </Link>

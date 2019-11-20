@@ -1,6 +1,7 @@
+@import url("https://rsms.me/inter/inter.css");
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text|Ibarra+Real+Nova|Libre+Baskerville|Lora|Merriweather|PT+Serif|Playfair+Display|Source+Serif+Pro|Vollkorn&display=swap");
 .card-container {
-  background-color: black;
+  background-color: transparent;
 }
 
 .card {
@@ -9,19 +10,26 @@
       -ms-flex-direction: column;
           flex-direction: column;
   width: 166.66667px;
-  background-color: black;
-  border: 0px black;
+  background-color: transparent;
+  border: 0px transparent;
 }
 
 .card .media {
   height: 250px;
   width: 166.66667px;
-  background-color: black;
+  background-color: transparent;
 }
 
 .cardText {
-  background-color: black;
+  background-color: transparent;
   margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   overflow: hidden;
 }
 
@@ -53,7 +61,7 @@
     width: 32vw;
   }
   .card .cardText {
-    margin-top: 10px;
+    margin-top: 8px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -62,14 +70,17 @@
             justify-content: flex-start;
   }
   .card .cardText .title {
-    font-size: 15px;
-    line-height: 1.3;
-    font-family: "Crimson Text";
-    color: gainsboro;
-    font-weight: 100;
+    font-size: 12.5px;
+    line-height: 1.2;
+    font-family: "Inter";
+    color: white;
+    font-weight: 400;
   }
   .card .cardText .genres {
-    display: none;
+    font-size: 11.5px;
+    font-weight: 400;
+    margin-top: 1.7px;
+    line-height: 1.3;
   }
 }
 /*# sourceMappingURL=media-card.css.map */

@@ -1,5 +1,6 @@
-$backgroundColor: black;
+$backgroundColor: #1a1a1a;
 $mainFont: Roboto;
+@import url("https://rsms.me/inter/inter.css");
 
 // Title
 .title-div {
@@ -13,11 +14,12 @@ $mainFont: Roboto;
 
 .title {
   //display: "flex";
-  font-size: 23px;
+  font-size: 20px;
+
   font-family: "DM Serif Display";
-  font-weight: 100;
+  font-weight: 400;
   cursor: pointer;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
 }
 
 // Menu Buttons

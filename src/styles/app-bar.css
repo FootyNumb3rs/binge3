@@ -1,3 +1,4 @@
+@import url("https://rsms.me/inter/inter.css");
 .title-div {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -15,11 +16,11 @@
 }
 
 .title {
-  font-size: 23px;
+  font-size: 20px;
   font-family: "DM Serif Display";
-  font-weight: 100;
+  font-weight: 400;
   cursor: pointer;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
 }
 
 .buttonContainer {
