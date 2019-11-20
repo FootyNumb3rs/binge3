@@ -1,5 +1,5 @@
 $backgroundColor: transparent;
-$mainFont: Roboto;
+$mainFont: Inter;
 $cardHeight: 250px;
 $cardWidth: (2/3) * $cardHeight;
 
@@ -56,7 +56,7 @@ $cardWidth: (2/3) * $cardHeight;
   $mod: 0.58;
   $cardWidth: 32vw;
   $cardHeight: (3/2) * $cardWidth;
-  $fontSize: 13.5px;
+  $fontSize: 14px;
   // $cardWidth: $cardWidth * $mod;
   // $cardHeight: $cardHeight * $mod;
 
@@ -77,13 +77,13 @@ $cardWidth: (2/3) * $cardHeight;
         line-height: 1.2;
         font-family: "Inter";
         color: white;
-        font-weight: 500;
+        font-weight: 600;
       }
 
       .genres {
         font-size: 13px;
-        font-weight: 400;
-        margin-top: 2px;
+        font-weight: 500;
+        margin-top: 1.5px;
         line-height: 1.3;
         color: gray;
       }

@@ -81,7 +81,7 @@ export default function MainBar({ queryChange, searchSubmit }) {
                 onClick={() => {}}
                 //  noWrap
               >
-                MOViY
+                #
               </div>
             </div>
           </Link>
