@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
+import StarRatings from "react-star-ratings";
 /* 
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -29,8 +30,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function MediaCard({ media_, openDialogue }) {
-  const { title, genres, release, posterLink } = media_;
+  const { title, genres, release, posterLink, rating } = media_;
   const classes = useStyles();
+  const release_ = new Date(release);
 
   return (
     <Card className={classes.card}>
@@ -48,10 +50,22 @@ export default function MediaCard({ media_, openDialogue }) {
           >
             <div className="mobile-card-title">{title}</div>
             <div className="mobile-card-genres">
-              {genres.slice(0, 2).join(", ").toUpperCase()}
+              {genres.slice(0, 2).join(", ")}
+            </div>
+            <div className="mobile-card-title" style={{ fontSize: "11px" }}>
+              {release_.toDateString().slice(4)}
             </div>
             <div className="mobile-card-genres" style={{ color: "white" }}>
-              {release}
+              <StarRatings
+                rating={1}
+                starRatedColor="yellow"
+                starDimension="10px"
+                starSpacing=".4px"
+                //changeRating={this.changeRating}
+                numberOfStars={1}
+                name="rating"
+              />
+              {` ${rating}/10 `}
             </div>
           </div>
         </div>

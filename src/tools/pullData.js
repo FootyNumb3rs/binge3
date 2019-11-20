@@ -91,7 +91,9 @@ export function getTrending(genres, media_type) {
                 posterLink: `https://image.tmdb.org/t/p/w500/${item.poster_path}`,
                 backdropLink: `https://image.tmdb.org/t/p/original/${item.backdrop_path}`,
                 overview: item.overview,
-                release: item.release_date
+                release: item.release_date,
+                rating: item.vote_average,
+                vote_count: item.vote_count
               };
             });
         })

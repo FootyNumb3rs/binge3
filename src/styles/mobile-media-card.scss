@@ -37,16 +37,16 @@ $cardWidth: (2/3) * $cardHeight;
   .mobile-card-title {
     font-family: $mainFont;
     color: white;
-    padding: 0.5px 12px;
-    font-size: 15px;
+    padding: 2px 10px;
+    font-size: 13px;
     font-weight: 500;
   }
 
   .mobile-card-genres {
     font-family: $mainFont;
     color: rgb(146, 145, 145);
-    padding: 1.5px 12px;
-    font-size: 10px;
+    padding: 1.5px 10px;
+    font-size: 12px;
     font-weight: 400;
   }
 }

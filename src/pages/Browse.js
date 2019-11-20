@@ -86,16 +86,17 @@ export default class Browse extends PureComponent {
           {this.state.content_list.map(media => {
             return (
               <div key={media.id}>
+                <MobileMediaCard media_={media} />
                 <div
                   style={{
-                    height: ".5px",
+                    height: ".75px",
                     maxWidth: "100%",
-                    marginLeft: "11px",
+                    marginLeft: "18px",
+                    marginRight: "18px",
                     backgroundColor: "white",
-                    opacity: 0.2
+                    opacity: 0.15
                   }}
                 />
-                <MobileMediaCard media_={media} />
               </div>
             );
           })}
@@ -127,3 +128,7 @@ export default class Browse extends PureComponent {
     );
   }
 }
+
+/*
+ 
+*/
