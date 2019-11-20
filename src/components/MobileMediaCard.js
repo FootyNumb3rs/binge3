@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     width: "100vw",
     borderRadius: 0,
     //margin: 15,
-    backgroundColor: "black"
+    backgroundColor: "#121212"
   },
   media: {
     //height: 140

@@ -91,10 +91,10 @@ export default class Browse extends PureComponent {
                   style={{
                     height: ".75px",
                     maxWidth: "100%",
-                    marginLeft: "18px",
-                    marginRight: "18px",
+                    marginLeft: "16px",
+                    marginRight: "0px",
                     backgroundColor: "white",
-                    opacity: 0.15
+                    opacity: 0.1
                   }}
                 />
               </div>
@@ -130,5 +130,14 @@ export default class Browse extends PureComponent {
 }
 
 /*
- 
+  <div
+                  style={{
+                    height: ".75px",
+                    maxWidth: "100%",
+                    marginLeft: "18px",
+                    marginRight: "18px",
+                    backgroundColor: "white",
+                    opacity: 0.15
+                  }}
+                />
 */
