@@ -93,6 +93,20 @@ export default class Home extends PureComponent {
                 }}
               />
               <Carousel type="movie" mediaData={this.state.preview_movies} />
+              <div
+                style={{
+                  height: ".5px",
+                  maxWidth: "100vw",
+                  background: "white",
+                  opacity: 0.2,
+                  marginTop: "25px",
+                  marginBottom: "40px",
+                  marginLeft: "30px",
+                  marginRight: "30px"
+                  //marginRight: "20px"
+                }}
+              />
+              <Carousel type="tv" mediaData={this.state.preview_shows} />
             </div>
           </div>
         </div>
