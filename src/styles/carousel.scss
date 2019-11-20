@@ -4,7 +4,7 @@
 $mainFont: "Inter";
 $carouselTitleWeight: 600;
 $carouselTitleSize: 23px;
-$carouselSeeAllWeight: 200;
+$carouselSeeAllWeight: 300;
 $carouselSeeAllSize: 14px;
 $backgroundColor: #212121;
 
@@ -16,7 +16,7 @@ $backgroundColor: #212121;
   display: flex;
   flex-direction: row; // So header elements align left to right
   justify-content: space-between;
-  padding-bottom: 25px;
+  padding-bottom: 31px;
   padding-right: 17px;
   padding-left: 23px;
   font-family: $mainFont;

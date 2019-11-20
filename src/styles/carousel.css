@@ -15,7 +15,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding-bottom: 25px;
+  padding-bottom: 31px;
   padding-right: 17px;
   padding-left: 23px;
   font-family: "Inter";
@@ -33,7 +33,7 @@
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  font-weight: 200;
+  font-weight: 300;
   padding-top: 2px;
 }
 
