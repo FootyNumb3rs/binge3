@@ -13,7 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import "../styles/mobile-media-card.css";
 
 //const _ = require("lodash");
-const cardHeight = "14vh";
+const cardHeight = "13vh";
 const cardWidth = (2 / 3) * cardHeight;
 
 const useStyles = makeStyles(theme => ({
@@ -52,7 +52,7 @@ export default function MediaCard({ media_, openDialogue }) {
             <div className="mobile-card-genres">
               {genres.slice(0, 2).join(", ")}
             </div>
-            <div className="mobile-card-title" style={{ fontSize: "11px" }}>
+            <div className="mobile-card-title">
               {release_.toDateString().slice(4)}
             </div>
             <div className="mobile-card-genres" style={{ color: "white" }}>

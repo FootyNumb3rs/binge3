@@ -1,6 +1,6 @@
 @import url("https://rsms.me/inter/inter.css");
 .mobile-card-container {
-  height: 14vh;
+  height: 13vh;
   width: 100%;
   border-radius: 0;
   margin: 0;
@@ -15,7 +15,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  max-height: 14vh;
+  max-height: 13vh;
   padding: 7px 11px 7px 12px;
 }
 
@@ -29,8 +29,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  max-height: 14vh;
-  max-width: 9.33333vh;
+  max-height: 13vh;
+  max-width: 8.66667vh;
 }
 
 .mobile-card-div .mobile-card-img-div .mobile-card-img {
