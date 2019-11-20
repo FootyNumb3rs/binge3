@@ -39,7 +39,7 @@ $cardWidth: (2/3) * $cardHeight;
     color: white;
     padding: 2.5px 10px;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 400;
   }
 
   .mobile-card-genres {
@@ -47,7 +47,15 @@ $cardWidth: (2/3) * $cardHeight;
     color: rgb(146, 145, 145);
     padding: 2.5px 10px;
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 300;
+  }
+
+  .mobile-card-etc {
+    font-family: $mainFont;
+    color: white;
+    padding: 2.5px 10px;
+    font-size: 11px;
+    font-weight: 300;
   }
 }
 
