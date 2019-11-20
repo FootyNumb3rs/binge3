@@ -48,7 +48,9 @@ export default function MediaCard({ media_, openDialogue }) {
               justifyContent: "center"
             }}
           >
-            <div className="mobile-card-title">{title}</div>
+            <div className="mobile-card-title" style={{ paddingBottom: "1px" }}>
+              {title}
+            </div>
             <div className="mobile-card-genres">
               {genres.slice(0, 2).join(", ")}
             </div>
