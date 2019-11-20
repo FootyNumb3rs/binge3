@@ -3,9 +3,9 @@
 
 $mainFont: "Inter";
 $carouselTitleWeight: 600;
-$carouselTitleSize: 20px;
+$carouselTitleSize: 23px;
 $carouselSeeAllWeight: 200;
-$carouselSeeAllSize: 12.5px;
+$carouselSeeAllSize: 14px;
 $backgroundColor: #212121;
 
 .carousel-container {
@@ -32,7 +32,7 @@ $backgroundColor: #212121;
     font-size: $carouselSeeAllSize;
     justify-content: flex-end;
     font-weight: $carouselSeeAllWeight;
-    padding-top: 3px;
+    padding-top: 2px;
   }
 }
 

@@ -61,7 +61,7 @@
     width: 32vw;
   }
   .card .cardText {
-    margin-top: 8px;
+    margin-top: 10px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

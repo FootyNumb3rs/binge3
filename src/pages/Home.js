@@ -81,7 +81,7 @@ export default class Home extends PureComponent {
               <Carousel type="tv" mediaData={this.state.preview_shows} />
               <div
                 style={{
-                  height: "1px",
+                  height: ".5px",
                   maxWidth: "100vw",
                   background: "white",
                   opacity: 0.2,
