@@ -2,7 +2,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: #121212;
+  background: black;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -47,4 +47,4 @@
             justify-content: start;
   }
 }
-/*# sourceMappingURL=main-app.css.map */
+/*# sourceMappingURL=home.css.map */

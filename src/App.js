@@ -3,7 +3,7 @@ import "./App.css";
 import MainBar from "./components/MainBar";
 //import { makeStyles } from "@material-ui/core/styles";
 
-import "./styles/main-app.css";
+import "./styles/home.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Home from "./pages/Home";

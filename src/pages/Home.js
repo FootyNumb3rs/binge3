@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import Carousel from "../components/Carousel";
-import "../styles/main-app.css";
+import "../styles/home.css";
 import { getTrending, getGenres } from "../tools/pullData";
 import Slider from "react-slick";
 
