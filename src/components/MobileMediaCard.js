@@ -55,7 +55,7 @@ export default function MediaCard({ media_, openDialogue }) {
             <div className="mobile-card-title">
               {release_.toDateString().slice(4)}
             </div>
-            <div className="mobile-card-genres" style={{ color: "white" }}>
+            <div className="mobile-card-title" style={{ color: "white" }}>
               <StarRatings
                 rating={1}
                 starRatedColor="yellow"
