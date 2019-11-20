@@ -16,7 +16,7 @@
       -ms-flex-direction: row;
           flex-direction: row;
   max-height: 13vh;
-  padding: 7px 11px 7px 12px;
+  padding: 7px 11px 7px 10px;
 }
 
 .mobile-card-div .mobile-card-img-div {
