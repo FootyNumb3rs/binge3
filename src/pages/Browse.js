@@ -89,7 +89,7 @@ export default class Browse extends PureComponent {
                 <MobileMediaCard media_={media} />
                 <div
                   style={{
-                    height: ".75px",
+                    height: "1px",
                     maxWidth: "100%",
                     marginLeft: "16px",
                     marginRight: "0px",
