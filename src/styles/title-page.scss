@@ -1,3 +1,5 @@
+$mainFont: Inter;
+
 .container {
   background-color: black;
   color: white;
@@ -32,7 +34,7 @@
     bottom: 60px;
 
     .title {
-      font-family: "Roboto";
+      font-family: $mainFont;
       max-width: 325px;
       font-weight: 700;
       font-size: 30px;
@@ -41,7 +43,7 @@
     }
 
     .genres {
-      font-family: "Roboto";
+      font-family: $mainFont;
       max-width: 325px;
       font-weight: 200;
       font-size: 15px;
@@ -51,7 +53,7 @@
     }
 
     .tagline {
-      font-family: "Roboto";
+      font-family: $mainFont;
       max-width: 325px;
       font-weight: 00;
       font-size: 15px;
@@ -81,7 +83,7 @@
   }
 
   .info-header {
-    font-family: "Roboto";
+    font-family: $mainFont;
     font-size: 16px;
     color: lightgray;
 
@@ -92,7 +94,7 @@
   .info-data {
     //flex-grow: 1;
     width: 100%;
-    font-family: "Roboto";
+    font-family: $mainFont;
     font-size: 14.5px;
     color: grey;
     font-weight: 400;
@@ -100,7 +102,7 @@
   }
 
   .info-left {
-    font-family: "Roboto";
+    font-family: $mainFont;
     display: flex;
     flex-direction: column;
     max-height: 250px;
@@ -115,5 +117,38 @@
     //flex-grow: 1;
     width: 100%;
     margin-right: 55px;
+  }
+}
+
+@media (max-width: 620px) {
+  .cover-img-div {
+    .cover-img {
+      height: auto;
+      width: 100%;
+      //object-fit: cover;
+      //object-position: top;
+      // opacity: 0.6;
+    }
+
+    .cover-details {
+      max-width: 100vw;
+      margin: 0;
+      padding-left: 15px;
+
+      .title {
+        font-size: 25px;
+      }
+
+      .genres {
+        display: none;
+      }
+      .tagline {
+        display: none;
+      }
+    }
+  }
+
+  .info-main-div {
+    display: none;
   }
 }
