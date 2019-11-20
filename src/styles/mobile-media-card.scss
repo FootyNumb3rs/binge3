@@ -1,5 +1,7 @@
+@import url("https://rsms.me/inter/inter.css");
+
 $backgroundColor: black;
-$mainFont: Roboto;
+$mainFont: Inter;
 $cardHeight: 14vh;
 $cardWidth: (2/3) * $cardHeight;
 
@@ -33,7 +35,7 @@ $cardWidth: (2/3) * $cardHeight;
     }
   }
   .mobile-card-title {
-    font-family: Roboto;
+    font-family: $mainFont;
     color: white;
     padding: 0.5px 12px;
     font-size: 15px;
@@ -41,10 +43,10 @@ $cardWidth: (2/3) * $cardHeight;
   }
 
   .mobile-card-genres {
-    font-family: "Roboto";
+    font-family: $mainFont;
     color: rgb(146, 145, 145);
     padding: 1.5px 12px;
-    font-size: 13px;
+    font-size: 10px;
     font-weight: 400;
   }
 }

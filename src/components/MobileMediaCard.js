@@ -9,7 +9,6 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 */
-
 import "../styles/mobile-media-card.css";
 
 //const _ = require("lodash");
@@ -49,7 +48,7 @@ export default function MediaCard({ media_, openDialogue }) {
           >
             <div className="mobile-card-title">{title}</div>
             <div className="mobile-card-genres">
-              {genres.slice(0, 2).join(", ")}
+              {genres.slice(0, 2).join(", ").toUpperCase()}
             </div>
             <div className="mobile-card-genres" style={{ color: "white" }}>
               {release}

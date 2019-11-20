@@ -67,7 +67,7 @@ export default function MediaCard({ media_, openDialogue, rp }) {
             borderRadius="0px"
           >
             <Typography className={"genres"}>
-              {genres.slice(0, 2).join(" • ") || <Skeleton />}
+              {genres[0] || <Skeleton />}
             </Typography>
           </SkeletonTheme>
         </div>
