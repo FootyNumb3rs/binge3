@@ -10,6 +10,15 @@ export default class MobileTitle extends PureComponent {
     super(props);
     this.state = { content: {}, bannerInfo: {} };
 
+    const chip = {
+      marginRight: 6.5,
+      marginBottom: 1.5,
+      backgroundColor: "#212121",
+      color: "#bdbdbd",
+      fontSize: 11.3,
+      fontWeight: 500
+    };
+
     //this.getPromise(props.match.params.id, props.match.params.media_type);
   }
 
@@ -32,8 +41,12 @@ export default class MobileTitle extends PureComponent {
           <div className="mobile-vue-title">{this.state.bannerInfo.title}</div>
           <div className="mobile-vue-genres">
             <div>
+              {"2019 • "}
               {this.state.content.genres
-                ? this.state.content.genres.map(genre => genre.name).join(" / ")
+                ? this.state.content.genres
+                    .map(genre => genre.name)
+                    .join(", ")
+                    .toUpperCase()
                 : "s"}
             </div>
           </div>
@@ -104,6 +117,53 @@ export default class MobileTitle extends PureComponent {
               <div>Director: </div>
             </div>
           </div>
+
+*/
+
+/*
+
+<Chip
+                  size="small"
+                  variant="outlined"
+                  label={"FANTASY"}
+                  style={{
+                    marginRight: 6,
+                    marginBottom: 1.5,
+                    //backgroundColor: "#212121",
+                    color: "#bdbdbd",
+                    borderColor: "gray",
+                    fontSize: 12,
+                    fontWeight: 300
+                  }}
+                />
+                <Chip
+                  size="small"
+                  variant="outlined"
+                  label={"DRAMA"}
+                  style={{
+                    marginRight: 6,
+                    marginBottom: 1.5,
+                    //backgroundColor: "#212121",
+                    color: "#bdbdbd",
+                    borderColor: "gray",
+                    fontSize: 12,
+                    fontWeight: 300
+                  }}
+                />
+                <Chip
+                  size="small"
+                  variant="outlined"
+                  label={"ACTION"}
+                  style={{
+                    marginRight: 6,
+                    marginBottom: 1.5,
+                    //backgroundColor: "#212121",
+                    color: "#bdbdbd",
+                    borderColor: "gray",
+                    fontSize: 11,
+                    fontWeight: 200
+                  }}
+                />
 
 
 
