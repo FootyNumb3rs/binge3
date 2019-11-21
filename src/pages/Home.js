@@ -84,9 +84,9 @@ export default class Home extends PureComponent {
                   height: ".5px",
                   maxWidth: "100vw",
                   background: "white",
-                  opacity: 0.2,
-                  marginTop: "25px",
-                  marginBottom: "40px",
+                  opacity: 0.15,
+                  marginTop: "20px",
+                  marginBottom: "45px",
                   marginLeft: "30px",
                   marginRight: "30px"
                   //marginRight: "20px"
@@ -98,9 +98,9 @@ export default class Home extends PureComponent {
                   height: ".5px",
                   maxWidth: "100vw",
                   background: "white",
-                  opacity: 0.2,
-                  marginTop: "25px",
-                  marginBottom: "40px",
+                  opacity: 0.15,
+                  marginTop: "20px",
+                  marginBottom: "45px",
                   marginLeft: "30px",
                   marginRight: "30px"
                   //marginRight: "20px"
