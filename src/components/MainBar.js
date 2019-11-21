@@ -16,7 +16,7 @@ import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 const useStyles = makeStyles(theme => ({
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
-    background: "#121212",
+    background: "#0d0d0d",
     padding: 0,
     display: "flex",
     //borderRadius: "10px",

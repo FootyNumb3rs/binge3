@@ -49,9 +49,9 @@ export default class MobileTitle extends PureComponent {
               style={{
                 marginLeft: 5,
                 marginBottom: 1.5,
-                backgroundColor: "#212121",
+                backgroundColor: "#1a1a1a",
                 color: "lightgreen",
-                borderColor: "#212121",
+                borderColor: "#1a1a1a",
                 fontSize: 12,
                 fontWeight: 500
               }}
