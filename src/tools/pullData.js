@@ -149,60 +149,33 @@ export function getSearch(genres, search) {
 }
 
 /*
-export function getDialogContent(id, type) {
-  var links = [
-    `https://api.themoviedb.org/3/${type}/${String(
-      id
-    )}?api_key=${api_key}&language=en-US`,
-    `https://api.themoviedb.org/3/${type}/${String(
-      id
-    )}/videos?api_key=${api_key}&language=en-US`
-  ];
-  var promises = [];
-
-  links.forEach((link, i) => {
-    promises.push(
-      axios
-        .get(link)
-        .then(res => {
-          if (i == 0) {
-            return res.data;
-          } else {
-            var vid_dic = res.data.results[0];
-            var needed = {};
-            needed["link"] = vid_dic.key;
-            needed["site"] = vid_dic.site;
-            return needed;
-          }
-        })
-        .catch(err => {
-          console.log(err);
-        })
-    );
-  });
-
-  return axios.all(promises);
-
-
-/*
-export function getDialogContent(id, type) {
-  var links = [``]
+export function getCredits(media_id, media_type) {
   var promises = [];
 
   promises.push(
     axios
+
       .get(
-        `https://api.themoviedb.org/3/${type}/${String(
-          id
-        )}?api_key=${api_key}&language=en-US`
+        `https://api.themoviedb.org/3/${media_type}/${media_id}/credits?api_key=${api_key}`
       )
       .then(res => {
+        res.data[
+          "backdrop_path"
+        ] = `https://image.tmdb.org/t/p/original/${res.data.backdrop_path}`;
+
+        res.data[
+          "poster_path"
+        ] = `https://image.tmdb.org/t/p/original/${res.data.poster_path}`;
+
+       
+
         return res.data;
       })
       .catch(err => {
         console.log(err);
       })
   );
+
   return axios.all(promises);
 }
 */
