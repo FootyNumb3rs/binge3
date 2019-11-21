@@ -43,7 +43,7 @@
 .mobile-vue-info-main-div .mobile-vue-title {
   font-family: Inter;
   width: 100%;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 22px;
   opacity: 0.85;
   line-height: 1.1;
@@ -53,22 +53,29 @@
   font-family: Inter;
   max-width: 100%;
   font-weight: 450;
-  font-size: 12px;
+  font-size: 13px;
   opacity: 0.85;
   line-height: 1.1;
   padding-top: 10px;
-  color: gray;
+  color: #7e7e7e;
 }
 
 .mobile-vue-info-main-div .mobile-vue-overview {
   font-family: Inter;
   max-width: 100%;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 13.5px;
   opacity: 0.85;
   line-height: 1.7;
-  padding-top: 20px;
-  color: #bbbbbb;
+  padding-top: 35px;
+  color: #a5a5a5;
+}
+
+.mobile-vue-info-main-div .mobile-vue-overview .ov-header {
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+  margin-bottom: 1.5px;
 }
 
 .mobile-vue-info-main-div .mobile-vue-details {

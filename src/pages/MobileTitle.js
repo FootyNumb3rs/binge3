@@ -33,13 +33,14 @@ export default class MobileTitle extends PureComponent {
           <div className="mobile-vue-genres">
             <div>
               {this.state.content.genres
-                ? this.state.content.genres.map(genre => genre.name).join(", ")
+                ? this.state.content.genres.map(genre => genre.name).join(" / ")
                 : "s"}
             </div>
           </div>
 
           <div className="mobile-vue-overview">
-            {this.state.content.overview}
+            <div className="ov-header">Overview</div>
+            <div>{this.state.content.overview}</div>
           </div>
           <div
             style={{
