@@ -3,6 +3,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { getById } from "../tools/pullData.js";
 import Chip from "@material-ui/core/Chip";
 import "../styles/mobile-title-page.css";
+import StarIcon from "@material-ui/icons/Star";
 
 export default class MobileTitle extends PureComponent {
   constructor(props) {
@@ -38,7 +39,25 @@ export default class MobileTitle extends PureComponent {
           />
         </div>
         <div className="mobile-vue-info-main-div">
-          <div className="mobile-vue-title">{this.state.bannerInfo.title}</div>
+          <div className="mobile-vue-title">
+            {this.state.bannerInfo.title}{" "}
+            <Chip
+              size="small"
+              variant="outlined"
+              label={this.state.content.vote_average}
+              icon={<StarIcon style={{ width: "12px", color: "gray" }} />}
+              style={{
+                marginLeft: 5,
+                marginBottom: 1.5,
+                //backgroundColor: "#212121",
+                color: "#bdbdbd",
+                borderColor: "gray",
+                fontSize: 12,
+                fontWeight: 300
+              }}
+            />
+          </div>
+
           <div className="mobile-vue-genres">
             <div>
               {"2019 • "}
