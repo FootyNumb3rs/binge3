@@ -43,10 +43,10 @@ export default class MobileTitle extends PureComponent {
           </div>
           <div
             style={{
-              height: "2px",
+              height: ".5px",
               maxWidth: "100vw",
               background: "white",
-              opacity: 0.1,
+              opacity: 0.2,
               marginTop: "30px",
               //marginBottom: "30px",
               marginLeft: "0px",
@@ -54,7 +54,7 @@ export default class MobileTitle extends PureComponent {
               //marginRight: "20px"
             }}
           />
-          <div className="mobile-vue-details"></div>
+          <div></div>
         </div>
       </div>
     );
