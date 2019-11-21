@@ -35,8 +35,8 @@
 
 .mobile-vue-info-main-div {
   width: 100vw;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 25px;
+  padding-right: 25px;
   padding-top: 30px;
 }
 
@@ -44,7 +44,7 @@
   font-family: Inter;
   width: 100%;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 22px;
   opacity: 0.85;
   line-height: 1.1;
 }
@@ -52,8 +52,8 @@
 .mobile-vue-info-main-div .mobile-vue-genres {
   font-family: Inter;
   max-width: 100%;
-  font-weight: 500;
-  font-size: 12px;
+  font-weight: 400;
+  font-size: 13px;
   opacity: 0.85;
   line-height: 1.1;
   padding-top: 10px;
@@ -64,11 +64,11 @@
   font-family: Inter;
   max-width: 100%;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 14px;
   opacity: 0.85;
   line-height: 1.7;
   padding-top: 20px;
-  color: #cecece;
+  color: #f0f0f0;
 }
 
 .mobile-vue-info-main-div .mobile-vue-details {
