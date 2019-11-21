@@ -45,15 +45,15 @@ export default class MobileTitle extends PureComponent {
               size="small"
               variant="outlined"
               label={this.state.content.vote_average}
-              icon={<StarIcon style={{ width: "12px", color: "gray" }} />}
+              icon={<StarIcon style={{ width: "12px", color: "lightgreen" }} />}
               style={{
                 marginLeft: 5,
                 marginBottom: 1.5,
-                //backgroundColor: "#212121",
-                color: "#bdbdbd",
-                borderColor: "gray",
+                backgroundColor: "#212121",
+                color: "lightgreen",
+                borderColor: "#212121",
                 fontSize: 12,
-                fontWeight: 300
+                fontWeight: 500
               }}
             />
           </div>
