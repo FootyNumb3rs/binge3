@@ -28,8 +28,8 @@ $mainFont: Inter;
 
 .mobile-vue-info-main-div {
   width: 100vw;
-  padding-left: 22.5px;
-  padding-right: 22.5px;
+  padding-left: 24.5px;
+  padding-right: 24.5px;
   padding-top: 30px;
 
   .mobile-vue-title {
@@ -44,8 +44,8 @@ $mainFont: Inter;
   .mobile-vue-genres {
     font-family: $mainFont;
     max-width: 100%;
-    font-weight: 500;
-    font-size: 13px;
+    font-weight: 450;
+    font-size: 12px;
     opacity: 0.85;
     line-height: 1.1;
     padding-top: 10px;
@@ -59,7 +59,7 @@ $mainFont: Inter;
     opacity: 0.85;
     line-height: 1.7;
     padding-top: 20px;
-    color: rgb(240, 240, 240);
+    color: rgb(187, 187, 187);
   }
 
   .mobile-vue-details {
