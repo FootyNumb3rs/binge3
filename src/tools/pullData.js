@@ -148,7 +148,6 @@ export function getSearch(genres, search) {
   return axios.all(promises);
 }
 
-/*
 export function getCredits(media_id, media_type) {
   var promises = [];
 
@@ -159,17 +158,7 @@ export function getCredits(media_id, media_type) {
         `https://api.themoviedb.org/3/${media_type}/${media_id}/credits?api_key=${api_key}`
       )
       .then(res => {
-        res.data[
-          "backdrop_path"
-        ] = `https://image.tmdb.org/t/p/original/${res.data.backdrop_path}`;
-
-        res.data[
-          "poster_path"
-        ] = `https://image.tmdb.org/t/p/original/${res.data.poster_path}`;
-
-       
-
-        return res.data;
+        return res.data.cast;
       })
       .catch(err => {
         console.log(err);
@@ -178,4 +167,3 @@ export function getCredits(media_id, media_type) {
 
   return axios.all(promises);
 }
-*/

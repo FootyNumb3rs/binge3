@@ -2,8 +2,8 @@
 @import url("https://rsms.me/inter/inter.css");
 
 $mainFont: "Inter";
-$carouselTitleWeight: 700;
-$carouselTitleSize: 22px;
+$carouselTitleWeight: 650;
+$carouselTitleSize: 21.5px;
 $carouselSeeAllWeight: 300;
 $carouselSeeAllSize: 14px;
 $backgroundColor: #212121;
@@ -16,7 +16,7 @@ $backgroundColor: #212121;
   display: flex;
   flex-direction: row; // So header elements align left to right
   justify-content: space-between;
-  padding-bottom: 15px;
+  padding-bottom: 17px;
   padding-right: 17px;
   padding-left: 23px;
   font-family: $mainFont;

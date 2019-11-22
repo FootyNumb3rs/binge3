@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import "../styles/title-page.css";
-
+import { getCredits } from "../tools/pullData.js";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { getById } from "../tools/pullData.js";
 import Chip from "@material-ui/core/Chip";
@@ -9,17 +9,22 @@ import MobileTitle from "./MobileTitle.js";
 export default class Title extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = { content: {}, bannerInfo: {} };
+    this.state = { content: {}, bannerInfo: {}, credits: {} };
     this.getPromise(props.match.params.id, props.match.params.media_type);
   }
 
   // How to
   getPromise(id_, media_type) {
     getById({}, id_, media_type).then(data => {
-      console.log(data[0]);
+      //console.log(data[0]);
       this.setState({
         content: data[0]
       });
+
+      getCredits(id_, media_type).then(data =>
+        // data[0] are all the credits
+        this.setState({ credits: data[0].slice(0, 10) })
+      );
 
       this.setState({
         bannerInfo: {
@@ -33,14 +38,11 @@ export default class Title extends PureComponent {
   }
 
   render(props) {
-    console.log(this.state.content.backdrop_path);
+    //console.log(this.state.content.backdrop_path);
     return (
       <div>
         <div>
-          <MobileTitle
-            content={this.state.content}
-            bannerInfo={this.state.bannerInfo}
-          />
+          <MobileTitle state_={this.state} />
         </div>
 
         <div className="title-container">

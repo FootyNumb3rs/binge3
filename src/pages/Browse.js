@@ -67,6 +67,7 @@ export default class Browse extends PureComponent {
   }
 
   render(props) {
+    // Putting change triggers some sort of infinite loop
     return (
       <div className="browse-container">
         <div className="head">

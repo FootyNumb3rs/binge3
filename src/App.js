@@ -42,7 +42,7 @@ function App() {
   return (
     <div className="root">
       <link
-        href="https://fonts.googleapis.com/css?family=Overpass:400,600|Questrial|Heebo|Rubik:300|Roboto+Thin|Roboto:300,400,500,700|DM+Serif+Display&display=swap"
+        href="https://fonts.googleapis.com/css?family=Overpass:400,600|Questrial|Heebo|Rubik|Roboto+Thin|Roboto:300,400,500,700|DM+Serif+Display&display=swap"
         rel="stylesheet"
       />
       <link

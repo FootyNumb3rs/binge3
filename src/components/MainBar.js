@@ -12,6 +12,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 import SideDrawer from "../components/SideDrawer";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
+import StarIcon from "@material-ui/icons/Star";
 
 const useStyles = makeStyles(theme => ({
   appBar: {

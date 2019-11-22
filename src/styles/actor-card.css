@@ -1,0 +1,52 @@
+.actor-card-container {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 6px;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  width: 115px;
+}
+
+.actor-card-container .img-cover-div {
+  display: inline-block;
+  overflow: hidden;
+  height: 75px;
+  width: 75px;
+  border-radius: 100%;
+  margin-bottom: 3px;
+}
+
+.actor-card-container .img-cover-div .actor-img {
+  width: 75px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 0px -20.5px;
+     object-position: 0px -20.5px;
+  opacity: 0.8;
+}
+
+.actor-card-container .actor-name {
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 12.5px;
+  opacity: 0.85;
+  color: white;
+}
+
+.actor-card-container .actor-role {
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 12.5px;
+  opacity: 0.85;
+  color: #9b9b9b;
+  line-height: 1.3;
+}
+/*# sourceMappingURL=actor-card.css.map */

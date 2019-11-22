@@ -1,15 +1,15 @@
 import React, { PureComponent } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import { getById } from "../tools/pullData.js";
 import Chip from "@material-ui/core/Chip";
 import "../styles/mobile-title-page.css";
 import StarIcon from "@material-ui/icons/Star";
+import ActorCard from "../components/ActorCard.js";
 
 export default class MobileTitle extends PureComponent {
   constructor(props) {
-    console.log(props);
+    //console.log(props);
     super(props);
-    this.state = { content: {}, bannerInfo: {} };
+    this.state = props.state_;
 
     const chip = {
       marginRight: 6.5,
@@ -24,11 +24,9 @@ export default class MobileTitle extends PureComponent {
   }
 
   render(props) {
-    this.setState({
-      content: this.props.content,
-      bannerInfo: this.props.bannerInfo
-    });
-    console.log(this.props);
+    this.setState(this.props.state_);
+    //console.log(this.state);
+
     return (
       <div className="mobile-vue-container">
         <div className="mobile-vue-cover-img-div">
@@ -40,21 +38,13 @@ export default class MobileTitle extends PureComponent {
         </div>
         <div className="mobile-vue-info-main-div">
           <div className="mobile-vue-title">
-            {this.state.bannerInfo.title}{" "}
+            {this.state.bannerInfo.title}
             <Chip
               size="small"
               variant="outlined"
               label={this.state.content.vote_average}
+              className="mobile-vue-rating-chip"
               icon={<StarIcon style={{ width: "12px", color: "lightgreen" }} />}
-              style={{
-                marginLeft: 5,
-                marginBottom: 1.5,
-                backgroundColor: "#1a1a1a",
-                color: "lightgreen",
-                borderColor: "#1a1a1a",
-                fontSize: 12,
-                fontWeight: 500
-              }}
             />
           </div>
 
@@ -71,28 +61,81 @@ export default class MobileTitle extends PureComponent {
           </div>
 
           <div className="mobile-vue-overview">
-            <div className="ov-header">Overview</div>
+            <div className="ov-header">OVERVIEW</div>
+
             <div>{this.state.content.overview}</div>
           </div>
-          <div
-            style={{
-              height: ".5px",
-              maxWidth: "100vw",
-              background: "white",
-              opacity: 0.2,
-              marginTop: "30px",
-              //marginBottom: "30px",
-              marginLeft: "0px",
-              marginRight: "0px"
-              //marginRight: "20px"
-            }}
-          />
-          <div></div>
+          <div className="title-divider" />
+
+          <div>
+            <div
+              className="ov-header"
+              style={{
+                fontWeight: 700,
+                fontColor: "gray"
+              }}
+            >
+              CAST
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                maxWidth: "100%",
+                justifyContent: "space-between",
+                marginBottom: "15px"
+              }}
+            >
+              {this.state.credits[0]
+                ? this.state.credits.slice(0, 3).map(credit => {
+                    return (
+                      <div key={1}>
+                        <ActorCard profile={credit} />
+                      </div>
+                    );
+                  })
+                : "s"}
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                maxWidth: "100%",
+                justifyContent: "space-between",
+                margin: "5px 0px"
+              }}
+            >
+              {this.state.credits[0]
+                ? this.state.credits.slice(3, 6).map(credit => {
+                    return (
+                      <div key={1}>
+                        <ActorCard profile={credit} />
+                      </div>
+                    );
+                  })
+                : "s"}
+            </div>
+          </div>
+          <div className="title-divider" />
         </div>
       </div>
     );
   }
 }
+
+/*
+
+  {this.state.credits.map(credit => {
+            return (
+              <div key={1}>
+                <ActorCard profile={credit} />
+              </div>
+            );
+          })}
+
+
+
+*/
 
 // How to
 /*
