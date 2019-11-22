@@ -61,7 +61,7 @@ export default class MobileTitle extends PureComponent {
           </div>
 
           <div className="mobile-vue-overview">
-            <div className="ov-header">OVERVIEW</div>
+            <div className="ov-header">Overview</div>
 
             <div>{this.state.content.overview}</div>
           </div>
@@ -75,7 +75,7 @@ export default class MobileTitle extends PureComponent {
                 fontColor: "gray"
               }}
             >
-              CAST
+              Cast
             </div>
             <div
               style={{
