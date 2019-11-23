@@ -42,7 +42,10 @@ export default class Title extends PureComponent {
     return (
       <div>
         <div>
-          <MobileTitle state_={this.state} />
+          <MobileTitle
+            state_={this.state}
+            media_type={this.props.match.params.media_type}
+          />
         </div>
 
         <div className="title-container">

@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import StarRatings from "react-star-ratings";
+import Chip from "@material-ui/core/Chip";
+import { Link } from "react-router-dom";
 /* 
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -30,52 +32,58 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function MediaCard({ media_, openDialogue }) {
-  const { title, genres, release, posterLink, rating } = media_;
+  const { title, genres, release, posterLink, rating, media_type, id } = media_;
   const classes = useStyles();
   const release_ = new Date(release);
 
   return (
-    <Card className={classes.card}>
-      <CardActionArea style={{ width: "100%" }}>
-        <div className="mobile-card-div">
-          <div className="mobile-card-img-div">
-            <img src={posterLink} alt="" className="mobile-card-img" />
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center"
-            }}
-          >
+    <Link
+      to={{
+        pathname: `/title/${media_type}/${id}`
+      }}
+    >
+      <Card className={classes.card}>
+        <CardActionArea style={{ width: "100%" }}>
+          <div className="mobile-card-div">
+            <div className="mobile-card-img-div">
+              <img src={posterLink} alt="" className="mobile-card-img" />
+            </div>
             <div
-              className="mobile-card-title"
-              style={{ paddingBottom: ".5px" }}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center"
+              }}
             >
-              {title}
-            </div>
-            <div className="mobile-card-genres">
-              {genres.slice(0, 2).join(", ")}
-            </div>
-            <div className="mobile-card-etc">
-              {release_.toDateString().slice(4)}
-            </div>
-            <div className="mobile-card-etc">
-              <StarRatings
-                rating={1}
-                starRatedColor="yellow"
-                starDimension="10px"
-                starSpacing=".4px"
-                //changeRating={this.changeRating}
-                numberOfStars={1}
-                name="rating"
-              />
-              {` ${rating}/10 `}
+              <div
+                className="mobile-card-title"
+                style={{ paddingBottom: ".5px" }}
+              >
+                {title}
+              </div>
+              <div className="mobile-card-genres">
+                {genres.slice(0, 2).join(", ")}
+              </div>
+              <div className="mobile-card-etc">
+                {release_.toDateString().slice(4)}
+              </div>
+              <div className="mobile-card-etc">
+                <StarRatings
+                  rating={1}
+                  starRatedColor="yellow"
+                  starDimension="10px"
+                  starSpacing=".4px"
+                  //changeRating={this.changeRating}
+                  numberOfStars={1}
+                  name="rating"
+                />
+                {` ${rating}/10 `}
+              </div>
             </div>
           </div>
-        </div>
-      </CardActionArea>
-    </Card>
+        </CardActionArea>
+      </Card>
+    </Link>
   );
 }
 

@@ -4,8 +4,13 @@ import MediaCard from "./MediaCard";
 import "../styles/carousel.css";
 import { withRouter } from "react-router-dom";
 import Slider from "react-slick";
+import Chip from "@material-ui/core/Chip";
 
 function Carousel({ mediaData, type, history }) {
+  const pr = () => {
+    console.log("yo");
+  };
+
   const settings = {
     infinite: false,
     speed: 350,
@@ -31,7 +36,12 @@ function Carousel({ mediaData, type, history }) {
         <div className="carousel-title">
           {type == "movie" ? "Now Playing" : "Popular Shows"}
         </div>
-        <div className="carousel-see-all">SEE ALL</div>
+        <div
+          onClick={() => history.push(`/browse/${type}`)}
+          className="carousel-see-all"
+        >
+          SEE ALL
+        </div>
       </div>
       <Slider {...settings}>
         {mediaData.slice(0, 10).map((media, i) => {

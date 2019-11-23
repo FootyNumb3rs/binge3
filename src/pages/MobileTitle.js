@@ -71,6 +71,7 @@ export default class MobileTitle extends PureComponent {
   }
 
   render(props) {
+    console.log(this.props);
     this.setState(this.props.state_);
 
     return (
@@ -173,7 +174,8 @@ export default class MobileTitle extends PureComponent {
             >
               Information
             </div>
-            {this.displayDetails()}
+
+            {this.props.media_type == "movie" ? this.displayDetails() : ""}
           </div>
         </div>
       </div>
