@@ -16,15 +16,15 @@ export default class Title extends PureComponent {
   // How to
   getPromise(id_, media_type) {
     getById({}, id_, media_type).then(data => {
-      //console.log(data[0]);
       this.setState({
         content: data[0]
       });
 
-      getCredits(id_, media_type).then(data =>
+      getCredits(id_, media_type).then(data => {
         // data[0] are all the credits
-        this.setState({ credits: data[0].slice(0, 10) })
-      );
+
+        this.setState({ credits: data[0] });
+      });
 
       this.setState({
         bannerInfo: {

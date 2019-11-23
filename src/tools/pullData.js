@@ -158,7 +158,7 @@ export function getCredits(media_id, media_type) {
         `https://api.themoviedb.org/3/${media_type}/${media_id}/credits?api_key=${api_key}`
       )
       .then(res => {
-        return res.data.cast;
+        return res.data;
       })
       .catch(err => {
         console.log(err);

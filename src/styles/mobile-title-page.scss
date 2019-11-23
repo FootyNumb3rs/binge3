@@ -5,7 +5,7 @@ $mainFont: Inter;
   font-weight: 600;
   font-size: 14.5px;
   color: white;
-  margin-bottom: 1.5px;
+  margin-bottom: 5px;
   line-height: 1.7;
 }
 
@@ -25,6 +25,7 @@ $mainFont: Inter;
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  padding-bottom: 50px;
 }
 
 .mobile-vue-cover-img-div {

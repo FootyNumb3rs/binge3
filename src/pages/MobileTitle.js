@@ -10,22 +10,68 @@ export default class MobileTitle extends PureComponent {
     //console.log(props);
     super(props);
     this.state = props.state_;
-
-    const chip = {
-      marginRight: 6.5,
-      marginBottom: 1.5,
-      backgroundColor: "#212121",
-      color: "#bdbdbd",
-      fontSize: 11.3,
-      fontWeight: 500
-    };
-
     //this.getPromise(props.match.params.id, props.match.params.media_type);
+  }
+
+  displayDetails() {
+    if (this.state.credits.crew) {
+      const dict = {};
+      this.state.credits.crew.map(d => {
+        switch (d.job) {
+          case "Director of Photography":
+            dict.cinematographer = d.name;
+
+          case "Director":
+            if (!dict.director) {
+              dict.director = d.name;
+            }
+
+          case "Original Music Composer":
+            if (dict.composer) {
+              dict.composer.push(d.name);
+            } else {
+              dict.composer = [d.name];
+            }
+          case "Screenplay":
+            if (dict.writer) {
+              dict.writer.push(d.name);
+            } else {
+              dict.writer = [d.name];
+            }
+
+          case "Editor":
+            if (dict.editor) {
+              dict.editor.push(d.name);
+            } else {
+              dict.editor = [d.name];
+            }
+        }
+      });
+
+      return (
+        <div className="mobile-vue-overview" style={{ paddingTop: "1.5px" }}>
+          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
+            Director
+            {" - "}
+            <font style={{ color: "white" }}>{dict.director}</font>
+          </div>
+          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
+            Cinematographer
+            {" - "}
+            <font style={{ color: "white" }}>{dict.cinematographer}</font>
+          </div>
+          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
+            Writer(s)
+            {" - "}
+            <font style={{ color: "white" }}>{dict.writer.join(", ")}</font>
+          </div>
+        </div>
+      );
+    }
   }
 
   render(props) {
     this.setState(this.props.state_);
-    //console.log(this.state);
 
     return (
       <div className="mobile-vue-container">
@@ -86,8 +132,8 @@ export default class MobileTitle extends PureComponent {
                 marginBottom: "15px"
               }}
             >
-              {this.state.credits[0]
-                ? this.state.credits.slice(0, 3).map(credit => {
+              {this.state.credits.cast
+                ? this.state.credits.cast.slice(0, 3).map(credit => {
                     return (
                       <div key={1}>
                         <ActorCard profile={credit} />
@@ -105,8 +151,8 @@ export default class MobileTitle extends PureComponent {
                 margin: "5px 0px"
               }}
             >
-              {this.state.credits[0]
-                ? this.state.credits.slice(3, 6).map(credit => {
+              {this.state.credits.cast
+                ? this.state.credits.cast.slice(3, 6).map(credit => {
                     return (
                       <div key={1}>
                         <ActorCard profile={credit} />
@@ -117,6 +163,18 @@ export default class MobileTitle extends PureComponent {
             </div>
           </div>
           <div className="title-divider" />
+          <div>
+            <div
+              className="ov-header"
+              style={{
+                fontWeight: 700,
+                fontColor: "gray"
+              }}
+            >
+              Information
+            </div>
+            {this.displayDetails()}
+          </div>
         </div>
       </div>
     );
