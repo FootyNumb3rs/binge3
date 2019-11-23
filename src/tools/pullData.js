@@ -66,6 +66,46 @@ export function getById(genres, media_id, media_type) {
   return axios.all(promises);
 }
 
+/* Get In Theaters */
+
+export function getInTheaters(genres, media_type) {
+  var promises = [];
+  var pages = ["1", "2"];
+
+  pages.forEach(page => {
+    promises.push(
+      axios
+        .get(
+          `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=en-US&page=${page}`
+        )
+        .then(res => {
+          return res.data.results
+            .filter(item => item.vote_count > 50)
+            .map(item => {
+              return {
+                id: item.id,
+                media_type: media_type,
+                title:
+                  media_type == "tv" ? item.original_name : item.original_title,
+                genres: item.genre_ids.slice(0, 3).map(genre => genres[genre]),
+                posterLink: `https://image.tmdb.org/t/p/w500/${item.poster_path}`,
+                backdropLink: `https://image.tmdb.org/t/p/original/${item.backdrop_path}`,
+                overview: item.overview,
+                release: item.release_date,
+                rating: item.vote_average,
+                vote_count: item.vote_count
+              };
+            });
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    );
+  });
+
+  return axios.all(promises);
+}
+
 /* Get Trending */
 
 export function getTrending(genres, media_type) {
@@ -153,7 +193,6 @@ export function getCredits(media_id, media_type) {
 
   promises.push(
     axios
-
       .get(
         `https://api.themoviedb.org/3/${media_type}/${media_id}/credits?api_key=${api_key}`
       )

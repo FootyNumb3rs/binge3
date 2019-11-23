@@ -77,35 +77,16 @@ export default class Home extends PureComponent {
         {/* Content */}
         <div className="content">
           <div className="showcase-div">
-            <div>
+            <div
+              style={{
+                maxWidth: "990px",
+                width: "100%"
+              }}
+            >
               <Carousel type="tv" mediaData={this.state.preview_shows} />
-              <div
-                style={{
-                  height: ".5px",
-                  maxWidth: "100vw",
-                  background: "white",
-                  opacity: 0.15,
-                  marginTop: "20px",
-                  marginBottom: "45px",
-                  marginLeft: "30px",
-                  marginRight: "30px"
-                  //marginRight: "20px"
-                }}
-              />
+              <div className="home-divider" />
               <Carousel type="movie" mediaData={this.state.preview_movies} />
-              <div
-                style={{
-                  height: ".5px",
-                  maxWidth: "100vw",
-                  background: "white",
-                  opacity: 0.15,
-                  marginTop: "20px",
-                  marginBottom: "45px",
-                  marginLeft: "30px",
-                  marginRight: "30px"
-                  //marginRight: "20px"
-                }}
-              />
+              <div className="home-divider" />
               <Carousel type="tv" mediaData={this.state.preview_shows} />
             </div>
           </div>

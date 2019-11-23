@@ -6,49 +6,6 @@ $cardWidth: (2/3) * $cardHeight;
 @import url("https://rsms.me/inter/inter.css");
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text|Ibarra+Real+Nova|Libre+Baskerville|Lora|Merriweather|PT+Serif|Playfair+Display|Source+Serif+Pro|Vollkorn&display=swap");
 
-.card-container {
-  background-color: $backgroundColor;
-}
-
-.card {
-  flex-direction: column;
-  width: $cardWidth;
-  background-color: $backgroundColor;
-
-  border: 0px $backgroundColor;
-
-  .media {
-    height: $cardHeight;
-    width: $cardWidth;
-    background-color: $backgroundColor;
-  }
-}
-
-.cardText {
-  background-color: $backgroundColor;
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-
-  .title {
-    color: white;
-    font-family: $mainFont;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1.4;
-    overflow: hidden;
-  }
-
-  .genres {
-    color: #9e9e9e;
-    font-family: $mainFont;
-    font-size: 13px;
-    font-weight: 400;
-    margin-top: 0px;
-  }
-}
-
 /* Custom, iPhone Retina */
 
 /* Extra Small Devices, Phones */
@@ -60,17 +17,27 @@ $cardWidth: (2/3) * $cardHeight;
   // $cardWidth: $cardWidth * $mod;
   // $cardHeight: $cardHeight * $mod;
 
+  .card-container {
+    padding-left: 23px;
+    padding-right: 0px;
+  }
+
   .card {
     width: $cardWidth;
+    background-color: $backgroundColor;
+    border: 0px $backgroundColor;
 
     .media {
       height: $cardHeight;
       width: $cardWidth;
+      background-color: transparent;
     }
     .cardText {
       margin-top: 9px;
       display: flex;
       justify-content: flex-start;
+      flex-direction: column;
+      background-color: $backgroundColor;
 
       .title {
         font-size: $fontSize;
@@ -87,6 +54,50 @@ $cardWidth: (2/3) * $cardHeight;
         line-height: 1.3;
         color: #9e9e9e;
       }
+    }
+  }
+}
+
+@media (min-width: 620px) {
+  .card-container {
+    background: transparent;
+  }
+
+  .card {
+    flex-direction: column;
+    width: $cardWidth;
+    background-color: $backgroundColor;
+    border: 0px $backgroundColor;
+
+    .media {
+      height: $cardHeight;
+      width: $cardWidth;
+      background-color: transparent;
+    }
+  }
+
+  .cardText {
+    background-color: $backgroundColor;
+    margin-top: 7.5px;
+    display: flex;
+    flex-direction: column;
+    //align-items: center;
+
+    .title {
+      color: white;
+      font-family: $mainFont;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.4;
+      //align-items: center;
+    }
+
+    .genres {
+      color: #9e9e9e;
+      font-family: $mainFont;
+      font-size: 13px;
+      font-weight: 400;
+      margin-top: 0px;
     }
   }
 }

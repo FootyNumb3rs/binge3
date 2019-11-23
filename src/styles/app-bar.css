@@ -1,88 +1,8 @@
 @import url("https://rsms.me/inter/inter.css");
-.title-div {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-right: 35px;
-  margin-left: 55px;
-}
-
-.title {
-  font-size: 24px;
-  font-family: "Rubik";
-  font-weight: 100;
-  cursor: pointer;
-  margin-bottom: 0px;
-}
-
-.buttonContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-}
-
-.search-icon {
-  width: 7px;
-  margin-left: 23px;
-  color: inherit;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  pointer-events: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: absolute;
-}
-
-.mobile-menu-button {
-  display: none;
-}
-
-.mobile-search-button {
-  display: none;
-}
-
 .mobile-title {
   display: none;
   font-family: "DM Serif Display";
   font-size: 22px;
-}
-
-@media (min-width: 620px) {
-  .toolbar {
-    max-width: 1280px;
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    height: 60px;
-  }
 }
 
 @media (max-width: 620px) {
@@ -94,6 +14,26 @@
   .title-div {
     margin: 0;
     font-size: 10px;
+    margin-right: 55px;
+    margin-left: 55px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .title-div .title {
+    font-size: 24px;
+    font-family: "Rubik";
+    font-weight: 100;
+    cursor: pointer;
+    margin-bottom: 0px;
   }
   .search-bar {
     -webkit-box-flex: 1;
@@ -123,11 +63,93 @@
     margin-left: 0px;
     display: none;
   }
+  .mobile-search-button {
+    display: none;
+  }
   /*
 
   .mobile-title {
     display: flex;
   }
   */
+}
+
+@media (min-width: 620px) {
+  .toolbar {
+    max-width: 1280px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    height: 60px;
+  }
+  .title-div {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-right: 35px;
+    margin-left: 55px;
+  }
+  .title {
+    font-size: 24px;
+    font-family: "Rubik";
+    font-weight: 100;
+    cursor: pointer;
+    margin-bottom: 0px;
+  }
+  .buttonContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+  .search-icon {
+    width: 7px;
+    margin-left: 23px;
+    color: inherit;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    pointer-events: none;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: absolute;
+  }
+  .mobile-menu-button {
+    display: none;
+  }
+  .mobile-search-button {
+    display: none;
+  }
+  .mobile-title {
+    display: none;
+    font-family: "DM Serif Display";
+    font-size: 22px;
+  }
 }
 /*# sourceMappingURL=app-bar.css.map */

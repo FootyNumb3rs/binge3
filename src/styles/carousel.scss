@@ -1,101 +1,238 @@
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text|Ibarra+Real+Nova|Libre+Baskerville|Lora|Merriweather|PT+Serif|Playfair+Display|Source+Serif+Pro|Vollkorn&display=swap");
 @import url("https://rsms.me/inter/inter.css");
 
-$mainFont: "Inter";
-$carouselTitleWeight: 650;
-$carouselTitleSize: 21.5px;
-$carouselSeeAllWeight: 300;
-$carouselSeeAllSize: 15px;
-$backgroundColor: #212121;
-
-.carousel-container {
-  margin-bottom: 0px;
-}
-
-.carousel-header {
-  display: flex;
-  flex-direction: row; // So header elements align left to right
-  justify-content: space-between;
-  padding-bottom: 17px;
-  padding-right: 17px;
-  padding-left: 23px;
-  font-family: $mainFont;
-
-  .carousel-title {
-    color: white;
-    font-size: $carouselTitleSize;
-    font-weight: $carouselTitleWeight;
-  }
-
-  .carousel-see-all {
-    color: #999999;
-    font-size: $carouselSeeAllSize;
-    justify-content: flex-end;
-    font-weight: $carouselSeeAllWeight;
-    padding-top: 2px;
-  }
-}
-
-.carousel-item-wrapper {
-  //
-  //padding-left: 14px;
-  //padding-right: 11px;
-  // For some reason this pushes extra space into "card"
-  overflow: hidden;
-  display: flex;
-  //text-align: center;
-  //align-items: space-between;
-}
-
-.carousel-item {
-  display: flex;
-  //justify-content: center;
-  //align-items: center;
-  //height: 250px;
-  //margin-left: 15px; // Playing with this vs. changing wrapper width
-  //margin-right: 15px;
-  //height: 100%;
-}
-
-.preview-panel {
-  margin-bottom: 60px;
-
-  .header {
-    color: white;
-    font-family: Roboto;
-    //font-size: 32px;
-    font-weight: 400;
-    pointer-events: none;
-    margin-bottom: 10px;
-    justify-content: space-between;
-    align-items: flex-end;
-    display: flex;
-    flex-grow: 0;
-    //margin-left: 0px;
-
-    .header-title {
-      font-size: 20px;
-      margin-right: 25px;
-      font-weight: 600;
-      color: lightgrey;
-      //margin-bottom: 10px;
-    }
-  }
-}
-
-.mobile-wrapper {
-  display: none;
-}
 @media (max-width: 620px) {
+  $mainFont: "Inter";
+  $carouselTitleWeight: 650;
+  $carouselTitleSize: 21.5px;
+  $carouselSeeAllWeight: 300;
+  $carouselSeeAllSize: 15px;
+  $backgroundColor: #212121;
+
   .wrapper {
     display: none;
   }
+
+  .carousel-header {
+    display: flex;
+    flex-direction: row; // So header elements align left to right
+    justify-content: space-between;
+    padding-bottom: 17px;
+    padding-right: 17px;
+    padding-left: 23px;
+    font-family: $mainFont;
+
+    .carousel-title {
+      color: white;
+      font-size: $carouselTitleSize;
+      font-weight: $carouselTitleWeight;
+    }
+
+    .carousel-see-all {
+      color: #999999;
+      font-size: $carouselSeeAllSize;
+      justify-content: flex-end;
+      font-weight: $carouselSeeAllWeight;
+      padding-top: 2px;
+    }
+  }
+
   .carousel-item-wrapper {
-    //padding-right: 10px;
+    padding: 0px;
   }
 
   .mobile-wrapper {
     display: flex;
     flex-direction: column;
+  }
+}
+
+@media (min-width: 620px) {
+  $mainFont: "Inter";
+  $carouselTitleWeight: 650;
+  $carouselTitleSize: 25px;
+  $carouselSeeAllWeight: 300;
+  $carouselSeeAllSize: 17px;
+  $backgroundColor: #212121;
+
+  .carousel-container {
+    margin-bottom: 0px;
+  }
+
+  .carousel-header {
+    display: flex;
+    flex-direction: row; // So header elements align left to right
+    justify-content: space-between;
+    padding-bottom: 35px;
+    padding-right: 17px;
+    padding-left: 15px;
+    font-family: $mainFont;
+    overflow: hidden;
+
+    .carousel-title {
+      color: white;
+      font-size: $carouselTitleSize;
+      font-weight: $carouselTitleWeight;
+    }
+
+    .carousel-see-all {
+      color: #999999;
+      font-size: $carouselSeeAllSize;
+      justify-content: flex-end;
+      font-weight: $carouselSeeAllWeight;
+      padding-top: 2px;
+    }
+  }
+
+  .carousel-item-wrapper {
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    //text-align: center;
+    //align-items: space-between;
+  }
+
+  .carousel-item {
+    display: flex;
+    //justify-content: center;
+    //align-items: center;
+    //height: 250px;
+    //margin-left: 15px; // Playing with this vs. changing wrapper width
+    //margin-right: 15px;
+    //height: 100%;
+  }
+
+  .mobile-wrapper {
+    display: none;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media (min-width: 768 px) {
+  $background: #0d0d0d;
+
+  $mainFont: Roboto;
+
+  $mainFont: "Inter";
+  $carouselTitleWeight: 650;
+  $carouselTitleSize: 25px;
+  $carouselSeeAllWeight: 300;
+  $carouselSeeAllSize: 17px;
+  $backgroundColor: #212121;
+
+  .carousel-container {
+    margin-bottom: 0px;
+  }
+
+  .carousel-header {
+    display: flex;
+    flex-direction: row; // So header elements align left to right
+    justify-content: space-between;
+    padding-bottom: 35px;
+    padding-right: 17px;
+    padding-left: 15px;
+    font-family: $mainFont;
+    overflow: hidden;
+
+    .carousel-title {
+      color: white;
+      font-size: $carouselTitleSize;
+      font-weight: $carouselTitleWeight;
+    }
+
+    .carousel-see-all {
+      color: #999999;
+      font-size: $carouselSeeAllSize;
+      justify-content: flex-end;
+      font-weight: $carouselSeeAllWeight;
+      padding-top: 2px;
+    }
+  }
+
+  .carousel-item-wrapper {
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    //text-align: center;
+    //align-items: space-between;
+  }
+
+  .carousel-item {
+    display: flex;
+    //justify-content: center;
+    //align-items: center;
+    //height: 250px;
+    //margin-left: 15px; // Playing with this vs. changing wrapper width
+    //margin-right: 15px;
+    //height: 100%;
+  }
+
+  .mobile-wrapper {
+    display: none;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media (min-width: 992px) {
+  $background: #0d0d0d;
+
+  $mainFont: Roboto;
+
+  $mainFont: "Inter";
+  $carouselTitleWeight: 650;
+  $carouselTitleSize: 25px;
+  $carouselSeeAllWeight: 300;
+  $carouselSeeAllSize: 17px;
+  $backgroundColor: #212121;
+
+  .carousel-container {
+    margin-bottom: 0px;
+  }
+
+  .carousel-header {
+    display: flex;
+    flex-direction: row; // So header elements align left to right
+    justify-content: space-between;
+    padding-bottom: 35px;
+    padding-right: 17px;
+    padding-left: 15px;
+    font-family: $mainFont;
+    overflow: hidden;
+
+    .carousel-title {
+      color: white;
+      font-size: $carouselTitleSize;
+      font-weight: $carouselTitleWeight;
+    }
+
+    .carousel-see-all {
+      color: #999999;
+      font-size: $carouselSeeAllSize;
+      justify-content: flex-end;
+      font-weight: $carouselSeeAllWeight;
+      padding-top: 2px;
+    }
+  }
+
+  .carousel-item-wrapper {
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    //text-align: center;
+    //align-items: space-between;
+  }
+
+  .carousel-item {
+    display: flex;
+    //justify-content: center;
+    //align-items: center;
+    //height: 250px;
+    //margin-left: 15px; // Playing with this vs. changing wrapper width
+    //margin-right: 15px;
+    //height: 100%;
+  }
+
+  .mobile-wrapper {
+    display: none;
   }
 }

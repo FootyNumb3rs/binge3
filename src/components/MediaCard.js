@@ -29,10 +29,7 @@ export default function MediaCard({ media_, openDialogue, rp }) {
   // const rightPad = ((rp + 1) % 3 == 0) & (rp > 0) ? "0px" : "15px"; // Every third
   // const leftPad = rp % 3 == 0 ? "15px" : "0px";
   return (
-    <div
-      className="card-container"
-      style={{ paddingRight: "0", paddingLeft: "23px" }}
-    >
+    <div className="card-container">
       <div className="card">
         <Link
           to={{

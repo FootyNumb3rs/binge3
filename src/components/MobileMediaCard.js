@@ -5,6 +5,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import StarRatings from "react-star-ratings";
 import Chip from "@material-ui/core/Chip";
 import { Link } from "react-router-dom";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 /* 
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";

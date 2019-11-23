@@ -13,7 +13,60 @@ export default class MobileTitle extends PureComponent {
     //this.getPromise(props.match.params.id, props.match.params.media_type);
   }
 
-  displayDetails() {
+  displayShowDetails() {
+    if (this.state.content.created_by) {
+      const created_by = this.state.content.created_by.map(d => {
+        return d.name;
+      });
+
+      const episode_run_time = this.state.content.episode_run_time[0];
+
+      const num_seasons = this.state.content.number_of_seasons;
+      const num_episodes = this.state.content.number_of_episodes;
+      const first_air = new Date(this.state.content.first_air_date);
+      const networks = this.state.content.networks.map(d => {
+        return d.name;
+      });
+
+      return (
+        <div className="mobile-vue-overview" style={{ paddingTop: "1.5px" }}>
+          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
+            Created By
+            {" - "}
+            <font style={{ color: "white" }}>{created_by.join(", ")}</font>
+          </div>
+
+          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
+            Episode Runtime
+            {" - "}
+            <font style={{ color: "white" }}>{episode_run_time}min</font>
+          </div>
+          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
+            Networks
+            {" - "}
+            <font style={{ color: "white" }}>{networks.join(", ")}</font>
+          </div>
+          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
+            First Air Date
+            {" - "}
+            <font style={{ color: "white" }}>
+              {first_air.toDateString().slice(4)}
+            </font>
+          </div>
+
+          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
+            Total Seasons
+            {" - "}
+            <font style={{ color: "white" }}>
+              {num_seasons} Season(s), {num_episodes} Episodes{" "}
+            </font>
+          </div>
+        </div>
+      );
+    }
+  }
+
+  displayMovieDetails() {
     if (this.state.credits.crew) {
       const dict = {};
       this.state.credits.crew.map(d => {
@@ -32,6 +85,7 @@ export default class MobileTitle extends PureComponent {
             } else {
               dict.composer = [d.name];
             }
+
           case "Screenplay":
             if (dict.writer) {
               dict.writer.push(d.name);
@@ -85,14 +139,24 @@ export default class MobileTitle extends PureComponent {
         </div>
         <div className="mobile-vue-info-main-div">
           <div className="mobile-vue-title">
-            {this.state.bannerInfo.title}
-            <Chip
-              size="small"
-              variant="outlined"
-              label={this.state.content.vote_average}
-              className="mobile-vue-rating-chip"
-              icon={<StarIcon style={{ width: "12px", color: "lightgreen" }} />}
-            />
+            <SkeletonTheme
+              color="#202020"
+              highlightColor="#444"
+              borderRadius="0px"
+              //width={10}
+            >
+              {this.state.bannerInfo.title}
+
+              <Chip
+                size="small"
+                variant="outlined"
+                label={this.state.content.vote_average}
+                className="mobile-vue-rating-chip"
+                icon={
+                  <StarIcon style={{ width: "12px", color: "lightgreen" }} />
+                }
+              />
+            </SkeletonTheme>
           </div>
 
           <div className="mobile-vue-genres">
@@ -175,7 +239,9 @@ export default class MobileTitle extends PureComponent {
               Information
             </div>
 
-            {this.props.media_type == "movie" ? this.displayDetails() : ""}
+            {this.props.media_type == "movie"
+              ? this.displayMovieDetails()
+              : this.displayShowDetails()}
           </div>
         </div>
       </div>

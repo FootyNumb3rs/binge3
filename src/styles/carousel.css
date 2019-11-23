@@ -1,93 +1,41 @@
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text|Ibarra+Real+Nova|Libre+Baskerville|Lora|Merriweather|PT+Serif|Playfair+Display|Source+Serif+Pro|Vollkorn&display=swap");
 @import url("https://rsms.me/inter/inter.css");
-.carousel-container {
-  margin-bottom: 0px;
-}
-
-.carousel-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding-bottom: 17px;
-  padding-right: 17px;
-  padding-left: 23px;
-  font-family: "Inter";
-}
-
-.carousel-header .carousel-title {
-  color: white;
-  font-size: 21.5px;
-  font-weight: 650;
-}
-
-.carousel-header .carousel-see-all {
-  color: #999999;
-  font-size: 15px;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  font-weight: 300;
-  padding-top: 2px;
-}
-
-.carousel-item-wrapper {
-  overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.carousel-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.preview-panel {
-  margin-bottom: 60px;
-}
-
-.preview-panel .header {
-  color: white;
-  font-family: Roboto;
-  font-weight: 400;
-  pointer-events: none;
-  margin-bottom: 10px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0;
-}
-
-.preview-panel .header .header-title {
-  font-size: 20px;
-  margin-right: 25px;
-  font-weight: 600;
-  color: lightgrey;
-}
-
-.mobile-wrapper {
-  display: none;
-}
-
 @media (max-width: 620px) {
   .wrapper {
     display: none;
+  }
+  .carousel-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding-bottom: 17px;
+    padding-right: 17px;
+    padding-left: 23px;
+    font-family: "Inter";
+  }
+  .carousel-header .carousel-title {
+    color: white;
+    font-size: 21.5px;
+    font-weight: 650;
+  }
+  .carousel-header .carousel-see-all {
+    color: #999999;
+    font-size: 15px;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    font-weight: 300;
+    padding-top: 2px;
+  }
+  .carousel-item-wrapper {
+    padding: 0px;
   }
   .mobile-wrapper {
     display: -webkit-box;
@@ -97,6 +45,164 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+}
+
+@media (min-width: 620px) {
+  .carousel-container {
+    margin-bottom: 0px;
+  }
+  .carousel-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding-bottom: 35px;
+    padding-right: 17px;
+    padding-left: 15px;
+    font-family: "Inter";
+    overflow: hidden;
+  }
+  .carousel-header .carousel-title {
+    color: white;
+    font-size: 25px;
+    font-weight: 650;
+  }
+  .carousel-header .carousel-see-all {
+    color: #999999;
+    font-size: 17px;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    font-weight: 300;
+    padding-top: 2px;
+  }
+  .carousel-item-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .carousel-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .mobile-wrapper {
+    display: none;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media (min-width: 768 px) {
+  .carousel-container {
+    margin-bottom: 0px;
+  }
+  .carousel-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding-bottom: 35px;
+    padding-right: 17px;
+    padding-left: 15px;
+    font-family: "Inter";
+    overflow: hidden;
+  }
+  .carousel-header .carousel-title {
+    color: white;
+    font-size: 25px;
+    font-weight: 650;
+  }
+  .carousel-header .carousel-see-all {
+    color: #999999;
+    font-size: 17px;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    font-weight: 300;
+    padding-top: 2px;
+  }
+  .carousel-item-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .carousel-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .mobile-wrapper {
+    display: none;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media (min-width: 992px) {
+  .carousel-container {
+    margin-bottom: 0px;
+  }
+  .carousel-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding-bottom: 35px;
+    padding-right: 17px;
+    padding-left: 15px;
+    font-family: "Inter";
+    overflow: hidden;
+  }
+  .carousel-header .carousel-title {
+    color: white;
+    font-size: 25px;
+    font-weight: 650;
+  }
+  .carousel-header .carousel-see-all {
+    color: #999999;
+    font-size: 17px;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    font-weight: 300;
+    padding-top: 2px;
+  }
+  .carousel-item-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .carousel-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .mobile-wrapper {
+    display: none;
   }
 }
 /*# sourceMappingURL=carousel.css.map */
