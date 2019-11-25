@@ -11,6 +11,7 @@ export default class Browse extends PureComponent {
   constructor(props) {
     super(props);
     this.state = { content_list: [], genres: {} };
+    props.setBar_(true);
 
     getGenres().then(data => {
       var genres_ = Object.assign(data[0], data[1]);

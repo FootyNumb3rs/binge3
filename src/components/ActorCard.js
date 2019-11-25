@@ -10,7 +10,7 @@ export default class ActorCard extends PureComponent {
           <img
             className="actor-img"
             style={{
-              width: "75px",
+              width: "20vw",
               objectPosition: "0 -20.5px"
             }}
             src={`https://image.tmdb.org/t/p/w300_and_h450_face/${this.props.profile.profile_path}`}

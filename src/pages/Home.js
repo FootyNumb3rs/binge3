@@ -10,6 +10,7 @@ export default class Home extends PureComponent {
   constructor(props) {
     super(props);
     this.state = { preview_movies: [], preview_shows: [] };
+    props.setBar_(true);
 
     getGenres().then(data => {
       var genres_ = Object.assign(data[0], data[1]);

@@ -11,6 +11,7 @@ export default class MobileTitle extends PureComponent {
     super(props);
     this.state = props.state_;
     //this.getPromise(props.match.params.id, props.match.params.media_type);
+    //props.setBar_(false);
   }
 
   displayShowDetails() {

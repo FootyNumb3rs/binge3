@@ -4,18 +4,18 @@
   align-items: center;
   margin-top: 6px;
   flex-shrink: 1;
-  width: 115px;
+  width: 25vw;
 
   .img-cover-div {
     display: inline-block;
     overflow: hidden;
-    height: 75px;
-    width: 75px;
+    height: 20vw;
+    width: 20vw;
     border-radius: 100%;
     margin-bottom: 3px;
 
     .actor-img {
-      width: 75px;
+      width: 20vw;
       object-fit: cover;
       object-position: 0px -20.5px;
       opacity: 0.8;

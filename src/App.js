@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import MainBar from "./components/MainBar";
 //import { makeStyles } from "@material-ui/core/styles";
@@ -13,6 +13,7 @@ import Title from "./pages/Title";
 import Browse from "./pages/Browse";
 
 function App() {
+  const [showBar, setBar] = useState(true);
   // Side Drawer ---------------
   /*
   const [state, setState] = React.useState({
@@ -78,7 +79,8 @@ function App() {
       <React.Fragment>
         <Router>
           <MainBar
-          //handleDrawerOpen={toggleDrawer("right", true)}
+            show={showBar}
+            //handleDrawerOpen={toggleDrawer("right", true)}
           />
           {/*
           <SwipeableDrawer
@@ -90,10 +92,24 @@ function App() {
           </SwipeableDrawer>
           */}
           <Switch>
-            <Route path="/" exact component={Home} />
+            <Route
+              path="/"
+              exact
+              render={props => <Home {...props} setBar_={setBar} />}
+            />
+
+            <Route
+              path="/browse/:media_type"
+              exact
+              render={props => <Browse {...props} setBar_={setBar} />}
+            />
+
             <Route exact path="/browse/:media_type" component={Browse} />
             <Route exact path="/search/:search_query" component={Browse} />
-            <Route path="/title/:media_type/:id" component={Title} />
+            <Route
+              path="/title/:media_type/:id"
+              render={props => <Title {...props} setBar_={setBar} />}
+            />
           </Switch>
         </Router>
       </React.Fragment>

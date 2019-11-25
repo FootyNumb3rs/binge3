@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   menuButton: { minHeight: 0, minWidth: 0 }
 }));
 
-export default function MainBar({ queryChange, searchSubmit }) {
+export default function MainBar({ queryChange, searchSubmit, show }) {
   const classes = useStyles();
 
   const [state, setState] = useState({
@@ -86,7 +86,13 @@ export default function MainBar({ queryChange, searchSubmit }) {
 
   return (
     <ThemeProvider>
-      <AppBar position="sticky" className={classes.appBar} elevation={0}>
+      <AppBar
+        position="sticky"
+        className={classes.appBar}
+        style={{ display: show ? "flex" : "none" }}
+        e
+        levation={0}
+      >
         <Toolbar variant="dense" disableGutters className="toolbar">
           <SwipeableDrawer
             open={state.right}
@@ -115,7 +121,6 @@ export default function MainBar({ queryChange, searchSubmit }) {
             <div className={"title-div"}>
               <div
                 className={"title"}
-
                 //  noWrap
               >
                 MOVX

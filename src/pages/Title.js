@@ -12,6 +12,7 @@ export default class Title extends PureComponent {
     super(props);
     this.state = { content: {}, bannerInfo: {}, credits: {} };
     this.getPromise(props.match.params.id, props.match.params.media_type);
+    props.setBar_(false);
   }
 
   // How to
