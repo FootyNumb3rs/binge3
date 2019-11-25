@@ -120,11 +120,11 @@
   font-family: Inter;
   font-size: 13.5px;
   color: grey;
-  font-weight: % 0;
+  font-weight: 500;
   line-height: 20px;
 }
 
-.info-main-div .info-left {
+.info-main-div .info-data .info-left {
   font-family: Inter;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -144,7 +144,7 @@
   margin-right: 50px;
 }
 
-.info-main-div .info-right {
+.info-main-div .info-data .info-right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

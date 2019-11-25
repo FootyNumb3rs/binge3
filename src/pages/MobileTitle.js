@@ -3,7 +3,9 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import Chip from "@material-ui/core/Chip";
 import "../styles/mobile-title-page.css";
 import StarIcon from "@material-ui/icons/Star";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ActorCard from "../components/ActorCard.js";
+import { Link } from "react-router-dom";
 
 export default class MobileTitle extends PureComponent {
   constructor(props) {
@@ -144,12 +146,35 @@ export default class MobileTitle extends PureComponent {
     return (
       <div className="mobile-vue-container">
         <div className="mobile-vue-cover-img-div">
+          <div className="cover-details">
+            <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+              <div
+                style={{
+                  backgroundColor: "transparent",
+                  display: "inline-block"
+                }}
+                onClick={() => {}}
+              >
+                <ArrowBackIcon />
+              </div>
+            </Link>
+          </div>
+
           <img
             className="mobile-vue-cover-img"
             src={this.state.content.backdrop_path}
             alt=""
           />
         </div>
+        {/*
+        <div className="mobile-vue-cover-img-div">
+          <img
+            className="mobile-vue-cover-img"
+            src={this.state.content.backdrop_path}
+            alt=""
+          />
+        </div>
+  */}
         <div className="mobile-vue-info-main-div">
           <div className="mobile-vue-title">
             <SkeletonTheme

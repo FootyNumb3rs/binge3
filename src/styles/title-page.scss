@@ -101,28 +101,28 @@ $mainFont: Inter;
     color: grey;
     font-weight: 500;
     line-height: 20px;
-  
 
-  .info-left {
-    font-family: $mainFont;
-    display: flex;
-    flex-direction: column;
-    height: 450px;
-    justify-content: space-between;
-    width: 150px;
-    flex-shrink: 0;
-    margin-left: 55px;
-    margin-right: 50px;
-  }
+    .info-left {
+      font-family: $mainFont;
+      display: flex;
+      flex-direction: column;
+      height: 450px;
+      justify-content: space-between;
+      width: 150px;
+      flex-shrink: 0;
+      margin-left: 55px;
+      margin-right: 50px;
+    }
 
-  .info-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    .info-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
-    width: 100%;
-    margin-right: 55px;
-    height: 100%s;
+      width: 100%;
+      margin-right: 55px;
+      height: 100%s;
+    }
   }
 }
 
