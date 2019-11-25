@@ -58,7 +58,7 @@ export default class MobileTitle extends PureComponent {
             Total Seasons
             {" - "}
             <font style={{ color: "white" }}>
-              {num_seasons} Season(s), {num_episodes} Episodes{" "}
+              {num_seasons} Season(s ), {num_episodes} Episodes{" "}
             </font>
           </div>
         </div>

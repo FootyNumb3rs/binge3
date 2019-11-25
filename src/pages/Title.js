@@ -35,6 +35,7 @@ export default class Title extends PureComponent {
               : this.state.content.original_title
         }
       });
+      window.scrollTo(0, 0);
     });
   }
 
