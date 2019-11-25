@@ -33,9 +33,19 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function MediaCard({ media_, openDialogue }) {
-  const { title, genres, release, posterLink, rating, media_type, id } = media_;
+  const {
+    title,
+    genres,
+    release,
+    posterLink,
+    rating,
+    media_type,
+    id,
+    first_air_date
+  } = media_;
   const classes = useStyles();
   const release_ = new Date(release);
+  const first_air_date_ = new Date(first_air_date);
 
   return (
     <Link
@@ -66,7 +76,9 @@ export default function MediaCard({ media_, openDialogue }) {
                 {genres.slice(0, 2).join(", ")}
               </div>
               <div className="mobile-card-etc">
-                {release_.toDateString().slice(4)}
+                {media_type == "movie"
+                  ? release_.toDateString().slice(4)
+                  : first_air_date_.toDateString().slice(4)}
               </div>
               <div className="mobile-card-etc">
                 <StarRatings

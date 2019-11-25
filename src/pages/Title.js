@@ -148,7 +148,9 @@ export default class Title extends PureComponent {
             />
           </div>
           <div className="info-main-div">
-            {this.displayMovieDetails()}
+            {this.props.match.params.media_type == "movie"
+              ? this.displayMovieDetails()
+              : ""}
             {/*
             <div className="info-left">
               <div>
@@ -242,7 +244,9 @@ export default class Title extends PureComponent {
                 </div>
               </div>
             </div>
-            {this.displayMovieDetails()}
+            {this.props.match.params.media_type == "movie"
+              ? this.displayMovieDetails()
+              : ""}
           </div>
         </div>
       </div>

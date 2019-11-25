@@ -90,6 +90,7 @@ export default class Browse extends PureComponent {
   }
 
   render(props) {
+    console.log(this.state);
     // Putting change triggers some sort of infinite loop
     return (
       <div

@@ -133,7 +133,8 @@ export function getTrending(genres, media_type) {
                 overview: item.overview,
                 release: item.release_date,
                 rating: item.vote_average,
-                vote_count: item.vote_count
+                vote_count: item.vote_count,
+                first_air_date: item.first_air_date
               };
             });
         })
