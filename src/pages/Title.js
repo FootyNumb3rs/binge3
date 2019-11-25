@@ -5,6 +5,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { getById } from "../tools/pullData.js";
 import Chip from "@material-ui/core/Chip";
 import MobileTitle from "./MobileTitle.js";
+import ActorCard from "../components/ActorCard.js";
 
 export default class Title extends PureComponent {
   constructor(props) {
@@ -35,6 +36,83 @@ export default class Title extends PureComponent {
         }
       });
     });
+  }
+
+  displayMovieDetails() {
+    if (this.state.credits.crew) {
+      const dict = {};
+      this.state.credits.crew.map(d => {
+        switch (d.job) {
+          case "Director of Photography":
+            dict.cinematographer = d.name;
+
+          case "Director":
+            if (!dict.director) {
+              dict.director = d.name;
+            }
+
+          case "Original Music Composer":
+            if (dict.composer) {
+              dict.composer.push(d.name);
+            } else {
+              dict.composer = [d.name];
+            }
+
+          case "Screenplay":
+            if (dict.writer) {
+              dict.writer.push(d.name);
+            } else {
+              dict.writer = [d.name];
+            }
+
+          case "Editor":
+            if (dict.editor) {
+              dict.editor.push(d.name);
+            } else {
+              dict.editor = [d.name];
+            }
+        }
+      });
+
+      return (
+        <div className="info-left">
+          <div>
+            <div className="info-header">Director</div>
+
+            <div className="info-data">
+              <SkeletonTheme
+                color="#202020"
+                highlightColor="#444"
+                borderRadius="0px"
+              >
+                {dict.director || <Skeleton duation={1} />}
+              </SkeletonTheme>
+            </div>
+          </div>
+          <div>
+            <div className="info-header">Cinematographer</div>
+
+            <div className="info-data">{dict.cinematographer} </div>
+          </div>
+          <div>
+            <div className="info-header">Writer(s)</div>
+            <div className="info-data">{dict.writer.join(", ")}</div>
+          </div>
+          <div>
+            <div className="info-header">Runtime</div>
+            <div className="info-data">{this.state.content.runtime}min</div>
+          </div>
+          <div>
+            <div className="info-header">Budget</div>
+            <div className="info-data">{this.state.content.budget}</div>
+          </div>
+          <div>
+            <div className="info-header">Revenue</div>
+            <div className="info-data">{this.state.content.revenue}</div>
+          </div>
+        </div>
+      );
+    }
   }
 
   render(props) {
@@ -69,6 +147,8 @@ export default class Title extends PureComponent {
             />
           </div>
           <div className="info-main-div">
+            {this.displayMovieDetails()}
+            {/*
             <div className="info-left">
               <div>
                 <div className="info-header">RELEASE DATE</div>
@@ -95,11 +175,11 @@ export default class Title extends PureComponent {
                 <div className="divider" />
                 <div className="info-data">$150M</div>
               </div>
-            </div>
+                    </div> */}
             <div className="info-right">
               <div>
-                <div className="info-header">PLOT</div>
-                <div className="divider" />
+                <div className="info-header">Plot</div>
+
                 <div className="info-data ">
                   <SkeletonTheme
                     color="#202020"
@@ -111,7 +191,57 @@ export default class Title extends PureComponent {
                   </SkeletonTheme>
                 </div>
               </div>
+              <div>
+                <div
+                  className="ov-header"
+                  style={{
+                    fontWeight: 700,
+                    fontColor: "gray"
+                  }}
+                >
+                  Cast
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    maxWidth: "100%",
+                    justifyContent: "space-between",
+                    marginBottom: "15px"
+                  }}
+                >
+                  {this.state.credits.cast
+                    ? this.state.credits.cast.slice(0, 5).map(credit => {
+                        return (
+                          <div key={1}>
+                            <ActorCard profile={credit} />
+                          </div>
+                        );
+                      })
+                    : "s"}
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    maxWidth: "100%",
+                    justifyContent: "space-between",
+                    margin: "5px 0px"
+                  }}
+                >
+                  {this.state.credits.cast
+                    ? this.state.credits.cast.slice(5, 10).map(credit => {
+                        return (
+                          <div key={1}>
+                            <ActorCard profile={credit} />
+                          </div>
+                        );
+                      })
+                    : "s"}
+                </div>
+              </div>
             </div>
+            {this.displayMovieDetails()}
           </div>
         </div>
       </div>

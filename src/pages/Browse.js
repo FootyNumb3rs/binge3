@@ -50,6 +50,29 @@ export default class Browse extends PureComponent {
     });
   };
 
+  displayHeader = () => {
+    const query = this.props.match.params.search_query;
+    if (query) {
+      return (
+        <div className="head">
+          <div className="header">{`Search results for "${query}"`}</div>
+        </div>
+      );
+    } else if (this.props.match.params.media_type == "tv") {
+      return (
+        <div className="head">
+          <div className="header">Popular Shows</div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="head">
+          <div className="header">Popular Movies</div>
+        </div>
+      );
+    }
+  };
+
   // If only props change
   componentDidUpdate(prevProps) {
     if (this.props.match.params.search_query) {
@@ -69,42 +92,47 @@ export default class Browse extends PureComponent {
   render(props) {
     // Putting change triggers some sort of infinite loop
     return (
-      <div className="browse-container">
-        <div className="head">
-          <div className="header"></div>
-        </div>
-        <div className="card-grid">
-          {this.state.content_list.map(media => {
-            return (
-              <div key={media.id}>
-                <MediaCard media_={media} />
-              </div>
-            );
-          })}
-        </div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center"
+        }}
+      >
+        <div className="browse-container">
+          {this.displayHeader()}
+          <div className="card-grid">
+            {this.state.content_list.map(media => {
+              return (
+                <div key={media.id}>
+                  <MediaCard media_={media} />
+                </div>
+              );
+            })}
+          </div>
 
-        <div className="mobile-card-grid">
-          {this.state.content_list.map(media => {
-            return (
-              <div key={media.id}>
-                <MobileMediaCard media_={media} />
-                <div
-                  style={{
-                    height: "1px",
-                    maxWidth: "100%",
-                    marginLeft: "16px",
-                    marginRight: "0px",
-                    backgroundColor: "white",
-                    opacity: 0.1
-                  }}
-                />
-              </div>
-            );
-          })}
-        </div>
+          <div className="mobile-card-grid">
+            {this.state.content_list.map(media => {
+              return (
+                <div key={media.id}>
+                  <MobileMediaCard media_={media} />
+                  <div
+                    style={{
+                      height: "1px",
+                      maxWidth: "100%",
+                      marginLeft: "16px",
+                      marginRight: "0px",
+                      backgroundColor: "white",
+                      opacity: 0.1
+                    }}
+                  />
+                </div>
+              );
+            })}
+          </div>
 
-        <div>
-          {/*
+          <div>
+            {/*
           <Pagination
             defaultActivePage={5}
             ellipsisItem={{
@@ -124,6 +152,7 @@ export default class Browse extends PureComponent {
             totalPages={10}
           />
           */}
+          </div>
         </div>
       </div>
     );

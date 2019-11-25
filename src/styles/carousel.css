@@ -4,6 +4,9 @@
   .wrapper {
     display: none;
   }
+  .carousel-container {
+    margin-bottom: 0px;
+  }
   .carousel-header {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -33,6 +36,7 @@
             justify-content: flex-end;
     font-weight: 300;
     padding-top: 2px;
+    cursor: pointer;
   }
   .carousel-item-wrapper {
     padding: 0px;
@@ -67,7 +71,6 @@
     padding-right: 17px;
     padding-left: 15px;
     font-family: "Inter";
-    overflow: hidden;
   }
   .carousel-header .carousel-title {
     color: white;
@@ -82,6 +85,7 @@
             justify-content: flex-end;
     font-weight: 300;
     padding-top: 2px;
+    cursor: pointer;
   }
   .carousel-item-wrapper {
     display: -webkit-box;
@@ -104,6 +108,7 @@
 @media (min-width: 768 px) {
   .carousel-container {
     margin-bottom: 0px;
+    overflow: auto;
   }
   .carousel-header {
     display: -webkit-box;
@@ -120,7 +125,6 @@
     padding-right: 17px;
     padding-left: 15px;
     font-family: "Inter";
-    overflow: hidden;
   }
   .carousel-header .carousel-title {
     color: white;
@@ -135,6 +139,7 @@
             justify-content: flex-end;
     font-weight: 300;
     padding-top: 2px;
+    cursor: pointer;
   }
   .carousel-item-wrapper {
     display: -webkit-box;
@@ -169,16 +174,17 @@
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    padding-bottom: 35px;
+    padding-bottom: 0px;
+    margin-bottom: 35px;
     padding-right: 17px;
-    padding-left: 15px;
+    padding-left: 10px;
     font-family: "Inter";
-    overflow: hidden;
   }
   .carousel-header .carousel-title {
     color: white;
-    font-size: 25px;
-    font-weight: 650;
+    font-size: 30px;
+    font-weight: 500;
+    cursor: default;
   }
   .carousel-header .carousel-see-all {
     color: #999999;
@@ -188,6 +194,7 @@
             justify-content: flex-end;
     font-weight: 300;
     padding-top: 2px;
+    cursor: pointer;
   }
   .carousel-item-wrapper {
     display: -webkit-box;

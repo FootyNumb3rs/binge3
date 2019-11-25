@@ -14,7 +14,7 @@ function Carousel({ mediaData, type, history }) {
   const settings = {
     infinite: false,
     speed: 350,
-    slidesToShow: 5,
+    slidesToShow: 6,
     slidesToScroll: 1,
     touchThreshold: 15,
     variableWidth: true,

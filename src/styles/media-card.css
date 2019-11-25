@@ -56,13 +56,13 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    width: 166.66667px;
+    width: 168px;
     background-color: transparent;
     border: 0px transparent;
   }
   .card .media {
-    height: 250px;
-    width: 166.66667px;
+    height: 252px;
+    width: 168px;
     background-color: transparent;
   }
   .cardText {

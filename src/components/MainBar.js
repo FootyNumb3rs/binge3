@@ -3,6 +3,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { makeStyles } from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
+import MobileSearchBar from "./MobileSearchBar";
 import { ThemeProvider } from "@material-ui/styles";
 import SearchBar from "./SearchBar";
 import Button from "@material-ui/core/Button";
@@ -21,7 +22,8 @@ const useStyles = makeStyles(theme => ({
     padding: 0,
     display: "flex",
     //borderRadius: "10px",
-    alignItems: "center"
+    alignItems: "center",
+    maxHeight: "48px"
   },
 
   button: {
@@ -46,6 +48,8 @@ export default function MainBar({ queryChange, searchSubmit }) {
     right: false
   });
 
+  const [openBar, setBar] = useState(false);
+
   const toggleDrawer = (side, open) => event => {
     if (
       event &&
@@ -61,6 +65,25 @@ export default function MainBar({ queryChange, searchSubmit }) {
     setState({ ...state, ["right"]: true });
   };
 
+  const openSearch = () => {
+    return (
+      <div
+        style={{
+          width: "100%",
+          height: "50px",
+          backgroundColor: "black",
+          display: "flex",
+          justifyContent: "center"
+        }}
+      >
+        <MobileSearchBar
+          queryChange={queryChange}
+          searchSubmit={searchSubmit}
+        />
+      </div>
+    );
+  };
+
   return (
     <ThemeProvider>
       <AppBar position="sticky" className={classes.appBar} elevation={0}>
@@ -73,13 +96,26 @@ export default function MainBar({ queryChange, searchSubmit }) {
             <SideDrawer />
           </SwipeableDrawer>
 
-          {/* APP TITLE */}
+          {/* MOBILE DRAWER BUTTON */}
+          <div className="mobile-menu-button">
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              className={classes.menuButton}
+              onClick={() => {
+                toggleDrawer_();
+              }}
+            >
+              <MenuIcon />
+            </IconButton>
+          </div>
 
+          {/* APP TITLE */}
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
             <div className={"title-div"}>
               <div
                 className={"title"}
-                onClick={() => {}}
+
                 //  noWrap
               >
                 MOVX
@@ -110,29 +146,18 @@ export default function MainBar({ queryChange, searchSubmit }) {
           {/* SEARCH BAR */}
           <SearchBar queryChange={queryChange} searchSubmit={searchSubmit} />
 
-          {/* MOBILE DRAWER BUTTON */}
-          <div className="mobile-menu-button">
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              className={classes.menuButton}
-              onClick={() => {
-                toggleDrawer_();
-              }}
-            >
-              <MenuIcon />
-            </IconButton>
-          </div>
-
-          <div className="mobile-title">Home</div>
-
           {/* MOBILE SEARCH BUTTON */}
           <div className="mobile-search-button">
             <IconButton color="inherit" aria-label="open drawer">
-              <SearchIcon />
+              <SearchIcon
+                onClick={() => {
+                  setBar(!openBar);
+                }}
+              />
             </IconButton>
           </div>
         </Toolbar>
+        {openBar ? openSearch() : ""}
       </AppBar>
     </ThemeProvider>
   );

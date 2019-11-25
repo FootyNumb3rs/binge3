@@ -1,9 +1,9 @@
 $mainFont: Inter;
 
 .title-container {
-  background-color: #121212;
+  background-color: #0d0d0d;
   color: white;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -29,7 +29,7 @@ $mainFont: Inter;
     position: absolute;
     max-width: 1280px;
     width: 100%;
-    margin-left: 55px;
+    padding-left: 55px;
     z-index: 1000;
     bottom: 60px;
 
@@ -71,7 +71,9 @@ $mainFont: Inter;
   max-width: 1280px;
   width: 100%;
   margin-top: 40px;
+  margin-bottom: 40px;
   flex-grow: 1;
+  min-height: 100%;
 
   .divider {
     width: 30px;
@@ -84,28 +86,28 @@ $mainFont: Inter;
 
   .info-header {
     font-family: $mainFont;
-    font-size: 16px;
+    font-size: 15px;
     color: lightgray;
 
     font-weight: 600;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
   }
 
   .info-data {
     //flex-grow: 1;
     width: 100%;
     font-family: $mainFont;
-    font-size: 14.5px;
+    font-size: 13.5px;
     color: grey;
-    font-weight: 400;
-    line-height: 28px;
-  }
+    font-weight: 500;
+    line-height: 20px;
+  
 
   .info-left {
     font-family: $mainFont;
     display: flex;
     flex-direction: column;
-    max-height: 250px;
+    height: 450px;
     justify-content: space-between;
     width: 150px;
     flex-shrink: 0;
@@ -114,9 +116,13 @@ $mainFont: Inter;
   }
 
   .info-right {
-    //flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     width: 100%;
     margin-right: 55px;
+    height: 100%s;
   }
 }
 

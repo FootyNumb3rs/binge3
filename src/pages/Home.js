@@ -79,8 +79,9 @@ export default class Home extends PureComponent {
           <div className="showcase-div">
             <div
               style={{
-                maxWidth: "990px",
+                maxWidth: "1130px",
                 width: "100%"
+                //overflow: "hidden"
               }}
             >
               <Carousel type="tv" mediaData={this.state.preview_shows} />
@@ -90,6 +91,9 @@ export default class Home extends PureComponent {
               <Carousel type="tv" mediaData={this.state.preview_shows} />
             </div>
           </div>
+        </div>
+        <div className="signature">
+          Made by Tande Mungwa with TMDB and React.js
         </div>
       </div>
     );
