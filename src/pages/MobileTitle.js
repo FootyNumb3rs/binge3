@@ -124,6 +124,18 @@ export default class MobileTitle extends PureComponent {
     }
   }
 
+  getRatingColor(rating) {
+    if (rating < 6) {
+      return "#F44336";
+    } else if (rating < 7) {
+      return "#FB8C00";
+    } else if (rating < 7.5) {
+      return "#FFEE58";
+    } else {
+      return "#66BB6A";
+    }
+  }
+
   render(props) {
     console.log(this.props);
     this.setState(this.props.state_);
@@ -152,8 +164,18 @@ export default class MobileTitle extends PureComponent {
                 variant="outlined"
                 label={this.state.content.vote_average}
                 className="mobile-vue-rating-chip"
+                style={{
+                  color: this.getRatingColor(this.state.content.vote_average)
+                }}
                 icon={
-                  <StarIcon style={{ width: "12px", color: "lightgreen" }} />
+                  <StarIcon
+                    style={{
+                      width: "12px",
+                      color: this.getRatingColor(
+                        this.state.content.vote_average
+                      )
+                    }}
+                  />
                 }
               />
             </SkeletonTheme>

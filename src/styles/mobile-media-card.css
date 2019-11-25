@@ -19,6 +19,15 @@
   padding: 7px 11px 7px 10px;
 }
 
+.mobile-card-div .mobile-vue-rating-chip {
+  margin-bottom: 1.5;
+  background-color: #1a1a1a;
+  color: lightgreen;
+  border-color: #1a1a1a;
+  font-size: 12;
+  font-weight: 500;
+}
+
 .mobile-card-div .mobile-card-img-div {
   display: -webkit-box;
   display: -ms-flexbox;

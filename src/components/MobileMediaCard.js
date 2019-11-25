@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import StarRatings from "react-star-ratings";
+import StarIcon from "@material-ui/icons/Star";
 import Chip from "@material-ui/core/Chip";
 import { Link } from "react-router-dom";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
@@ -31,6 +32,18 @@ const useStyles = makeStyles(theme => ({
     //height: 140
   }
 }));
+
+const getRatingColor = rating => {
+  if (rating < 6) {
+    return "#F44336";
+  } else if (rating < 7) {
+    return "#FB8C00";
+  } else if (rating < 7.5) {
+    return "#FFEE58";
+  } else {
+    return "#66BB6A";
+  }
+};
 
 export default function MediaCard({ media_, openDialogue }) {
   const {
@@ -81,6 +94,7 @@ export default function MediaCard({ media_, openDialogue }) {
                   : first_air_date_.toDateString().slice(4)}
               </div>
               <div className="mobile-card-etc">
+                {/*
                 <StarRatings
                   rating={1}
                   starRatedColor="yellow"
@@ -91,6 +105,19 @@ export default function MediaCard({ media_, openDialogue }) {
                   name="rating"
                 />
                 {` ${rating}/10 `}
+                */}
+                <Chip
+                  size="small"
+                  variant="outlined"
+                  label={rating}
+                  className="mobile-vue-rating-chip"
+                  style={{ color: getRatingColor(rating) }}
+                  icon={
+                    <StarIcon
+                      style={{ width: "12px", color: getRatingColor(rating) }}
+                    />
+                  }
+                />
               </div>
             </div>
           </div>

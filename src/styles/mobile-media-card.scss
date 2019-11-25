@@ -21,6 +21,16 @@ $cardWidth: (2/3) * $cardHeight;
   //padding-right: 0px;
   //height: 100%;
 
+  .mobile-vue-rating-chip {
+    //margin-left: 8px;
+    margin-bottom: 1.5;
+    background-color: #1a1a1a;
+    color: lightgreen;
+    border-color: #1a1a1a;
+    font-size: 12;
+    font-weight: 500;
+  }
+
   .mobile-card-img-div {
     display: flex;
     justify-content: center;
