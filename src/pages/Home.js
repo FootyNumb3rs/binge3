@@ -3,13 +3,17 @@ import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import Carousel from "../components/Carousel";
 import "../styles/home.css";
-import { getTrending, getGenres } from "../tools/pullData";
+import { getTrending, getGenres, getInTheaters } from "../tools/pullData";
 import Slider from "react-slick";
 
 export default class Home extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = { preview_movies: [], preview_shows: [] };
+    this.state = {
+      preview_movies: [],
+      preview_shows: [],
+      preview_in_theaters: []
+    };
     props.setBar_(true);
 
     getGenres().then(data => {
@@ -18,6 +22,7 @@ export default class Home extends PureComponent {
 
       this.previewMovies();
       this.previewShows();
+      this.previewInTheaters();
     });
   }
 
@@ -28,6 +33,16 @@ export default class Home extends PureComponent {
         all_data.push(...d);
       });
       this.setState({ preview_movies: all_data });
+    });
+  };
+
+  previewInTheaters = () => {
+    getInTheaters(this.state.genres).then(data => {
+      var all_data = [];
+      data.forEach(d => {
+        all_data.push(...d);
+      });
+      this.setState({ preview_in_theaters: all_data });
     });
   };
 
@@ -89,7 +104,10 @@ export default class Home extends PureComponent {
               <div className="home-divider" />
               <Carousel type="movie" mediaData={this.state.preview_movies} />
               <div className="home-divider" />
-              <Carousel type="tv" mediaData={this.state.preview_shows} />
+              <Carousel
+                type="movie"
+                mediaData={this.state.preview_in_theaters}
+              />
             </div>
           </div>
         </div>

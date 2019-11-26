@@ -59,11 +59,11 @@ export default function MediaCard({ media_, openDialogue, rp }) {
 
           <div className={"cardText"}>
             <Typography className={"title"}>
-              {/*title ||*/ <Skeleton width="90%" height="40%" />}
+              {title || <Skeleton width="90%" height="40%" />}
             </Typography>
 
             <Typography className={"genres"}>
-              {/*genres[0] ||*/ <Skeleton width="60%" />}
+              {genres[0] || <Skeleton width="60%" />}
             </Typography>
           </div>
         </SkeletonTheme>

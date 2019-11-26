@@ -68,7 +68,7 @@ export function getById(genres, media_id, media_type) {
 
 /* Get In Theaters */
 
-export function getInTheaters(genres, media_type) {
+export function getInTheaters(genres) {
   var promises = [];
   var pages = ["1", "2"];
 
@@ -84,9 +84,8 @@ export function getInTheaters(genres, media_type) {
             .map(item => {
               return {
                 id: item.id,
-                media_type: media_type,
-                title:
-                  media_type == "tv" ? item.original_name : item.original_title,
+                media_type: "movie",
+                title: item.original_title,
                 genres: item.genre_ids.slice(0, 3).map(genre => genres[genre]),
                 posterLink: `https://image.tmdb.org/t/p/w500/${item.poster_path}`,
                 backdropLink: `https://image.tmdb.org/t/p/original/${item.backdrop_path}`,
@@ -105,6 +104,8 @@ export function getInTheaters(genres, media_type) {
 
   return axios.all(promises);
 }
+
+console.log(getInTheaters({}));
 
 /* Get Trending */
 

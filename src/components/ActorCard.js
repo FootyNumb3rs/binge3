@@ -20,10 +20,10 @@ export default class ActorCard extends PureComponent {
         </div>
         <div className="actor-details">
           <div style={{ textAlign: "center" }} className="actor-name">
-            {/*this.props.profile.name ||*/ <Skeleton width="20vw" />}
+            {this.props.profile.name || <Skeleton width="20vw" />}
           </div>
           <div style={{ textAlign: "center" }} className="actor-role">
-            {/*this.props.profile.character*/ <Skeleton width="18vw" />}
+            {this.props.profile.character || <Skeleton width="18vw" />}
           </div>
         </div>
       </div>
