@@ -52,24 +52,24 @@
 .mobile-card-div .mobile-card-title {
   font-family: Inter;
   color: white;
-  padding: 3.5px 10px;
-  font-size: 14px;
+  padding: 0.5vw 10px;
+  font-size: 3.2vw;
   font-weight: 500;
 }
 
 .mobile-card-div .mobile-card-genres {
   font-family: Inter;
   color: #929191;
-  padding: 3.5px 10px;
-  font-size: 13px;
+  padding: 0.5vw 10px;
+  font-size: 3.2vw;
   font-weight: 400;
 }
 
 .mobile-card-div .mobile-card-etc {
   font-family: Inter;
   color: white;
-  padding: 3.5px 10px;
-  font-size: 12px;
+  padding: 0.5vw 10px;
+  font-size: 3.2vw;
   font-weight: 500;
 }
 

@@ -111,10 +111,10 @@ export default function MediaCard({ media_, openDialogue }) {
                   variant="outlined"
                   label={rating}
                   className="mobile-vue-rating-chip"
-                  style={{ color: getRatingColor(rating) }}
+                  style={{ fontSize: "3.2vw", color: getRatingColor(rating) }}
                   icon={
                     <StarIcon
-                      style={{ width: "12px", color: getRatingColor(rating) }}
+                      style={{ width: "3.2vw", color: getRatingColor(rating) }}
                     />
                   }
                 />
