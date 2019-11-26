@@ -15,7 +15,7 @@
   .card .media {
     height: 48vw;
     width: 32vw;
-    background-color: black;
+    background-color: transparent;
   }
   .card .cardText {
     margin-top: 9px;
