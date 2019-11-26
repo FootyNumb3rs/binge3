@@ -36,7 +36,7 @@ export default function MediaCard({ media_, openDialogue, rp }) {
             pathname: `/title/${media_type}/${id}`
           }}
         >
-          <Card className="card" style={{ borderRadius: 0 }}>
+          <Card style={{ borderRadius: 0 }}>
             <CardActionArea
               classes={{
                 root: classes.actionArea,

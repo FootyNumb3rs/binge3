@@ -128,6 +128,14 @@ $mainFont: Inter;
     padding-top: 20px;
     color: white;
   }
+
+  .mobile-vue-cast {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
 }
 
 @media (min-width: 620px) {

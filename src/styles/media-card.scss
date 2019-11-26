@@ -25,12 +25,12 @@ $cardWidth: (2/3) * $cardHeight;
   .card {
     width: $cardWidth;
     background-color: $backgroundColor;
-    border: 0px $backgroundColor;
+    border: 0px;
 
     .media {
       height: $cardHeight;
       width: $cardWidth;
-      background-color: transparent;
+      background-color: black;
     }
     .cardText {
       margin-top: 9px;

@@ -104,8 +104,12 @@ function App() {
               render={props => <Browse {...props} setBar_={setBar} />}
             />
 
-            <Route exact path="/browse/:media_type" component={Browse} />
-            <Route exact path="/search/:search_query" component={Browse} />
+            <Route
+              path="/search/:search_query"
+              exact
+              render={props => <Browse {...props} setBar_={setBar} />}
+            />
+
             <Route
               path="/title/:media_type/:id"
               render={props => <Title {...props} setBar_={setBar} />}

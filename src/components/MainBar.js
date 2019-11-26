@@ -90,8 +90,7 @@ export default function MainBar({ queryChange, searchSubmit, show }) {
         position="sticky"
         className={classes.appBar}
         style={{ display: show ? "flex" : "none" }}
-        e
-        levation={0}
+        elevation={0}
       >
         <Toolbar variant="dense" disableGutters className="toolbar">
           <SwipeableDrawer

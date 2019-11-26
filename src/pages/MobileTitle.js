@@ -78,8 +78,10 @@ export default class MobileTitle extends PureComponent {
             dict.cinematographer = d.name;
 
           case "Director":
-            if (!dict.director) {
-              dict.director = d.name;
+            if (dict.director) {
+              dict.director.push(d.name);
+            } else {
+              dict.director = [d.name];
             }
 
           case "Original Music Composer":
@@ -90,7 +92,7 @@ export default class MobileTitle extends PureComponent {
             }
 
           case "Screenplay":
-            if (dict.writer) {
+            if (d.department == "Screenplay") {
               dict.writer.push(d.name);
             } else {
               dict.writer = [d.name];
@@ -110,7 +112,7 @@ export default class MobileTitle extends PureComponent {
           <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
             Director
             {" - "}
-            <font style={{ color: "white" }}>{dict.director}</font>
+            <font style={{ color: "white" }}>{dict.director.join(", ")}</font>
           </div>
           <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
             Cinematographer
@@ -121,6 +123,24 @@ export default class MobileTitle extends PureComponent {
             Writer(s)
             {" - "}
             <font style={{ color: "white" }}>{dict.writer.join(", ")}</font>
+          </div>
+
+          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
+            Runtime
+            {" - "}
+            <font style={{ color: "white" }}>
+              {this.state.content.runtime}min
+            </font>
+          </div>
+          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
+            Budget
+            {" - "}
+            <font style={{ color: "white" }}>{this.state.content.budget}</font>
+          </div>
+          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
+            Revenue
+            {" - "}
+            <font style={{ color: "white" }}>{this.state.content.revenue}</font>
           </div>
         </div>
       );
@@ -137,6 +157,28 @@ export default class MobileTitle extends PureComponent {
     } else {
       return "#66BB6A";
     }
+  }
+
+  getChip() {
+    return (
+      <Chip
+        size="small"
+        variant="outlined"
+        label={this.state.content.vote_average}
+        className="mobile-vue-rating-chip"
+        style={{
+          color: this.getRatingColor(this.state.content.vote_average)
+        }}
+        icon={
+          <StarIcon
+            style={{
+              width: "12px",
+              color: this.getRatingColor(this.state.content.vote_average)
+            }}
+          />
+        }
+      />
+    );
   }
 
   render(props) {
@@ -174,7 +216,7 @@ export default class MobileTitle extends PureComponent {
             alt=""
           />
         </div>
-  */}
+        */}
         <div className="mobile-vue-info-main-div">
           <div className="mobile-vue-title">
             <SkeletonTheme
@@ -184,26 +226,7 @@ export default class MobileTitle extends PureComponent {
               //width={10}
             >
               {this.state.bannerInfo.title}
-
-              <Chip
-                size="small"
-                variant="outlined"
-                label={this.state.content.vote_average}
-                className="mobile-vue-rating-chip"
-                style={{
-                  color: this.getRatingColor(this.state.content.vote_average)
-                }}
-                icon={
-                  <StarIcon
-                    style={{
-                      width: "12px",
-                      color: this.getRatingColor(
-                        this.state.content.vote_average
-                      )
-                    }}
-                  />
-                }
-              />
+              {this.getChip()}
             </SkeletonTheme>
           </div>
 
@@ -218,10 +241,8 @@ export default class MobileTitle extends PureComponent {
                 : "s"}
             </div>
           </div>
-
           <div className="mobile-vue-overview">
             <div className="ov-header">Overview</div>
-
             <div>{this.state.content.overview}</div>
           </div>
           <div className="title-divider" />
@@ -236,15 +257,7 @@ export default class MobileTitle extends PureComponent {
             >
               Cast
             </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                maxWidth: "100%",
-                justifyContent: "space-between",
-                marginBottom: "15px"
-              }}
-            >
+            <div className="mobile-vue-cast">
               {this.state.credits.cast
                 ? this.state.credits.cast.slice(0, 3).map(credit => {
                     return (
@@ -255,15 +268,7 @@ export default class MobileTitle extends PureComponent {
                   })
                 : "s"}
             </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                maxWidth: "100%",
-                justifyContent: "space-between",
-                margin: "5px 0px"
-              }}
-            >
+            <div className="mobile-vue-cast">
               {this.state.credits.cast
                 ? this.state.credits.cast.slice(3, 6).map(credit => {
                     return (

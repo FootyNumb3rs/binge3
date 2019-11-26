@@ -10,12 +10,12 @@
   .card {
     width: 32vw;
     background-color: transparent;
-    border: 0px transparent;
+    border: 0px;
   }
   .card .media {
     height: 48vw;
     width: 32vw;
-    background-color: transparent;
+    background-color: black;
   }
   .card .cardText {
     margin-top: 9px;
