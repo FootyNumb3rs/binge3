@@ -36,24 +36,32 @@ export default class MobileTitle extends PureComponent {
           <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
             Created By
             {" - "}
-            <font style={{ color: "white" }}>{created_by.join(", ")}</font>
+            <font style={{ color: "white" }}>
+              {/*created_by.join(", ") ||*/ <Skeleton width="30%" />}
+            </font>
           </div>
 
           <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
             Episode Runtime
             {" - "}
-            <font style={{ color: "white" }}>{episode_run_time}min</font>
+            <font style={{ color: "white" }}>
+              {/*episode_run_time + "min" || */ <Skeleton width="30%" />}
+            </font>
           </div>
           <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
             Networks
             {" - "}
-            <font style={{ color: "white" }}>{networks.join(", ")}</font>
+            <font style={{ color: "white" }}>
+              {/*networks.join(", ") ||*/ <Skeleton width="30%" />}
+            </font>
           </div>
           <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
             First Air Date
             {" - "}
             <font style={{ color: "white" }}>
-              {first_air.toDateString().slice(4)}
+              {
+                /*first_air.toDateString().slice(4) || */ <Skeleton width="30%" />
+              }
             </font>
           </div>
 
@@ -61,7 +69,9 @@ export default class MobileTitle extends PureComponent {
             Total Seasons
             {" - "}
             <font style={{ color: "white" }}>
-              {num_seasons} Season(s), {num_episodes} Episodes{" "}
+              {
+                /*`${num_seasons} Season(s), ${num_episodes} Episodes` ||*/ <Skeleton width="30%" />
+              }
             </font>
           </div>
         </div>
@@ -114,40 +124,46 @@ export default class MobileTitle extends PureComponent {
           <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
             Director
             {" - "}
-            <font style={{ color: "white" }}>{dict.director.join(", ")}</font>
+            <font style={{ color: "white" }}>
+              {/*dict.director.join(", ") ||*/ <Skeleton width="30%" />}
+            </font>
           </div>
           <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
             Cinematographer
             {" - "}
             <font style={{ color: "white" }}>
-              {dict.cinematographer || "N/A"}
+              {/*dict.cinematographer ||*/ "N/A"}
             </font>
           </div>
           <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
             Writer(s)
             {" - "}
-            <font style={{ color: "white" }}>{dict.writer.join(", ")}</font>
+            <font style={{ color: "white" }}>
+              {/*dict.writer.join(", ") ||*/ <Skeleton width="30%" />}
+            </font>
           </div>
 
           <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
             Runtime
             {" - "}
             <font style={{ color: "white" }}>
-              {this.state.content.runtime}min
+              {
+                /*this.state.content.runtime + "min" ||*/ <Skeleton width="30%" />
+              }
             </font>
           </div>
           <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
             Budget
             {" - "}
             <font style={{ color: "white" }}>
-              {"$" + this.formatCash(budget)}
+              {/*"$" + this.formatCash(budget) ||*/ <Skeleton width="30%" />}
             </font>
           </div>
           <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
             Revenue
             {" - "}
             <font style={{ color: "white" }}>
-              {"$" + this.formatCash(revenue)}
+              {/*"$" + this.formatCash(revenue) ||*/ <Skeleton width="30%" />}
             </font>
           </div>
           <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
@@ -155,9 +171,11 @@ export default class MobileTitle extends PureComponent {
             <font
               style={{ color: revenue - budget > 0 ? "#66BB6A" : "#F44336" }}
             >
-              {(revenue - budget > 0 ? "+" : "-") +
+              {
+                /*(revenue - budget > 0 ? "+" : "-") +
                 "$" +
-                this.formatCash(Math.abs(revenue - budget))}
+                this.formatCash(Math.abs(revenue - budget)) ||*/ <Skeleton width="30%" />
+              }
             </font>
           </div>
         </div>
@@ -250,9 +268,14 @@ export default class MobileTitle extends PureComponent {
                 color="#202020"
                 highlightColor="#444"
                 borderRadius="0px"
-                //width={10}
               >
-                {this.state.bannerInfo.title}
+                {
+                  /*this.state.bannerInfo.title ||*/ <Skeleton
+                    width="60%"
+                    height={20}
+                  />
+                }
+
                 {this.getChip()}
               </SkeletonTheme>
             </div>
@@ -270,7 +293,15 @@ export default class MobileTitle extends PureComponent {
             </div>
             <div className="mobile-vue-overview">
               <div className="ov-header">Overview</div>
-              <div>{this.state.content.overview}</div>
+              <div>
+                {
+                  /*this.state.content.overview ||*/ <Skeleton
+                    width={"90%"}
+                    height={13}
+                    count={3}
+                  />
+                }
+              </div>
             </div>
             <div className="title-divider" />
 
