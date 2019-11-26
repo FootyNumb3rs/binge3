@@ -71,6 +71,8 @@ export default class MobileTitle extends PureComponent {
 
   displayMovieDetails() {
     if (this.state.credits.crew) {
+      const budget = this.state.content.budget;
+      const revenue = this.state.content.revenue;
       const dict = {};
       this.state.credits.crew.map(d => {
         switch (d.job) {
@@ -117,7 +119,9 @@ export default class MobileTitle extends PureComponent {
           <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
             Cinematographer
             {" - "}
-            <font style={{ color: "white" }}>{dict.cinematographer}</font>
+            <font style={{ color: "white" }}>
+              {dict.cinematographer || "N/A"}
+            </font>
           </div>
           <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
             Writer(s)
@@ -135,12 +139,26 @@ export default class MobileTitle extends PureComponent {
           <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
             Budget
             {" - "}
-            <font style={{ color: "white" }}>{this.state.content.budget}</font>
+            <font style={{ color: "white" }}>
+              {"$" + this.formatCash(budget)}
+            </font>
           </div>
           <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
             Revenue
             {" - "}
-            <font style={{ color: "white" }}>{this.state.content.revenue}</font>
+            <font style={{ color: "white" }}>
+              {"$" + this.formatCash(revenue)}
+            </font>
+          </div>
+          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
+            Net{" - "}
+            <font
+              style={{ color: revenue - budget > 0 ? "#66BB6A" : "#F44336" }}
+            >
+              {(revenue - budget > 0 ? "+" : "-") +
+                "$" +
+                this.formatCash(Math.abs(revenue - budget))}
+            </font>
           </div>
         </div>
       );
@@ -157,6 +175,14 @@ export default class MobileTitle extends PureComponent {
     } else {
       return "#66BB6A";
     }
+  }
+
+  formatCash(n) {
+    if (n < 1e3) return n;
+    if (n >= 1e3 && n < 1e6) return +(n / 1e3).toFixed(1) + "k";
+    if (n >= 1e6 && n < 1e9) return +(n / 1e6).toFixed(1) + "m";
+    if (n >= 1e9 && n < 1e12) return +(n / 1e9).toFixed(1) + "b";
+    if (n >= 1e12) return +(n / 1e12).toFixed(1) + "T";
   }
 
   getChip() {
@@ -187,28 +213,29 @@ export default class MobileTitle extends PureComponent {
 
     return (
       <div className="mobile-vue-container">
-        <div className="mobile-vue-cover-img-div">
-          <div className="cover-details">
-            <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-              <div
-                style={{
-                  backgroundColor: "transparent",
-                  display: "inline-block"
-                }}
-                onClick={() => {}}
-              >
-                <ArrowBackIcon />
-              </div>
-            </Link>
-          </div>
+        <SkeletonTheme color="#202020" highlightColor="#444" borderRadius="0px">
+          <div className="mobile-vue-cover-img-div">
+            <div className="cover-details">
+              <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+                <div
+                  style={{
+                    backgroundColor: "transparent",
+                    display: "inline-block"
+                  }}
+                  onClick={() => {}}
+                >
+                  <ArrowBackIcon />
+                </div>
+              </Link>
+            </div>
 
-          <img
-            className="mobile-vue-cover-img"
-            src={this.state.content.backdrop_path}
-            alt=""
-          />
-        </div>
-        {/*
+            <img
+              className="mobile-vue-cover-img"
+              src={this.state.content.backdrop_path}
+              alt=""
+            />
+          </div>
+          {/*
         <div className="mobile-vue-cover-img-div">
           <img
             className="mobile-vue-cover-img"
@@ -217,86 +244,87 @@ export default class MobileTitle extends PureComponent {
           />
         </div>
         */}
-        <div className="mobile-vue-info-main-div">
-          <div className="mobile-vue-title">
-            <SkeletonTheme
-              color="#202020"
-              highlightColor="#444"
-              borderRadius="0px"
-              //width={10}
-            >
-              {this.state.bannerInfo.title}
-              {this.getChip()}
-            </SkeletonTheme>
-          </div>
+          <div className="mobile-vue-info-main-div">
+            <div className="mobile-vue-title">
+              <SkeletonTheme
+                color="#202020"
+                highlightColor="#444"
+                borderRadius="0px"
+                //width={10}
+              >
+                {this.state.bannerInfo.title}
+                {this.getChip()}
+              </SkeletonTheme>
+            </div>
 
-          <div className="mobile-vue-genres">
+            <div className="mobile-vue-genres">
+              <div>
+                {"2019 • "}
+                {this.state.content.genres
+                  ? this.state.content.genres
+                      .map(genre => genre.name)
+                      .join(", ")
+                      .toUpperCase()
+                  : "s"}
+              </div>
+            </div>
+            <div className="mobile-vue-overview">
+              <div className="ov-header">Overview</div>
+              <div>{this.state.content.overview}</div>
+            </div>
+            <div className="title-divider" />
+
             <div>
-              {"2019 • "}
-              {this.state.content.genres
-                ? this.state.content.genres
-                    .map(genre => genre.name)
-                    .join(", ")
-                    .toUpperCase()
-                : "s"}
+              <div
+                className="ov-header"
+                style={{
+                  fontWeight: 700,
+                  fontColor: "gray"
+                }}
+              >
+                Cast
+              </div>
+              <div className="mobile-vue-cast">
+                {this.state.credits.cast
+                  ? this.state.credits.cast.slice(0, 3).map(credit => {
+                      return (
+                        <div key={1}>
+                          <ActorCard profile={credit} />
+                        </div>
+                      );
+                    })
+                  : "s"}
+              </div>
+              <div className="mobile-vue-cast">
+                {this.state.credits.cast
+                  ? this.state.credits.cast.slice(3, 6).map(credit => {
+                      return (
+                        <div key={1}>
+                          <ActorCard profile={credit} />
+                        </div>
+                      );
+                    })
+                  : "s"}
+              </div>
             </div>
-          </div>
-          <div className="mobile-vue-overview">
-            <div className="ov-header">Overview</div>
-            <div>{this.state.content.overview}</div>
-          </div>
-          <div className="title-divider" />
+            <div className="title-divider" />
+            <div>
+              <div
+                className="ov-header"
+                style={{
+                  fontWeight: 700,
+                  fontColor: "gray"
+                }}
+              >
+                Information
+              </div>
 
-          <div>
-            <div
-              className="ov-header"
-              style={{
-                fontWeight: 700,
-                fontColor: "gray"
-              }}
-            >
-              Cast
-            </div>
-            <div className="mobile-vue-cast">
-              {this.state.credits.cast
-                ? this.state.credits.cast.slice(0, 3).map(credit => {
-                    return (
-                      <div key={1}>
-                        <ActorCard profile={credit} />
-                      </div>
-                    );
-                  })
-                : "s"}
-            </div>
-            <div className="mobile-vue-cast">
-              {this.state.credits.cast
-                ? this.state.credits.cast.slice(3, 6).map(credit => {
-                    return (
-                      <div key={1}>
-                        <ActorCard profile={credit} />
-                      </div>
-                    );
-                  })
-                : "s"}
+              {this.props.media_type == "movie"
+                ? this.displayMovieDetails()
+                : this.displayShowDetails()}
             </div>
           </div>
-          <div className="title-divider" />
-          <div>
-            <div
-              className="ov-header"
-              style={{
-                fontWeight: 700,
-                fontColor: "gray"
-              }}
-            >
-              Information
-            </div>
-
-            {this.props.media_type == "movie"
-              ? this.displayMovieDetails()
-              : this.displayShowDetails()}
-          </div>
-        </div>
+        </SkeletonTheme>
       </div>
     );
   }

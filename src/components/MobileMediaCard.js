@@ -68,59 +68,63 @@ export default function MediaCard({ media_, openDialogue }) {
     >
       <Card className={classes.card}>
         <CardActionArea style={{ width: "100%" }}>
-          <div className="mobile-card-div">
-            <div className="mobile-card-img-div">
-              <img src={posterLink} alt="" className="mobile-card-img" />
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center"
-              }}
-            >
+          <SkeletonTheme
+            color="#202020"
+            highlightColor="#444"
+            borderRadius="0px"
+          >
+            <div className="mobile-card-div">
+              <div className="mobile-card-img-div">
+                <img src={posterLink} alt="" className="mobile-card-img" />
+              </div>
               <div
-                className="mobile-card-title"
-                style={{ paddingBottom: ".5px" }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  width: "100%"
+                }}
               >
-                {title}
-              </div>
-              <div className="mobile-card-genres">
-                {genres.slice(0, 2).join(", ")}
-              </div>
-              <div className="mobile-card-etc">
-                {media_type == "movie"
-                  ? release_.toDateString().slice(4)
-                  : first_air_date_.toDateString().slice(4)}
-              </div>
-              <div className="mobile-card-etc">
-                {/*
-                <StarRatings
-                  rating={1}
-                  starRatedColor="yellow"
-                  starDimension="10px"
-                  starSpacing=".4px"
-                  //changeRating={this.changeRating}
-                  numberOfStars={1}
-                  name="rating"
-                />
-                {` ${rating}/10 `}
-                */}
-                <Chip
-                  size="small"
-                  variant="outlined"
-                  label={rating}
-                  className="mobile-vue-rating-chip"
-                  style={{ fontSize: "3.2vw", color: getRatingColor(rating) }}
-                  icon={
-                    <StarIcon
-                      style={{ width: "3.2vw", color: getRatingColor(rating) }}
-                    />
+                <div
+                  className="mobile-card-title"
+                  style={{ paddingBottom: ".5px" }}
+                >
+                  {/*title ||*/ <Skeleton width="50%" />}
+                </div>
+
+                <div className="mobile-card-genres">
+                  {
+                    /*genres.slice(0, 2).join(", ") ||*/ <Skeleton width="40%" />
                   }
-                />
+                </div>
+
+                <div className="mobile-card-etc">
+                  {
+                    /*(media_type == "movie"
+                    ? release_.toDateString().slice(4)
+                    : first_air_date_.toDateString().slice(4)) ||*/ <Skeleton width="30%" />
+                  }
+                </div>
+                <div className="mobile-card-etc">
+                  <Chip
+                    size="small"
+                    variant="outlined"
+                    label={rating}
+                    className="mobile-vue-rating-chip"
+                    style={{ fontSize: "3.2vw", color: getRatingColor(rating) }}
+                    icon={
+                      <StarIcon
+                        style={{
+                          width: "3.2vw",
+                          color: getRatingColor(rating)
+                        }}
+                      />
+                    }
+                  />
+                </div>
               </div>
             </div>
-          </div>
+          </SkeletonTheme>
         </CardActionArea>
       </Card>
     </Link>

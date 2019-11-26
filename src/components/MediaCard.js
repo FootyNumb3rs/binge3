@@ -31,43 +31,42 @@ export default function MediaCard({ media_, openDialogue, rp }) {
   return (
     <div className="card-container">
       <div className="card">
-        <Link
-          to={{
-            pathname: `/title/${media_type}/${id}`
-          }}
-        >
-          <Card style={{ borderRadius: 0, backgroundColor: "transparent" }}>
-            <CardActionArea
-              classes={{
-                root: classes.actionArea,
-                focusHighlight: classes.focusHighlight
-              }}
-              onClick={() => console.log("click")}
+        <SkeletonTheme color="#202020" highlightColor="#444" borderRadius="0px">
+          <Link
+            to={{
+              pathname: `/title/${media_type}/${id}`
+            }}
+          >
+            <Card style={{ borderRadius: 0, backgroundColor: "transparent" }}>
+              <CardActionArea
+                classes={{
+                  root: classes.actionArea,
+                  focusHighlight: classes.focusHighlight
+                }}
+                onClick={() => console.log("click")}
 
-              /* Throwing error
+                /* Throwing error
             onTouchTap={e => {
               e.preventDefault();
               console.log("click");
             }}
             */
-            >
-              <CardMedia image={posterLink} className={"media"} />
-            </CardActionArea>
-          </Card>
-        </Link>
+              >
+                <CardMedia image={posterLink} className={"media"} />
+              </CardActionArea>
+            </Card>
+          </Link>
 
-        <div className={"cardText"}>
-          <Typography className={"title"}>{title}</Typography>
-          <SkeletonTheme
-            color="#202020"
-            highlightColor="#444"
-            borderRadius="0px"
-          >
-            <Typography className={"genres"}>
-              {genres[0] || <Skeleton />}
+          <div className={"cardText"}>
+            <Typography className={"title"}>
+              {/*title ||*/ <Skeleton width="90%" height="40%" />}
             </Typography>
-          </SkeletonTheme>
-        </div>
+
+            <Typography className={"genres"}>
+              {/*genres[0] ||*/ <Skeleton width="60%" />}
+            </Typography>
+          </div>
+        </SkeletonTheme>
       </div>
     </div>
   );
