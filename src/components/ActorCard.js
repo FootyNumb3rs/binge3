@@ -8,15 +8,20 @@ export default class ActorCard extends PureComponent {
     return (
       <div className="actor-card-container">
         <div className="img-cover-div">
-          <img
-            className="actor-img"
-            style={{
-              width: "20vw",
-              objectPosition: "0 -20.5px"
-            }}
-            src={`https://image.tmdb.org/t/p/w300_and_h450_face/${this.props.profile.profile_path}`}
-            className="actor-pic"
-          />
+          {this.props.profile.profile_path ? (
+            <img
+              className="actor-img"
+              style={{
+                width: "20vw",
+                objectFit: "cover",
+                objectPosition: "0 -20.5px"
+              }}
+              src={`https://image.tmdb.org/t/p/w300_and_h450_face/${this.props.profile.profile_path}`}
+              className="actor-pic"
+            />
+          ) : (
+            <Skeleton height="100%" width="100%" circle={true} />
+          )}
         </div>
         <div className="actor-details">
           <div style={{ textAlign: "center" }} className="actor-name">

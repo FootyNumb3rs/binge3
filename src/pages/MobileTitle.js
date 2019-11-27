@@ -242,12 +242,15 @@ export default class MobileTitle extends PureComponent {
                 </div>
               </Link>
             </div>
-
-            <img
-              className="mobile-vue-cover-img"
-              src={this.state.content.backdrop_path}
-              alt=""
-            />
+            {this.state.content.backdrop_path_ ? (
+              <img
+                className="mobile-vue-cover-img"
+                src={this.state.content.backdrop_path}
+                alt=""
+              />
+            ) : (
+              <Skeleton width="100%" />
+            )}
           </div>
 
           <div className="mobile-vue-info-main-div">
@@ -260,7 +263,6 @@ export default class MobileTitle extends PureComponent {
                 {this.state.bannerInfo.title || (
                   <Skeleton width="60%" height={20} />
                 )}
-
                 {this.getChip()}
               </SkeletonTheme>
             </div>

@@ -37,6 +37,22 @@ export default class Browse extends PureComponent {
     });
   }
 
+  // If only props change
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.search_query) {
+      prevProps.match.params.search_query !==
+      this.props.match.params.search_query
+        ? this.displaySearch(this.props.match.params.search_query)
+        : console.log("yo");
+    } else {
+      if (
+        prevProps.match.params.media_type !== this.props.match.params.media_type
+      ) {
+        this.displayTrending(this.props.match.params.media_type);
+      }
+    }
+  }
+
   // Get Trending
   displayTrending = (media_type, page = 1) => {
     var loaded = undefined;
@@ -69,23 +85,31 @@ export default class Browse extends PureComponent {
   };
 
   // Get Search
-  displaySearch = search_query => {
-    getSearch(this.state.genres, search_query).then(data => {
+  displaySearch = (search_query, page = 1) => {
+    getSearch(this.state.genres, search_query, page).then(data => {
       var all_data = [];
-
+      console.log(data[0]);
       data[0].results.forEach(d => {
         all_data.push(d);
       });
 
-      this.setState({
-        content_list: all_data,
-        total_pages: data[0].total_pages
-      });
-
-      window.scrollTo(0, 0);
+      if (page == 1) {
+        this.setState({
+          content_list: all_data,
+          total_pages: data[0].total_pages
+        });
+      } else {
+        this.setState({
+          content_list: this.state.content_list.concat(all_data),
+          total_pages: data[0].total_pages
+        });
+      }
     });
   };
 
+  //
+
+  // Display Header
   displayHeader = () => {
     const query = this.props.match.params.search_query;
     if (query) {
@@ -109,21 +133,35 @@ export default class Browse extends PureComponent {
     }
   };
 
-  // If only props change
-  componentDidUpdate(prevProps) {
-    if (this.props.match.params.search_query) {
-      prevProps.match.params.search_query !==
-      this.props.match.params.search_query
-        ? this.displaySearch(this.props.match.params.search_query)
-        : console.log("yo");
-    } else {
-      if (
-        prevProps.match.params.media_type !== this.props.match.params.media_type
-      ) {
-        this.displayTrending(this.props.match.params.media_type);
-      }
+  displayNextPage = () => {
+    if (
+      (this.state.total_pages > 1) &
+      (this.state.next_page < this.state.total_pages)
+    ) {
+      return (
+        <div
+          className="next-page"
+          onClick={() => {
+            this.setState({ next_page: this.state.next_page + 1 });
+
+            if (this.props.match.params.search_query) {
+              this.displaySearch(
+                this.props.match.params.search_query,
+                this.state.next_page
+              );
+            } else {
+              this.displayTrending(
+                this.props.match.params.media_type,
+                this.state.next_page
+              );
+            }
+          }}
+        >
+          NEXT PAGE
+        </div>
+      );
     }
-  }
+  };
 
   render(props) {
     console.log(this.state);
@@ -167,20 +205,8 @@ export default class Browse extends PureComponent {
                 </div>
               );
             })}
-            <div
-              className="next-page"
-              onClick={() => {
-                this.setState({ next_page: this.state.next_page + 1 });
-                this.displayTrending(
-                  this.props.match.params.media_type,
-                  this.state.next_page
-                );
 
-                console.log(this.state.total_pages);
-              }}
-            >
-              NEXT PAGE
-            </div>
+            {this.displayNextPage()}
           </div>
 
           <div>
@@ -210,16 +236,3 @@ export default class Browse extends PureComponent {
     );
   }
 }
-
-/*
-  <div
-                  style={{
-                    height: ".75px",
-                    maxWidth: "100%",
-                    marginLeft: "18px",
-                    marginRight: "18px",
-                    backgroundColor: "white",
-                    opacity: 0.15
-                  }}
-                />
-*/

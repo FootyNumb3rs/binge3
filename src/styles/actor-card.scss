@@ -2,17 +2,17 @@
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 6px;
+  padding-top: 6px;
   flex-shrink: 1;
   width: 25vw;
 
   .img-cover-div {
-    display: inline-block;
+    //display: block;
     overflow: hidden;
     height: 20vw;
     width: 20vw;
     border-radius: 100%;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
 
     .actor-img {
       width: 20vw;
