@@ -242,7 +242,7 @@ export default class MobileTitle extends PureComponent {
                 </div>
               </Link>
             </div>
-            {this.state.content.backdrop_path_ ? (
+            {this.state.content.backdrop_path ? (
               <img
                 className="mobile-vue-cover-img"
                 src={this.state.content.backdrop_path}
