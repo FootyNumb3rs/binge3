@@ -20,6 +20,17 @@ $mainFont: Inter;
 
   .mobile-card-grid {
     display: block;
+
+    .next-page {
+      height: 10vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: Inter;
+      font-weight: 100;
+      font-size: 12px;
+    }
   }
 }
 
@@ -33,6 +44,7 @@ $mainFont: Inter;
     width: 100%;
     padding-bottom: 100px;
     height: 100%;
+    background-color: transparent;
 
     .head {
       display: flex;

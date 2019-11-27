@@ -34,7 +34,11 @@ function Carousel({ mediaData, type, history }) {
     <div className="carousel-container">
       <div className="carousel-header">
         <div className="carousel-title">
-          {type == "movie" ? "Now Playing" : "Popular Shows"}
+          {type == "movie"
+            ? "Popular Movies"
+            : type == "theaters"
+            ? "In Theaters"
+            : "Popular Shows"}
         </div>
         <div
           onClick={() => history.push(`/browse/${type}`)}

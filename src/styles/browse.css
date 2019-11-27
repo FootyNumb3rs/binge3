@@ -19,6 +19,22 @@
   .mobile-card-grid {
     display: block;
   }
+  .mobile-card-grid .next-page {
+    height: 10vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    color: white;
+    font-family: Inter;
+    font-weight: 100;
+    font-size: 12px;
+  }
 }
 
 @media (min-width: 620px) {
@@ -40,6 +56,7 @@
     width: 100%;
     padding-bottom: 100px;
     height: 100%;
+    background-color: transparent;
   }
   .browse-container .head {
     display: -webkit-box;

@@ -1,17 +1,27 @@
 import React, { useState, PureComponent } from "react";
-import { getTrending, getGenres, getSearch } from "../tools/pullData.js";
+import {
+  getTrending,
+  getGenres,
+  getSearch,
+  getInTheaters
+} from "../tools/pullData.js";
 import MediaCard from "../components/MediaCard.js";
 import MobileMediaCard from "../components/MobileMediaCard.js";
 import "../styles/browse.css";
-
 import { Icon, Pagination } from "semantic-ui-react";
 
 export default class Browse extends PureComponent {
   // Constructor
   constructor(props) {
     super(props);
-    this.state = { content_list: [], genres: {} };
+    this.state = {
+      content_list: [],
+      genres: {},
+      next_page: 2,
+      total_pages: undefined
+    };
     props.setBar_(true);
+    window.scrollTo(0, 0);
 
     getGenres().then(data => {
       var genres_ = Object.assign(data[0], data[1]);
@@ -28,14 +38,33 @@ export default class Browse extends PureComponent {
   }
 
   // Get Trending
-  displayTrending = media_type => {
-    getTrending(this.state.genres, media_type).then(data => {
+  displayTrending = (media_type, page = 1) => {
+    var loaded = undefined;
+
+    if (media_type == "movie" || media_type == "tv") {
+      loaded = getTrending(this.state.genres, media_type, page);
+    } else {
+      loaded = getInTheaters(this.state.genres, page);
+    }
+
+    loaded.then(data => {
       var all_data = [];
-      data.forEach(d => {
-        all_data.push(...d);
+
+      data[0].results.forEach(d => {
+        all_data.push(d);
       });
-      this.setState({ content_list: all_data });
-      window.scrollTo(0, 0);
+
+      if (page == 1) {
+        this.setState({
+          content_list: all_data,
+          total_pages: data[0].total_pages
+        });
+      } else {
+        this.setState({
+          content_list: this.state.content_list.concat(all_data),
+          total_pages: data[0].total_pages
+        });
+      }
     });
   };
 
@@ -43,10 +72,16 @@ export default class Browse extends PureComponent {
   displaySearch = search_query => {
     getSearch(this.state.genres, search_query).then(data => {
       var all_data = [];
-      data.forEach(d => {
-        all_data.push(...d);
+
+      data[0].results.forEach(d => {
+        all_data.push(d);
       });
-      this.setState({ content_list: all_data });
+
+      this.setState({
+        content_list: all_data,
+        total_pages: data[0].total_pages
+      });
+
       window.scrollTo(0, 0);
     });
   };
@@ -98,7 +133,8 @@ export default class Browse extends PureComponent {
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "center"
+          justifyContent: "center",
+          backgroundColor: "#121212"
         }}
       >
         <div className="browse-container">
@@ -131,6 +167,20 @@ export default class Browse extends PureComponent {
                 </div>
               );
             })}
+            <div
+              className="next-page"
+              onClick={() => {
+                this.setState({ next_page: this.state.next_page + 1 });
+                this.displayTrending(
+                  this.props.match.params.media_type,
+                  this.state.next_page
+                );
+
+                console.log(this.state.total_pages);
+              }}
+            >
+              NEXT PAGE
+            </div>
           </div>
 
           <div>

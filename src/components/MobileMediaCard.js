@@ -89,21 +89,19 @@ export default function MediaCard({ media_, openDialogue }) {
                   className="mobile-card-title"
                   style={{ paddingBottom: ".5px" }}
                 >
-                  {/*title ||*/ <Skeleton width="50%" />}
+                  {title || <Skeleton width="50%" />}
                 </div>
 
                 <div className="mobile-card-genres">
-                  {
-                    /*genres.slice(0, 2).join(", ") ||*/ <Skeleton width="40%" />
-                  }
+                  {genres.slice(0, 2).join(", ") || <Skeleton width="40%" />}
                 </div>
 
                 <div className="mobile-card-etc">
-                  {
-                    /*(media_type == "movie"
+                  {(media_type == "movie"
                     ? release_.toDateString().slice(4)
-                    : first_air_date_.toDateString().slice(4)) ||*/ <Skeleton width="30%" />
-                  }
+                    : first_air_date_.toDateString().slice(4)) || (
+                    <Skeleton width="30%" />
+                  )}
                 </div>
                 <div className="mobile-card-etc">
                   <Chip

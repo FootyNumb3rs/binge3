@@ -29,8 +29,9 @@ export default class Home extends PureComponent {
   previewMovies = () => {
     getTrending(this.state.genres, "movie").then(data => {
       var all_data = [];
-      data.forEach(d => {
-        all_data.push(...d);
+      console.log(data);
+      data[0].results.forEach(d => {
+        all_data.push(d);
       });
       this.setState({ preview_movies: all_data });
     });
@@ -39,8 +40,8 @@ export default class Home extends PureComponent {
   previewInTheaters = () => {
     getInTheaters(this.state.genres).then(data => {
       var all_data = [];
-      data.forEach(d => {
-        all_data.push(...d);
+      data[0].results.forEach(d => {
+        all_data.push(d);
       });
       this.setState({ preview_in_theaters: all_data });
     });
@@ -49,12 +50,21 @@ export default class Home extends PureComponent {
   previewShows = () => {
     getTrending(this.state.genres, "tv").then(data => {
       var all_data = [];
-      data.forEach(d => {
-        all_data.push(...d);
+      data[0].results.forEach(d => {
+        all_data.push(d);
       });
       this.setState({ preview_shows: all_data });
     });
   };
+
+  /*
+  unload = () => {
+    dat.then(data=>){
+
+    }
+
+  }
+  */
 
   render(props) {
     const settings = {
@@ -105,7 +115,7 @@ export default class Home extends PureComponent {
               <Carousel type="movie" mediaData={this.state.preview_movies} />
               <div className="home-divider" />
               <Carousel
-                type="movie"
+                type="theaters"
                 mediaData={this.state.preview_in_theaters}
               />
             </div>
