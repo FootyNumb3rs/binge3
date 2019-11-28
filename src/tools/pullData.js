@@ -206,3 +206,30 @@ export function getCredits(media_id, media_type) {
 
   return axios.all(promises);
 }
+
+/* Get Trailer Data   */
+
+export function getDialogContent(id, type) {
+  var promises = [];
+
+  promises.push(
+    axios
+      .get(
+        `https://api.themoviedb.org/3/${type}/${String(
+          id
+        )}/videos?api_key=${api_key}&language=en-US`
+      )
+      .then(res => {
+        var vid_dic = res.data.results[0];
+        var needed = {};
+        needed["link"] = vid_dic.key;
+        needed["site"] = vid_dic.site;
+        return needed;
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  );
+
+  return axios.all(promises);
+}

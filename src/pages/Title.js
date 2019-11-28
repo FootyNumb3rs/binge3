@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import "../styles/title-page.css";
-import { getCredits } from "../tools/pullData.js";
+import { getCredits, getDialogContent } from "../tools/pullData.js";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { getById } from "../tools/pullData.js";
 import Chip from "@material-ui/core/Chip";
@@ -10,7 +10,7 @@ import ActorCard from "../components/ActorCard.js";
 export default class Title extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = { content: {}, bannerInfo: {}, credits: {} };
+    this.state = { content: {}, bannerInfo: {}, credits: {}, videoContent: {} };
     this.getPromise(props.match.params.id, props.match.params.media_type);
     props.setBar_(false);
   }
@@ -18,25 +18,25 @@ export default class Title extends PureComponent {
   // How to
   getPromise(id_, media_type) {
     getById({}, id_, media_type).then(data => {
-      this.setState({
-        content: data[0]
-      });
+      this.setState({ content: data[0] });
+    });
 
-      getCredits(id_, media_type).then(data => {
-        // data[0] are all the credits
+    getCredits(id_, media_type).then(data => {
+      this.setState({ credits: data[0] });
+    });
 
-        this.setState({ credits: data[0] });
-      });
+    getDialogContent(id_, media_type).then(data => {
+      console.log(data);
+      this.setState({ videoContent: data[0] });
+    });
 
-      this.setState({
-        bannerInfo: {
-          title:
-            this.props.match.params.media_type == "tv"
-              ? this.state.content.original_name
-              : this.state.content.original_title
-        }
-      });
-      window.scrollTo(0, 0);
+    this.setState({
+      bannerInfo: {
+        title:
+          this.props.match.params.media_type == "tv"
+            ? this.state.content.original_name
+            : this.state.content.original_title
+      }
     });
   }
 

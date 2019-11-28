@@ -44,7 +44,6 @@ export default function MediaCard({ media_, openDialogue, rp }) {
                   focusHighlight: classes.focusHighlight
                 }}
                 onClick={() => console.log("click")}
-
                 /* Throwing error
             onTouchTap={e => {
               e.preventDefault();
@@ -52,7 +51,11 @@ export default function MediaCard({ media_, openDialogue, rp }) {
             }}
             */
               >
-                <CardMedia image={posterLink} className={"media"} />
+                {posterLink ? (
+                  <CardMedia image={posterLink} className={"media"} />
+                ) : (
+                  <Skeleton height="300px" width="400px" />
+                )}
               </CardActionArea>
             </Card>
           </Link>

@@ -242,15 +242,17 @@ export default class MobileTitle extends PureComponent {
                 </div>
               </Link>
             </div>
-            {this.state.content.backdrop_path ? (
-              <img
-                className="mobile-vue-cover-img"
-                src={this.state.content.backdrop_path}
-                alt=""
-              />
-            ) : (
-              <Skeleton width="100%" />
-            )}
+            <div className="mobile-vue-cover-img">
+              {this.state.content.backdrop_path ? (
+                <img
+                  style={{ width: "100%", height: "auto" }}
+                  src={this.state.content.backdrop_path}
+                  alt=""
+                />
+              ) : (
+                <Skeleton width="100%" height="250px" />
+              )}
+            </div>
           </div>
 
           <div className="mobile-vue-info-main-div">
@@ -260,9 +262,10 @@ export default class MobileTitle extends PureComponent {
                 highlightColor="#444"
                 borderRadius="0px"
               >
-                {this.state.bannerInfo.title || (
-                  <Skeleton width="60%" height={20} />
-                )}
+                {this.state.content.title ||
+                  this.state.content.original_name || (
+                    <Skeleton width="60%" height={20} />
+                  )}
                 {this.getChip()}
               </SkeletonTheme>
             </div>
@@ -330,6 +333,39 @@ export default class MobileTitle extends PureComponent {
                   fontColor: "gray"
                 }}
               >
+                Trailer
+              </div>
+              <div
+                className="video"
+                style={{
+                  position: "relative",
+                  paddingBottom: "56.25%" /* 16:9 */,
+                  paddingTop: 25,
+                  height: 0
+                }}
+              >
+                <iframe
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%"
+                  }}
+                  src={`https://www.youtube.com/embed/${this.state.videoContent.link}`}
+                  frameBorder="0"
+                />
+              </div>
+            </div>
+            <div className="title-divider" />
+            <div>
+              <div
+                className="ov-header"
+                style={{
+                  fontWeight: 700,
+                  fontColor: "gray"
+                }}
+              >
                 Information
               </div>
 
@@ -345,7 +381,6 @@ export default class MobileTitle extends PureComponent {
 }
 
 /*
-
   {this.state.credits.map(credit => {
             return (
               <div key={1}>
@@ -353,9 +388,6 @@ export default class MobileTitle extends PureComponent {
               </div>
             );
           })}
-
-
-
 */
 
 // How to
