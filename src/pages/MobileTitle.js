@@ -11,7 +11,7 @@ export default class MobileTitle extends PureComponent {
   constructor(props) {
     super(props);
     this.state = props.state_;
-    window.scrollTo(0, 0);
+    //window.scrollTo(0, 0);
   }
 
   displayShowDetails() {
@@ -79,7 +79,7 @@ export default class MobileTitle extends PureComponent {
     if (this.state.credits.crew) {
       const budget = this.state.content.budget;
       const revenue = this.state.content.revenue;
-      const dict = {};
+      const dict = { director: [], writer: [], cinematographer: [] };
       this.state.credits.crew.map(d => {
         switch (d.job) {
           case "Director of Photography":
@@ -243,12 +243,12 @@ export default class MobileTitle extends PureComponent {
             <div className="mobile-vue-cover-img">
               {this.state.content.backdrop_path ? (
                 <img
-                  style={{ width: "100%", height: "auto" }}
+                  /* style={{ width: "100%", height: "auto" }} */
                   src={this.state.content.backdrop_path}
                   alt="lolz"
                 />
               ) : (
-                <Skeleton width="100%" height="250px" />
+                <Skeleton width="100%" height="100%" />
               )}
             </div>
           </div>
@@ -342,17 +342,22 @@ export default class MobileTitle extends PureComponent {
                   height: 0
                 }}
               >
-                <iframe
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%"
-                  }}
-                  src={`https://www.youtube.com/embed/${this.state.videoContent.link}`}
-                  frameBorder="0"
-                />
+                {" "}
+                {this.state.videoContent.link ? (
+                  <iframe
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "100%"
+                    }}
+                    src={`https://www.youtube.com/embed/${this.state.videoContent.link}`}
+                    frameBorder="0"
+                  />
+                ) : (
+                  <Skeleton width="100%" height="200px" />
+                )}
               </div>
             </div>
             <div className="title-divider" />

@@ -10,7 +10,15 @@ import ActorCard from "../components/ActorCard.js";
 export default class Title extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = { content: {}, bannerInfo: {}, credits: {}, videoContent: {} };
+    this.state = {
+      content: {},
+      bannerInfo: {},
+      credits: {
+        cast: ["s", "s", "s", "s", "s", "s"],
+        crew: ["s", "s", "s", "s", "s", "s"]
+      },
+      videoContent: {}
+    };
     this.getPromise(props.match.params.id, props.match.params.media_type);
     props.setBar_(false);
   }
@@ -42,15 +50,19 @@ export default class Title extends PureComponent {
 
   displayMovieDetails() {
     if (this.state.credits.crew) {
-      const dict = {};
+      const budget = this.state.content.budget;
+      const revenue = this.state.content.revenue;
+      const dict = { director: [], writer: [], cinematographer: [] };
       this.state.credits.crew.map(d => {
         switch (d.job) {
           case "Director of Photography":
             dict.cinematographer = d.name;
 
           case "Director":
-            if (!dict.director) {
-              dict.director = d.name;
+            if (dict.director) {
+              dict.director.push(d.name);
+            } else {
+              dict.director = [d.name];
             }
 
           case "Original Music Composer":
@@ -61,7 +73,7 @@ export default class Title extends PureComponent {
             }
 
           case "Screenplay":
-            if (dict.writer) {
+            if (d.department == "Screenplay") {
               dict.writer.push(d.name);
             } else {
               dict.writer = [d.name];
@@ -75,7 +87,6 @@ export default class Title extends PureComponent {
             }
         }
       });
-
       return (
         <div className="info-left">
           <div>

@@ -11,6 +11,7 @@ export default class ActorCard extends PureComponent {
           {this.props.profile.profile_path ? (
             <img
               className="actor-img"
+              alt="actor"
               style={{
                 width: "20vw",
                 objectFit: "cover",
@@ -20,7 +21,7 @@ export default class ActorCard extends PureComponent {
               className="actor-pic"
             />
           ) : (
-            <Skeleton height="100%" width="100%" circle={true} />
+            <Skeleton height="100%" width="20vw" circle={true} />
           )}
         </div>
         <div className="actor-details">

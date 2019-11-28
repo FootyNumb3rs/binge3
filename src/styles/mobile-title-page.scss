@@ -1,4 +1,6 @@
 $mainFont: Inter;
+$width: 100vw;
+$height: $width/1.7777;
 
 .back-button-div {
   position: absolute;
@@ -62,11 +64,13 @@ $mainFont: Inter;
   }
 
   .mobile-vue-cover-img {
-    height: auto;
-    width: 100%;
-    object-fit: cover;
-    object-position: top;
-    //opacity: 1;
+    display: inline-block;
+    width: $width;
+    height: $height;
+    img {
+      width: $width;
+      height: $height;
+    }
   }
 }
 

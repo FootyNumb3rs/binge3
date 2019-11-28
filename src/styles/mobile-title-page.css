@@ -76,12 +76,14 @@
 }
 
 .mobile-vue-cover-img-div .mobile-vue-cover-img {
-  height: auto;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: top;
-     object-position: top;
+  display: inline-block;
+  width: 100vw;
+  height: 56.25246vw;
+}
+
+.mobile-vue-cover-img-div .mobile-vue-cover-img img {
+  width: 100vw;
+  height: 56.25246vw;
 }
 
 .mobile-vue-info-main-div {
