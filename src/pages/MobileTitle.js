@@ -6,12 +6,15 @@ import StarIcon from "@material-ui/icons/Star";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ActorCard from "../components/ActorCard.js";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import { browserHistory } from "react-router";
 
-export default class MobileTitle extends PureComponent {
+class MobileTitle extends PureComponent {
   constructor(props) {
     super(props);
     this.state = props.state_;
     window.scrollTo(0, 0);
+    //this.props.goBack = this.props.goBack.bind(this);
   }
 
   displayShowDetails() {
@@ -234,7 +237,9 @@ export default class MobileTitle extends PureComponent {
                     backgroundColor: "transparent",
                     display: "inline-block"
                   }}
-                  onClick={() => {}}
+                  onClick={() => {
+                    this.props.history.go(-1);
+                  }}
                 >
                   <ArrowBackIcon />
                 </div>
@@ -342,8 +347,7 @@ export default class MobileTitle extends PureComponent {
                   height: 0
                 }}
               >
-                {" "}
-                {this.state.videoContent.link ? (
+                {this.state.videoContent ? (
                   <iframe
                     style={{
                       position: "absolute",
@@ -383,119 +387,4 @@ export default class MobileTitle extends PureComponent {
   }
 }
 
-/*
-  {this.state.credits.map(credit => {
-            return (
-              <div key={1}>
-                <ActorCard profile={credit} />
-              </div>
-            );
-          })}
-*/
-
-// How to
-/*
-  getPromise(id_, media_type) {
-    getById({}, id_, media_type).then(data => {
-      console.log(data[0]);
-      this.setState({
-        content: data[0]
-      });
-
-      this.setState({
-        bannerInfo: {
-          title:
-            this.props.match.params.media_type == "tv"
-              ? this.state.content.original_name
-              : this.state.content.original_title
-        }
-      });
-    });
-  }
-  */
-
-{
-  /*
-          <div className="mobile-vue-title">{this.state.bannerInfo.title}</div>
-          <div className="mobile-vue-genres">
-            {this.state.content.genres
-              ? this.state.content.genres.map(genre => genre.name).join(" / ")
-              : "s"}
-          </div>
-            */
-}
-
-/*
-
-<div className="mobile-vue-details">
-            <div style={{ flexGrow: 1 }}>
-              <div>Director: </div>
-            </div>
-            <div style={{ flexGrow: 1 }}>
-              <div>Director: </div>
-            </div>
-          </div>
-
-*/
-
-/*
-
-<Chip
-                  size="small"
-                  variant="outlined"
-                  label={"FANTASY"}
-                  style={{
-                    marginRight: 6,
-                    marginBottom: 1.5,
-                    //backgroundColor: "#212121",
-                    color: "#bdbdbd",
-                    borderColor: "gray",
-                    fontSize: 12,
-                    fontWeight: 300
-                  }}
-                />
-                <Chip
-                  size="small"
-                  variant="outlined"
-                  label={"DRAMA"}
-                  style={{
-                    marginRight: 6,
-                    marginBottom: 1.5,
-                    //backgroundColor: "#212121",
-                    color: "#bdbdbd",
-                    borderColor: "gray",
-                    fontSize: 12,
-                    fontWeight: 300
-                  }}
-                />
-                <Chip
-                  size="small"
-                  variant="outlined"
-                  label={"ACTION"}
-                  style={{
-                    marginRight: 6,
-                    marginBottom: 1.5,
-                    //backgroundColor: "#212121",
-                    color: "#bdbdbd",
-                    borderColor: "gray",
-                    fontSize: 11,
-                    fontWeight: 200
-                  }}
-                />
-
-
-
-
-*/
-
-{
-  /*
-        <div className="mobile-vue-cover-img-div">
-          <img
-            className="mobile-vue-cover-img"
-            src={this.state.content.backdrop_path}
-            alt=""
-          />
-        </div>
-        */
-}
+export default withRouter(MobileTitle);

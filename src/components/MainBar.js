@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import SideDrawer from "../components/SideDrawer";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import StarIcon from "@material-ui/icons/Star";
+import MobileToolbar from "../components/MobileToolbar.js";
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -79,6 +80,8 @@ export default function MainBar({ queryChange, searchSubmit, show }) {
         <MobileSearchBar
           queryChange={queryChange}
           searchSubmit={searchSubmit}
+          setBar={setBar}
+          barOpen={openBar}
         />
       </div>
     );
@@ -92,76 +95,16 @@ export default function MainBar({ queryChange, searchSubmit, show }) {
         style={{ display: show ? "flex" : "none" }}
         elevation={0}
       >
-        <Toolbar variant="dense" disableGutters className="toolbar">
-          <SwipeableDrawer
-            open={state.right}
-            onClose={toggleDrawer("right", false)}
-            onOpen={toggleDrawer("right", true)}
-          >
-            <SideDrawer />
-          </SwipeableDrawer>
-
-          {/* MOBILE DRAWER BUTTON */}
-          <div className="mobile-menu-button">
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              className={classes.menuButton}
-              onClick={() => {
-                toggleDrawer_();
-              }}
-            >
-              <MenuIcon />
-            </IconButton>
-          </div>
-
-          {/* APP TITLE */}
-          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            <div className={"title-div"}>
-              <div
-                className={"title"}
-                //  noWrap
-              >
-                MOVX
-              </div>
-            </div>
-          </Link>
-
-          {/* MENU BUTTONS */}
-
-          <div className={"buttonContainer"}>
-            <Link to="/browse/tv" style={{ textDecoration: "none" }}>
-              <Button className={classes.button} onClick={() => {}}>
-                HOME
-              </Button>
-            </Link>
-            <Link to="/browse/tv" style={{ textDecoration: "none" }}>
-              <Button className={classes.button} onClick={() => {}}>
-                SHOWS
-              </Button>
-            </Link>
-            <Link to="/browse/movie" style={{ textDecoration: "none" }}>
-              <Button className={classes.button} onClick={() => {}}>
-                MOVIES
-              </Button>
-            </Link>
-          </div>
-
-          {/* SEARCH BAR */}
-          <SearchBar queryChange={queryChange} searchSubmit={searchSubmit} />
-
-          {/* MOBILE SEARCH BUTTON */}
-          <div className="mobile-search-button">
-            <IconButton color="inherit" aria-label="open drawer">
-              <SearchIcon
-                onClick={() => {
-                  setBar(!openBar);
-                }}
-              />
-            </IconButton>
-          </div>
-        </Toolbar>
-        {openBar ? openSearch() : ""}
+        {openBar ? (
+          openSearch()
+        ) : (
+          <MobileToolbar
+            queryChange={queryChange}
+            searchSubmit={searchSubmit}
+            setBar={setBar}
+            barOpen={openBar}
+          />
+        )}
       </AppBar>
     </ThemeProvider>
   );

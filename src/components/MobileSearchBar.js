@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function MobileSearchBar({ searchSubmit, history }) {
+function MobileSearchBar({ searchSubmit, history, setBar, barOpen }) {
   const classes = useStyles();
   const [search, setSearch] = useState("");
   const onChange = (e, index, value) => {
@@ -68,6 +68,7 @@ function MobileSearchBar({ searchSubmit, history }) {
             console.log(`Pressed keyCode ${ev.key}`);
             if (ev.key === "Enter") {
               history.push(`/search/${search}`);
+              setBar(!barOpen);
               ev.preventDefault();
             }
           }}
