@@ -9,11 +9,9 @@ import { Link } from "react-router-dom";
 
 export default class MobileTitle extends PureComponent {
   constructor(props) {
-    //console.log(props);
     super(props);
     this.state = props.state_;
-    //this.getPromise(props.match.params.id, props.match.params.media_type);
-    //props.setBar_(false);
+    window.scrollTo(0, 0);
   }
 
   displayShowDetails() {
@@ -247,7 +245,7 @@ export default class MobileTitle extends PureComponent {
                 <img
                   style={{ width: "100%", height: "auto" }}
                   src={this.state.content.backdrop_path}
-                  alt=""
+                  alt="lolz"
                 />
               ) : (
                 <Skeleton width="100%" height="250px" />

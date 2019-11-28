@@ -49,13 +49,6 @@ export function getById(genres, media_id, media_type) {
           "poster_path"
         ] = `https://image.tmdb.org/t/p/original/${res.data.poster_path}`;
 
-        /*
-        res.data["genres"] = res.data.genre_ids
-          .slice(0, 3)
-          .map(genre => genres[genre]);
-
-        */
-
         return res.data;
       })
       .catch(err => {
@@ -103,8 +96,6 @@ export function getInTheaters(genres, page = 1) {
   return axios.all(promises);
 }
 
-//console.log(getInTheaters({}));
-
 /* Get Trending */
 
 export function getTrending(genres, media_type, page = 1) {
@@ -113,27 +104,26 @@ export function getTrending(genres, media_type, page = 1) {
   promises.push(
     axios
       .get(
-        `https://api.themoviedb.org/3/${media_type}/popular?api_key=${api_key}&language=en-US&page=${page}`
+        `
+        https://api.themoviedb.org/3/discover/${media_type}?api_key=${api_key}&language=en-US&sort_by=popularity.desc&page=${page}&timezone=America%2FNew_York&include_null_first_air_dates=false&vote_count.gte=50`
       )
       .then(res => {
-        res.data.results = res.data.results
-          .filter(item => item.vote_count > 50)
-          .map(item => {
-            return {
-              id: item.id,
-              media_type: media_type,
-              title:
-                media_type == "tv" ? item.original_name : item.original_title,
-              genres: item.genre_ids.slice(0, 3).map(genre => genres[genre]),
-              posterLink: `https://image.tmdb.org/t/p/w500/${item.poster_path}`,
-              backdropLink: `https://image.tmdb.org/t/p/original/${item.backdrop_path}`,
-              overview: item.overview,
-              release: item.release_date,
-              rating: item.vote_average,
-              vote_count: item.vote_count,
-              first_air_date: item.first_air_date
-            };
-          });
+        res.data.results = res.data.results.map(item => {
+          return {
+            id: item.id,
+            media_type: media_type,
+            title:
+              media_type == "tv" ? item.original_name : item.original_title,
+            genres: item.genre_ids.slice(0, 3).map(genre => genres[genre]),
+            posterLink: `https://image.tmdb.org/t/p/w500/${item.poster_path}`,
+            backdropLink: `https://image.tmdb.org/t/p/original/${item.backdrop_path}`,
+            overview: item.overview,
+            release: item.release_date,
+            rating: item.vote_average,
+            vote_count: item.vote_count,
+            first_air_date: item.first_air_date
+          };
+        });
         return res.data;
       })
       .catch(err => {
