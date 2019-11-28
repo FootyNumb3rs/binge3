@@ -11,7 +11,7 @@ export default class MobileTitle extends PureComponent {
   constructor(props) {
     super(props);
     this.state = props.state_;
-    //window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
   }
 
   displayShowDetails() {
