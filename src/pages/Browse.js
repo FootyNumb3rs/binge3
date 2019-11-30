@@ -239,8 +239,14 @@ export default class Browse extends PureComponent {
             })}
           </div>
           {this.displayNextPage()}
-          <div>
-            {/*
+          <div></div>
+        </div>
+      </div>
+    );
+  }
+}
+
+/*
           <Pagination
             defaultActivePage={5}
             ellipsisItem={{
@@ -259,10 +265,4 @@ export default class Browse extends PureComponent {
             nextItem={{ content: <Icon name="angle right" />, icon: true }}
             totalPages={10}
           />
-          */}
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
+          */
