@@ -1,4 +1,7 @@
 @media (max-width: 620px) {
+  .desktop-pagination {
+    display: none;
+  }
   .browse-container {
     display: -webkit-box;
     display: -ms-flexbox;

@@ -57,15 +57,6 @@ export default class Home extends PureComponent {
     });
   };
 
-  /*
-  unload = () => {
-    dat.then(data=>){
-
-    }
-
-  }
-  */
-
   render(props) {
     const settings = {
       dots: false,

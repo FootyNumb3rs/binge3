@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     position: "relative",
     marginRight: theme.spacing(3),
-    marginLeft: theme.spacing(1.5),
+    //marginLeft: theme.spacing(1.5),
     borderRadius: theme.shape.borderRadius + 15,
     backgroundColor: fade(theme.palette.common.white, 0.15),
     "&:hover": {
@@ -60,9 +60,11 @@ function MobileSearchBar({ searchSubmit, history, setBar, barOpen }) {
     <div className="mobile-search-bar">
       <div
         style={{
-          margin: "0px 10px",
+          marginRight: "10px",
           display: "flex",
-          alignItems: "center"
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%"
         }}
         onClick={(e, offset) => setBar(!barOpen)}
       >

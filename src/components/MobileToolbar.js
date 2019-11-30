@@ -91,6 +91,7 @@ export default function MobileToolbar({
   };
   return (
     <Toolbar variant="dense" disableGutters className="toolbar">
+      {/*
       <SwipeableDrawer
         open={state.right}
         onClose={toggleDrawer("right", false)}
@@ -98,8 +99,9 @@ export default function MobileToolbar({
       >
         <SideDrawer />
       </SwipeableDrawer>
+      
 
-      {/* MOBILE DRAWER BUTTON */}
+       MOBILE DRAWER BUTTON 
       <div className="mobile-menu-button">
         <IconButton
           color="inherit"
@@ -112,6 +114,7 @@ export default function MobileToolbar({
           <MenuIcon />
         </IconButton>
       </div>
+    */}
 
       {/* APP TITLE */}
       <Link to="/" style={{ textDecoration: "none", color: "white" }}>

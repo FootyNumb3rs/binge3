@@ -20,7 +20,8 @@ $mainFont: Roboto;
     margin: 0;
     font-size: 10px;
     margin-right: 55px;
-    margin-left: 55px;
+    //margin-left: 55px;
+    margin-left: 17px;
     justify-content: center;
     display: flex;
     flex-shrink: 0;
@@ -48,6 +49,8 @@ $mainFont: Roboto;
     align-items: center;
     padding-top: 6px;
     padding-bottom: 6px;
+    padding-left: 20px;
+    //padding-right: 20px;
     flex-grow: 1;
     max-width: 100%;
     //display: none;
@@ -113,6 +116,7 @@ $mainFont: Roboto;
     align-items: center;
     margin-right: 35px;
     margin-left: 55px;
+    margin-left: 0px;
   }
 
   .title {

@@ -26,7 +26,6 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     maxHeight: "48px"
   },
-
   button: {
     color: "gainsboro",
     fontSize: 12.5,
@@ -123,7 +122,6 @@ export default function MainBar({ queryChange, searchSubmit, show }) {
   }}
   noWrap
 >
-
   Made by{" "}
   <a
     href="https://www.linkedin.com/in/tande-mungwa"
@@ -133,7 +131,6 @@ export default function MainBar({ queryChange, searchSubmit, show }) {
   </a>{" "}
   with React.js & TMDb
 </Typography>
-
 </div>;
 
 */

@@ -1,6 +1,9 @@
 $mainFont: Inter;
 
 @media (max-width: 620px) {
+  .desktop-pagination {
+    display: none;
+  }
   .browse-container {
     display: flex;
     flex-direction: column;
