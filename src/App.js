@@ -38,6 +38,10 @@ function App() {
 
   return (
     <div className="root">
+      <meta
+        name="viewport"
+        content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      ></meta>
       <link
         href="https://fonts.googleapis.com/css?family=Overpass:400,600|Questrial|Heebo|Rubik|Roboto+Thin|Roboto:300,400,500,700|DM+Serif+Display&display=swap"
         rel="stylesheet"
