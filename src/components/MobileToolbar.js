@@ -19,7 +19,7 @@ import SideDrawer from "../components/SideDrawer";
 const useStyles = makeStyles(theme => ({
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
-    background: "#0d0d0d",
+    background: "#171717",
     padding: 0,
     display: "flex",
     //borderRadius: "10px",

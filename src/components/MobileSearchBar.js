@@ -11,6 +11,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     position: "relative",
     marginRight: theme.spacing(3),
+    flexGrow: 1,
     //marginLeft: theme.spacing(1.5),
     borderRadius: theme.shape.borderRadius + 15,
     backgroundColor: fade(theme.palette.common.white, 0.15),
@@ -24,13 +25,13 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "Inter",
     fontWeight: 400,
     fontSize: 16,
-    flexShrink: 1,
+    //flexShrink: 1,
     //height: 29,
 
     ["@media (max-width: 620px)"]: {
       //display: "none",
-      //flexGrow: 1,
-      flexShrink: 1,
+      flexGrow: 1,
+      //flexShrink: 1,
       height: 29,
       fontSize: 14
     }
@@ -42,8 +43,8 @@ const useStyles = makeStyles(theme => ({
 
     ["@media (max-width: 620px)"]: {
       //display: "none",
-      //flexGrow: 1,
-      flexShrink: 1,
+      flexGrow: 1,
+      //flexShrink: 1,
       padding: theme.spacing(1, 3, 1, 6.5)
     }
   }

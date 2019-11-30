@@ -46,9 +46,10 @@
     display: none;
   }
   .mobile-search-bar {
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
+    background-color: #0d0d0d;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -65,6 +66,7 @@
   }
   .search-icon {
     margin-left: 16px;
+    opacity: 0.7;
     color: inherit;
     display: -webkit-box;
     display: -ms-flexbox;
