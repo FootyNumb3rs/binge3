@@ -26,6 +26,7 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "Inter",
     fontWeight: 400,
     fontSize: 16,
+    type: "search",
     //flexShrink: 1,
     //height: 29,
 
@@ -34,6 +35,7 @@ const useStyles = makeStyles(theme => ({
       flexGrow: 1,
       //flexShrink: 1,
       height: 29,
+      type: "search",
       fontSize: 14
     }
   },
@@ -41,12 +43,14 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1, 1, 1, 6.5),
     width: "auto",
     flexShrink: 1,
+    type: "search",
 
     ["@media (max-width: 620px)"]: {
       //display: "none",
       flexGrow: 1,
       //flexShrink: 1,
-      padding: theme.spacing(1, 3, 1, 6.5)
+      padding: theme.spacing(1, 2.5, 1, 6.5),
+      type: "search"
     }
   }
 }));
