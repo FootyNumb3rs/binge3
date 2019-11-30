@@ -18,8 +18,9 @@
   }
   .mobile-card-grid {
     display: block;
+    margin-bottom: 12px;
   }
-  .mobile-card-grid .next-page {
+  .next-page {
     height: 13vh;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -58,6 +59,9 @@
     height: 100%;
     background-color: transparent;
   }
+  .browse-container .desktop-pagination {
+    margin-top: 80px;
+  }
   .browse-container .head {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -87,7 +91,7 @@
   .browse-container .card-grid {
     display: -ms-grid;
     display: grid;
-    grid-column-gap: 45px;
+    grid-column-gap: 30px;
     grid-row-gap: 42.5px;
     -ms-grid-columns: (167px)[5];
         grid-template-columns: repeat(5, 167px);
@@ -95,6 +99,9 @@
   .mobile-card-grid {
     display: none;
     width: 100%;
+  }
+  .next-page {
+    display: none;
   }
 }
 /*# sourceMappingURL=browse.css.map */

@@ -90,76 +90,74 @@ export default function MobileToolbar({
     );
   };
   return (
-    <div>
-      <Toolbar variant="dense" disableGutters className="toolbar">
-        <SwipeableDrawer
-          open={state.right}
-          onClose={toggleDrawer("right", false)}
-          onOpen={toggleDrawer("right", true)}
+    <Toolbar variant="dense" disableGutters className="toolbar">
+      <SwipeableDrawer
+        open={state.right}
+        onClose={toggleDrawer("right", false)}
+        onOpen={toggleDrawer("right", true)}
+      >
+        <SideDrawer />
+      </SwipeableDrawer>
+
+      {/* MOBILE DRAWER BUTTON */}
+      <div className="mobile-menu-button">
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          className={classes.menuButton}
+          onClick={() => {
+            toggleDrawer_();
+          }}
         >
-          <SideDrawer />
-        </SwipeableDrawer>
+          <MenuIcon />
+        </IconButton>
+      </div>
 
-        {/* MOBILE DRAWER BUTTON */}
-        <div className="mobile-menu-button">
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            className={classes.menuButton}
-            onClick={() => {
-              toggleDrawer_();
-            }}
+      {/* APP TITLE */}
+      <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+        <div className={"title-div"}>
+          <div
+            className={"title"}
+            //  noWrap
           >
-            <MenuIcon />
-          </IconButton>
-        </div>
-
-        {/* APP TITLE */}
-        <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-          <div className={"title-div"}>
-            <div
-              className={"title"}
-              //  noWrap
-            >
-              MOVX
-            </div>
+            MOVX
           </div>
+        </div>
+      </Link>
+
+      {/* MENU BUTTONS */}
+
+      <div className={"buttonContainer"}>
+        <Link to="/browse/tv" style={{ textDecoration: "none" }}>
+          <Button className={classes.button} onClick={() => {}}>
+            HOME
+          </Button>
         </Link>
+        <Link to="/browse/tv" style={{ textDecoration: "none" }}>
+          <Button className={classes.button} onClick={() => {}}>
+            SHOWS
+          </Button>
+        </Link>
+        <Link to="/browse/movie" style={{ textDecoration: "none" }}>
+          <Button className={classes.button} onClick={() => {}}>
+            MOVIES
+          </Button>
+        </Link>
+      </div>
 
-        {/* MENU BUTTONS */}
+      {/* SEARCH BAR */}
+      <SearchBar queryChange={queryChange} searchSubmit={searchSubmit} />
 
-        <div className={"buttonContainer"}>
-          <Link to="/browse/tv" style={{ textDecoration: "none" }}>
-            <Button className={classes.button} onClick={() => {}}>
-              HOME
-            </Button>
-          </Link>
-          <Link to="/browse/tv" style={{ textDecoration: "none" }}>
-            <Button className={classes.button} onClick={() => {}}>
-              SHOWS
-            </Button>
-          </Link>
-          <Link to="/browse/movie" style={{ textDecoration: "none" }}>
-            <Button className={classes.button} onClick={() => {}}>
-              MOVIES
-            </Button>
-          </Link>
-        </div>
-
-        {/* SEARCH BAR */}
-        <SearchBar queryChange={queryChange} searchSubmit={searchSubmit} />
-
-        {/* MOBILE SEARCH BUTTON */}
-        <div className="mobile-search-button">
-          <IconButton color="inherit" aria-label="open drawer">
-            <SearchIcon
-              onClick={() => {
-                setBar(!barOpen);
-              }}
-            />
-          </IconButton>
-        </div>
-      </Toolbar>
-    </div>
+      {/* MOBILE SEARCH BUTTON */}
+      <div className="mobile-search-button">
+        <IconButton color="inherit" aria-label="open drawer">
+          <SearchIcon
+            onClick={() => {
+              setBar(!barOpen);
+            }}
+          />
+        </IconButton>
+      </div>
+    </Toolbar>
   );
 }

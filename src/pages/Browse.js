@@ -8,7 +8,9 @@ import {
 import MediaCard from "../components/MediaCard.js";
 import MobileMediaCard from "../components/MobileMediaCard.js";
 import "../styles/browse.css";
-import { Icon, Pagination } from "semantic-ui-react";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import Pagination from "material-ui-flat-pagination";
 
 export default class Browse extends PureComponent {
   // Constructor
@@ -54,7 +56,7 @@ export default class Browse extends PureComponent {
   }
 
   // Get Trending
-  displayTrending = (media_type, page = 1) => {
+  displayTrending = (media_type, page = 1, add = false) => {
     var loaded = undefined;
 
     if (media_type == "movie" || media_type == "tv") {
@@ -70,7 +72,7 @@ export default class Browse extends PureComponent {
         all_data.push(d);
       });
 
-      if (page == 1) {
+      if (!add) {
         this.setState({
           content_list: all_data,
           total_pages: data[0].total_pages
@@ -85,7 +87,7 @@ export default class Browse extends PureComponent {
   };
 
   // Get Search
-  displaySearch = (search_query, page = 1) => {
+  displaySearch = (search_query, page = 1, add = false) => {
     getSearch(this.state.genres, search_query, page).then(data => {
       var all_data = [];
       console.log(data[0]);
@@ -93,7 +95,7 @@ export default class Browse extends PureComponent {
         all_data.push(d);
       });
 
-      if (page == 1) {
+      if (!add) {
         this.setState({
           content_list: all_data,
           total_pages: data[0].total_pages
@@ -106,8 +108,6 @@ export default class Browse extends PureComponent {
       }
     });
   };
-
-  //
 
   // Display Header
   displayHeader = () => {
@@ -133,6 +133,24 @@ export default class Browse extends PureComponent {
     }
   };
 
+  displayPagination = () => {
+    return (
+      <div className="desktop-pagination">
+        <CssBaseline />
+        <Pagination
+          offset={this.state.offset}
+          total={this.state.total_pages}
+          onClick={(e, offset) => {
+            //console.log(offset);
+            this.handleClick(offset);
+            this.displayThisPage(offset + 1);
+          }}
+          size="large"
+        />
+      </div>
+    );
+  };
+
   displayNextPage = () => {
     if (
       (this.state.total_pages > 1) &
@@ -147,12 +165,14 @@ export default class Browse extends PureComponent {
             if (this.props.match.params.search_query) {
               this.displaySearch(
                 this.props.match.params.search_query,
-                this.state.next_page
+                this.state.next_page,
+                true
               );
             } else {
               this.displayTrending(
                 this.props.match.params.media_type,
-                this.state.next_page
+                this.state.next_page,
+                true
               );
             }
           }}
@@ -163,6 +183,18 @@ export default class Browse extends PureComponent {
     }
   };
 
+  displayThisPage = page => {
+    if (this.props.match.params.search_query) {
+      this.displaySearch(this.props.match.params.search_query, page, false);
+    } else {
+      this.displayTrending(this.props.match.params.media_type, page, false);
+    }
+  };
+
+  handleClick(offset) {
+    this.setState({ offset });
+  }
+
   render(props) {
     console.log(this.state);
     // Putting change triggers some sort of infinite loop
@@ -172,7 +204,7 @@ export default class Browse extends PureComponent {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#121212"
+          backgroundColor: "transparent"
         }}
       >
         <div className="browse-container">
@@ -186,7 +218,7 @@ export default class Browse extends PureComponent {
               );
             })}
           </div>
-
+          {this.displayPagination()}
           <div className="mobile-card-grid">
             {this.state.content_list.map(media => {
               return (
@@ -205,10 +237,8 @@ export default class Browse extends PureComponent {
                 </div>
               );
             })}
-
-            {this.displayNextPage()}
           </div>
-
+          {this.displayNextPage()}
           <div>
             {/*
           <Pagination

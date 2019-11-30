@@ -12,6 +12,7 @@
     "bootstrap-select": "^1.13.12",
     "gh-pages": "^2.1.1",
     "jquery": "^3.4.1",
+    "material-ui-flat-pagination": "^4.0.0",
     "material-ui-rating": "^4.2.0",
     "nuka-carousel": "^4.5.9",
     "pure-react-carousel": "^1.21.2",

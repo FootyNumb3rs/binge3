@@ -43,15 +43,25 @@ $mainFont: Roboto;
   }
 
   .mobile-search-bar {
-    //display: inline-flex;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 6px;
+    padding-bottom: 6px;
     flex-grow: 1;
+    max-width: 100%;
     //display: none;
   }
 
   .search-icon {
-    display: none;
+    margin-left: 16px;
+
+    color: inherit;
+    display: flex;
+    pointer-events: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
   }
 
   .buttonContainer {
