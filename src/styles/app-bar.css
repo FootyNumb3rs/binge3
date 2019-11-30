@@ -84,13 +84,6 @@
     display: none;
     margin: 0;
   }
-  /*
-  .mobile-search-button {
-    display: flex;
-    margin: 0px 21px;
-    margin-top: 0px;
-  }
-  */
   .mobile-menu-button {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -98,13 +91,15 @@
     margin: 0px;
     margin-left: 0px;
   }
-  /*
-  .mobile-title {
-    display: flex;
-  }
-  */
 }
 
+/*
+
+**********
+DESKTOP VERSION 
+**********
+
+*/
 @media (min-width: 620px) {
   .toolbar {
     max-width: 1360px;
@@ -134,7 +129,6 @@
             align-items: center;
     margin-right: 35px;
     margin-left: 55px;
-    margin-left: 0px;
   }
   .title {
     font-size: 24px;

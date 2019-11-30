@@ -12,6 +12,7 @@ const useStyles = makeStyles(theme => ({
     position: "relative",
     marginRight: theme.spacing(3),
     flexGrow: 1,
+
     //marginLeft: theme.spacing(1.5),
     borderRadius: theme.shape.borderRadius + 15,
     backgroundColor: fade(theme.palette.common.white, 0.15),
@@ -77,6 +78,7 @@ function MobileSearchBar({ searchSubmit, history, setBar, barOpen }) {
           <SearchIcon />
         </div>
         <InputBase
+          type="search"
           placeholder="Search by title..."
           className="search-bar"
           classes={{ root: classes.inputRoot, input: classes.inputInput }}

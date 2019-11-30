@@ -73,15 +73,6 @@ $mainFont: Roboto;
     margin: 0;
   }
 
-  // Mobile Features
-  /*
-  .mobile-search-button {
-    display: flex;
-    margin: 0px 21px;
-    margin-top: 0px;
-  }
-  */
-
   .mobile-menu-button {
     display: flex;
     margin: 0px;
@@ -92,13 +83,15 @@ $mainFont: Roboto;
   .mobile-search-button {
     //display: none;
   }
-
-  /*
-  .mobile-title {
-    display: flex;
-  }
-  */
 }
+
+/*
+
+**********
+DESKTOP VERSION 
+**********
+
+*/
 
 @media (min-width: 620px) {
   .toolbar {
@@ -117,7 +110,6 @@ $mainFont: Roboto;
     align-items: center;
     margin-right: 35px;
     margin-left: 55px;
-    margin-left: 0px;
   }
 
   .title {
