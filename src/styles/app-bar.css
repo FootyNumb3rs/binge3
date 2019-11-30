@@ -19,7 +19,7 @@
     margin: 0;
     font-size: 10px;
     margin-right: 55px;
-    margin-left: 17px;
+    margin-left: 20px;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -33,7 +33,7 @@
             align-items: center;
   }
   .title-div .title {
-    font-size: 24px;
+    font-size: 22px;
     font-family: "Rubik";
     font-weight: 100;
     cursor: pointer;

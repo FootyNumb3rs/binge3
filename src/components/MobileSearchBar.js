@@ -64,6 +64,7 @@ function MobileSearchBar({ searchSubmit, history, setBar, barOpen }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          maxWidth: "10vw",
           width: "100%"
         }}
         onClick={(e, offset) => setBar(!barOpen)}
