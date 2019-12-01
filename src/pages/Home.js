@@ -18,6 +18,7 @@ export default class Home extends PureComponent {
 
     getGenres().then(data => {
       var genres_ = Object.assign(data[0], data[1]);
+      console.log(genres_);
       this.setState({ genres: genres_ });
 
       this.previewMovies();

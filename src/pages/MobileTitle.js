@@ -17,6 +17,13 @@ class MobileTitle extends PureComponent {
     //this.props.goBack = this.props.goBack.bind(this);
   }
 
+  displayRevenue() {
+    if (this.state.content.budget & this.state.content.revenue) {
+    } else {
+      return "N/A";
+    }
+  }
+
   displayShowDetails() {
     if (this.state.content.created_by) {
       const created_by = this.state.content.created_by.map(d => {
@@ -146,7 +153,9 @@ class MobileTitle extends PureComponent {
             Runtime
             {" - "}
             <font style={{ color: "white" }}>
-              {this.state.content.runtime + "min" || <Skeleton width="30%" />}
+              {this.getRunningTime(this.state.content.runtime) || (
+                <Skeleton width="30%" />
+              )}
             </font>
           </div>
           <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
@@ -200,6 +209,32 @@ class MobileTitle extends PureComponent {
     if (n >= 1e12) return +(n / 1e12).toFixed(0) + "T";
   }
 
+  getRunningTime = runtime => {
+    var hours = runtime / 60;
+    var rhours = Math.floor(hours);
+    var minutes = (hours - rhours) * 60;
+    var rminutes = Math.round(minutes);
+    return rhours + "hr " + rminutes + "min";
+  };
+
+  getReleaseDate = () => {
+    console.log(this.state);
+    if (this.state.content.id) {
+      if (this.props.media_type == "tv") {
+        if (this.state.content.status == "Returning Series") {
+          return `${this.state.content.first_air_date.slice(0, 4)}-PRESENT`;
+        } else {
+          return `${this.state.content.first_air_date.slice(
+            0,
+            4
+          )}-${this.state.content.last_air_date.slice(0, 4)}`;
+        }
+      } else {
+        return `${this.state.content.release_date.slice(0, 4)}`;
+      }
+    }
+  };
+
   getChip() {
     return (
       <Chip
@@ -224,6 +259,7 @@ class MobileTitle extends PureComponent {
 
   render(props) {
     console.log(this.props);
+    console.log(this.props.state_);
     this.setState(this.props.state_);
 
     return (
@@ -234,8 +270,9 @@ class MobileTitle extends PureComponent {
               <Link to="/" style={{ textDecoration: "none", color: "white" }}>
                 <div
                   style={{
-                    backgroundColor: "transparent",
-                    display: "inline-block"
+                    display: "none",
+                    backgroundColor: "transparent"
+                    //display: "inline-block"
                   }}
                   onClick={() => {
                     this.props.history.go(-1);
@@ -257,7 +294,6 @@ class MobileTitle extends PureComponent {
               )}
             </div>
           </div>
-
           <div className="mobile-vue-info-main-div">
             <div className="mobile-vue-title">
               <SkeletonTheme
@@ -272,16 +308,19 @@ class MobileTitle extends PureComponent {
                 {this.getChip()}
               </SkeletonTheme>
             </div>
-
             <div className="mobile-vue-genres">
               <div>
-                {"2019 • "}
-                {this.state.content.genres
-                  ? this.state.content.genres
-                      .map(genre => genre.name)
-                      .join(", ")
-                      .toUpperCase()
-                  : "s"}
+                {this.getReleaseDate() || <Skeleton width="20%" height={15} />}{" "}
+                •{" "}
+                {this.state.content.genres ? (
+                  this.state.content.genres
+                    .slice(0, 2)
+                    .map(genre => genre.name)
+                    .join(", ")
+                    .toUpperCase()
+                ) : (
+                  <Skeleton width="20%" height={15} />
+                )}
               </div>
             </div>
             <div className="mobile-vue-overview">
