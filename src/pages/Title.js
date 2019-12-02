@@ -225,6 +225,67 @@ export default class Title extends PureComponent {
     }
   }
 
+  displayShowDetails() {
+    if (this.state.content.created_by) {
+      const created_by = this.state.content.created_by.map(d => {
+        return d.name;
+      });
+
+      const episode_run_time = this.state.content.episode_run_time[0];
+
+      const num_seasons = this.state.content.number_of_seasons;
+      const num_episodes = this.state.content.number_of_episodes;
+      const first_air = new Date(this.state.content.first_air_date);
+      const networks = this.state.content.networks.map(d => {
+        return d.name;
+      });
+
+      return (
+        <div className="mobile-vue-overview" style={{ paddingTop: "1.5px" }}>
+          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
+            Created By
+            {" - "}
+            <font style={{ color: "white" }}>
+              {created_by.join(", ") || <Skeleton width="30%" />}
+            </font>
+          </div>
+
+          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
+            Episode Runtime
+            {" - "}
+            <font style={{ color: "white" }}>
+              {episode_run_time + "min" || <Skeleton width="30%" />}
+            </font>
+          </div>
+          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
+            Networks
+            {" - "}
+            <font style={{ color: "white" }}>
+              {networks.join(", ") || <Skeleton width="30%" />}
+            </font>
+          </div>
+          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
+            First Air Date
+            {" - "}
+            <font style={{ color: "white" }}>
+              {first_air.toDateString().slice(4) || <Skeleton width="30%" />}
+            </font>
+          </div>
+
+          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
+            Total Seasons
+            {" - "}
+            <font style={{ color: "white" }}>
+              {`${num_seasons} Season(s), ${num_episodes} Episodes` || (
+                <Skeleton width="30%" />
+              )}
+            </font>
+          </div>
+        </div>
+      );
+    }
+  }
+
   render(props) {
     console.log(this.state.content);
 
@@ -249,7 +310,7 @@ export default class Title extends PureComponent {
           </div>
           <div
             style={{
-              paddingTop: "25px",
+              paddingTop: "0px",
               paddingBottom: "55px",
               maxWidth: "1280px",
               width: "100%"
