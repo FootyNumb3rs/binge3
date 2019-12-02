@@ -1,21 +1,24 @@
+$width: 110px;
+
 .actor-card-container {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   padding-top: 6px;
+  margin-right: 40px;
   flex-shrink: 1;
-  width: 20vw;
+  max-width: $width;
 
   .img-cover-div {
     //display: block;
     overflow: hidden;
-    height: 20vw;
-    width: 20vw;
+    max-height: $width;
+    max-width: $width;
     border-radius: 100%;
     margin-bottom: 4px;
 
     .actor-img {
-      width: 20vw;
+      max-width: $width;
       object-fit: cover;
       object-position: 0px -20.5px;
       opacity: 0.8;

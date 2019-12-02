@@ -3,9 +3,32 @@ import "../styles/title-page.css";
 import { getCredits, getDialogContent } from "../tools/pullData.js";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { getById } from "../tools/pullData.js";
-import Chip from "@material-ui/core/Chip";
 import MobileTitle from "./MobileTitle.js";
 import ActorCard from "../components/ActorCard.js";
+import DesktopActorCard from "../components/DesktopActorCard.js";
+import StarIcon from "@material-ui/icons/Star";
+import HomeIcon from "@material-ui/icons/Home";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import Chip from "@material-ui/core/Chip";
+import Button from "@material-ui/core/Button";
+import Fab from "@material-ui/core/Fab";
+
+/*
+const useStyles = makeStyles(theme => ({
+  log: { display: "flex", height: "100%" },
+
+  button: {
+    marginRight: theme.spacing(1.2),
+    marginTop: 10,
+    borderRadius: 20,
+    height: "30px",
+    fontSize: 12,
+    textAlign: "left"
+  }
+}));
+
+const classes = useStyles();
+*/
 
 export default class Title extends PureComponent {
   constructor(props) {
@@ -47,6 +70,74 @@ export default class Title extends PureComponent {
       }
     });
   }
+
+  getRatingColor(rating) {
+    if (rating < 6) {
+      return "#F44336";
+    } else if (rating < 7) {
+      return "#FB8C00";
+    } else if (rating < 7.5) {
+      return "#FFEE58";
+    } else {
+      return "#66BB6A";
+    }
+  }
+
+  getReleaseDate = () => {
+    //console.log(this.state);
+    if (this.state.content.id) {
+      if (this.props.match.params.media_type == "tv") {
+        if (this.state.content.status == "Returning Series") {
+          return `${this.state.content.first_air_date.slice(0, 4)}-PRESENT`;
+        } else {
+          return `${this.state.content.first_air_date.slice(
+            0,
+            4
+          )}-${this.state.content.last_air_date.slice(0, 4)}`;
+        }
+      } else {
+        return `${this.state.content.release_date.slice(0, 4)}`;
+      }
+    }
+  };
+
+  getChip() {
+    return (
+      <Chip
+        size="medium"
+        variant="outlined"
+        label={this.state.content.vote_average}
+        className="title-rating-chip"
+        style={{
+          color: this.getRatingColor(this.state.content.vote_average)
+        }}
+        icon={
+          <StarIcon
+            style={{
+              width: "15px",
+              color: this.getRatingColor(this.state.content.vote_average)
+            }}
+          />
+        }
+      />
+    );
+  }
+
+  formatCash(n) {
+    if (n < 1e3) return n;
+    if (n >= 1e3 && n < 1e6) return +(n / 1e3).toFixed(0) + "k";
+    if (n >= 1e6 && n < 1e9) return +(n / 1e6).toFixed(0) + "m";
+    if (n >= 1e9 && n < 1e12) return +(n / 1e9).toFixed(0) + "b";
+    if (n >= 1e12) return +(n / 1e12).toFixed(0) + "T";
+  }
+
+  getRunningTime = runtime => {
+    var hours = runtime / 60;
+    var rhours = Math.floor(hours);
+    var minutes = (hours - rhours) * 60;
+    var rminutes = Math.round(minutes);
+    return rhours + "hr " + rminutes + "min";
+  };
 
   displayMovieDetails() {
     if (this.state.credits.crew) {
@@ -90,38 +181,44 @@ export default class Title extends PureComponent {
       return (
         <div className="info-left">
           <div>
-            <div className="info-header">Director</div>
+            <div className="info-header">Crew</div>
 
-            <div className="info-data">
-              <SkeletonTheme
-                color="#202020"
-                highlightColor="#444"
-                borderRadius="0px"
-              >
-                {dict.director || <Skeleton duation={1} />}
-              </SkeletonTheme>
+            <div className="info-data" style={{ lineHeight: "25px" }}>
+              {"Director /" + " " + dict.director[0] || (
+                <Skeleton duation={1} />
+              )}
+            </div>
+            <div className="info-data" style={{ lineHeight: "25px" }}>
+              {"Writer /" + " " + dict.writer.join(", ")}
             </div>
           </div>
+          {/*
           <div>
-            <div className="info-header">Cinematographer</div>
-
+            <div className="info-header">DP</div>
             <div className="info-data">{dict.cinematographer} </div>
           </div>
           <div>
             <div className="info-header">Writer(s)</div>
             <div className="info-data">{dict.writer.join(", ")}</div>
           </div>
+          */}
           <div>
             <div className="info-header">Runtime</div>
-            <div className="info-data">{this.state.content.runtime}min</div>
+            <div className="info-data">
+              {this.getRunningTime(this.state.content.runtime)}
+            </div>
           </div>
           <div>
             <div className="info-header">Budget</div>
-            <div className="info-data">{this.state.content.budget}</div>
+            <div className="info-data">
+              {"$" + this.formatCash(budget) || <Skeleton width="30%" />}
+            </div>
           </div>
           <div>
             <div className="info-header">Revenue</div>
-            <div className="info-data">{this.state.content.revenue}</div>
+            <div className="info-data">
+              {"$" + this.formatCash(revenue) || <Skeleton width="30%" />}
+            </div>
           </div>
         </div>
       );
@@ -129,7 +226,8 @@ export default class Title extends PureComponent {
   }
 
   render(props) {
-    //console.log(this.state.content.backdrop_path);
+    console.log(this.state.content);
+
     return (
       <div>
         <div>
@@ -141,17 +239,7 @@ export default class Title extends PureComponent {
 
         <div className="title-container">
           <div className="cover-img-div">
-            <div className="cover-details">
-              <div className="title">{this.state.bannerInfo.title}</div>
-              <div className="genres">
-                {this.state.content.genres
-                  ? this.state.content.genres
-                      .map(genre => genre.name)
-                      .join(" / ")
-                  : "s"}
-              </div>
-              <div className="tagline">{this.state.content.tagline}</div>
-            </div>
+            <div className="cover-details"></div>
 
             <img
               className="cover-img"
@@ -159,106 +247,154 @@ export default class Title extends PureComponent {
               alt=""
             />
           </div>
-          <div className="info-main-div">
-            {this.props.match.params.media_type == "movie"
-              ? this.displayMovieDetails()
-              : ""}
-            {/*
-            <div className="info-left">
+          <div
+            style={{
+              paddingTop: "25px",
+              paddingBottom: "55px",
+              maxWidth: "1280px",
+              width: "100%"
+            }}
+          >
+            <div
+              className="info-main-div"
+              style={{ display: "flex", flexDirection: "row" }}
+            >
               <div>
-                <div className="info-header">RELEASE DATE</div>
-                <div className="divider" />
-                <div className="info-data">
-                  <SkeletonTheme
-                    color="#202020"
-                    highlightColor="#444"
-                    borderRadius="0px"
-                  >
-                    {this.state.content.original_name || (
-                      <Skeleton duation={1} />
-                    )}
-                  </SkeletonTheme>
+                <div className="title">
+                  {this.props.match.params.media_type == "movie"
+                    ? this.state.content.original_title
+                    : this.state.content.original_name}
+                  {this.getChip()}
+                </div>
+                <div className="title-genres">
+                  {this.getReleaseDate() || (
+                    <Skeleton width="20%" height={15} />
+                  )}{" "}
+                  •{" "}
+                  {this.state.content.genres ? (
+                    this.state.content.genres
+                      .slice(0, 2)
+                      .map(genre => genre.name)
+                      .join(", ")
+                      .toUpperCase()
+                  ) : (
+                    <Skeleton width="20%" height={15} />
+                  )}
                 </div>
               </div>
-              <div>
-                <div className="info-header">GENRES</div>
-                <div className="divider" />
-                <div className="info-data">Action, Sci-Fi </div>
-              </div>
-              <div>
-                <div className="info-header">BUDGET</div>
-                <div className="divider" />
-                <div className="info-data">$150M</div>
-              </div>
-                    </div> */}
-            <div className="info-right">
-              <div>
-                <div className="info-header">Plot</div>
 
-                <div className="info-data ">
-                  <SkeletonTheme
-                    color="#202020"
-                    highlightColor="#444"
-                    borderRadius="0px"
-                    width="1280px"
+              <div
+                style={{
+                  display: "flex",
+                  flexGrow: 1,
+                  justifyContent: "flex-end",
+                  alignItems: "flex-start",
+                  marginLeft: 0,
+                  marginRight: 0
+                }}
+              >
+                {this.state.videoContent.link &&
+                this.state.videoContent.site == "YouTube" ? (
+                  <Fab
+                    //variant="outlined"
+                    color="secondary"
+                    //className={classes.button}
+                    href={`https://www.youtube.com/watch?v=${this.state.videoContent.link}`}
+                    target="_blank"
+                    style={{
+                      marginRight: "16px"
+                      /*
+                      borderRadius: 30,
+                      height: "45px",
+                      fontSize: 15,
+                      textAlign: "left"
+
+                       WATCH{" "}
+                    {this.props.match.params.media_type == "tv"
+                      ? "CLIP"
+                      : "TRAILER"}
+                      */
+                      //backgroundColor: "#3f51b5"
+                    }}
                   >
-                    {this.state.content.overview || <Skeleton count={4} />}
-                  </SkeletonTheme>
-                </div>
+                    <PlayArrowIcon />
+                  </Fab>
+                ) : (
+                  <div />
+                )}
+
+                {this.state.content.homepage ? (
+                  <Fab
+                    //variant="outlined"
+                    color="primary"
+                    //className={classes.button}
+                    aria-label="home"
+                    href={this.state.content.homepage}
+                    target="_blank"
+                    style={
+                      {
+                        /*
+                      marginRight: "16px",
+                      borderRadius: 30,
+                      height: "45px",
+                      fontSize: 15,
+                      textAlign: "left"
+                      */
+                        //
+                      }
+                    }
+                  >
+                    <HomeIcon />
+                  </Fab>
+                ) : (
+                  <div />
+                )}
               </div>
-              <div>
-                <div
-                  className="ov-header"
-                  style={{
-                    fontWeight: 700,
-                    fontColor: "gray"
-                  }}
-                >
-                  Cast
+            </div>
+            <div className="info-main-div">
+              {this.props.match.params.media_type == "movie"
+                ? this.displayMovieDetails()
+                : ""}
+
+              <div className="info-right">
+                <div className="section">
+                  <div className="info-header">Overview</div>
+
+                  <div className="info-data">
+                    <SkeletonTheme
+                      color="#202020"
+                      highlightColor="#444"
+                      borderRadius="0px"
+                      width="1280px"
+                    >
+                      {this.state.content.overview || <Skeleton count={4} />}
+                    </SkeletonTheme>
+                  </div>
                 </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    maxWidth: "100%",
-                    justifyContent: "space-between",
-                    marginBottom: "15px"
-                  }}
-                >
-                  {this.state.credits.cast
-                    ? this.state.credits.cast.slice(0, 5).map(credit => {
-                        return (
-                          <div key={1}>
-                            <ActorCard profile={credit} />
-                          </div>
-                        );
-                      })
-                    : "s"}
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    maxWidth: "100%",
-                    justifyContent: "space-between",
-                    margin: "5px 0px"
-                  }}
-                >
-                  {this.state.credits.cast
-                    ? this.state.credits.cast.slice(5, 10).map(credit => {
-                        return (
-                          <div key={1}>
-                            <ActorCard profile={credit} />
-                          </div>
-                        );
-                      })
-                    : "s"}
+                <div className="section">
+                  <div className="info-header">Cast</div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      maxWidth: "100%",
+                      justifyContent: "flex-start",
+                      marginBottom: "15px"
+                    }}
+                  >
+                    {this.state.credits.cast
+                      ? this.state.credits.cast.slice(0, 6).map(credit => {
+                          return (
+                            <div key={1}>
+                              <DesktopActorCard profile={credit} />
+                            </div>
+                          );
+                        })
+                      : "s"}
+                  </div>
                 </div>
               </div>
             </div>
-            {this.props.match.params.media_type == "movie"
-              ? this.displayMovieDetails()
-              : ""}
           </div>
         </div>
       </div>

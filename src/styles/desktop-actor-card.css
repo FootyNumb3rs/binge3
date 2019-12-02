@@ -10,21 +10,22 @@
       -ms-flex-align: center;
           align-items: center;
   padding-top: 6px;
+  margin-right: 40px;
   -ms-flex-negative: 1;
       flex-shrink: 1;
-  width: 20vw;
+  max-width: 110px;
 }
 
 .actor-card-container .img-cover-div {
   overflow: hidden;
-  height: 20vw;
-  width: 20vw;
+  max-height: 110px;
+  max-width: 110px;
   border-radius: 100%;
   margin-bottom: 4px;
 }
 
 .actor-card-container .img-cover-div .actor-img {
-  width: 20vw;
+  max-width: 110px;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: 0px -20.5px;
@@ -48,4 +49,4 @@
   color: #9b9b9b;
   line-height: 1.3;
 }
-/*# sourceMappingURL=actor-card.css.map */
+/*# sourceMappingURL=desktop-actor-card.css.map */

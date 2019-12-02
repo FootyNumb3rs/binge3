@@ -72,14 +72,15 @@ export default class Home extends PureComponent {
           <div>
             <img
               style={{ width: "100%" }}
-              src="https://image.tmdb.org/t/p/original//6Xsz9KHQmCcIcj3CoWQq5eLtVoT.jpg"
+              src="https://image.tmdb.org/t/p/original//n3UanIvmnBlH531pykuzNs4LbH6.jpg"
               img
             />
           </div>
+
           <div>
             <img
               style={{ width: "100%" }}
-              src="https://image.tmdb.org/t/p/original//n3UanIvmnBlH531pykuzNs4LbH6.jpg"
+              src="https://image.tmdb.org/t/p/original//6Xsz9KHQmCcIcj3CoWQq5eLtVoT.jpg"
               img
             />
           </div>

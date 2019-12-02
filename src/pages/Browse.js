@@ -244,9 +244,7 @@ export default class Browse extends PureComponent {
       </div>
     );
   }
-}
-
-/*
+} /*
           <Pagination
             defaultActivePage={5}
             ellipsisItem={{

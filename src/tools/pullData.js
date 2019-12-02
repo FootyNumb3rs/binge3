@@ -108,6 +108,7 @@ export function getTrending(genres, media_type, page = 1) {
         https://api.themoviedb.org/3/discover/${media_type}?api_key=${api_key}&language=en-US&sort_by=popularity.desc&page=${page}&timezone=America%2FNew_York&include_null_first_air_dates=false&vote_count.gte=50`
       )
       .then(res => {
+        console.log(genres);
         res.data.results = res.data.results.map(item => {
           return {
             id: item.id,
