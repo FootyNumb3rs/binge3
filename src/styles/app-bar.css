@@ -1,4 +1,5 @@
 @import url("https://rsms.me/inter/inter.css");
+/* NEEDS FURTHER REFACTORING */
 .mobile-title {
   display: none;
   font-family: "DM Serif Display";
@@ -32,8 +33,8 @@
         -ms-flex-align: center;
             align-items: center;
   }
-  .title-div .title {
-    font-size: 22px;
+  .title-div .app-title {
+    font-size: 25px;
     font-family: "Rubik";
     font-weight: 100;
     cursor: pointer;
@@ -45,7 +46,18 @@
             flex-grow: 1;
     display: none;
   }
-  .mobile-search-bar {
+  .mobile-search-bar-container {
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .mobile-search-bar-container .mobile-search-bar-div-outer {
     background-color: #0d0d0d;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -63,6 +75,20 @@
         -ms-flex-positive: 1;
             flex-grow: 1;
     max-width: 100%;
+  }
+  .mobile-search-bar-container .mobile-search-bar-div-outer .mobile-search-bar-div-inner {
+    margin-right: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    max-width: 7vw;
+    width: 100%;
   }
   .search-icon {
     margin-left: 16px;
@@ -130,10 +156,10 @@ DESKTOP VERSION
     margin-right: 35px;
     margin-left: 55px;
   }
-  .title {
-    font-size: 24px;
-    font-family: "Rubik";
-    font-weight: 100;
+  .app-title {
+    font-size: 25px;
+    font-family: Inter;
+    font-weight: 400;
     cursor: pointer;
     margin-bottom: 0px;
   }
@@ -172,10 +198,11 @@ DESKTOP VERSION
   .mobile-search-button {
     display: none;
   }
+  .mobile-search-bar-container {
+    display: none;
+  }
   .mobile-title {
     display: none;
-    font-family: "DM Serif Display";
-    font-size: 22px;
   }
 }
 /*# sourceMappingURL=app-bar.css.map */

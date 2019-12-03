@@ -20,39 +20,39 @@ $cardWidth: (2/3) * $cardHeight;
   .card-container {
     padding-left: 23px;
     padding-right: 0px;
-  }
 
-  .card {
-    width: $cardWidth;
-    background-color: $backgroundColor;
-    border: 0px;
-
-    .media {
-      height: $cardHeight;
+    div {
       width: $cardWidth;
       background-color: $backgroundColor;
-    }
-    .cardText {
-      margin-top: 9px;
-      display: flex;
-      justify-content: flex-start;
-      flex-direction: column;
-      background-color: $backgroundColor;
+      border: 0px;
 
-      .title {
-        font-size: $fontSize;
-        line-height: 1.2;
-        font-family: "Inter";
-        color: white;
-        font-weight: 600;
+      .media {
+        height: $cardHeight;
+        width: $cardWidth;
+        background-color: $backgroundColor;
       }
+      .cardText {
+        margin-top: 9px;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        background-color: $backgroundColor;
 
-      .genres {
-        font-size: 12px;
-        font-weight: 500;
-        margin-top: 1.5px;
-        line-height: 1.3;
-        color: #919090;
+        .title {
+          font-size: $fontSize;
+          line-height: 1.2;
+          font-family: "Inter";
+          color: white;
+          font-weight: 600;
+        }
+
+        .genres {
+          font-size: 12px;
+          font-weight: 500;
+          margin-top: 1.5px;
+          line-height: 1.3;
+          color: #9e9e9e;
+        }
       }
     }
   }
@@ -60,44 +60,43 @@ $cardWidth: (2/3) * $cardHeight;
 
 @media (min-width: 620px) {
   .card-container {
-    background: transparent;
-  }
-
-  .card {
-    flex-direction: column;
-    width: $cardWidth;
-    background-color: $backgroundColor;
-    border: 0px $backgroundColor;
-
-    .media {
-      height: $cardHeight;
+    div {
+      // div directly inside card container
       width: $cardWidth;
-      background-color: transparent;
-    }
-  }
 
-  .cardText {
-    background-color: $backgroundColor;
-    margin-top: 7.5px;
-    display: flex;
-    flex-direction: column;
-    //align-items: center;
+      .card {
+        border-radius: 5px;
+        background-color: transparent;
+      }
 
-    .title {
-      color: white;
-      font-family: $mainFont;
-      font-size: 15px;
-      font-weight: 400;
-      line-height: 1.4;
-      //align-items: center;
+      .media {
+        height: $cardHeight;
+        width: $cardWidth; // Card image
+        background-color: transparent; // Figure out how to turn this white or whatever
+      }
     }
 
-    .genres {
-      color: #9e9e9e;
-      font-family: $mainFont;
-      font-size: 13px;
-      font-weight: 400;
-      margin-top: 0px;
+    .cardText {
+      background-color: transparent; // Area
+      margin-top: 6px; // Space between text and poster
+      display: flex;
+      flex-direction: column;
+
+      .title {
+        color: white;
+        font-family: $mainFont;
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 1.4;
+      }
+
+      .genres {
+        color: #9c9c9c;
+        font-family: $mainFont;
+        font-size: 13px;
+        font-weight: 400;
+        margin-top: 0px;
+      }
     }
   }
 }

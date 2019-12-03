@@ -6,6 +6,7 @@ import {
   getInTheaters
 } from "../tools/pullData.js";
 import MediaCard from "../components/MediaCard.js";
+import Pag from "../components/Pag.js";
 import MobileMediaCard from "../components/MobileMediaCard.js";
 import "../styles/browse.css";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -136,17 +137,7 @@ export default class Browse extends PureComponent {
   displayPagination = () => {
     return (
       <div className="desktop-pagination">
-        <CssBaseline />
-        <Pagination
-          offset={this.state.offset}
-          total={this.state.total_pages}
-          onClick={(e, offset) => {
-            //console.log(offset);
-            this.handleClick(offset);
-            this.displayThisPage(offset + 1);
-          }}
-          size="large"
-        />
+        <Pag changePage={this.displayThisPage} />
       </div>
     );
   };
@@ -197,7 +188,7 @@ export default class Browse extends PureComponent {
 
   render(props) {
     console.log(this.state);
-    // Putting change triggers some sort of infinite loop
+
     return (
       <div
         style={{

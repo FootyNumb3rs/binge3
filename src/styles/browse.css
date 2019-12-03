@@ -59,6 +59,7 @@
     max-width: 1280px;
     width: 100%;
     padding-bottom: 100px;
+    min-height: 90vh;
     height: 100%;
     background-color: transparent;
   }
@@ -98,6 +99,8 @@
     grid-row-gap: 42.5px;
     -ms-grid-columns: (167px)[5];
         grid-template-columns: repeat(5, 167px);
+    min-height: 90vh;
+    height: 100%;
   }
   .mobile-card-grid {
     display: none;

@@ -46,6 +46,7 @@ $mainFont: Inter;
     max-width: 1280px;
     width: 100%;
     padding-bottom: 100px;
+    min-height: 90vh;
     height: 100%;
     background-color: transparent;
 
@@ -78,6 +79,8 @@ $mainFont: Inter;
       grid-column-gap: 30px;
       grid-row-gap: 42.5px;
       grid-template-columns: repeat(5, 167px);
+      min-height: 90vh;
+      height: 100%;
     }
   }
 

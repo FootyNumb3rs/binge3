@@ -120,7 +120,7 @@ export default function MobileToolbar({
       <Link to="/" style={{ textDecoration: "none", color: "white" }}>
         <div className={"title-div"}>
           <div
-            className={"title"}
+            className={"app-title"}
             //  noWrap
           >
             MOVX

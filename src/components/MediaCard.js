@@ -30,29 +30,22 @@ export default function MediaCard({ media_, openDialogue, rp }) {
   // const leftPad = rp % 3 == 0 ? "15px" : "0px";
   return (
     <div className="card-container">
-      <div className="card">
+      <div>
         <SkeletonTheme color="#202020" highlightColor="#444" borderRadius="0px">
           <Link
             to={{
               pathname: `/title/${media_type}/${id}`
             }}
           >
-            <Card style={{ borderRadius: 0, backgroundColor: "transparent" }}>
+            <Card className="card">
               <CardActionArea
                 classes={{
                   root: classes.actionArea,
                   focusHighlight: classes.focusHighlight
                 }}
-                onClick={() => console.log("click")}
-                /* Throwing error
-            onTouchTap={e => {
-              e.preventDefault();
-              console.log("click");
-            }}
-            */
               >
                 {posterLink ? (
-                  <CardMedia image={posterLink} className={"media"} />
+                  <CardMedia image={posterLink} className="media" />
                 ) : (
                   <Skeleton height="300px" width="400px" />
                 )}
@@ -60,12 +53,12 @@ export default function MediaCard({ media_, openDialogue, rp }) {
             </Card>
           </Link>
 
-          <div className={"cardText"}>
-            <Typography className={"title"}>
+          <div className="cardText">
+            <Typography className="title">
               {title || <Skeleton width="90%" height="40%" />}
             </Typography>
 
-            <Typography className={"genres"}>
+            <Typography className="genres">
               {genres[0] || <Skeleton width="60%" />}
             </Typography>
           </div>

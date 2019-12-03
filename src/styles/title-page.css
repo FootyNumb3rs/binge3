@@ -130,7 +130,7 @@
       -ms-flex-positive: 1;
           flex-grow: 1;
   min-height: 100%;
-  padding-top: 70px;
+  padding-top: 50px;
 }
 
 .info-main-div .section {
@@ -170,10 +170,11 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  min-width: 150px;
+  max-width: 170px;
+  width: 100%;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  margin-right: 100px;
+  margin-right: 80px;
 }
 
 .info-main-div .info-right {

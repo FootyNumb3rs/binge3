@@ -100,7 +100,7 @@ $mainFont: Inter;
   //padding-bottom: 40px;
   flex-grow: 1;
   min-height: 100%;
-  padding-top: 70px;
+  padding-top: 50px;
 
   .section {
     margin-bottom: 40px;
@@ -125,10 +125,11 @@ $mainFont: Inter;
     flex-direction: column;
     height: 330px;
     justify-content: space-between;
-    min-width: 150px;
+    max-width: 170px;
+    width: 100%;
     flex-shrink: 0;
     //margin-left: 55px;
-    margin-right: 100px;
+    margin-right: 80px;
   }
 
   .info-right {

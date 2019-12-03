@@ -1,19 +1,11 @@
 import React, { useState } from "react";
 import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import { makeStyles } from "@material-ui/core/styles";
-import SearchIcon from "@material-ui/icons/Search";
 import MobileSearchBar from "./MobileSearchBar";
 import { ThemeProvider } from "@material-ui/styles";
-import SearchBar from "./SearchBar";
-import Button from "@material-ui/core/Button";
 import "../styles/app-bar.css";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import { Link } from "react-router-dom";
 import SideDrawer from "../components/SideDrawer";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
-import StarIcon from "@material-ui/icons/Star";
 import MobileToolbar from "../components/MobileToolbar.js";
 
 const useStyles = makeStyles(theme => ({
@@ -67,15 +59,7 @@ export default function MainBar({ queryChange, searchSubmit, show }) {
 
   const openSearch = () => {
     return (
-      <div
-        style={{
-          width: "100%",
-          height: "50px",
-          backgroundColor: "black",
-          display: "flex",
-          justifyContent: "center"
-        }}
-      >
+      <div className="mobile-search-bar-container">
         <MobileSearchBar
           queryChange={queryChange}
           searchSubmit={searchSubmit}

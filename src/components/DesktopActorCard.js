@@ -21,15 +21,15 @@ export default class DesktopActorCard extends PureComponent {
               className="actor-pic"
             />
           ) : (
-            <Skeleton height="100%" width="20%" circle={true} />
+            <Skeleton height="100%" width="100%" circle={true} />
           )}
         </div>
         <div className="actor-details">
           <div style={{ textAlign: "center" }} className="actor-name">
-            {this.props.profile.name || <Skeleton width="20vw" />}
+            {this.props.profile.name || <Skeleton width="100px" />}
           </div>
           <div style={{ textAlign: "center" }} className="actor-role">
-            {this.props.profile.character || <Skeleton width="18vw" />}
+            {/*this.props.profile.character || <Skeleton width="18vw" />*/}
           </div>
         </div>
       </div>

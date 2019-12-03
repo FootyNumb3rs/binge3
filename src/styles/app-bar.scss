@@ -2,6 +2,8 @@ $backgroundColor: #171717;
 $mainFont: Roboto;
 @import url("https://rsms.me/inter/inter.css");
 
+/* NEEDS FURTHER REFACTORING */
+
 .mobile-title {
   display: none;
   font-family: "DM Serif Display";
@@ -27,9 +29,9 @@ $mainFont: Roboto;
     flex-shrink: 0;
     align-items: center;
 
-    .title {
+    .app-title {
       //display: "flex";
-      font-size: 22px;
+      font-size: 25px;
       font-family: "Rubik";
       font-weight: 100;
       cursor: pointer;
@@ -43,18 +45,34 @@ $mainFont: Roboto;
     display: none;
   }
 
-  .mobile-search-bar {
-    background-color: #0d0d0d;
+  .mobile-search-bar-container {
+    width: 100%;
+    height: 50px;
+    background-color: black;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    padding-left: 20px;
-    //padding-right: 20px;
-    flex-grow: 1;
-    max-width: 100%;
-    //display: none;
+
+    .mobile-search-bar-div-outer {
+      // This can't just be "div" even though its the first div
+      background-color: #0d0d0d;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 6px;
+      padding-bottom: 6px;
+      padding-left: 20px;
+      flex-grow: 1;
+      max-width: 100%;
+
+      .mobile-search-bar-div-inner {
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 7vw;
+        width: 100%;
+      }
+    }
   }
 
   .search-icon {
@@ -112,14 +130,12 @@ DESKTOP VERSION
     margin-left: 55px;
   }
 
-  .title {
-    //display: "flex";
-    font-size: 24px;
-    font-family: "Rubik";
-    font-weight: 100;
+  .app-title {
+    font-size: 25px;
+    font-family: Inter;
+    font-weight: 400;
     cursor: pointer;
     margin-bottom: 0px;
-    //font-style: italic;
   }
 
   .buttonContainer {
@@ -147,9 +163,12 @@ DESKTOP VERSION
   .mobile-search-button {
     display: none;
   }
+
+  .mobile-search-bar-container {
+    display: none;
+  }
+
   .mobile-title {
     display: none;
-    font-family: "DM Serif Display";
-    font-size: 22px;
   }
 }

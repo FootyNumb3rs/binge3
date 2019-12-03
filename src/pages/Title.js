@@ -189,35 +189,34 @@ export default class Title extends PureComponent {
               )}
             </div>
             <div className="info-data" style={{ lineHeight: "25px" }}>
-              {"Writer /" + " " + dict.writer.join(", ")}
+              {"Writer /" + " " + dict.writer.join(", ") || (
+                <Skeleton duation={1} />
+              )}
             </div>
           </div>
-          {/*
-          <div>
-            <div className="info-header">DP</div>
-            <div className="info-data">{dict.cinematographer} </div>
-          </div>
-          <div>
-            <div className="info-header">Writer(s)</div>
-            <div className="info-data">{dict.writer.join(", ")}</div>
-          </div>
-          */}
+
           <div>
             <div className="info-header">Runtime</div>
             <div className="info-data">
-              {this.getRunningTime(this.state.content.runtime)}
+              {this.getRunningTime(this.state.content.runtime) || (
+                <Skeleton duation={1} width="40%" />
+              )}
             </div>
           </div>
           <div>
             <div className="info-header">Budget</div>
             <div className="info-data">
-              {"$" + this.formatCash(budget) || <Skeleton width="30%" />}
+              {"$" + this.formatCash(budget) || (
+                <Skeleton duation={1} width="40%" />
+              )}
             </div>
           </div>
           <div>
             <div className="info-header">Revenue</div>
             <div className="info-data">
-              {"$" + this.formatCash(revenue) || <Skeleton width="30%" />}
+              {"$" + this.formatCash(revenue) || (
+                <Skeleton duation={1} width="40%" />
+              )}
             </div>
           </div>
         </div>
@@ -241,45 +240,40 @@ export default class Title extends PureComponent {
       });
 
       return (
-        <div className="mobile-vue-overview" style={{ paddingTop: "1.5px" }}>
-          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
-            Created By
-            {" - "}
-            <font style={{ color: "white" }}>
-              {created_by.join(", ") || <Skeleton width="30%" />}
-            </font>
+        <div className="info-left">
+          <div>
+            <div className="info-header">Created By</div>
+            {created_by.map(d => {
+              console.log(d);
+              return (
+                <div className="info-data" style={{ lineHeight: "25px" }}>
+                  {d || <Skeleton width="80%" />}
+                </div>
+              );
+            })}
           </div>
 
-          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
-            Episode Runtime
-            {" - "}
-            <font style={{ color: "white" }}>
-              {episode_run_time + "min" || <Skeleton width="30%" />}
-            </font>
-          </div>
-          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
-            Networks
-            {" - "}
-            <font style={{ color: "white" }}>
-              {networks.join(", ") || <Skeleton width="30%" />}
-            </font>
-          </div>
-          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
-            First Air Date
-            {" - "}
-            <font style={{ color: "white" }}>
-              {first_air.toDateString().slice(4) || <Skeleton width="30%" />}
-            </font>
+          <div>
+            <div className="info-header">Episode Runtime</div>
+            <div className="info-data" style={{ lineHeight: "25px" }}>
+              {episode_run_time + "min" || <Skeleton width="50%" />}
+            </div>
           </div>
 
-          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
-            Total Seasons
-            {" - "}
-            <font style={{ color: "white" }}>
+          <div>
+            <div className="info-header">Networks</div>
+            <div className="info-data" style={{ lineHeight: "25px" }}>
+              {networks.join(", ") || <Skeleton width="50%" />}
+            </div>
+          </div>
+
+          <div>
+            <div className="info-header">Total Seasons </div>
+            <div className="info-data" style={{ lineHeight: "25px" }}>
               {`${num_seasons} Season(s), ${num_episodes} Episodes` || (
-                <Skeleton width="30%" />
+                <Skeleton width="50%" />
               )}
-            </font>
+            </div>
           </div>
         </div>
       );
@@ -290,81 +284,85 @@ export default class Title extends PureComponent {
     console.log(this.state.content);
 
     return (
-      <div>
+      <SkeletonTheme color="#202020" highlightColor="#444" borderRadius="0px">
         <div>
-          <MobileTitle
-            state_={this.state}
-            media_type={this.props.match.params.media_type}
-          />
-        </div>
-
-        <div className="title-container">
-          <div className="cover-img-div">
-            <div className="cover-details"></div>
-
-            <img
-              className="cover-img"
-              src={this.state.content.backdrop_path}
-              alt=""
+          <div>
+            <MobileTitle
+              state_={this.state}
+              media_type={this.props.match.params.media_type}
             />
           </div>
-          <div
-            style={{
-              paddingTop: "0px",
-              paddingBottom: "55px",
-              maxWidth: "1280px",
-              width: "100%"
-            }}
-          >
-            <div
-              className="info-main-div"
-              style={{ display: "flex", flexDirection: "row" }}
-            >
-              <div>
-                <div className="title">
-                  {this.props.match.params.media_type == "movie"
-                    ? this.state.content.original_title
-                    : this.state.content.original_name}
-                  {this.getChip()}
-                </div>
-                <div className="title-genres">
-                  {this.getReleaseDate() || (
-                    <Skeleton width="20%" height={15} />
-                  )}{" "}
-                  •{" "}
-                  {this.state.content.genres ? (
-                    this.state.content.genres
-                      .slice(0, 2)
-                      .map(genre => genre.name)
-                      .join(", ")
-                      .toUpperCase()
-                  ) : (
-                    <Skeleton width="20%" height={15} />
-                  )}
-                </div>
-              </div>
 
+          <div className="title-container">
+            <div className="cover-img-div">
+              <div className="cover-details"></div>
+              {this.state.content.backdrop_path ? (
+                <img
+                  className="cover-img"
+                  src={this.state.content.backdrop_path}
+                  alt=""
+                />
+              ) : (
+                <Skeleton height="450px" width="100vw" />
+              )}
+            </div>
+            <div
+              style={{
+                paddingTop: "10px",
+                paddingBottom: "55px",
+                maxWidth: "1280px",
+                width: "100%"
+              }}
+            >
               <div
-                style={{
-                  display: "flex",
-                  flexGrow: 1,
-                  justifyContent: "flex-end",
-                  alignItems: "flex-start",
-                  marginLeft: 0,
-                  marginRight: 0
-                }}
+                className="info-main-div"
+                style={{ display: "flex", flexDirection: "row" }}
               >
-                {this.state.videoContent.link &&
-                this.state.videoContent.site == "YouTube" ? (
-                  <Fab
-                    //variant="outlined"
-                    color="secondary"
-                    //className={classes.button}
-                    href={`https://www.youtube.com/watch?v=${this.state.videoContent.link}`}
-                    target="_blank"
-                    style={{
-                      marginRight: "16px"
-                      /*
+                <div>
+                  <div className="title">
+                    {this.props.match.params.media_type == "movie"
+                      ? this.state.content.original_title
+                      : this.state.content.original_name}
+                    {this.getChip()}
+                  </div>
+                  <div className="title-genres">
+                    {this.getReleaseDate() || (
+                      <Skeleton width="80px" height={15} />
+                    )}{" "}
+                    •{" "}
+                    {this.state.content.genres ? (
+                      this.state.content.genres
+                        //.slice(0, 2)
+                        .map(genre => genre.name)
+                        .join(", ")
+                        .toUpperCase()
+                    ) : (
+                      <Skeleton width="160px" height={15} />
+                    )}
+                  </div>
+                </div>
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexGrow: 1,
+                    justifyContent: "flex-end",
+                    alignItems: "flex-start",
+                    marginLeft: 0,
+                    marginRight: 0
+                  }}
+                >
+                  {this.state.videoContent.link &&
+                  this.state.videoContent.site == "YouTube" ? (
+                    <Fab
+                      //variant="outlined"
+                      color="secondary"
+                      //className={classes.button}
+                      href={`https://www.youtube.com/watch?v=${this.state.videoContent.link}`}
+                      target="_blank"
+                      style={{
+                        marginRight: "16px"
+                        /*
                       borderRadius: 30,
                       height: "45px",
                       fontSize: 15,
@@ -375,90 +373,93 @@ export default class Title extends PureComponent {
                       ? "CLIP"
                       : "TRAILER"}
                       */
-                      //backgroundColor: "#3f51b5"
-                    }}
-                  >
-                    <PlayArrowIcon />
-                  </Fab>
-                ) : (
-                  <div />
-                )}
+                        //backgroundColor: "#3f51b5"
+                      }}
+                    >
+                      <PlayArrowIcon />
+                    </Fab>
+                  ) : (
+                    <div />
+                  )}
 
-                {this.state.content.homepage ? (
-                  <Fab
-                    //variant="outlined"
-                    color="primary"
-                    //className={classes.button}
-                    aria-label="home"
-                    href={this.state.content.homepage}
-                    target="_blank"
-                    style={
-                      {
-                        /*
+                  {this.state.content.homepage ? (
+                    <Fab
+                      //variant="outlined"
+                      color="primary"
+                      //className={classes.button}
+                      aria-label="home"
+                      href={this.state.content.homepage}
+                      target="_blank"
+                      style={
+                        {
+                          /*
                       marginRight: "16px",
                       borderRadius: 30,
                       height: "45px",
                       fontSize: 15,
                       textAlign: "left"
                       */
-                        //
+                          //
+                        }
                       }
-                    }
-                  >
-                    <HomeIcon />
-                  </Fab>
-                ) : (
-                  <div />
-                )}
-              </div>
-            </div>
-            <div className="info-main-div">
-              {this.props.match.params.media_type == "movie"
-                ? this.displayMovieDetails()
-                : ""}
-
-              <div className="info-right">
-                <div className="section">
-                  <div className="info-header">Overview</div>
-
-                  <div className="info-data">
-                    <SkeletonTheme
-                      color="#202020"
-                      highlightColor="#444"
-                      borderRadius="0px"
-                      width="1280px"
                     >
-                      {this.state.content.overview || <Skeleton count={4} />}
-                    </SkeletonTheme>
-                  </div>
+                      <HomeIcon />
+                    </Fab>
+                  ) : (
+                    <div />
+                  )}
                 </div>
-                <div className="section">
-                  <div className="info-header">Cast</div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      maxWidth: "100%",
-                      justifyContent: "flex-start",
-                      marginBottom: "15px"
-                    }}
-                  >
-                    {this.state.credits.cast
-                      ? this.state.credits.cast.slice(0, 6).map(credit => {
-                          return (
-                            <div key={1}>
-                              <DesktopActorCard profile={credit} />
-                            </div>
-                          );
-                        })
-                      : "s"}
+              </div>
+              <div className="info-main-div">
+                {this.props.match.params.media_type == "movie"
+                  ? this.displayMovieDetails()
+                  : this.displayShowDetails()}
+
+                <div className="info-right">
+                  <div className="section">
+                    <div className="info-header">Overview</div>
+
+                    <div className="info-data">
+                      <SkeletonTheme
+                        color="#202020"
+                        highlightColor="#444"
+                        borderRadius="0px"
+                        width="1280px"
+                      >
+                        {this.state.content.overview || (
+                          <Skeleton count={3} width="90%" />
+                        )}
+                      </SkeletonTheme>
+                    </div>
+                  </div>
+                  <div className="section">
+                    <div className="info-header">Cast</div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        maxWidth: "100%",
+                        justifyContent: "flex-start",
+                        marginBottom: "15px"
+                      }}
+                    >
+                      {this.state.credits.cast
+                        ? this.state.credits.cast.slice(0, 6).map(credit => {
+                            return (
+                              <div key={1}>
+                                <DesktopActorCard profile={credit} />
+                              </div>
+                            );
+                          })
+                        : "s"}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </SkeletonTheme>
     );
   }
 }

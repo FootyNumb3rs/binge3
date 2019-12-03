@@ -7,17 +7,17 @@
     padding-left: 23px;
     padding-right: 0px;
   }
-  .card {
+  .card-container div {
     width: 32vw;
     background-color: transparent;
     border: 0px;
   }
-  .card .media {
+  .card-container div .media {
     height: 48vw;
     width: 32vw;
     background-color: transparent;
   }
-  .card .cardText {
+  .card-container div .cardText {
     margin-top: 9px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -31,43 +31,38 @@
             flex-direction: column;
     background-color: transparent;
   }
-  .card .cardText .title {
+  .card-container div .cardText .title {
     font-size: 13px;
     line-height: 1.2;
     font-family: "Inter";
     color: white;
     font-weight: 600;
   }
-  .card .cardText .genres {
+  .card-container div .cardText .genres {
     font-size: 12px;
     font-weight: 500;
     margin-top: 1.5px;
     line-height: 1.3;
-    color: #919090;
+    color: #9e9e9e;
   }
 }
 
 @media (min-width: 620px) {
-  .card-container {
-    background: transparent;
-  }
-  .card {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+  .card-container div {
     width: 168px;
-    background-color: transparent;
-    border: 0px transparent;
   }
-  .card .media {
+  .card-container div .card {
+    border-radius: 5px;
+    background-color: transparent;
+  }
+  .card-container div .media {
     height: 252px;
     width: 168px;
     background-color: transparent;
   }
-  .cardText {
+  .card-container .cardText {
     background-color: transparent;
-    margin-top: 7.5px;
+    margin-top: 6px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -76,15 +71,15 @@
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .cardText .title {
+  .card-container .cardText .title {
     color: white;
     font-family: Inter;
     font-size: 15px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.4;
   }
-  .cardText .genres {
-    color: #9e9e9e;
+  .card-container .cardText .genres {
+    color: #9c9c9c;
     font-family: Inter;
     font-size: 13px;
     font-weight: 400;

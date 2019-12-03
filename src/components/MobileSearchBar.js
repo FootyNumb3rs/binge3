@@ -25,16 +25,10 @@ const useStyles = makeStyles(theme => ({
     fontFamily: "Inter",
     fontWeight: 400,
     fontSize: 16,
-    type: "search",
-    //flexShrink: 1,
-    //height: 29,
 
     ["@media (max-width: 620px)"]: {
-      //display: "none",
       flexGrow: 1,
-      //flexShrink: 1,
       height: 29,
-      type: "search",
       fontSize: 14
     }
   },
@@ -42,14 +36,10 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1, 1, 1, 6.5),
     width: "auto",
     flexShrink: 1,
-    type: "search",
 
     ["@media (max-width: 620px)"]: {
-      //display: "none",
       flexGrow: 1,
-      //flexShrink: 1,
-      padding: theme.spacing(1, 2.5, 1, 6.5),
-      type: "search"
+      padding: theme.spacing(1, 2.5, 1, 6.5)
     }
   }
 }));
@@ -62,22 +52,15 @@ function MobileSearchBar({ searchSubmit, history, setBar, barOpen }) {
   };
 
   return (
-    <div className="mobile-search-bar">
+    <div className="mobile-search-bar-div-outer">
       <div
-        style={{
-          marginRight: "10px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          maxWidth: "7vw",
-          width: "100%"
-        }}
+        className="mobile-search-bar-div-inner"
         onClick={(e, offset) => setBar(!barOpen)}
       >
         <ArrowBackIcon />
       </div>
       <div className={classes.searchBar}>
-        <div className={"search-icon"}>
+        <div className="search-icon">
           <SearchIcon />
         </div>
         <InputBase
@@ -87,7 +70,7 @@ function MobileSearchBar({ searchSubmit, history, setBar, barOpen }) {
           classes={{ root: classes.inputRoot, input: classes.inputInput }}
           onChange={onChange}
           onKeyPress={ev => {
-            console.log(`Pressed keyCode ${ev.key}`);
+            //console.log(`Pressed keyCode ${ev.key}`);
             if (ev.key === "Enter") {
               if (search.length > 0) history.push(`/search/${search}`);
               //setBar(!barOpen);
