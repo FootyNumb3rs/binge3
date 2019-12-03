@@ -266,29 +266,9 @@ class MobileTitle extends PureComponent {
       <div className="mobile-vue-container">
         <SkeletonTheme color="#202020" highlightColor="#444" borderRadius="0px">
           <div className="mobile-vue-cover-img-div">
-            <div className="cover-details">
-              <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-                <div
-                  style={{
-                    display: "none",
-                    backgroundColor: "transparent"
-                    //display: "inline-block"
-                  }}
-                  onClick={() => {
-                    this.props.history.go(-1);
-                  }}
-                >
-                  <ArrowBackIcon />
-                </div>
-              </Link>
-            </div>
             <div className="mobile-vue-cover-img">
               {this.state.content.backdrop_path ? (
-                <img
-                  /* style={{ width: "100%", height: "auto" }} */
-                  src={this.state.content.backdrop_path}
-                  alt="lolz"
-                />
+                <img src={this.state.content.backdrop_path} alt="lolz" />
               ) : (
                 <Skeleton width="100%" height="100%" />
               )}
@@ -296,17 +276,10 @@ class MobileTitle extends PureComponent {
           </div>
           <div className="mobile-vue-info-main-div">
             <div className="mobile-vue-title">
-              <SkeletonTheme
-                color="#202020"
-                highlightColor="#444"
-                borderRadius="0px"
-              >
-                {this.state.content.title ||
-                  this.state.content.original_name || (
-                    <Skeleton width="60%" height={20} />
-                  )}
-                {this.getChip()}
-              </SkeletonTheme>
+              {this.state.content.title || this.state.content.original_name || (
+                <Skeleton width="60%" height={20} />
+              )}
+              {this.getChip()}
             </div>
             <div className="mobile-vue-genres">
               <div>
@@ -324,25 +297,17 @@ class MobileTitle extends PureComponent {
               </div>
             </div>
             <div className="mobile-vue-overview">
-              <div className="ov-header">Overview</div>
+              <div className="mobile-title-header">Overview</div>
               <div>
                 {this.state.content.overview || (
-                  <Skeleton width={"90%"} height={13} count={3} />
+                  <Skeleton width="90%" height={13} count={3} />
                 )}
               </div>
             </div>
             <div className="title-divider" />
 
             <div>
-              <div
-                className="ov-header"
-                style={{
-                  fontWeight: 700,
-                  fontColor: "gray"
-                }}
-              >
-                Cast
-              </div>
+              <div className="mobile-title-header">Cast</div>
               <div className="mobile-vue-cast">
                 {this.state.credits.cast
                   ? this.state.credits.cast.slice(0, 3).map(credit => {
@@ -352,7 +317,7 @@ class MobileTitle extends PureComponent {
                         </div>
                       );
                     })
-                  : "s"}
+                  : ""}
               </div>
               <div className="mobile-vue-cast">
                 {this.state.credits.cast
@@ -363,35 +328,16 @@ class MobileTitle extends PureComponent {
                         </div>
                       );
                     })
-                  : "s"}
+                  : ""}
               </div>
             </div>
             <div className="title-divider" />
             <div>
-              <div
-                className="ov-header"
-                style={{
-                  fontWeight: 700,
-                  fontColor: "gray"
-                }}
-              >
-                Trailer
-              </div>
-              <div
-                className="video"
-                style={{
-                  position: "relative",
-                  paddingBottom: "56.25%" /* 16:9 */,
-                  paddingTop: 25,
-                  height: 0
-                }}
-              >
+              <div className="mobile-title-header">Trailer</div>
+              <div className="video">
                 {this.state.videoContent ? (
                   <iframe
                     style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
                       width: "100%",
                       height: "100%"
                     }}
@@ -405,15 +351,7 @@ class MobileTitle extends PureComponent {
             </div>
             <div className="title-divider" />
             <div>
-              <div
-                className="ov-header"
-                style={{
-                  fontWeight: 700,
-                  fontColor: "gray"
-                }}
-              >
-                Information
-              </div>
+              <div className="mobile-title-header">Information</div>
 
               {this.props.media_type == "movie"
                 ? this.displayMovieDetails()
@@ -427,3 +365,24 @@ class MobileTitle extends PureComponent {
 }
 
 export default withRouter(MobileTitle);
+
+{
+  /*
+            <div className="cover-details">
+              <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+                <div
+                  style={{
+                    display: "none",
+                    backgroundColor: "transparent"
+                    //display: "inline-block"
+                  }}
+                  onClick={() => {
+                    this.props.history.go(-1);
+                  }}
+                >
+                  <ArrowBackIcon />
+                </div>
+              </Link>
+            </div>
+                */
+}

@@ -10,9 +10,9 @@ export default class DesktopActorCard extends PureComponent {
         <div className="img-cover-div">
           {this.props.profile.profile_path ? (
             <img
-              className="actor-img"
               alt="actor"
               style={{
+                // Doesnt' work on CSS for some reason
                 width: "110px",
                 objectFit: "cover",
                 objectPosition: "0 -20.5px"

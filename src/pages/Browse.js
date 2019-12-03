@@ -190,15 +190,8 @@ export default class Browse extends PureComponent {
     console.log(this.state);
 
     return (
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "transparent"
-        }}
-      >
-        <div className="browse-container">
+      <div className="browser-container">
+        <div className="browse-div">
           {this.displayHeader()}
           <div className="card-grid">
             {this.state.content_list.map(media => {
@@ -215,16 +208,7 @@ export default class Browse extends PureComponent {
               return (
                 <div key={media.id}>
                   <MobileMediaCard media_={media} />
-                  <div
-                    style={{
-                      height: "1px",
-                      maxWidth: "100%",
-                      marginLeft: "16px",
-                      marginRight: "0px",
-                      backgroundColor: "white",
-                      opacity: 0.1
-                    }}
-                  />
+                  <div className="browser-divider" />
                 </div>
               );
             })}

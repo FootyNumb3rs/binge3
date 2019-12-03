@@ -7,9 +7,9 @@
   bottom: 60px;
 }
 
-.ov-header {
+.mobile-title-header {
   font-family: Inter;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 14.5px;
   color: white;
   margin-bottom: 5px;
@@ -91,6 +91,19 @@
   padding-left: 24.5px;
   padding-right: 24.5px;
   padding-top: 25px;
+}
+
+.mobile-vue-info-main-div .video {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25;
+  height: 0;
+}
+
+.mobile-vue-info-main-div .video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .mobile-vue-info-main-div .mobile-vue-title {

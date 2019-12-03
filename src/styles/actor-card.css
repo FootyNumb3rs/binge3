@@ -1,4 +1,4 @@
-.actor-card-container {
+.mobile-actor-card-container {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -15,17 +15,7 @@
   width: 20vw;
 }
 
-.actor-card-container .actor-name {
-  font-family: Inter;
-  margin-top: 2.5px;
-  font-weight: 500;
-  font-size: 12.5px;
-  line-height: 1.4;
-  opacity: 0.85;
-  color: #a5a5a5;
-}
-
-.actor-card-container .img-cover-div {
+.mobile-actor-card-container .mobile-img-cover-div {
   overflow: hidden;
   height: 20vw;
   width: 20vw;
@@ -33,7 +23,7 @@
   margin-bottom: 4px;
 }
 
-.actor-card-container .img-cover-div .actor-img {
+.mobile-actor-card-container .mobile-img-cover-div img {
   width: 20vw;
   -o-object-fit: cover;
      object-fit: cover;
@@ -42,17 +32,18 @@
   opacity: 0.8;
 }
 
-.actor-card-container .actor-name {
+.mobile-actor-card-container .mobile-actor-name {
   font-family: Inter;
-  margin-top: 2.5px;
+  margin-top: 0px;
   font-weight: 500;
   font-size: 12.5px;
   line-height: 1.4;
   opacity: 0.85;
   color: #a5a5a5;
+  text-align: center;
 }
 
-.actor-card-container .actor-role {
+.mobile-actor-card-container .mobile-actor-role {
   font-family: Inter;
   font-weight: 500;
   font-size: 12.5px;

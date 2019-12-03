@@ -306,14 +306,8 @@ export default class Title extends PureComponent {
                 <Skeleton height="450px" width="100vw" />
               )}
             </div>
-            <div
-              style={{
-                paddingTop: "10px",
-                paddingBottom: "55px",
-                maxWidth: "1280px",
-                width: "100%"
-              }}
-            >
+
+            <div className="info-main-container">
               <div
                 className="info-main-div"
                 style={{ display: "flex", flexDirection: "row" }}
@@ -342,38 +336,15 @@ export default class Title extends PureComponent {
                   </div>
                 </div>
 
-                <div
-                  style={{
-                    display: "flex",
-                    flexGrow: 1,
-                    justifyContent: "flex-end",
-                    alignItems: "flex-start",
-                    marginLeft: 0,
-                    marginRight: 0
-                  }}
-                >
+                <div className="video-div">
                   {this.state.videoContent.link &&
                   this.state.videoContent.site == "YouTube" ? (
                     <Fab
-                      //variant="outlined"
                       color="secondary"
-                      //className={classes.button}
                       href={`https://www.youtube.com/watch?v=${this.state.videoContent.link}`}
                       target="_blank"
                       style={{
                         marginRight: "16px"
-                        /*
-                      borderRadius: 30,
-                      height: "45px",
-                      fontSize: 15,
-                      textAlign: "left"
-
-                       WATCH{" "}
-                    {this.props.match.params.media_type == "tv"
-                      ? "CLIP"
-                      : "TRAILER"}
-                      */
-                        //backgroundColor: "#3f51b5"
                       }}
                     >
                       <PlayArrowIcon />
@@ -384,24 +355,10 @@ export default class Title extends PureComponent {
 
                   {this.state.content.homepage ? (
                     <Fab
-                      //variant="outlined"
                       color="primary"
-                      //className={classes.button}
                       aria-label="home"
                       href={this.state.content.homepage}
                       target="_blank"
-                      style={
-                        {
-                          /*
-                      marginRight: "16px",
-                      borderRadius: 30,
-                      height: "45px",
-                      fontSize: 15,
-                      textAlign: "left"
-                      */
-                          //
-                        }
-                      }
                     >
                       <HomeIcon />
                     </Fab>
@@ -434,15 +391,7 @@ export default class Title extends PureComponent {
                   </div>
                   <div className="section">
                     <div className="info-header">Cast</div>
-                    <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        maxWidth: "100%",
-                        justifyContent: "flex-start",
-                        marginBottom: "15px"
-                      }}
-                    >
+                    <div className="cast-div">
                       {this.state.credits.cast
                         ? this.state.credits.cast.slice(0, 6).map(credit => {
                             return (

@@ -11,9 +11,9 @@ $height: $width/1.7777;
   bottom: 60px;
 }
 
-.ov-header {
+.mobile-title-header {
   font-family: $mainFont;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 14.5px;
   color: white;
   margin-bottom: 5px;
@@ -79,6 +79,19 @@ $height: $width/1.7777;
   padding-left: 24.5px;
   padding-right: 24.5px;
   padding-top: 25px;
+
+  .video {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25;
+    height: 0;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
 
   .mobile-vue-title {
     font-family: $mainFont;

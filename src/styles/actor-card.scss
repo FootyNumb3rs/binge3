@@ -1,4 +1,4 @@
-.actor-card-container {
+.mobile-actor-card-container {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
@@ -6,17 +6,7 @@
   flex-shrink: 1;
   width: 20vw;
 
-  .actor-name {
-    font-family: Inter;
-    margin-top: 2.5px;
-    font-weight: 500;
-    font-size: 12.5px;
-    line-height: 1.4;
-    opacity: 0.85;
-    color: rgb(165, 165, 165);
-  }
-
-  .img-cover-div {
+  .mobile-img-cover-div {
     //display: block;
     overflow: hidden;
     height: 20vw;
@@ -24,7 +14,7 @@
     border-radius: 100%;
     margin-bottom: 4px;
 
-    .actor-img {
+    img {
       width: 20vw;
       object-fit: cover;
       object-position: 0px -20.5px;
@@ -32,17 +22,18 @@
     }
   }
 
-  .actor-name {
+  .mobile-actor-name {
     font-family: Inter;
-    margin-top: 2.5px;
+    margin-top: 0px;
     font-weight: 500;
     font-size: 12.5px;
     line-height: 1.4;
     opacity: 0.85;
     color: rgb(165, 165, 165);
+    text-align: center;
   }
 
-  .actor-role {
+  .mobile-actor-role {
     font-family: Inter;
     font-weight: 500;
     font-size: 12.5px;

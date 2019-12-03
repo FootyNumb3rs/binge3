@@ -43,6 +43,13 @@ $mainFont: Inter;
   flex-direction: column;
   justify-content: start;
   align-items: center;
+
+  .info-main-container {
+    padding-top: 10px;
+    padding-bottom: 55px;
+    max-width: 1280px;
+    width: 100%;
+  }
 }
 
 .cover-img-div {
@@ -104,6 +111,14 @@ $mainFont: Inter;
 
   .section {
     margin-bottom: 40px;
+
+    .cast-div {
+      display: flex;
+      flex-direction: row;
+      max-width: 100%;
+      justify-content: flex-start;
+      margin-bottom: 15px;
+    }
   }
 
   .tagline {
@@ -161,13 +176,21 @@ $mainFont: Inter;
   }
 
   .info-data {
-    //flex-grow: 1;
     width: 100%;
     font-family: $mainFont;
     font-size: 15px;
     color: grey;
     font-weight: 500;
     line-height: 25px;
+  }
+
+  .video-div {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    align-items: flex-start;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 

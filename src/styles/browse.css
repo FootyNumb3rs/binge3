@@ -2,7 +2,19 @@
   .desktop-pagination {
     display: none;
   }
-  .browse-container {
+  .browser-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-color: transparent;
+  }
+  .browser-container .browse-div {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -13,7 +25,7 @@
     height: 100%;
     margin: 0;
   }
-  .browse-container .card-grid {
+  .browser-container .browse-div .card-grid {
     display: none;
   }
   .head {
@@ -22,6 +34,14 @@
   .mobile-card-grid {
     display: block;
     margin-bottom: 12px;
+  }
+  .mobile-card-grid .browser-divider {
+    height: 1px;
+    max-width: 100%;
+    margin-left: 16px;
+    margin-right: 0;
+    background-color: white;
+    opacity: 0.1;
   }
   .next-page {
     height: 15vh;
@@ -42,7 +62,19 @@
 }
 
 @media (min-width: 620px) {
-  .browse-container {
+  .browser-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-color: transparent;
+  }
+  .browser-container .browse-div {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -63,10 +95,10 @@
     height: 100%;
     background-color: transparent;
   }
-  .browse-container .desktop-pagination {
+  .browser-container .browse-div .desktop-pagination {
     margin-top: 80px;
   }
-  .browse-container .head {
+  .browser-container .browse-div .head {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -80,7 +112,7 @@
             align-items: flex-end;
     padding: 70px 130px;
   }
-  .browse-container .head .header {
+  .browser-container .browse-div .head .header {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -92,7 +124,7 @@
     width: 100%;
     line-height: auto;
   }
-  .browse-container .card-grid {
+  .browser-container .browse-div .card-grid {
     display: -ms-grid;
     display: grid;
     grid-column-gap: 30px;
