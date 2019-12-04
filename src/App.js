@@ -7,10 +7,17 @@ import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Title from "./pages/Title";
 import Browse from "./pages/Browse";
+import ScrollMemory from "react-router-scroll-memory";
 
 function App() {
   const [showBar, setBar] = useState(true);
   const [page, setPage] = useState("");
+  const [carouselMedia, setCarouselMedia] = useState({
+    preview_movies: [],
+    preview_shows: [],
+    preview_in_theaters: []
+  });
+
   // Side Drawer ---------------
   /*
   const [state, setState] = React.useState({
@@ -43,19 +50,12 @@ function App() {
         name="viewport"
         content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
       ></meta>
-      <link
-        href="https://fonts.googleapis.com/css?family=Overpass:400,600|Questrial|Heebo|Rubik|Roboto+Thin|Roboto:300,400,500,700|DM+Serif+Display&display=swap"
-        rel="stylesheet"
-      />
-      <link
-        href="https://fonts.googleapis.com/css?family=Arvo|Ibarra+Real+Nova|Merriweather|Noto+Serif|Playfair+Display|Roboto+Slab|Varela+Round|Vollkorn&display=swap"
-        rel="stylesheet"
-      />
 
       <link
         rel="stylesheet"
         href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
       />
+
       <link
         rel="stylesheet"
         type="text/css"
@@ -67,19 +67,12 @@ function App() {
         type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
       />
-      <link
-        href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap"
-        rel="stylesheet"
-      ></link>
-      <link
-        href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
-        rel="stylesheet"
-      ></link>
 
       <script src="lodash.js" />
 
       <React.Fragment>
         <Router>
+          <ScrollMemory />
           <MainBar
             show={showBar}
             setPage={setPage}
@@ -100,7 +93,13 @@ function App() {
               path="/"
               exact
               render={props => (
-                <Home {...props} setBar_={setBar} setPage={setPage} />
+                <Home
+                  {...props}
+                  setBar_={setBar}
+                  setPage={setPage}
+                  setCarouselMedia={setCarouselMedia}
+                  carouselMedia={carouselMedia}
+                />
               )}
             />
 

@@ -9,20 +9,24 @@ import Slider from "react-slick";
 export default class Home extends PureComponent {
   constructor(props) {
     super(props);
+
     this.state = {
       preview_movies: [],
       preview_shows: [],
       preview_in_theaters: []
     };
+
     props.setBar_(true);
 
     getGenres().then(data => {
       var genres_ = Object.assign(data[0], data[1]);
-      console.log(genres_);
+
       this.setState({ genres: genres_ });
 
       this.previewMovies();
-      this.previewShows();
+      if (this.props.carouselMedia.preview_shows.length == 0) {
+        this.previewShows();
+      }
       this.previewInTheaters();
     });
   }
@@ -30,11 +34,15 @@ export default class Home extends PureComponent {
   previewMovies = () => {
     getTrending(this.state.genres, "movie").then(data => {
       var all_data = [];
-      console.log(data);
+
       data[0].results.forEach(d => {
         all_data.push(d);
       });
-      this.setState({ preview_movies: all_data });
+      this.props.setCarouselMedia({
+        ...this.props.carouselMedia,
+        preview_movies: all_data
+      });
+      //this.setState({ preview_movies: all_data });
     });
   };
 
@@ -44,7 +52,11 @@ export default class Home extends PureComponent {
       data[0].results.forEach(d => {
         all_data.push(d);
       });
-      this.setState({ preview_in_theaters: all_data });
+      this.props.setCarouselMedia({
+        ...this.props.carouselMedia,
+        preview_in_theaters: all_data
+      });
+      //this.setState({ preview_in_theaters: all_data });
     });
   };
 
@@ -54,11 +66,16 @@ export default class Home extends PureComponent {
       data[0].results.forEach(d => {
         all_data.push(d);
       });
-      this.setState({ preview_shows: all_data });
+      this.props.setCarouselMedia({
+        ...this.props.carouselMedia,
+        preview_shows: all_data
+      });
+      //this.setState({ preview_shows: all_data });
     });
   };
 
   render(props) {
+    console.log(this.props.carouselMedia);
     const settings = {
       dots: false,
       infinite: true,
@@ -69,7 +86,7 @@ export default class Home extends PureComponent {
     this.props.setPage("");
     return (
       <div style={{ overflow: "hidden" }}>
-        <Slider {...settings}>
+        <Slider {...settings} style={{ width: "100vw", height: "56.17977vw" }}>
           <div>
             <img
               style={{ width: "100%" }}
@@ -104,13 +121,21 @@ export default class Home extends PureComponent {
                 //overflow: "hidden"
               }}
             >
-              <Carousel type="tv" mediaData={this.state.preview_shows} />
+              <Carousel
+                type="tv"
+                mediaData={this.props.carouselMedia.preview_shows}
+              />
               <div className="home-divider" />
-              <Carousel type="movie" mediaData={this.state.preview_movies} />
+
+              <Carousel
+                type="movie"
+                mediaData={this.props.carouselMedia.preview_movies}
+              />
               <div className="home-divider" />
+
               <Carousel
                 type="theaters"
-                mediaData={this.state.preview_in_theaters}
+                mediaData={this.props.carouselMedia.preview_in_theaters}
               />
             </div>
           </div>
