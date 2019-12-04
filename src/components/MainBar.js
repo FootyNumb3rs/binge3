@@ -16,13 +16,13 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     //borderRadius: "10px",
     alignItems: "center",
-    maxHeight: "48px"
+    height: "100%"
   },
   button: {
     color: "gainsboro",
     fontSize: 12.5,
     fontWeight: 200,
-    fontFamily: "Roboto",
+    fontFamily: "Arial",
     borderRadius: 23,
     textTransform: "None",
     margin: "0px 10px"
@@ -30,7 +30,13 @@ const useStyles = makeStyles(theme => ({
   menuButton: { minHeight: 0, minWidth: 0 }
 }));
 
-export default function MainBar({ queryChange, searchSubmit, show }) {
+export default function MainBar({
+  queryChange,
+  searchSubmit,
+  show,
+  setPage,
+  page
+}) {
   const classes = useStyles();
 
   const [state, setState] = useState({
@@ -86,6 +92,8 @@ export default function MainBar({ queryChange, searchSubmit, show }) {
             searchSubmit={searchSubmit}
             setBar={setBar}
             barOpen={openBar}
+            setPage={setPage}
+            page={page}
           />
         )}
       </AppBar>

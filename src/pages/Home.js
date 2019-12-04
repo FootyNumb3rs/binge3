@@ -66,6 +66,7 @@ export default class Home extends PureComponent {
       slidesToShow: 1,
       slidesToScroll: 1
     };
+    this.props.setPage("");
     return (
       <div style={{ overflow: "hidden" }}>
         <Slider {...settings}>

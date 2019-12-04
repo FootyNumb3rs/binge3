@@ -10,6 +10,7 @@ import Browse from "./pages/Browse";
 
 function App() {
   const [showBar, setBar] = useState(true);
+  const [page, setPage] = useState("");
   // Side Drawer ---------------
   /*
   const [state, setState] = React.useState({
@@ -74,12 +75,15 @@ function App() {
         href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
         rel="stylesheet"
       ></link>
+
       <script src="lodash.js" />
 
       <React.Fragment>
         <Router>
           <MainBar
             show={showBar}
+            setPage={setPage}
+            page={page}
             //handleDrawerOpen={toggleDrawer("right", true)}
           />
           {/*
@@ -95,19 +99,25 @@ function App() {
             <Route
               path="/"
               exact
-              render={props => <Home {...props} setBar_={setBar} />}
+              render={props => (
+                <Home {...props} setBar_={setBar} setPage={setPage} />
+              )}
             />
 
             <Route
               path="/browse/:media_type"
               exact
-              render={props => <Browse {...props} setBar_={setBar} />}
+              render={props => (
+                <Browse {...props} setBar_={setBar} setPage={setPage} />
+              )}
             />
 
             <Route
               path="/search/:search_query"
               exact
-              render={props => <Browse {...props} setBar_={setBar} />}
+              render={props => (
+                <Browse {...props} setBar_={setBar} setPage={setPage} />
+              )}
             />
 
             <Route

@@ -24,6 +24,7 @@ export default class Browse extends PureComponent {
       total_pages: undefined
     };
     props.setBar_(true);
+
     window.scrollTo(0, 0);
 
     getGenres().then(data => {
@@ -188,6 +189,7 @@ export default class Browse extends PureComponent {
 
   render(props) {
     console.log(this.state);
+    this.props.setPage(this.props.match.params.media_type);
 
     return (
       <div className="browser-container">

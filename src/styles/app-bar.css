@@ -127,6 +127,79 @@ DESKTOP VERSION
 
 */
 @media (min-width: 620px) {
+  .menu-button-container {
+    text-decoration: none;
+    height: 100%;
+    margin: 0px 15px;
+  }
+  .menu-button-container .menu-button-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    height: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .menu-button-container .menu-button-div .menu-button-div-1 {
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .menu-button-container .menu-button-div .menu-button-div-1 .link {
+    text-decoration: none;
+  }
+  .menu-button-container .menu-button-div .menu-button-div-1 .link .menu-label-clicked {
+    color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 16px;
+    font-weight: 550;
+    font-family: Inter;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    text-transform: none;
+  }
+  .menu-button-container .menu-button-div .menu-button-div-1 .link .menu-label-unclicked {
+    color: gray;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 16px;
+    font-weight: 550;
+    font-family: Inter;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    text-transform: none;
+  }
+  .menu-button-container .menu-button-div .underline-clicked {
+    height: 2px;
+    background-color: #42a5f5;
+  }
+  .menu-button-container .menu-button-div .underline-unclicked {
+    height: 2px;
+    background-color: transparent;
+  }
   .toolbar {
     max-width: 1360px;
     width: 100%;
@@ -139,7 +212,7 @@ DESKTOP VERSION
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    height: 60px;
+    height: 100%;
   }
   .title-div {
     -webkit-box-pack: center;
@@ -157,9 +230,9 @@ DESKTOP VERSION
     margin-left: 55px;
   }
   .app-title {
-    font-size: 25px;
+    font-size: 35px;
     font-family: Inter;
-    font-weight: 400;
+    font-weight: 600;
     cursor: pointer;
     margin-bottom: 0px;
   }
@@ -172,9 +245,13 @@ DESKTOP VERSION
             flex-grow: 1;
     -ms-flex-negative: 0;
         flex-shrink: 0;
+    height: 64px;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .search-icon {
     width: 7px;

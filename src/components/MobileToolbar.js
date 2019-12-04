@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import StarIcon from "@material-ui/icons/Star";
 import SideDrawer from "../components/SideDrawer";
+import MenuButton from "../components/MenuButton";
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -22,19 +23,22 @@ const useStyles = makeStyles(theme => ({
     background: "#171717",
     padding: 0,
     display: "flex",
-    //borderRadius: "10px",
+    //flexGrow: 1,
     alignItems: "center",
-    maxHeight: "48px"
+    height: "100%"
   },
 
   button: {
-    color: "gainsboro",
-    fontSize: 12.5,
-    fontWeight: 200,
-    fontFamily: "Roboto",
+    display: "flex",
+    alignItems: "center",
+    color: "#9e9e9e",
+    fontSize: 15,
+    fontWeight: 600,
+    fontFamily: "Inter",
     borderRadius: 23,
-    textTransform: "None",
-    margin: "0px 10px"
+    flexGrow: 1,
+    textTransform: "None"
+    //margin: "0px 10px"
   },
   menuButton: { minHeight: 0, minWidth: 0 }
 }));
@@ -43,7 +47,9 @@ export default function MobileToolbar({
   queryChange,
   searchSubmit,
   setBar,
-  barOpen
+  barOpen,
+  setPage,
+  page
 }) {
   const classes = useStyles();
 
@@ -69,29 +75,52 @@ export default function MobileToolbar({
     setState({ ...state, ["right"]: true });
   };
 
-  const openSearch = () => {
-    return (
-      <div
-        style={{
-          width: "100%",
-          height: "50px",
-          backgroundColor: "black",
-          display: "flex",
-          justifyContent: "center"
-        }}
-      >
-        <MobileSearchBar
-          queryChange={queryChange}
-          searchSubmit={searchSubmit}
-          setBar={setBar}
-          barOpen={barOpen}
-        />
-      </div>
-    );
-  };
   return (
     <Toolbar variant="dense" disableGutters className="toolbar">
-      {/*
+      {/* APP TITLE */}
+      <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+        <div className={"title-div"}>
+          <div
+            className={"app-title"}
+            //  noWrap
+          >
+            FLiX
+          </div>
+        </div>
+      </Link>
+
+      {/* MENU BUTTONS */}
+      <div className={"buttonContainer"}>
+        <MenuButton label="Home" route="" page={page} setPage={setPage} />
+        <MenuButton
+          label="Movies"
+          route="movie"
+          page={page}
+          setPage={setPage}
+        />
+
+        <MenuButton label="Shows" route="tv" page={page} setPage={setPage} />
+      </div>
+
+      {/* SEARCH BAR */}
+      <SearchBar queryChange={queryChange} searchSubmit={searchSubmit} />
+
+      {/* MOBILE SEARCH BUTTON */}
+      <div className="mobile-search-button">
+        <IconButton color="inherit" aria-label="open drawer">
+          <SearchIcon
+            onClick={() => {
+              setBar(!barOpen);
+            }}
+          />
+        </IconButton>
+      </div>
+    </Toolbar>
+  );
+}
+
+{
+  /*
       <SwipeableDrawer
         open={state.right}
         onClose={toggleDrawer("right", false)}
@@ -114,53 +143,45 @@ export default function MobileToolbar({
           <MenuIcon />
         </IconButton>
       </div>
-    */}
+    */
+}
 
-      {/* APP TITLE */}
-      <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-        <div className={"title-div"}>
+{
+  /*
+ 
+        <div
+          style={{ textDecoration: "none", height: "100%", margin: "0px 15px" }}
+        >
+          {<Button className={classes.button}>Home</Button>}
           <div
-            className={"app-title"}
-            //  noWrap
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              flexGrow: 1,
+              height: "100%",
+              justifyContent: "flex-end"
+            }}
           >
-            MOVX
+            <div
+              style={{ height: "100%", display: "flex", alignItems: "center" }}
+            >
+              <Link to="/browse/tv" style={{ textDecoration: "none" }}>
+                <div className={classes.button} style={{ color: "white" }}>
+                  Home
+                </div>
+              </Link>
+            </div>
+            <div style={{ height: "2px", backgroundColor: "#42a5f5" }} />
           </div>
         </div>
-      </Link>
 
-      {/* MENU BUTTONS */}
 
-      <div className={"buttonContainer"}>
         <Link to="/browse/tv" style={{ textDecoration: "none" }}>
-          <Button className={classes.button} onClick={() => {}}>
-            HOME
-          </Button>
-        </Link>
-        <Link to="/browse/tv" style={{ textDecoration: "none" }}>
-          <Button className={classes.button} onClick={() => {}}>
-            SHOWS
-          </Button>
+          <Button className={classes.button}>Shows</Button>
         </Link>
         <Link to="/browse/movie" style={{ textDecoration: "none" }}>
-          <Button className={classes.button} onClick={() => {}}>
-            MOVIES
-          </Button>
+          <Button className={classes.button}>Movies</Button>
         </Link>
-      </div>
 
-      {/* SEARCH BAR */}
-      <SearchBar queryChange={queryChange} searchSubmit={searchSubmit} />
-
-      {/* MOBILE SEARCH BUTTON */}
-      <div className="mobile-search-button">
-        <IconButton color="inherit" aria-label="open drawer">
-          <SearchIcon
-            onClick={() => {
-              setBar(!barOpen);
-            }}
-          />
-        </IconButton>
-      </div>
-    </Toolbar>
-  );
+*/
 }

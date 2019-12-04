@@ -17,7 +17,6 @@ const useStyles = makeStyles(theme => ({
     height: cardHeight,
     width: "100vw",
     borderRadius: 0,
-    //margin: 15,
     backgroundColor: "#121212"
   },
   media: {
@@ -59,7 +58,7 @@ export default function MediaCard({ media_, openDialogue }) {
       }}
     >
       <Card className={classes.card}>
-        <CardActionArea style={{ width: "100%" }}>
+        <CardActionArea style={{ width: "100%" }} /* Take care of this */>
           <SkeletonTheme
             color="#202020"
             highlightColor="#444"
@@ -70,10 +69,7 @@ export default function MediaCard({ media_, openDialogue }) {
                 <img src={posterLink} alt="" className="mobile-card-img" />
               </div>
               <div className="mobile-card-text-div">
-                <div
-                  className="mobile-card-title"
-                  /*style={{ paddingBottom: ".5px" }}*/
-                >
+                <div className="mobile-card-title">
                   {title || <Skeleton width="50%" />}
                 </div>
 
@@ -94,11 +90,11 @@ export default function MediaCard({ media_, openDialogue }) {
                     variant="outlined"
                     label={rating}
                     className="mobile-vue-rating-chip"
-                    style={{ fontSize: "3.2vw", color: getRatingColor(rating) }}
+                    style={{ color: getRatingColor(rating) }}
                     icon={
                       <StarIcon
                         style={{
-                          width: "3.2vw",
+                          width: "3.2vw", // Do this
                           color: getRatingColor(rating)
                         }}
                       />

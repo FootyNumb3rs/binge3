@@ -34,7 +34,6 @@ export default function Pag({ changePage }) {
           changePage(offset + 1);
           window.scrollTo(0, 0);
         }}
-        //className={classes.pagination}
         classes={classes.pagination}
       />
     </MuiThemeProvider>
