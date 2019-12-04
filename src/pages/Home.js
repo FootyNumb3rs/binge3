@@ -25,11 +25,15 @@ export default class Home extends PureComponent {
 
       this.setState({ genres: genres_ });
 
-      this.previewMovies();
+      if (this.props.carouselMedia.preview_shows.length == 0) {
+        this.previewMovies();
+      }
       if (this.props.carouselMedia.preview_shows.length == 0) {
         this.previewShows();
       }
-      this.previewInTheaters();
+      if (this.props.carouselMedia.preview_shows.length == 0) {
+        this.previewInTheaters();
+      }
     });
   }
 
