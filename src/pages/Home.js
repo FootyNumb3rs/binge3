@@ -18,6 +18,8 @@ export default class Home extends PureComponent {
 
     props.setBar_(true);
 
+    //this.slider.slickGoTo(0);
+
     getGenres().then(data => {
       var genres_ = Object.assign(data[0], data[1]);
 
@@ -81,11 +83,15 @@ export default class Home extends PureComponent {
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      initialSlide: 0,
+      onInit: () => {
+        // this.slickGoTo(0);
+      }
     };
     this.props.setPage("");
     return (
-      <div style={{ overflow: "hidden" }}>
+      <div style={{}}>
         <Slider {...settings} style={{ width: "100vw", height: "56.17977vw" }}>
           <div>
             <img

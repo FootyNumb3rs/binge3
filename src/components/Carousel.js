@@ -24,12 +24,13 @@ function Carousel({ mediaData, type, history }) {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 1,
+          initialSlide: 0,
           arrows: false
         }
       }
     ]
   };
+
   return (
     <div className="carousel-container">
       <div className="carousel-header">
