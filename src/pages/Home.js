@@ -83,15 +83,11 @@ export default class Home extends PureComponent {
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1,
-      initialSlide: 0,
-      onInit: () => {
-        // this.slickGoTo(0);
-      }
+      slidesToScroll: 1
     };
     this.props.setPage("");
     return (
-      <div style={{}}>
+      <div style={{ overflow: "hidden" }}>
         <Slider {...settings} style={{ width: "100vw", height: "56.17977vw" }}>
           <div>
             <img

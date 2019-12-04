@@ -24,7 +24,6 @@ function Carousel({ mediaData, type, history }) {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 0,
           arrows: false
         }
       }
