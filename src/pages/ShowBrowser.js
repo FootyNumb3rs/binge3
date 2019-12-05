@@ -75,12 +75,12 @@ export default class ShowBrowser extends PureComponent {
         });
       } else {
         this.props.setShowBrowserState({
-          ...this.props.showBrowserState,
-          content_list: all_data
-          /*
+          ...this.props.movieBrowserState,
+          //content_list: all_data
+
           content_list: this.props.showBrowserState.content_list.concat(
             all_data
-          )*/
+          )
         });
       }
     });
@@ -98,7 +98,12 @@ export default class ShowBrowser extends PureComponent {
   displayPagination = () => {
     return (
       <div className="desktop-pagination">
-        <Pag changePage={this.displayThisPage} />
+        <Pag
+          changePage={this.displayShows}
+          //offset={this.movieBrowserState.paginationPage}
+          browserState={this.props.showBrowserState}
+          setBrowserState={this.props.setShowBrowserState}
+        />
       </div>
     );
   };
@@ -127,10 +132,6 @@ export default class ShowBrowser extends PureComponent {
     }
   };
 
-  displayThisPage = page => {
-    this.displayShows(this.props.match.params.media_type, page, false);
-  };
-
   handleClick(offset) {
     this.setState({ offset });
   }
@@ -138,7 +139,7 @@ export default class ShowBrowser extends PureComponent {
   render(props) {
     //console.log(this.state);
     this.props.setPage("tv");
-    //console.log(this.props.showBrowserState.next_page);
+    console.log(this.props.showBrowserState);
 
     return (
       <div className="browser-container">

@@ -80,7 +80,14 @@ export default class SearchBrowser extends PureComponent {
   displayPagination = () => {
     return (
       <div className="desktop-pagination">
-        <Pag changePage={this.displayThisPage} />
+        {/*
+        <Pag
+          changePage={this.displayMovies}
+          //offset={this.movieBrowserState.paginationPage}
+          browserState={this.props.movieBrowserState}
+          setBrowserState={this.props.setMovieBrowserState}
+        />
+  */}
       </div>
     );
   };
@@ -139,7 +146,7 @@ export default class SearchBrowser extends PureComponent {
               );
             })}
           </div>
-          {this.displayPagination()}
+          {/*this.displayPagination()*/}
           <div className="mobile-card-grid">
             {this.props.searchBrowserState.content_list.map(media => {
               return (
@@ -150,7 +157,7 @@ export default class SearchBrowser extends PureComponent {
               );
             })}
           </div>
-          {this.displayNextPage()}
+          {/*this.displayNextPage()*/}
           <div></div>
         </div>
       </div>

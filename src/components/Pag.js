@@ -5,18 +5,39 @@ import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import Pagination from "material-ui-flat-pagination";
 import { makeStyles } from "@material-ui/core/styles";
 
-export default function Pag({ changePage }) {
+export default function Pag({ changePage, browserState, setBrowserState }) {
   const theme = createMuiTheme();
 
-  const [offset, changeOffset] = useState(0);
+  console.log(browserState);
+  //const [offset, changeOffset] = useState(0);
 
   function handleClick(offset) {
-    changeOffset(offset);
+    setBrowserState({ ...browserState, paginationPage: offset + 1 });
   }
 
   const useStyles = makeStyles(theme => ({
-    pagination: {
-      text: { color: "green" }
+    label: {
+      color: "white",
+      fontSize: "15px"
+    },
+
+    current: {
+      backgroundColor: "gray",
+      "&:hover": {
+        backgroundColor: "darkgray"
+      }
+    },
+
+    rootStandard: {
+      "&:hover": {
+        backgroundColor: "#424242"
+      }
+    },
+    rootEnd: {
+      fontWeight: 100,
+      "&:hover": {
+        backgroundColor: "#424242"
+      }
     }
   }));
 
@@ -26,15 +47,21 @@ export default function Pag({ changePage }) {
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
       <Pagination
-        limit={10}
-        offset={offset}
-        total={100}
-        onClick={(e, offset) => {
-          handleClick(offset);
-          changePage(offset + 1);
+        limit={1}
+        offset={browserState.paginationPage - 1}
+        total={7}
+        onClick={(e, offset_) => {
+          handleClick(offset_);
+          console.log(offset_);
+          changePage(offset_ + 1);
           window.scrollTo(0, 0);
         }}
-        classes={classes.pagination}
+        classes={{
+          label: classes.label,
+          rootCurrent: classes.current,
+          rootStandard: classes.rootStandard,
+          rootEnd: classes.rootEnd
+        }}
       />
     </MuiThemeProvider>
   );

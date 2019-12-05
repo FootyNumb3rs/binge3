@@ -27,28 +27,32 @@ function App() {
     content_list: [],
     genres: {},
     next_page: 2,
-    total_pages: undefined
+    total_pages: undefined,
+    paginationPage: 1
   });
 
   const [showBrowserState, setShowBrowserState] = useState({
     content_list: [],
     genres: {},
     next_page: 2,
-    total_pages: undefined
+    total_pages: undefined,
+    paginationPage: 1
   });
 
   const [theaterBrowserState, setTheaterBrowserState] = useState({
     content_list: [],
     genres: {},
     next_page: 2,
-    total_pages: undefined
+    total_pages: undefined,
+    paginationPage: 1
   });
 
   const [searchBrowserState, setSearchBrowserState] = useState({
     content_list: [],
     genres: {},
     next_page: 2,
-    total_pages: undefined
+    total_pages: undefined,
+    paginationPage: 1
   });
 
   // Side Drawer ---------------

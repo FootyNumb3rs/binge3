@@ -97,7 +97,12 @@ export default class MovieBrowser extends PureComponent {
   displayPagination = () => {
     return (
       <div className="desktop-pagination">
-        <Pag changePage={this.displayThisPage} />
+        <Pag
+          changePage={this.displayMovies}
+          //offset={this.movieBrowserState.paginationPage}
+          browserState={this.props.movieBrowserState}
+          setBrowserState={this.props.setMovieBrowserState}
+        />
       </div>
     );
   };
@@ -124,10 +129,6 @@ export default class MovieBrowser extends PureComponent {
         </div>
       );
     }
-  };
-
-  displayThisPage = page => {
-    this.displayMovies(this.props.match.params.media_type, page, false);
   };
 
   handleClick(offset) {

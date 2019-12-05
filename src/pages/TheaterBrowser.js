@@ -75,12 +75,12 @@ export default class MovieBrowser extends PureComponent {
         });
       } else {
         this.props.setTheaterBrowserState({
-          ...this.props.theaterBrowserState,
-          content_list: all_data
-          /*
+          ...this.props.movieBrowserState,
+          //content_list: all_data
+
           content_list: this.props.theaterBrowserState.content_list.concat(
             all_data
-          )*/
+          )
         });
       }
     });
@@ -98,7 +98,12 @@ export default class MovieBrowser extends PureComponent {
   displayPagination = () => {
     return (
       <div className="desktop-pagination">
-        <Pag changePage={this.displayThisPage} />
+        <Pag
+          changePage={this.displayTheaters}
+          //offset={this.movieBrowserState.paginationPage}
+          browserState={this.props.theaterBrowserState}
+          setBrowserState={this.props.setTheaterBrowserState}
+        />
       </div>
     );
   };
@@ -128,10 +133,6 @@ export default class MovieBrowser extends PureComponent {
         </div>
       );
     }
-  };
-
-  displayThisPage = page => {
-    this.displayTheaters(this.props.match.params.media_type, page, false);
   };
 
   handleClick(offset) {
