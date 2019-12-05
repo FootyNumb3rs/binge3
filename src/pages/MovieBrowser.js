@@ -13,41 +13,31 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import Pagination from "material-ui-flat-pagination";
 
-export default class Browse extends PureComponent {
+export default class MovieBrowser extends PureComponent {
   // Constructor
   constructor(props) {
     super(props);
+
     this.state = {
-      content_list: [],
-      genres: {},
-      next_page: 2,
-      total_pages: undefined
+      genres: {}
     };
+
     props.setBar_(true);
     window.scrollTo(0, 0);
 
     getGenres().then(data => {
       var genres_ = Object.assign(data[0], data[1]);
       this.setState({ genres: genres_ });
-
-      // If there is a search query
-      if (props.match.params.search_query) {
-        this.displaySearch(props.match.params.search_query);
-        // If it's only displaying trending
-      } else {
-        if (
-          props.browserMedia.content_list.length == 0 ||
-          props.browserMedia.media_type != this.props.match.params.media_type
-        ) {
-          this.displayTrending(props.match.params.media_type);
-        }
+      if (this.props.movieBrowserState.content_list.length == 0) {
+        this.displayMovies();
       }
     });
 
-    console.log("yo");
+    //console.log("yo");
   }
 
   // If only props change
+  /*
   componentDidUpdate(prevProps) {
     if (this.props.match.params.search_query) {
       prevProps.match.params.search_query !==
@@ -58,20 +48,16 @@ export default class Browse extends PureComponent {
       if (
         prevProps.match.params.media_type !== this.props.match.params.media_type
       ) {
-        this.displayTrending(this.props.match.params.media_type);
+        this.displayMovies(this.props.match.params.media_type);
       }
     }
   }
+  */
 
   // Get Trending
-  displayTrending = (media_type, page = 1, add = false) => {
+  displayMovies = (page = 1, add = false) => {
     var loaded = undefined;
-
-    if (media_type == "movie" || media_type == "tv") {
-      loaded = getTrending(this.state.genres, media_type, page);
-    } else {
-      loaded = getInTheaters(this.state.genres, page);
-    }
+    loaded = getTrending(this.state.genres, "movie", page);
 
     loaded.then(data => {
       var all_data = [];
@@ -81,45 +67,19 @@ export default class Browse extends PureComponent {
       });
 
       if (!add) {
-        /*
-        this.setState({
-          content_list: all_data,
-          total_pages: data[0].total_pages
-        });
-        */
-        this.props.setBrowserMedia({
-          ...this.props.browserMedia,
-          content_list: all_data,
-          media_type: this.props.match.params.media_type
-        });
-      } else {
-        this.props.setBrowserMedia({
-          ...this.props.browserMedia,
-          content_list: this.props.browserMedia.content_list.concat(all_data),
-          media_type: this.props.match.params.media_type
-        });
-      }
-    });
-  };
-
-  // Get Search
-  displaySearch = (search_query, page = 1, add = false) => {
-    getSearch(this.state.genres, search_query, page).then(data => {
-      var all_data = [];
-      console.log(data[0]);
-      data[0].results.forEach(d => {
-        all_data.push(d);
-      });
-
-      if (!add) {
-        this.setState({
+        this.props.setMovieBrowserState({
+          ...this.props.movieBrowserState,
           content_list: all_data,
           total_pages: data[0].total_pages
         });
       } else {
-        this.setState({
-          content_list: this.state.content_list.concat(all_data),
-          total_pages: data[0].total_pages
+        this.props.setMovieBrowserState({
+          ...this.props.movieBrowserState,
+          //content_list: all_data
+
+          content_list: this.props.movieBrowserState.content_list.concat(
+            all_data
+          )
         });
       }
     });
@@ -127,26 +87,11 @@ export default class Browse extends PureComponent {
 
   // Display Header
   displayHeader = () => {
-    const query = this.props.match.params.search_query;
-    if (query) {
-      return (
-        <div className="head">
-          <div className="header">{`Search results for "${query}"`}</div>
-        </div>
-      );
-    } else if (this.props.match.params.media_type == "tv") {
-      return (
-        <div className="head">
-          <div className="header">Popular Shows</div>
-        </div>
-      );
-    } else {
-      return (
-        <div className="head">
-          <div className="header">Popular Movies</div>
-        </div>
-      );
-    }
+    return (
+      <div className="head">
+        <div className="header">Popular Movies</div>
+      </div>
+    );
   };
 
   displayPagination = () => {
@@ -159,28 +104,20 @@ export default class Browse extends PureComponent {
 
   displayNextPage = () => {
     if (
-      (this.state.total_pages > 1) &
-      (this.state.next_page < this.state.total_pages)
+      (this.props.movieBrowserState.total_pages > 1) &
+      (this.props.movieBrowserState.next_page <
+        this.props.movieBrowserState.total_pages)
     ) {
       return (
         <div
           className="next-page"
           onClick={() => {
-            this.setState({ next_page: this.state.next_page + 1 });
+            this.props.setMovieBrowserState({
+              ...this.props.movieBrowserState,
+              next_page: this.props.movieBrowserState.next_page + 1
+            });
 
-            if (this.props.match.params.search_query) {
-              this.displaySearch(
-                this.props.match.params.search_query,
-                this.state.next_page,
-                true
-              );
-            } else {
-              this.displayTrending(
-                this.props.match.params.media_type,
-                this.state.next_page,
-                true
-              );
-            }
+            this.displayMovies(this.props.movieBrowserState.next_page, true);
           }}
         >
           NEXT PAGE
@@ -190,11 +127,7 @@ export default class Browse extends PureComponent {
   };
 
   displayThisPage = page => {
-    if (this.props.match.params.search_query) {
-      this.displaySearch(this.props.match.params.search_query, page, false);
-    } else {
-      this.displayTrending(this.props.match.params.media_type, page, false);
-    }
+    this.displayMovies(this.props.match.params.media_type, page, false);
   };
 
   handleClick(offset) {
@@ -202,15 +135,16 @@ export default class Browse extends PureComponent {
   }
 
   render(props) {
-    console.log(this.state);
-    this.props.setPage(this.props.match.params.media_type);
+    //console.log(this.state);
+    this.props.setPage("movie");
+    //console.log(this.props.movieBrowserState.next_page);
 
     return (
       <div className="browser-container">
         <div className="browse-div">
           {this.displayHeader()}
           <div className="card-grid">
-            {this.props.browserMedia.content_list.map(media => {
+            {this.props.movieBrowserState.content_list.map(media => {
               return (
                 <div key={media.id}>
                   <MediaCard media_={media} />
@@ -220,7 +154,7 @@ export default class Browse extends PureComponent {
           </div>
           {this.displayPagination()}
           <div className="mobile-card-grid">
-            {this.props.browserMedia.content_list.map(media => {
+            {this.props.movieBrowserState.content_list.map(media => {
               return (
                 <div key={media.id}>
                   <MobileMediaCard media_={media} />

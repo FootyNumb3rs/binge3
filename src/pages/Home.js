@@ -48,7 +48,6 @@ export default class Home extends PureComponent {
         ...this.props.carouselMedia,
         preview_movies: all_data
       });
-      //this.setState({ preview_movies: all_data });
     });
   };
 
@@ -62,7 +61,6 @@ export default class Home extends PureComponent {
         ...this.props.carouselMedia,
         preview_in_theaters: all_data
       });
-      //this.setState({ preview_in_theaters: all_data });
     });
   };
 
@@ -76,7 +74,6 @@ export default class Home extends PureComponent {
         ...this.props.carouselMedia,
         preview_shows: all_data
       });
-      //this.setState({ preview_shows: all_data });
     });
   };
 
@@ -124,7 +121,6 @@ export default class Home extends PureComponent {
               style={{
                 maxWidth: "1130px",
                 width: "100%"
-                //overflow: "hidden"
               }}
             >
               <Carousel

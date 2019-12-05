@@ -7,6 +7,11 @@ import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Title from "./pages/Title";
 import Browse from "./pages/Browse";
+import MovieBrowser from "./pages/MovieBrowser";
+import ShowBrowser from "./pages/ShowBrowser";
+import TheaterBrowser from "./pages/TheaterBrowser";
+import SearchBrowser from "./pages/SearchBrowser";
+
 import ScrollMemory from "react-router-scroll-memory";
 
 function App() {
@@ -16,6 +21,34 @@ function App() {
     preview_movies: [],
     preview_shows: [],
     preview_in_theaters: []
+  });
+
+  const [movieBrowserState, setMovieBrowserState] = useState({
+    content_list: [],
+    genres: {},
+    next_page: 2,
+    total_pages: undefined
+  });
+
+  const [showBrowserState, setShowBrowserState] = useState({
+    content_list: [],
+    genres: {},
+    next_page: 2,
+    total_pages: undefined
+  });
+
+  const [theaterBrowserState, setTheaterBrowserState] = useState({
+    content_list: [],
+    genres: {},
+    next_page: 2,
+    total_pages: undefined
+  });
+
+  const [searchBrowserState, setSearchBrowserState] = useState({
+    content_list: [],
+    genres: {},
+    next_page: 2,
+    total_pages: undefined
   });
 
   // Side Drawer ---------------
@@ -104,18 +137,74 @@ function App() {
             />
 
             <Route
+              path="/browse/movie"
+              exact
+              render={props => (
+                <MovieBrowser
+                  {...props}
+                  setBar_={setBar}
+                  setPage={setPage}
+                  movieBrowserState={movieBrowserState}
+                  setMovieBrowserState={setMovieBrowserState}
+                />
+              )}
+            />
+
+            <Route
+              path="/browse/tv"
+              exact
+              render={props => (
+                <ShowBrowser
+                  {...props}
+                  setBar_={setBar}
+                  setPage={setPage}
+                  showBrowserState={showBrowserState}
+                  setShowBrowserState={setShowBrowserState}
+                />
+              )}
+            />
+
+            <Route
+              path="/browse/theaters"
+              exact
+              render={props => (
+                <TheaterBrowser
+                  {...props}
+                  setBar_={setBar}
+                  setPage={setPage}
+                  theaterBrowserState={theaterBrowserState}
+                  setTheaterBrowserState={setTheaterBrowserState}
+                />
+              )}
+            />
+
+            {/*
+            <Route
               path="/browse/:media_type"
               exact
               render={props => (
-                <Browse {...props} setBar_={setBar} setPage={setPage} />
+                <Browse
+                  {...props}
+                  setBar_={setBar}
+                  setPage={setPage}
+                  browserMedia={browserMedia}
+                  setBrowserMedia={setBrowserMedia}
+                />
               )}
             />
+              */}
 
             <Route
               path="/search/:search_query"
               exact
               render={props => (
-                <Browse {...props} setBar_={setBar} setPage={setPage} />
+                <SearchBrowser
+                  {...props}
+                  setBar_={setBar}
+                  setPage={setPage}
+                  searchBrowserState={searchBrowserState}
+                  setSearchBrowserState={setSearchBrowserState}
+                />
               )}
             />
 
