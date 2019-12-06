@@ -83,6 +83,28 @@ export default class Title extends PureComponent {
     }
   }
 
+  getTrailer() {
+    if (this.state.videoContent) {
+      if (this.state.videoContent.link) {
+        return (
+          <Fab
+            color="secondary"
+            href={`https://www.youtube.com/watch?v=${this.state.videoContent.link}`}
+            target="_blank"
+            style={{
+              marginRight: "16px"
+            }}
+          >
+            <PlayArrowIcon />
+          </Fab>
+        );
+      } else {
+        return <div />;
+      }
+      return <div />;
+    }
+  }
+
   getReleaseDate = () => {
     //console.log(this.state);
     if (this.state.content.id) {
@@ -337,6 +359,7 @@ export default class Title extends PureComponent {
                 </div>
 
                 <div className="video-div">
+                  {/*
                   {this.state.videoContent.link &&
                   this.state.videoContent.site == "YouTube" ? (
                     <Fab
@@ -351,7 +374,9 @@ export default class Title extends PureComponent {
                     </Fab>
                   ) : (
                     <div />
-                  )}
+                  )} */}
+
+                  {this.getTrailer()}
 
                   {this.state.content.homepage ? (
                     <Fab
