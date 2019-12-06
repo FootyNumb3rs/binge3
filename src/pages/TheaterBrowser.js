@@ -9,9 +9,6 @@ import MediaCard from "../components/MediaCard.js";
 import Pag from "../components/Pag.js";
 import MobileMediaCard from "../components/MobileMediaCard.js";
 import "../styles/browse.css";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
-import Pagination from "material-ui-flat-pagination";
 
 export default class MovieBrowser extends PureComponent {
   // Constructor
@@ -168,7 +165,7 @@ export default class MovieBrowser extends PureComponent {
               );
             })}
           </div>
-          {this.displayNextPage()}
+          {/*this.displayNextPage()*/}
           <div></div>
         </div>
       </div>

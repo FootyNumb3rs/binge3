@@ -25,14 +25,13 @@ export default class ShowBrowser extends PureComponent {
     props.setBar_(true);
     window.scrollTo(0, 0);
 
-    if (this.props.showBrowserState.content_list.length == 0) {
-      getGenres().then(data => {
-        var genres_ = Object.assign(data[0], data[1]);
-        this.setState({ genres: genres_ });
-
+    getGenres().then(data => {
+      var genres_ = Object.assign(data[0], data[1]);
+      this.setState({ genres: genres_ });
+      if (this.props.showBrowserState.content_list.length == 0) {
         this.displayShows();
-      });
-    }
+      }
+    });
 
     //console.log("yo");
   }
@@ -75,7 +74,7 @@ export default class ShowBrowser extends PureComponent {
         });
       } else {
         this.props.setShowBrowserState({
-          ...this.props.movieBrowserState,
+          ...this.props.BrowserState,
           //content_list: all_data
 
           content_list: this.props.showBrowserState.content_list.concat(
@@ -137,6 +136,7 @@ export default class ShowBrowser extends PureComponent {
   }
 
   render(props) {
+    console.log(this.props.showBrowseState);
     //console.log(this.state);
     this.props.setPage("tv");
     console.log(this.props.showBrowserState);

@@ -76,7 +76,6 @@ export default class MovieBrowser extends PureComponent {
         this.props.setMovieBrowserState({
           ...this.props.movieBrowserState,
           //content_list: all_data
-
           content_list: this.props.movieBrowserState.content_list.concat(
             all_data
           )
@@ -139,6 +138,7 @@ export default class MovieBrowser extends PureComponent {
     //console.log(this.state);
     this.props.setPage("movie");
     //console.log(this.props.movieBrowserState.next_page);
+    console.log(this.state);
 
     return (
       <div className="browser-container">
