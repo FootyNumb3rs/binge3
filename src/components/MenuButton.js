@@ -11,7 +11,10 @@ export default function MenuButton({ label, route, page }) {
     <div className="menu-button-container">
       <div className="menu-button-div">
         <div className="menu-button-div-1">
-          <Link to={`/browse/${route}`} className="link">
+          <Link
+            to={route.length < 2 ? `${route}` : `/browse/${route}`}
+            className="link"
+          >
             <div
               className={
                 page == route ? "menu-label-clicked" : "menu-label-unclicked"
