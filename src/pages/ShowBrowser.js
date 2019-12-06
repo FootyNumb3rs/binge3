@@ -74,7 +74,7 @@ export default class ShowBrowser extends PureComponent {
         });
       } else {
         this.props.setShowBrowserState({
-          ...this.props.BrowserState,
+          ...this.props.showBrowserState,
           //content_list: all_data
 
           content_list: this.props.showBrowserState.content_list.concat(
