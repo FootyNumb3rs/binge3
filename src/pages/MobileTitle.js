@@ -96,10 +96,12 @@ class MobileTitle extends PureComponent {
             dict.cinematographer = d.name;
 
           case "Director":
-            if (dict.director) {
-              dict.director.push(d.name);
-            } else {
-              dict.director = [d.name];
+            if (d.department == "Directing") {
+              if (dict.director) {
+                dict.director.push(d.name);
+              } else {
+                dict.director = [d.name];
+              }
             }
 
           case "Original Music Composer":
@@ -110,10 +112,23 @@ class MobileTitle extends PureComponent {
             }
 
           case "Screenplay":
-            if (d.department == "Screenplay") {
-              dict.writer.push(d.name);
-            } else {
-              dict.writer = [d.name];
+            console.log(d.name);
+            if (d.department == "Writing") {
+              if (dict.writer && !dict.writer.includes(d.name)) {
+                dict.writer.push(d.name);
+              } else {
+                dict.writer = [d.name];
+              }
+            }
+
+          case "Writer":
+            console.log(d.name);
+            if (d.department == "Writing") {
+              if (dict.writer && !dict.writer.includes(d.name)) {
+                dict.writer.push(d.name);
+              } else {
+                dict.writer = [d.name];
+              }
             }
 
           case "Editor":
@@ -274,7 +289,7 @@ class MobileTitle extends PureComponent {
           marginRight: "6px",
           borderRadius: "5px",
           fontWeight: 300,
-          fontSize: 11,
+          fontSize: 10.5,
           marginTop: "1px",
           textTransform: "uppercase"
         }}
@@ -312,7 +327,7 @@ class MobileTitle extends PureComponent {
                 {/*this.getReleaseDate() || <Skeleton width="20%" height={15} />*/}
 
                 {this.state.content.genres
-                  ? this.state.content.genres.map(genre => {
+                  ? this.state.content.genres.slice(0, 4).map(genre => {
                       return this.getGenreChip(genre.name);
                     })
                   : ""}

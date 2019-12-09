@@ -12,19 +12,19 @@
   padding-top: 6px;
   -ms-flex-negative: 1;
       flex-shrink: 1;
-  width: 20vw;
+  width: 23vw;
 }
 
 .mobile-actor-card-container .mobile-img-cover-div {
   overflow: hidden;
-  height: 20vw;
-  width: 20vw;
+  height: 23vw;
+  width: 23vw;
   border-radius: 100%;
   margin-bottom: 4px;
 }
 
 .mobile-actor-card-container .mobile-img-cover-div img {
-  width: 20vw;
+  width: 22vw;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: 0px -20.5px;
