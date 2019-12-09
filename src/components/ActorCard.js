@@ -13,7 +13,7 @@ export default class ActorCard extends PureComponent {
               src={`https://image.tmdb.org/t/p/w300_and_h450_face/${this.props.profile.profile_path}`}
             />
           ) : (
-            <Skeleton height="100%" width="20vw" circle={true} />
+            <Skeleton height="100%" width="23vw" circle={true} />
           )}
         </div>
         <div>
