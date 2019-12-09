@@ -185,12 +185,12 @@ export default class Title extends PureComponent {
   getMetadata(header, data) {
     return (
       <div style={{ marginBottom: "16px" }}>
-        <div className="info-header" style={{ lineHeight: 0 }}>
+        <div className="info-header" style={{ lineHeight: 1.2 }}>
           {header}
           <font
             style={{
               fontWeight: 350,
-              fontSize: 6.5,
+              fontSize: 7,
               opacity: 0,
               color: "gray",
               paddingBottom: "10px"
