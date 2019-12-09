@@ -4,7 +4,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 export default class DesktopActorCard extends PureComponent {
   render(props) {
-    console.log(this.props);
+    //console.log(this.props);
     return (
       <div className="actor-card-container">
         <div className="img-cover-div">

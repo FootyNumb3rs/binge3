@@ -125,7 +125,7 @@ export default class ShowBrowser extends PureComponent {
             this.displayShows(this.props.showBrowserState.next_page, true);
           }}
         >
-          NEXT PAGE
+          LOAD MORE
         </div>
       );
     }

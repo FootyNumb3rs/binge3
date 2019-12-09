@@ -104,11 +104,9 @@
   }
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
-@media (min-width: 768 px) {
+@media (min-width: 1024px) {
   .carousel-container {
     margin-bottom: 0px;
-    overflow: auto;
   }
   .carousel-header {
     display: -webkit-box;
@@ -158,8 +156,7 @@
   }
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media (min-width: 992px) {
+@media (min-width: 1280px) {
   .carousel-container {
     margin-bottom: 0px;
   }

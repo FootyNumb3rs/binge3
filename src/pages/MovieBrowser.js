@@ -124,7 +124,7 @@ export default class MovieBrowser extends PureComponent {
             this.displayMovies(this.props.movieBrowserState.next_page, true);
           }}
         >
-          NEXT PAGE
+          LOAD MORE
         </div>
       );
     }

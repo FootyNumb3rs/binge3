@@ -4,7 +4,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 export default class ActorCard extends PureComponent {
   render(props) {
-    console.log(this.props);
+    //console.log(this.props);
     return (
       <div className="mobile-actor-card-container">
         <div className="mobile-img-cover-div">

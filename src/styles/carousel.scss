@@ -115,12 +115,7 @@
   }
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
-@media (min-width: 768 px) {
-  $background: #0d0d0d;
-
-  $mainFont: Roboto;
-
+@media (min-width: 1024px) {
   $mainFont: "Inter";
   $carouselTitleWeight: 650;
   $carouselTitleSize: 25px;
@@ -130,7 +125,7 @@
 
   .carousel-container {
     margin-bottom: 0px;
-    overflow: auto;
+    //overflow: hidden;
   }
 
   .carousel-header {
@@ -182,10 +177,8 @@
   }
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media (min-width: 992px) {
+@media (min-width: 1280px) {
   $background: #0d0d0d;
-
   $mainFont: "Inter";
   $carouselTitleWeight: 500;
   $carouselTitleSize: 30px;

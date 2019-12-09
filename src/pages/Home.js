@@ -114,15 +114,10 @@ export default class Home extends PureComponent {
           </div>
         </Slider>
 
-        {/* Content */}
+        {/* Content  1130, 950 */}
         <div className="content">
           <div className="showcase-div">
-            <div
-              style={{
-                maxWidth: "1130px",
-                width: "100%"
-              }}
-            >
+            <div className="carousel-div">
               <Carousel
                 type="tv"
                 mediaData={this.props.carouselMedia.preview_shows}

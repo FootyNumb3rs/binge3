@@ -240,7 +240,11 @@ class MobileTitle extends PureComponent {
       <Chip
         size="small"
         variant="outlined"
-        label={this.state.content.vote_average}
+        label={
+          this.state.content.vote_average
+            ? this.state.content.vote_average.toFixed(1)
+            : ""
+        }
         className="mobile-vue-rating-chip"
         style={{
           color: this.getRatingColor(this.state.content.vote_average)
@@ -253,6 +257,28 @@ class MobileTitle extends PureComponent {
             }}
           />
         }
+      />
+    );
+  }
+
+  getGenreChip(genre) {
+    return (
+      <Chip
+        size="small"
+        variant="outlined"
+        label={genre}
+        style={{
+          backgroundColor: "#1a1a1a",
+          borderColor: "#1a1a1a",
+          color: "#bdbdbd",
+          marginRight: "6px",
+          borderRadius: "5px",
+          fontWeight: 300,
+          fontSize: 11,
+          marginTop: "1px",
+          textTransform: "uppercase"
+        }}
+        className="title-rating-chip"
       />
     );
   }
@@ -283,9 +309,14 @@ class MobileTitle extends PureComponent {
             </div>
             <div className="mobile-vue-genres">
               <div>
-                {this.getReleaseDate() || <Skeleton width="20%" height={15} />}{" "}
-                •{" "}
-                {this.state.content.genres ? (
+                {/*this.getReleaseDate() || <Skeleton width="20%" height={15} />*/}
+
+                {this.state.content.genres
+                  ? this.state.content.genres.map(genre => {
+                      return this.getGenreChip(genre.name);
+                    })
+                  : ""}
+                {/*this.state.content.genres ? (
                   this.state.content.genres
                     .slice(0, 2)
                     .map(genre => genre.name)
@@ -293,7 +324,7 @@ class MobileTitle extends PureComponent {
                     .toUpperCase()
                 ) : (
                   <Skeleton width="20%" height={15} />
-                )}
+                )*/}
               </div>
             </div>
             <div className="mobile-vue-overview">

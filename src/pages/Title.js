@@ -128,19 +128,48 @@ export default class Title extends PureComponent {
       <Chip
         size="medium"
         variant="outlined"
-        label={this.state.content.vote_average}
+        label={
+          this.state.content.vote_average
+            ? this.state.content.vote_average.toFixed(1)
+            : ""
+        }
         className="title-rating-chip"
         style={{
-          color: this.getRatingColor(this.state.content.vote_average)
+          color: this.getRatingColor(this.state.content.vote_average),
+          //borderRadius: "100%",
+          backgroundColor: "#1a1a1a",
+          fontSize: 15
         }}
         icon={
           <StarIcon
             style={{
-              width: "15px",
+              width: "16px",
               color: this.getRatingColor(this.state.content.vote_average)
             }}
           />
         }
+      />
+    );
+  }
+
+  getGenreChip(genre) {
+    return (
+      <Chip
+        size="small"
+        variant="outlined"
+        label={genre}
+        style={{
+          backgroundColor: "#1a1a1a",
+          borderColor: "#1a1a1a",
+          color: "#bdbdbd",
+          marginRight: "8px",
+          borderRadius: "5px",
+          fontWeight: 300,
+          fontSize: 13,
+          marginTop: "1px",
+          textTransform: "uppercase"
+        }}
+        className="title-rating-chip"
       />
     );
   }
@@ -151,6 +180,31 @@ export default class Title extends PureComponent {
     if (n >= 1e6 && n < 1e9) return +(n / 1e6).toFixed(0) + "m";
     if (n >= 1e9 && n < 1e12) return +(n / 1e9).toFixed(0) + "b";
     if (n >= 1e12) return +(n / 1e12).toFixed(0) + "T";
+  }
+
+  getMetadata(header, data) {
+    return (
+      <div style={{ marginBottom: "16px" }}>
+        <div className="info-header" style={{ lineHeight: 0 }}>
+          {header}
+          <font
+            style={{
+              fontWeight: 350,
+              fontSize: 6.5,
+              opacity: 0,
+              color: "gray",
+              paddingBottom: "10px"
+            }}
+          >
+            {" • "}
+          </font>
+          <font className="info-data" style={{ lineHeight: 1.45 }}>
+            {" "}
+            {data}{" "}
+          </font>
+        </div>
+      </div>
+    );
   }
 
   getRunningTime = runtime => {
@@ -172,10 +226,12 @@ export default class Title extends PureComponent {
             dict.cinematographer = d.name;
 
           case "Director":
-            if (dict.director) {
-              dict.director.push(d.name);
-            } else {
-              dict.director = [d.name];
+            if (d.department == "Directing") {
+              if (dict.director) {
+                dict.director.push(d.name);
+              } else {
+                dict.director = [d.name];
+              }
             }
 
           case "Original Music Composer":
@@ -186,10 +242,23 @@ export default class Title extends PureComponent {
             }
 
           case "Screenplay":
-            if (d.department == "Screenplay") {
-              dict.writer.push(d.name);
-            } else {
-              dict.writer = [d.name];
+            console.log(d.name);
+            if (d.department == "Writing") {
+              if (dict.writer && !dict.writer.includes(d.name)) {
+                dict.writer.push(d.name);
+              } else {
+                dict.writer = [d.name];
+              }
+            }
+
+          case "Writer":
+            console.log(d.name);
+            if (d.department == "Writing") {
+              if (dict.writer && !dict.writer.includes(d.name)) {
+                dict.writer.push(d.name);
+              } else {
+                dict.writer = [d.name];
+              }
             }
 
           case "Editor":
@@ -202,45 +271,22 @@ export default class Title extends PureComponent {
       });
       return (
         <div className="info-left">
-          <div>
-            <div className="info-header">Crew</div>
+          {this.getMetadata("Released", +this.getReleaseDate())}
+          {this.getMetadata("Director", dict.director.join(", "))}
+          {this.getMetadata("Writer", dict.writer.join(", "))}
+          {this.getMetadata(
+            "Runtime",
+            this.getRunningTime(this.state.content.runtime)
+          )}
 
-            <div className="info-data" style={{ lineHeight: "25px" }}>
-              {"Director /" + " " + dict.director[0] || (
-                <Skeleton duation={1} />
-              )}
-            </div>
-            <div className="info-data" style={{ lineHeight: "25px" }}>
-              {"Writer /" + " " + dict.writer.join(", ") || (
-                <Skeleton duation={1} />
-              )}
-            </div>
-          </div>
-
-          <div>
-            <div className="info-header">Runtime</div>
-            <div className="info-data">
-              {this.getRunningTime(this.state.content.runtime) || (
-                <Skeleton duation={1} width="40%" />
-              )}
-            </div>
-          </div>
-          <div>
-            <div className="info-header">Budget</div>
-            <div className="info-data">
-              {"$" + this.formatCash(budget) || (
-                <Skeleton duation={1} width="40%" />
-              )}
-            </div>
-          </div>
-          <div>
-            <div className="info-header">Revenue</div>
-            <div className="info-data">
-              {"$" + this.formatCash(revenue) || (
-                <Skeleton duation={1} width="40%" />
-              )}
-            </div>
-          </div>
+          {this.getMetadata(
+            "Budget",
+            "$" + this.formatCash(this.state.content.budget)
+          )}
+          {this.getMetadata(
+            "Revenue",
+            "$" + this.formatCash(this.state.content.revenue)
+          )}
         </div>
       );
     }
@@ -263,40 +309,10 @@ export default class Title extends PureComponent {
 
       return (
         <div className="info-left">
-          <div>
-            <div className="info-header">Created By</div>
-            {created_by.map(d => {
-              console.log(d);
-              return (
-                <div className="info-data" style={{ lineHeight: "25px" }}>
-                  {d || <Skeleton width="80%" />}
-                </div>
-              );
-            })}
-          </div>
-
-          <div>
-            <div className="info-header">Episode Runtime</div>
-            <div className="info-data" style={{ lineHeight: "25px" }}>
-              {episode_run_time + "min" || <Skeleton width="50%" />}
-            </div>
-          </div>
-
-          <div>
-            <div className="info-header">Networks</div>
-            <div className="info-data" style={{ lineHeight: "25px" }}>
-              {networks.join(", ") || <Skeleton width="50%" />}
-            </div>
-          </div>
-
-          <div>
-            <div className="info-header">Total Seasons </div>
-            <div className="info-data" style={{ lineHeight: "25px" }}>
-              {`${num_seasons} Season(s), ${num_episodes} Episodes` || (
-                <Skeleton width="50%" />
-              )}
-            </div>
-          </div>
+          {this.getMetadata("Creator", created_by.join(", "))}
+          {this.getMetadata("Runtime", episode_run_time + "min")}
+          {this.getMetadata("Networks", networks.join(", "))}
+          {this.getMetadata("Total Seasons", num_seasons)}
         </div>
       );
     }
@@ -341,17 +357,11 @@ export default class Title extends PureComponent {
                       : this.state.content.original_name}
                     {this.getChip()}
                   </div>
-                  <div className="title-genres">
-                    {this.getReleaseDate() || (
-                      <Skeleton width="80px" height={15} />
-                    )}{" "}
-                    •{" "}
+                  <div className="title-genres" style={{ fontSize: 12 }}>
                     {this.state.content.genres ? (
-                      this.state.content.genres
-                        //.slice(0, 2)
-                        .map(genre => genre.name)
-                        .join(", ")
-                        .toUpperCase()
+                      this.state.content.genres.map(genre => {
+                        return this.getGenreChip(genre.name);
+                      })
                     ) : (
                       <Skeleton width="160px" height={15} />
                     )}
@@ -399,7 +409,12 @@ export default class Title extends PureComponent {
 
                 <div className="info-right">
                   <div className="section">
-                    <div className="info-header">Overview</div>
+                    <div
+                      className="info-header"
+                      /*style={{ marginBottom: "10px" }}*/
+                    >
+                      Overview
+                    </div>
 
                     <div className="info-data">
                       <SkeletonTheme
@@ -408,9 +423,11 @@ export default class Title extends PureComponent {
                         borderRadius="0px"
                         width="1280px"
                       >
-                        {this.state.content.overview || (
-                          <Skeleton count={3} width="90%" />
-                        )}
+                        {(
+                          <font /*style={{ lineHeight: 1.3 }}*/>
+                            {this.state.content.overview}
+                          </font>
+                        ) || <Skeleton count={3} width="90%" />}
                       </SkeletonTheme>
                     </div>
                   </div>
@@ -418,13 +435,15 @@ export default class Title extends PureComponent {
                     <div className="info-header">Cast</div>
                     <div className="cast-div">
                       {this.state.credits.cast
-                        ? this.state.credits.cast.slice(0, 6).map(credit => {
-                            return (
-                              <div key={1}>
+                        ? this.state.credits.cast
+                            .slice(0, 6)
+                            .map((credit, i) => {
+                              return (
+                                //<div key={i}>
                                 <DesktopActorCard profile={credit} />
-                              </div>
-                            );
-                          })
+                                //</div>
+                              );
+                            })
                         : "s"}
                     </div>
                   </div>

@@ -20,11 +20,27 @@ function Carousel({ mediaData, type, history }) {
     variableWidth: true,
     responsive: [
       {
-        breakpoint: 620,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
           arrows: false
+        }
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          arrows: true
+        }
+      },
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          arrows: true
         }
       }
     ]
