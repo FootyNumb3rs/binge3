@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import MainBar from "./components/MainBar";
+import MobileMainBar from "./components/MobileMainBar";
 import "./styles/home.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -11,10 +12,12 @@ import MovieBrowser from "./pages/MovieBrowser";
 import ShowBrowser from "./pages/ShowBrowser";
 import TheaterBrowser from "./pages/TheaterBrowser";
 import SearchBrowser from "./pages/SearchBrowser";
+import { makeStyles } from "@material-ui/core/styles";
 
 import ScrollMemory from "react-router-scroll-memory";
 
 function App() {
+  ///const classes = useStyles();
   const [showBar, setBar] = useState(true);
   const [page, setPage] = useState("");
   const [carouselMedia, setCarouselMedia] = useState({
@@ -110,10 +113,20 @@ function App() {
       <React.Fragment>
         <Router>
           <ScrollMemory />
+
+          <MobileMainBar
+            show={showBar}
+            setPage={setPage}
+            page={page}
+
+            //handleDrawerOpen={toggleDrawer("right", true)}
+          />
+
           <MainBar
             show={showBar}
             setPage={setPage}
             page={page}
+
             //handleDrawerOpen={toggleDrawer("right", true)}
           />
           {/*

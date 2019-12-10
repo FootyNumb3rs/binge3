@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import { makeStyles } from "@material-ui/core/styles";
 import MobileSearchBar from "./MobileSearchBar";
@@ -10,28 +10,18 @@ import MobileToolbar from "../components/MobileToolbar.js";
 
 const useStyles = makeStyles(theme => ({
   appBar: {
-    ["@media (min-width: 620px)"]: {
-      transitionProperty: "all",
-      transitionDuration: ".2s",
-      transitionTimingFunction: "ease"
-    },
-
-    ["@media (max-width: 768px)"]: {
-      height: 0,
-      opacity: 0
-    },
-
-    ["@media (max-width: 620px)"]: {
-      background: "black"
-    },
-
-    //zIndex: theme.zIndex.drawer + 1,
-    background: "black",
+    zIndex: theme.zIndex.drawer + 1,
+    background: "#0d0d0d",
     padding: 0,
     display: "flex",
     //borderRadius: "10px",
-    alignItems: "center"
-    //height: "100%" -- Set if position = 'sticky'
+    alignItems: "center",
+    height: "100%",
+
+    ["@media (min-width: 768px)"]: {
+      height: 0,
+      opacity: 0
+    }
   },
   button: {
     color: "gainsboro",
@@ -45,7 +35,7 @@ const useStyles = makeStyles(theme => ({
   menuButton: { minHeight: 0, minWidth: 0 }
 }));
 
-export default function MainBar({
+export default function MobileMainBar({
   queryChange,
   searchSubmit,
   show,
@@ -53,8 +43,6 @@ export default function MainBar({
   page
 }) {
   const classes = useStyles();
-
-  const navigation = useRef(null);
 
   const [state, setState] = useState({
     top: false,
@@ -93,22 +81,11 @@ export default function MainBar({
     );
   };
 
-  window.addEventListener("scroll", () => {
-    if (window.pageYOffset === 0) {
-      navigation.current.style.background = "transparent";
-      navigation.current.style.boxShadow = "none";
-    } else {
-      navigation.current.style.background = "#0d0d0d";
-      //navigation.current.style.boxShadow = "0 8px 20px rgba(0,0,0,.1)";
-    }
-  });
-
   return (
     <ThemeProvider>
       <AppBar
-        position="fixed"
+        position="sticky"
         className={classes.appBar}
-        ref={navigation}
         style={{ display: show ? "flex" : "none" }}
         elevation={0}
       >
@@ -152,6 +129,5 @@ export default function MainBar({
   with React.js & TMDb
 </Typography>
 </div>;
-
 */
 }

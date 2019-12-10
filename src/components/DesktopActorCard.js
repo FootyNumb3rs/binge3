@@ -21,7 +21,7 @@ export default class DesktopActorCard extends PureComponent {
               className="actor-pic"
             />
           ) : (
-            <Skeleton height="100%" width="100%" circle={true} />
+            <Skeleton height="110px" width="110px" circle={true} />
           )}
         </div>
         <div className="actor-details">

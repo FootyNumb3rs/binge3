@@ -11,6 +11,14 @@
             flex-direction: column;
     min-height: 100vh;
   }
+  .root .bar-main {
+    display: none;
+  }
+  .root .bar-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
   .root .content {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -88,6 +96,14 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  .root .bar-mobile {
+    display: none;
+  }
+  .root .bar-main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
   .root .content {
     display: -webkit-box;

@@ -162,7 +162,7 @@ export default class Title extends PureComponent {
           backgroundColor: "#1a1a1a",
           borderColor: "#1a1a1a",
           color: "#bdbdbd",
-          marginRight: "8px",
+          marginRight: "9px",
           borderRadius: "5px",
           fontWeight: 300,
           fontSize: 13,
@@ -175,18 +175,22 @@ export default class Title extends PureComponent {
   }
 
   formatCash(n) {
+    if (!n) {
+      return undefined;
+    }
     if (n < 1e3) return n;
-    if (n >= 1e3 && n < 1e6) return +(n / 1e3).toFixed(0) + "k";
-    if (n >= 1e6 && n < 1e9) return +(n / 1e6).toFixed(0) + "m";
-    if (n >= 1e9 && n < 1e12) return +(n / 1e9).toFixed(0) + "b";
-    if (n >= 1e12) return +(n / 1e12).toFixed(0) + "T";
+    if (n >= 1e3 && n < 1e6) return "$" + (n / 1e3).toFixed(0).toString() + "k";
+    if (n >= 1e6 && n < 1e9) return "$" + (n / 1e6).toFixed(0).toString() + "m";
+    if (n >= 1e9 && n < 1e12)
+      return "$" + (n / 1e9).toFixed(0).toString() + "b";
+    if (n >= 1e12) return "$" + (n / 1e12).toFixed(0).toString() + "T";
   }
 
   getMetadata(header, data) {
     return (
-      <div style={{ marginBottom: "16px" }}>
+      <div style={{ marginBottom: "15px" }}>
         <div className="info-header" style={{ lineHeight: 1.2 }}>
-          {header}
+          {data ? header : <Skeleton width="150px" />}
           <font
             style={{
               fontWeight: 350,
@@ -200,7 +204,7 @@ export default class Title extends PureComponent {
           </font>
           <font className="info-data" style={{ lineHeight: 1.45 }}>
             {" "}
-            {data}{" "}
+            {data || ""}{" "}
           </font>
         </div>
       </div>
@@ -208,6 +212,9 @@ export default class Title extends PureComponent {
   }
 
   getRunningTime = runtime => {
+    if (!runtime) {
+      return undefined;
+    }
     var hours = runtime / 60;
     var rhours = Math.floor(hours);
     var minutes = (hours - rhours) * 60;
@@ -281,11 +288,11 @@ export default class Title extends PureComponent {
 
           {this.getMetadata(
             "Budget",
-            "$" + this.formatCash(this.state.content.budget)
+            this.formatCash(this.state.content.budget)
           )}
           {this.getMetadata(
             "Revenue",
-            "$" + this.formatCash(this.state.content.revenue)
+            this.formatCash(this.state.content.revenue)
           )}
         </div>
       );
@@ -297,9 +304,9 @@ export default class Title extends PureComponent {
       const created_by = this.state.content.created_by.map(d => {
         return d.name;
       });
-
       const episode_run_time = this.state.content.episode_run_time[0];
-
+      const status =
+        this.state.content.status == "Returning Series" ? "Ongoing" : "Ended";
       const num_seasons = this.state.content.number_of_seasons;
       const num_episodes = this.state.content.number_of_episodes;
       const first_air = new Date(this.state.content.first_air_date);
@@ -312,7 +319,10 @@ export default class Title extends PureComponent {
           {this.getMetadata("Creator", created_by.join(", "))}
           {this.getMetadata("Runtime", episode_run_time + "min")}
           {this.getMetadata("Networks", networks.join(", "))}
-          {this.getMetadata("Total Seasons", num_seasons)}
+          {this.getMetadata("Debut", first_air.toDateString().slice(4))}
+          {this.getMetadata("Seasons", num_seasons)}
+          {this.getMetadata("Episodes", num_episodes)}
+          {this.getMetadata("Status", status)}
         </div>
       );
     }
@@ -353,18 +363,20 @@ export default class Title extends PureComponent {
                 <div>
                   <div className="title">
                     {this.props.match.params.media_type == "movie"
-                      ? this.state.content.original_title
-                      : this.state.content.original_name}
+                      ? this.state.content.original_title || (
+                          <Skeleton width="200px" height="25px" />
+                        )
+                      : this.state.content.original_name || (
+                          <Skeleton width="200px" height="25px" />
+                        )}
                     {this.getChip()}
                   </div>
                   <div className="title-genres" style={{ fontSize: 12 }}>
-                    {this.state.content.genres ? (
-                      this.state.content.genres.map(genre => {
-                        return this.getGenreChip(genre.name);
-                      })
-                    ) : (
-                      <Skeleton width="160px" height={15} />
-                    )}
+                    {this.state.content.genres
+                      ? this.state.content.genres.map(genre => {
+                          return this.getGenreChip(genre.name);
+                        })
+                      : ""}
                   </div>
                 </div>
 
@@ -413,7 +425,7 @@ export default class Title extends PureComponent {
                       className="info-header"
                       /*style={{ marginBottom: "10px" }}*/
                     >
-                      Overview
+                      {this.state.content.overview ? "Overview" : ""}
                     </div>
 
                     <div className="info-data">
@@ -423,16 +435,20 @@ export default class Title extends PureComponent {
                         borderRadius="0px"
                         width="1280px"
                       >
-                        {(
+                        {
                           <font /*style={{ lineHeight: 1.3 }}*/>
-                            {this.state.content.overview}
+                            {this.state.content.overview || (
+                              <Skeleton count={3} width="90%" />
+                            )}
                           </font>
-                        ) || <Skeleton count={3} width="90%" />}
+                        }
                       </SkeletonTheme>
                     </div>
                   </div>
                   <div className="section">
-                    <div className="info-header">Cast</div>
+                    <div className="info-header">
+                      {this.state.content.overview ? "Cast" : ""}
+                    </div>
                     <div className="cast-div">
                       {this.state.credits.cast
                         ? this.state.credits.cast
@@ -450,6 +466,7 @@ export default class Title extends PureComponent {
                 </div>
               </div>
             </div>
+            <div></div>
           </div>
         </div>
       </SkeletonTheme>

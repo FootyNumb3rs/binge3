@@ -289,7 +289,7 @@ class MobileTitle extends PureComponent {
           marginRight: "6px",
           borderRadius: "5px",
           fontWeight: 300,
-          fontSize: 10.5,
+          fontSize: 11,
           marginTop: "1px",
           textTransform: "uppercase"
         }}
