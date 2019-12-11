@@ -117,6 +117,37 @@ export default class Home extends PureComponent {
     });
   };
 
+  componentDidMount() {
+    window.addEventListener("touchstart", this.touchStart);
+    window.addEventListener("touchmove", this.preventTouch, { passive: false });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("touchstart", this.touchStart);
+    window.removeEventListener("touchmove", this.preventTouch, {
+      passive: false
+    });
+  }
+
+  touchStart(e) {
+    this.firstClientX = e.touches[0].clientX;
+    this.firstClientY = e.touches[0].clientY;
+  }
+
+  preventTouch(e) {
+    const minValue = 5; // threshold
+
+    this.clientX = e.touches[0].clientX - this.firstClientX;
+    this.clientY = e.touches[0].clientY - this.firstClientY;
+
+    // Vertical scrolling does not work when you start swiping horizontally.
+    if (Math.abs(this.clientX) > minValue) {
+      e.preventDefault();
+      e.returnValue = false;
+      return false;
+    }
+  }
+
   render(props) {
     console.log(this.props.carouselMedia);
     const settings = {
@@ -186,7 +217,9 @@ export default class Home extends PureComponent {
 
               <Carousel
                 type="theaters"
-                mediaData={this.props.carouselMedia.preview_in_theaters}
+                mediaData={this.props.carouselMedia.preview_in_theaters.slice(
+                  2
+                )}
               />
             </div>
           </div>

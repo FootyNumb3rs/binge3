@@ -134,6 +134,7 @@
     font-size: 25px;
   }
   .root .view-panel-container .view-panel-div .view-genres {
+    display: none;
     margin-top: 7px;
     width: 100%;
     font-size: 14px;

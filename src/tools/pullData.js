@@ -67,11 +67,11 @@ export function getInTheaters(genres, page = 1) {
   promises.push(
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=en-US&page=${page}`
+        `https://api.themoviedb.org/3/movie/upcoming?api_key=${api_key}&language=en-US&page=${page}`
       )
       .then(res => {
         res.data.results = res.data.results
-          .filter(item => item.vote_count > 50)
+          //.filter(item => item.vote_count > 50)
           .map(item => {
             return {
               id: item.id,

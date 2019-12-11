@@ -72,7 +72,7 @@ export default class MovieBrowser extends PureComponent {
         });
       } else {
         this.props.setTheaterBrowserState({
-          ...this.props.movieBrowserState,
+          ...this.props.theaterBrowserState,
           //content_list: all_data
 
           content_list: this.props.theaterBrowserState.content_list.concat(
@@ -108,8 +108,7 @@ export default class MovieBrowser extends PureComponent {
   displayNextPage = () => {
     if (
       (this.props.theaterBrowserState.total_pages > 1) &
-      (this.props.theaterBrowserState.next_page <
-        this.props.theaterBrowserState.total_pages)
+      (this.props.theaterBrowserState.next_page < 3)
     ) {
       return (
         <div
@@ -165,7 +164,7 @@ export default class MovieBrowser extends PureComponent {
               );
             })}
           </div>
-          {/*this.displayNextPage()*/}
+          {this.displayNextPage()}
           <div></div>
         </div>
       </div>

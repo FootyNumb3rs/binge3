@@ -53,7 +53,7 @@ function Carousel({ mediaData, type, history }) {
           {type == "movie"
             ? "Popular Movies"
             : type == "theaters"
-            ? "In Theaters"
+            ? "New & Upcoming"
             : "Popular Shows"}
         </div>
         <div
