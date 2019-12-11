@@ -21,7 +21,7 @@ export default class Home extends PureComponent {
 
     props.setBar_(true);
 
-    //this.slider.slickGoTo(0);
+    this.exampleRef = React.createRef();
 
     getGenres().then(data => {
       var genres_ = Object.assign(data[0], data[1]);
@@ -77,6 +77,27 @@ export default class Home extends PureComponent {
     );
   };
 
+  setCarouselOne = current => {
+    this.props.setCarouselState({
+      ...this.props.carouselState,
+      slideOne: current
+    });
+  };
+
+  setCarouselTwo = current => {
+    this.props.setCarouselState({
+      ...this.props.carouselState,
+      slideTwo: current
+    });
+  };
+
+  setCarouselThree = current => {
+    this.props.setCarouselState({
+      ...this.props.carouselState,
+      slideThree: current
+    });
+  };
+
   previewMovies = () => {
     getTrending(this.state.genres, "movie").then(data => {
       var all_data = [];
@@ -120,6 +141,7 @@ export default class Home extends PureComponent {
   componentDidMount() {
     window.addEventListener("touchstart", this.touchStart);
     window.addEventListener("touchmove", this.preventTouch, { passive: false });
+    //this.exampleRef.current.slickGoTo(3);
   }
 
   componentWillUnmount() {
@@ -149,18 +171,31 @@ export default class Home extends PureComponent {
   }
 
   render(props) {
-    console.log(this.props.carouselMedia);
+    // console.log(this.props.carouselMedia);
+
+    console.log(this.exampleRef.current);
+
     const settings = {
       dots: false,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+
+      initialSlide: this.props.carouselState.bigView,
+      afterChange: (current, next) =>
+        this.props.setCarouselState({
+          ...this.props.carouselState,
+          bigView: current
+        })
+      //afterChange: current => this.setState({ activeSlide2: current })
     };
     this.props.setPage("");
     return (
       <div style={{ overflow: "hidden" }}>
         <Slider
+          //ref={slider => (this.slider = slider)}
+          ref={this.exampleRef}
           className="slider-container"
           {...settings}
           style={{ width: "100vw", height: "56.17977vw" }}
@@ -182,21 +217,6 @@ export default class Home extends PureComponent {
               />
             </div>
           )}
-          {/*
-          <div>
-            <img
-              style={{ width: "100%" }}
-              src="https://image.tmdb.org/t/p/original//6Xsz9KHQmCcIcj3CoWQq5eLtVoT.jpg"
-              img
-            />
-          </div>
-          <div>
-            <img
-              style={{ width: "100%" }}
-              src="https://image.tmdb.org/t/p/original//n6bUvigpRFqSwmPp1m2YADdbRBc.jpg"
-              img
-            />
-          </div> */}
         </Slider>
 
         {/* Content  1130, 950 */}
@@ -205,21 +225,30 @@ export default class Home extends PureComponent {
             <div className="carousel-div">
               <Carousel
                 type="tv"
+                id_="One"
                 mediaData={this.props.carouselMedia.preview_shows}
+                carouselState={this.props.carouselState}
+                setCarouselState={this.setCarouselOne}
               />
               <div className="home-divider" />
 
               <Carousel
                 type="movie"
+                id_="Two"
                 mediaData={this.props.carouselMedia.preview_movies}
+                carouselState={this.props.carouselState}
+                setCarouselState={this.setCarouselTwo}
               />
               <div className="home-divider" />
 
               <Carousel
                 type="theaters"
+                id_="Three"
                 mediaData={this.props.carouselMedia.preview_in_theaters.slice(
                   2
                 )}
+                carouselState={this.props.carouselState}
+                setCarouselState={this.setCarouselThree}
               />
             </div>
           </div>

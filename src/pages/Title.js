@@ -317,12 +317,11 @@ export default class Title extends PureComponent {
       return (
         <div className="info-left">
           {this.getMetadata("Creator", created_by.join(", "))}
-          {this.getMetadata("Runtime", episode_run_time + "min")}
+
           {this.getMetadata("Networks", networks.join(", "))}
           {this.getMetadata("Debut", first_air.toDateString().slice(4))}
           {this.getMetadata("Seasons", num_seasons)}
           {this.getMetadata("Episodes", num_episodes)}
-          {this.getMetadata("Status", status)}
         </div>
       );
     }

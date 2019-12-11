@@ -6,12 +6,22 @@ import { withRouter } from "react-router-dom";
 import Slider from "react-slick";
 import Chip from "@material-ui/core/Chip";
 
-function Carousel({ mediaData, type, history }) {
+function Carousel({
+  mediaData,
+  type,
+  history,
+  carouselState,
+  setCarouselState,
+  id_
+}) {
   const pr = () => {
     console.log("yo");
   };
 
   const settings = {
+    initialSlide: carouselState[`slide${id_}`],
+    afterChange: (current, next) => setCarouselState(current),
+
     infinite: false,
     speed: 350,
     slidesToShow: 6,

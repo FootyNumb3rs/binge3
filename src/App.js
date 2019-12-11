@@ -17,9 +17,15 @@ import { makeStyles } from "@material-ui/core/styles";
 import ScrollMemory from "react-router-scroll-memory";
 
 function App() {
-  ///const classes = useStyles();
   const [showBar, setBar] = useState(true);
   const [page, setPage] = useState("");
+  const [carouselState, setCarouselState] = useState({
+    bigView: 0,
+    slideOne: 0,
+    slideTwo: 0,
+    slideThree: 0
+  });
+
   const [carouselMedia, setCarouselMedia] = useState({
     preview_movies: [],
     preview_shows: [],
@@ -150,6 +156,8 @@ function App() {
                   setPage={setPage}
                   setCarouselMedia={setCarouselMedia}
                   carouselMedia={carouselMedia}
+                  carouselState={carouselState}
+                  setCarouselState={setCarouselState}
                 />
               )}
             />
