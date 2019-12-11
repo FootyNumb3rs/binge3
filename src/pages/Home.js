@@ -171,7 +171,7 @@ export default class Home extends PureComponent {
   }
 
   render(props) {
-    // console.log(this.props.carouselMedia);
+    console.log(this.props.carouselState);
 
     console.log(this.exampleRef.current);
 
@@ -227,7 +227,7 @@ export default class Home extends PureComponent {
                 type="tv"
                 id_="One"
                 mediaData={this.props.carouselMedia.preview_shows}
-                carouselState={this.props.carouselState}
+                carouselState={this.props.carouselState.slideOne}
                 setCarouselState={this.setCarouselOne}
               />
               <div className="home-divider" />
@@ -236,7 +236,7 @@ export default class Home extends PureComponent {
                 type="movie"
                 id_="Two"
                 mediaData={this.props.carouselMedia.preview_movies}
-                carouselState={this.props.carouselState}
+                carouselState={this.props.carouselState.slideTwo}
                 setCarouselState={this.setCarouselTwo}
               />
               <div className="home-divider" />
@@ -247,7 +247,7 @@ export default class Home extends PureComponent {
                 mediaData={this.props.carouselMedia.preview_in_theaters.slice(
                   2
                 )}
-                carouselState={this.props.carouselState}
+                carouselState={this.props.carouselState.slideThree}
                 setCarouselState={this.setCarouselThree}
               />
             </div>

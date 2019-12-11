@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MediaCard from "./MediaCard";
 //import MobileMediaCard from "./MobileMediaCard";
 import "../styles/carousel.css";
 import { withRouter } from "react-router-dom";
 import Slider from "react-slick";
 import Chip from "@material-ui/core/Chip";
+
+const exampleRef = React.createRef();
 
 function Carousel({
   mediaData,
@@ -19,38 +21,50 @@ function Carousel({
   };
 
   const settings = {
-    initialSlide: carouselState[`slide${id_}`],
+    initialSlide: carouselState,
     afterChange: (current, next) => setCarouselState(current),
-
     infinite: false,
     speed: 350,
+    //centerMode: true,
     slidesToShow: 6,
     slidesToScroll: 1,
     touchThreshold: 15,
-    variableWidth: true,
+    variableWidth: false,
     responsive: [
       {
         breakpoint: 768,
         settings: {
+          initialSlide: 0,
+          afterChange: (current, next) => setCarouselState(current),
           slidesToShow: 2,
           slidesToScroll: 2,
-          arrows: false
+          arrows: false,
+          infinite: false,
+          variableWidth: true
         }
       },
       {
         breakpoint: 1024,
         settings: {
+          initialSlide: 0,
+          afterChange: (current, next) => setCarouselState(current),
           slidesToShow: 4,
           slidesToScroll: 1,
-          arrows: true
+          arrows: true,
+          infinite: false,
+          variableWidth: true
         }
       },
       {
         breakpoint: 1280,
         settings: {
+          initialSlide: 0,
+          afterChange: (current, next) => setCarouselState(current),
           slidesToShow: 5,
           slidesToScroll: 1,
-          arrows: true
+          arrows: true,
+          infinite: false,
+          variableWidth: true
         }
       }
     ]
@@ -73,7 +87,7 @@ function Carousel({
           SEE ALL
         </div>
       </div>
-      <Slider {...settings}>
+      <Slider ref={exampleRef} {...settings}>
         {mediaData.slice(0, 10).map((media, i) => {
           return (
             <div className="carousel-item-wrapper">
