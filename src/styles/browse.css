@@ -63,6 +63,7 @@
 
 @media (min-width: 768px) {
   .browser-container {
+    margin-top: 84px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

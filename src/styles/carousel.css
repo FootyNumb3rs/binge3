@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text|Ibarra+Real+Nova|Libre+Baskerville|Lora|Merriweather|PT+Serif|Playfair+Display|Source+Serif+Pro|Vollkorn&display=swap");
 @import url("https://rsms.me/inter/inter.css");
+.slick-slide,
+.slick-slide * {
+  outline: none !important;
+}
+
 @media (max-width: 620px) {
   .wrapper {
     display: none;

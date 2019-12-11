@@ -7,6 +7,7 @@ import { getTrending, getGenres, getInTheaters } from "../tools/pullData";
 import Slider from "react-slick";
 import Chip from "@material-ui/core/Chip";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
 export default class Home extends PureComponent {
   constructor(props) {
@@ -42,100 +43,33 @@ export default class Home extends PureComponent {
   getViewPanel = media => {
     return (
       <div>
-        <div
-          style={{
-            width: "100%",
-            position: "relative",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center"
-          }}
-        >
+        <div className="view-panel-container">
           <img
-            style={{ width: "100%", opacity: 0.3, backgroundColor: "#424242" }}
+            /*style={{ width: "100%", opacity: 0.3, backgroundColor: "#424242" }}*/
             src={media.backdropLink}
-            img
           />
 
-          <div
-            style={{
-              position: "absolute",
-              maxWidth: "80vw",
-              width: "100%",
-              //paddingLeft: "0px",
-              zIndex: "1000",
-              //bottom: "60px",
-              fontSize: "100px",
-              justifyContent: "center",
-              alignItems: "flex-start",
-              display: "flex",
-              flexDirection: "column"
-            }}
-          >
-            <div
-              style={{
-                color: "white",
-                fontSize: "20px",
-                fontFamily: "Inter",
-                fontWeight: 600,
-                width: "50%",
-                lineHeight: 2
-              }}
-            >
-              {media.release.slice(0, 4)}
-            </div>
-            <div
-              style={{
-                color: "white",
-                fontSize: "42px",
-                fontFamily: "Inter",
-                fontWeight: 600,
-                marginBottom: 5,
-                marginTop: 20,
-                lineHeight: 1
-              }}
-            >
-              {media.title}
-            </div>
+          <div className="view-panel-div">
+            <div className="view-release">{media.release.slice(0, 4)}</div>
+            <div className="view-title">{media.title}</div>
 
-            <div
-              style={{
-                color: "white",
-                fontSize: "15.5px",
-                fontFamily: "Inter",
-                fontWeight: 500,
-                width: "50%",
-                marginTop: "13px"
-              }}
-            >
+            <div className="view-genres">
               {media.genres
                 .map(g => {
                   return g;
                 })
                 .join(" / ")}
             </div>
-            <div
-              style={{
-                //color: "white",
-                fontSize: "25px",
-                marginTop: "25px"
-                //fontFamily: "Inter",
-                //fontWeight: 200,
-                //width: "50%",
-                //lineHeight: 2
-              }}
-            >
-              <Button
-                style={{
-                  fontSize: "14px",
-                  borderRadius: "20px",
-                  backgroundColor: "#0288d1"
+            <div className="view-button">
+              <Link
+                to={{
+                  pathname: `/title/${media.media_type}/${media.id}`
                 }}
-                variant="contained"
-                color="primary"
               >
-                SEE MORE
-              </Button>
+                <Button variant="contained" color="primary">
+                  SEE MORE
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -195,7 +129,11 @@ export default class Home extends PureComponent {
     this.props.setPage("");
     return (
       <div style={{ overflow: "hidden" }}>
-        <Slider {...settings} style={{ width: "100vw", height: "56.17977vw" }}>
+        <Slider
+          className="slider-container"
+          {...settings}
+          style={{ width: "100vw", height: "56.17977vw" }}
+        >
           {this.props.carouselMedia.preview_movies[0] ? (
             this.props.carouselMedia.preview_movies.map(media => {
               return this.getViewPanel(media);

@@ -1,6 +1,82 @@
 $background: #0d0d0d;
 $mainFont: Inter;
 
+.slider-container {
+  /*
+  .slick-prev {
+    left: 1.5%;
+  }
+  */
+  .slick-next {
+    right: 3%;
+  }
+}
+
+.view-panel-container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    opacity: 0.3;
+    background-color: #424242;
+  }
+
+  .view-panel-div {
+    position: absolute;
+    max-width: 80vw;
+    width: 100%;
+    z-index: 1000;
+    font-size: 100px;
+    justify-content: center;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+
+    .view-release {
+      color: white;
+      font-size: 20px;
+      font-family: Inter;
+      font-weight: 600;
+      width: 50%;
+      line-height: 2;
+    }
+
+    .view-title {
+      color: white;
+      font-size: 42px;
+      font-family: Inter;
+      font-weight: 600;
+      margin-bottom: 5;
+      margin-top: 20px;
+      line-height: 1;
+    }
+
+    .view-genres {
+      color: white;
+      font-size: 15.5px;
+      font-family: Inter;
+      font-weight: 500;
+      width: 50%;
+      margin-top: 13px;
+    }
+
+    .view-button {
+      font-size: 25px;
+      margin-top: 25px;
+
+      button {
+        font-size: 14px;
+        border-radius: 20px;
+        background-color: #0288d1;
+      }
+    }
+  }
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media (max-width: 768px) {
   .root {
@@ -11,12 +87,47 @@ $mainFont: Inter;
     //max-width: 100vw;
     //overflow: hidden;
 
-    .bar-main {
-      display: none;
-    }
-
-    .bar-mobile {
+    .view-panel-container {
+      width: 100%;
+      position: relative;
       display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 100%;
+        opacity: 0.45;
+        background-color: #424242;
+      }
+      .view-panel-div {
+        //align-items: center;
+
+        .view-button {
+          font-size: 25px;
+          margin-top: 10px;
+
+          button {
+            font-size: 14px;
+            border-radius: 20px;
+            background-color: #0288d1;
+          }
+        }
+
+        .view-title {
+          font-size: 25px;
+        }
+
+        .view-genres {
+          //display: none;
+          margin-top: 7px;
+          width: 100%;
+          font-size: 14px;
+        }
+
+        .view-release {
+          display: none;
+        }
+      }
     }
 
     .content {
@@ -71,8 +182,6 @@ $mainFont: Inter;
   }
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-
 /* Large devices (laptops/desktops, 992px and up) */
 @media (min-width: 768px) {
   $background: #0d0d0d;
@@ -85,14 +194,6 @@ $mainFont: Inter;
     flex-direction: column;
     //min-height: 100vh;
     //overflow: hidden;
-
-    .bar-mobile {
-      display: none;
-    }
-
-    .bar-main {
-      display: flex;
-    }
 
     .content {
       display: flex;

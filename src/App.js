@@ -114,6 +114,14 @@ function App() {
         <Router>
           <ScrollMemory />
 
+          <MainBar
+            show={showBar}
+            setPage={setPage}
+            page={page}
+
+            //handleDrawerOpen={toggleDrawer("right", true)}
+          />
+
           <MobileMainBar
             show={showBar}
             setPage={setPage}
@@ -122,13 +130,6 @@ function App() {
             //handleDrawerOpen={toggleDrawer("right", true)}
           />
 
-          <MainBar
-            show={showBar}
-            setPage={setPage}
-            page={page}
-
-            //handleDrawerOpen={toggleDrawer("right", true)}
-          />
           {/*
           <SwipeableDrawer
             open={state.right}

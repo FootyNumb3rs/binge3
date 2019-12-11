@@ -10,23 +10,17 @@ import MobileToolbar from "../components/MobileToolbar.js";
 
 const useStyles = makeStyles(theme => ({
   appBar: {
-    ["@media (min-width: 620px)"]: {
-      transitionProperty: "all",
-      transitionDuration: ".2s",
-      transitionTimingFunction: "ease"
-    },
+    transitionProperty: "all",
+    transitionDuration: ".2s",
+    transitionTimingFunction: "ease",
 
-    ["@media (max-width: 768px)"]: {
-      height: 0,
-      opacity: 0
-    },
-
-    ["@media (max-width: 620px)"]: {
-      background: "black"
+    ["@media (max-width: 736px)"]: {
+      visibility: "hidden",
+      height: 0
     },
 
     //zIndex: theme.zIndex.drawer + 1,
-    background: "black",
+    background: "transparent",
     padding: 0,
     display: "flex",
     //borderRadius: "10px",

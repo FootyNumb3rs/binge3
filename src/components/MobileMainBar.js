@@ -18,9 +18,9 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     height: "100%",
 
-    ["@media (min-width: 768px)"]: {
-      height: 0,
-      opacity: 0
+    ["@media (min-width: 736px)"]: {
+      visibility: "hidden",
+      height: 0
     }
   },
   button: {
