@@ -58,7 +58,7 @@ export default class Home extends PureComponent {
                 .map(g => {
                   return g;
                 })
-                .join(" / ")}
+                .join(" • ")}
             </div>
             <div className="view-button">
               <Link
@@ -182,6 +182,17 @@ export default class Home extends PureComponent {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            //initialSlide: carouselState,
+            //afterChange: (current, next) => setCarouselState(current),
+
+            arrows: false
+          }
+        }
+      ],
 
       initialSlide: this.props.carouselState.bigView,
       afterChange: (current, next) =>
@@ -189,36 +200,37 @@ export default class Home extends PureComponent {
           ...this.props.carouselState,
           bigView: current
         })
-      //afterChange: current => this.setState({ activeSlide2: current })
     };
     this.props.setPage("");
     return (
       <div style={{ overflow: "hidden" }}>
-        <Slider
-          //ref={slider => (this.slider = slider)}
-          ref={this.exampleRef}
-          className="slider-container"
-          {...settings}
-          style={{ width: "100vw", height: "56.17977vw" }}
-        >
-          {this.props.carouselMedia.preview_movies[0] ? (
-            this.props.carouselMedia.preview_movies.map(media => {
-              return this.getViewPanel(media);
-            })
-          ) : (
-            <div>
-              <div
-                style={{
-                  width: "100vw",
-                  height: "56.17977vw",
-                  background: "#424242",
-                  opacity: ".5"
-                }}
-                //src="https://image.tmdb.org/t/p/original//6Xsz9KHQmCcIcj3CoWQq5eLtVoT.jpg"
-              />
-            </div>
-          )}
-        </Slider>
+        <div className="slider-container-1">
+          <Slider
+            //ref={slider => (this.slider = slider)}
+            ref={this.exampleRef}
+            className="slider-container"
+            {...settings}
+            //style={{ width: "100vw", height: "56.17977vw" }}
+          >
+            {this.props.carouselMedia.preview_movies[0] ? (
+              this.props.carouselMedia.preview_movies.map(media => {
+                return this.getViewPanel(media);
+              })
+            ) : (
+              <div>
+                <div
+                  style={{
+                    width: "100vw",
+                    height: "56.17977vw",
+                    background: "#424242",
+                    opacity: ".5"
+                  }}
+                  //src="https://image.tmdb.org/t/p/original//6Xsz9KHQmCcIcj3CoWQq5eLtVoT.jpg"
+                />
+              </div>
+            )}
+          </Slider>
+        </div>
 
         {/* Content  1130, 950 */}
         <div className="content">
@@ -255,7 +267,7 @@ export default class Home extends PureComponent {
           </div>
         </div>
         <div className="signature">
-          Made with TMDB and React.js • Ratings from IMDB •
+          Made with TMDB and React.js • Ratings from IMDB
         </div>
       </div>
     );

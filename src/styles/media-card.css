@@ -16,27 +16,29 @@
     height: 48vw;
     width: 32vw;
     background-color: transparent;
+    border-radius: 9px;
   }
   .card-container div .cardText {
-    margin-top: 9px;
+    margin-top: 10px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    text-align: center;
     background-color: transparent;
   }
   .card-container div .cardText .title {
-    font-size: 13px;
+    font-size: 12.5px;
     line-height: 1.2;
     font-family: "Inter";
     color: white;
-    font-weight: 600;
+    font-weight: 500;
   }
   .card-container div .cardText .genres {
     font-size: 12px;
@@ -44,6 +46,7 @@
     margin-top: 1.5px;
     line-height: 1.3;
     color: gray;
+    display: none;
   }
 }
 

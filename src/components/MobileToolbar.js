@@ -86,7 +86,7 @@ export default function MobileToolbar({
             className={"app-title"}
             //  noWrap
           >
-            FLiX
+            FLIX
           </div>
         </div>
       </Link>

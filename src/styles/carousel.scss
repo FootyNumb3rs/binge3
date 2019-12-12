@@ -8,9 +8,9 @@
 
 @media (max-width: 620px) {
   $mainFont: "Inter";
-  $carouselTitleWeight: 550;
-  $carouselTitleSize: 21.5px;
-  $carouselSeeAllWeight: 500;
+  $carouselTitleWeight: 600;
+  $carouselTitleSize: 21px;
+  $carouselSeeAllWeight: 400;
   $carouselSeeAllSize: 15px;
   $backgroundColor: #212121;
 
@@ -27,7 +27,8 @@
     display: flex;
     flex-direction: row; // So header elements align left to right
     justify-content: space-between;
-    padding-bottom: 17px;
+    //padding-bottom: 17px; ----------------
+    padding-bottom: 20px;
     padding-right: 17px;
     padding-left: 20px;
     font-family: $mainFont;
