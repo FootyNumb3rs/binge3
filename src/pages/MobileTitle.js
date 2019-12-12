@@ -276,12 +276,12 @@ class MobileTitle extends PureComponent {
                   //display: "none",
                   backgroundColor: "black",
                   display: "inline-flex",
-                  width: "10vw",
-                  height: "10vw",
+                  width: "11vw",
+                  height: "11vw",
                   borderRadius: "100%",
                   justifyContent: "center",
                   alignItems: "center",
-                  opacity: 0.8
+                  opacity: 0.9
                 }}
                 onClick={() => {
                   this.props.history.go(-1);
