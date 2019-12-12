@@ -106,7 +106,7 @@ $mainFont: Inter;
         justify-content: center;
 
         img {
-          width: 92.5vw;
+          width: 90vw;
           border-radius: 15px;
           opacity: 0.5;
         }
@@ -194,16 +194,12 @@ $mainFont: Inter;
     }
 
     .home-divider {
-      height: 1px;
+      height: 0.7px;
       max-width: 100vw;
-      background: radial-gradient(
-        circle,
-        rgba(247, 243, 243, 1) 73%,
-        rgba(0, 0, 0, 0) 100%
-      );
+      background: white;
       //opacity: 0.15;
-      opacity: 0;
-      margin: 30px 20px;
+      opacity: 0.15;
+      margin: 35px 25px;
       // margin-top: 35px; ----------
       //-bottom: 35px; ----------
       //margin-left: 30px; ---------
