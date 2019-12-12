@@ -270,6 +270,26 @@ class MobileTitle extends PureComponent {
                 <Skeleton width="100%" height="100%" />
               )}
             </div>
+            <div className="cover-details">
+              <div
+                style={{
+                  //display: "none",
+                  backgroundColor: "black",
+                  display: "inline-flex",
+                  width: "9.5vw",
+                  height: "9.5vw",
+                  borderRadius: "100%",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  opacity: 0.8
+                }}
+                onClick={() => {
+                  this.props.history.go(-1);
+                }}
+              >
+                <ArrowBackIcon />
+              </div>
+            </div>
           </div>
           <div className="mobile-vue-info-main-div">
             <div className="mobile-vue-title">
