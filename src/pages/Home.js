@@ -255,7 +255,7 @@ export default class Home extends PureComponent {
           </div>
         </div>
         <div className="signature">
-          Made with TMDB and React.js • Ratings from IMDB
+          Made with TMDB and React.js • Ratings from IMDB •
         </div>
       </div>
     );
