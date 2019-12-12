@@ -61,9 +61,9 @@
   font-family: Inter;
   color: white;
   margin: 0%;
-  font-size: 100%;
+  font-size: 90%;
   font-weight: 500;
-  padding: 0.15em 0.7em;
+  padding: 0.15em 0.5em;
   max-height: 100%;
   max-width: 100%;
 }
@@ -71,16 +71,16 @@
 .mobile-card-div .mobile-card-text-div .mobile-card-genres {
   font-family: Inter;
   color: #929191;
-  padding: 0.15em 0.7em;
-  font-size: 97%;
+  padding: 0.15em 0.5em;
+  font-size: 87%;
   font-weight: 400;
 }
 
 .mobile-card-div .mobile-card-text-div .mobile-card-etc {
   font-family: Inter;
   color: white;
-  padding: 0.15em 0.7em;
-  font-size: 97%;
+  padding: 0.15em 0.5em;
+  font-size: 87%;
   font-weight: 400;
 }
 
@@ -89,7 +89,7 @@
   background-color: #1a1a1a;
   color: lightgreen;
   border-color: #1a1a1a;
-  font-size: 100%;
+  font-size: 92%;
   font-weight: 500;
   height: 1.8em;
   width: 3.8em;

@@ -49,9 +49,9 @@ $cardWidth: (2/3) * $cardHeight;
       font-family: $mainFont;
       color: white;
       margin: 0%;
-      font-size: 100%;
+      font-size: 90%;
       font-weight: 500;
-      padding: 0.15em 0.7em;
+      padding: 0.15em 0.5em;
       max-height: 100%;
       max-width: 100%;
       //padding-bottom: 50%;
@@ -61,16 +61,16 @@ $cardWidth: (2/3) * $cardHeight;
       //display: none;
       font-family: $mainFont;
       color: rgb(146, 145, 145);
-      padding: 0.15em 0.7em;
-      font-size: 97%;
+      padding: 0.15em 0.5em;
+      font-size: 87%;
       font-weight: 400;
     }
 
     .mobile-card-etc {
       font-family: $mainFont;
       color: white;
-      padding: 0.15em 0.7em;
-      font-size: 97%;
+      padding: 0.15em 0.5em;
+      font-size: 87%;
       font-weight: 400;
       //display: none;
     }
@@ -81,7 +81,7 @@ $cardWidth: (2/3) * $cardHeight;
       background-color: #1a1a1a;
       color: lightgreen;
       border-color: #1a1a1a;
-      font-size: 100%;
+      font-size: 92%;
       font-weight: 500;
       height: 1.8em;
       width: 3.8em;
