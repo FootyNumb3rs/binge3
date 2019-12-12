@@ -194,7 +194,7 @@ $mainFont: Inter;
     }
 
     .home-divider {
-      height: 0.5px;
+      height: 1px;
       max-width: 100vw;
       background: radial-gradient(
         circle,
@@ -202,8 +202,8 @@ $mainFont: Inter;
         rgba(0, 0, 0, 0) 100%
       );
       //opacity: 0.15;
-      opacity: 0.2;
-      margin: 30px 30px;
+      opacity: 0.15;
+      margin: 35px 20px;
       // margin-top: 35px; ----------
       //-bottom: 35px; ----------
       //margin-left: 30px; ---------

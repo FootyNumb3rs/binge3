@@ -243,6 +243,7 @@ export default class Home extends PureComponent {
                 carouselState={this.props.carouselState.slideOne}
                 setCarouselState={this.setCarouselOne}
               />
+
               <div className="home-divider" />
 
               <Carousel
