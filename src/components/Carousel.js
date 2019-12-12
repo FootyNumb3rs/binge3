@@ -21,7 +21,7 @@ function Carousel({
   };
 
   const settings = {
-    initialSlide: carouselState,
+    //initialSlide: carouselState,
     afterChange: (current, next) => setCarouselState(current),
     infinite: false,
     speed: 350,
@@ -34,7 +34,7 @@ function Carousel({
       {
         breakpoint: 768,
         settings: {
-          initialSlide: carouselState,
+          //initialSlide: carouselState,
           afterChange: (current, next) => setCarouselState(current),
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -45,7 +45,7 @@ function Carousel({
       {
         breakpoint: 1024,
         settings: {
-          initialSlide: carouselState,
+          //initialSlide: carouselState,
           afterChange: (current, next) => setCarouselState(current),
           slidesToShow: 4,
           slidesToScroll: 1,
@@ -56,7 +56,7 @@ function Carousel({
       {
         breakpoint: 1280,
         settings: {
-          initialSlide: carouselState,
+          //initialSlide: carouselState,
           afterChange: (current, next) => setCarouselState(current),
           slidesToShow: 5,
           slidesToScroll: 1,
