@@ -44,12 +44,20 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function MobileSearchBar({ searchSubmit, history, setBar, barOpen }) {
+function MobileSearchBar({
+  searchSubmit,
+  history,
+  setBar,
+  barOpen,
+  setBrowserState,
+  browserState
+}) {
   const classes = useStyles();
   const [search, setSearch] = useState("");
   const onChange = (e, index, value) => {
     setSearch(e.target.value);
   };
+  console.log(setBrowserState);
 
   return (
     <div className="mobile-search-bar-div-outer">
@@ -72,6 +80,10 @@ function MobileSearchBar({ searchSubmit, history, setBar, barOpen }) {
           onKeyPress={ev => {
             //console.log(`Pressed keyCode ${ev.key}`);
             if (ev.key === "Enter") {
+              setBrowserState({
+                ...browserState,
+                content_list: []
+              });
               if (search.length > 0) history.push(`/search/${search}`);
               //setBar(!barOpen);
               ev.preventDefault();

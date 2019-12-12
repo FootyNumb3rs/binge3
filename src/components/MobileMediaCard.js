@@ -25,14 +25,18 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const getRatingColor = rating => {
-  if (rating < 6) {
-    return "#F44336";
-  } else if (rating < 7) {
-    return "#FB8C00";
-  } else if (rating < 7.5) {
-    return "#FFEE58";
+  if (!rating) {
+    return "gray";
   } else {
-    return "#66BB6A";
+    if (rating < 6) {
+      return "#F44336";
+    } else if (rating < 7) {
+      return "#FB8C00";
+    } else if (rating < 7.5) {
+      return "#FFEE58";
+    } else {
+      return "#66BB6A";
+    }
   }
 };
 

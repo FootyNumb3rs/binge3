@@ -66,9 +66,10 @@ export default class Home extends PureComponent {
                   pathname: `/title/${media.media_type}/${media.id}`
                 }}
               >
+                {/*
                 <Button variant="contained" color="primary">
                   SEE MORE
-                </Button>
+              </Button> */}
               </Link>
             </div>
           </div>
@@ -254,7 +255,7 @@ export default class Home extends PureComponent {
           </div>
         </div>
         <div className="signature">
-          Made by Tande Mungwa with TMDB and React.js
+          Made with TMDB and React.js • Ratings from IMDB
         </div>
       </div>
     );

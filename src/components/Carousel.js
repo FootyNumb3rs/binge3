@@ -29,42 +29,39 @@ function Carousel({
     slidesToShow: 6,
     slidesToScroll: 1,
     touchThreshold: 15,
-    variableWidth: false,
+    variableWidth: true,
     responsive: [
       {
         breakpoint: 768,
         settings: {
-          initialSlide: 0,
+          initialSlide: carouselState,
           afterChange: (current, next) => setCarouselState(current),
           slidesToShow: 2,
           slidesToScroll: 2,
           arrows: false,
-          infinite: false,
-          variableWidth: true
+          infinite: false
         }
       },
       {
         breakpoint: 1024,
         settings: {
-          initialSlide: 0,
+          initialSlide: carouselState,
           afterChange: (current, next) => setCarouselState(current),
           slidesToShow: 4,
           slidesToScroll: 1,
           arrows: true,
-          infinite: false,
-          variableWidth: true
+          infinite: false
         }
       },
       {
         breakpoint: 1280,
         settings: {
-          initialSlide: 0,
+          initialSlide: carouselState,
           afterChange: (current, next) => setCarouselState(current),
           slidesToShow: 5,
           slidesToScroll: 1,
           arrows: true,
-          infinite: false,
-          variableWidth: true
+          infinite: false
         }
       }
     ]

@@ -80,6 +80,7 @@ $mainFont: Inter;
 
       .head {
         display: flex;
+        flex-direction: column;
         min-height: 150px;
         width: 100%;
         justify-content: flex-end;

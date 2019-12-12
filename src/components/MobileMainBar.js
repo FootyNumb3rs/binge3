@@ -40,7 +40,9 @@ export default function MobileMainBar({
   searchSubmit,
   show,
   setPage,
-  page
+  page,
+  setBrowserState,
+  browserState
 }) {
   const classes = useStyles();
 
@@ -76,6 +78,8 @@ export default function MobileMainBar({
           searchSubmit={searchSubmit}
           setBar={setBar}
           barOpen={openBar}
+          setBrowserState={setBrowserState}
+          browserState={browserState}
         />
       </div>
     );

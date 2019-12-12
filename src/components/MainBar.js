@@ -44,8 +44,12 @@ export default function MainBar({
   searchSubmit,
   show,
   setPage,
-  page
+  page,
+  setBrowserState,
+  browserState
 }) {
+  console.log(setBrowserState);
+  console.log(browserState);
   const classes = useStyles();
 
   const navigation = useRef(null);
@@ -82,6 +86,8 @@ export default function MainBar({
           searchSubmit={searchSubmit}
           setBar={setBar}
           barOpen={openBar}
+          setBrowserState={setBrowserState}
+          browserState={browserState}
         />
       </div>
     );
@@ -116,6 +122,8 @@ export default function MainBar({
             barOpen={openBar}
             setPage={setPage}
             page={page}
+            setBrowserState={setBrowserState}
+            browserState={browserState}
           />
         )}
       </AppBar>

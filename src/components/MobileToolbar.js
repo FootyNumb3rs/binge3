@@ -49,7 +49,9 @@ export default function MobileToolbar({
   setBar,
   barOpen,
   setPage,
-  page
+  page,
+  setBrowserState,
+  browserState
 }) {
   const classes = useStyles();
 
@@ -103,7 +105,12 @@ export default function MobileToolbar({
       </div>
 
       {/* SEARCH BAR */}
-      <SearchBar queryChange={queryChange} searchSubmit={searchSubmit} />
+      <SearchBar
+        queryChange={queryChange}
+        searchSubmit={searchSubmit}
+        setBrowserState={setBrowserState}
+        browserState={browserState}
+      />
 
       {/* MOBILE SEARCH BUTTON */}
       <div className="mobile-search-button">

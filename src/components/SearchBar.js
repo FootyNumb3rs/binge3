@@ -45,12 +45,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function SearchBar({ searchSubmit, history }) {
+function SearchBar({ searchSubmit, history, setBrowserState, browserState }) {
   const classes = useStyles();
   const [search, setSearch] = useState("");
   const onChange = (e, index, value) => {
     setSearch(e.target.value);
   };
+
+  console.log(setBrowserState);
 
   return (
     <div className="search-bar">
@@ -66,6 +68,10 @@ function SearchBar({ searchSubmit, history }) {
           onKeyPress={ev => {
             console.log(`Pressed keyCode ${ev.key}`);
             if (ev.key === "Enter") {
+              setBrowserState({
+                ...browserState,
+                content_list: []
+              });
               history.push(`/search/${search}`);
               ev.preventDefault();
             }

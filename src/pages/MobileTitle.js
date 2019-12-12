@@ -24,6 +24,15 @@ class MobileTitle extends PureComponent {
     }
   }
 
+  getMetaData(header, data, any) {
+    return (
+      <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
+        {any ? `${header} - ` : <Skeleton width="30%" />}
+        <font style={{ color: "white" }}>{data}</font>
+      </div>
+    );
+  }
+
   displayShowDetails() {
     if (this.state.content.created_by) {
       const created_by = this.state.content.created_by.map(d => {
@@ -34,52 +43,34 @@ class MobileTitle extends PureComponent {
 
       const num_seasons = this.state.content.number_of_seasons;
       const num_episodes = this.state.content.number_of_episodes;
-      const first_air = new Date(this.state.content.first_air_date);
+      var first_air = new Date(this.state.content.first_air_date);
+      first_air = first_air.toDateString();
+      first_air = `${first_air.slice(4, 7)} ${first_air.slice(11, 15)}`;
+      const length = `${num_seasons} ${
+        num_seasons > 1 ? "Seasons" : "Season"
+      }, ${num_episodes} Episodes`;
       const networks = this.state.content.networks.map(d => {
         return d.name;
       });
 
+      const status =
+        this.state.content.status == "Returning Series" ? "Ongoing" : "Ended";
+
+      var any =
+        created_by ||
+        episode_run_time ||
+        num_seasons ||
+        num_episodes ||
+        first_air ||
+        networks;
+
       return (
         <div className="mobile-vue-overview" style={{ paddingTop: "1.5px" }}>
-          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
-            Created By
-            {" - "}
-            <font style={{ color: "white" }}>
-              {created_by.join(", ") || <Skeleton width="30%" />}
-            </font>
-          </div>
-
-          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
-            Episode Runtime
-            {" - "}
-            <font style={{ color: "white" }}>
-              {episode_run_time + "min" || <Skeleton width="30%" />}
-            </font>
-          </div>
-          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
-            Networks
-            {" - "}
-            <font style={{ color: "white" }}>
-              {networks.join(", ") || <Skeleton width="30%" />}
-            </font>
-          </div>
-          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
-            First Air Date
-            {" - "}
-            <font style={{ color: "white" }}>
-              {first_air.toDateString().slice(4) || <Skeleton width="30%" />}
-            </font>
-          </div>
-
-          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
-            Total Seasons
-            {" - "}
-            <font style={{ color: "white" }}>
-              {`${num_seasons} Season(s), ${num_episodes} Episodes` || (
-                <Skeleton width="30%" />
-              )}
-            </font>
-          </div>
+          {this.getMetaData("Created By", created_by.join(", "), any)}
+          {this.getMetaData("Networks", networks.join(", "), any)}
+          {this.getMetaData("Debut", first_air, any)}
+          {this.getMetaData("Length", length, any)}
+          {this.getMetaData("Status", status, any)}
         </div>
       );
     }
@@ -87,8 +78,6 @@ class MobileTitle extends PureComponent {
 
   displayMovieDetails() {
     if (this.state.credits.crew) {
-      const budget = this.state.content.budget;
-      const revenue = this.state.content.revenue;
       const dict = { director: [], writer: [], cinematographer: [] };
       this.state.credits.crew.map(d => {
         switch (d.job) {
@@ -140,65 +129,26 @@ class MobileTitle extends PureComponent {
         }
       });
 
+      var released = new Date(this.getReleaseDate());
+
+      released = released.toDateString();
+      released = `${released.slice(4, 7)} ${released.slice(11, 15)}`;
+      //console.log(this.state.content.release_date);
+      const director = dict.director.join(", ");
+      const writer = dict.writer.join(", ");
+      const runtime = this.getRunningTime(this.state.content.runtime);
+      const budget = this.formatCash(this.state.content.budget);
+      const revenue = this.formatCash(this.state.content.revenue);
+      var any = director || writer || runtime || budget || revenue;
+
       return (
         <div className="mobile-vue-overview" style={{ paddingTop: "1.5px" }}>
-          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
-            Director
-            {" - "}
-            <font style={{ color: "white" }}>
-              {dict.director.join(", ") || <Skeleton width="30%" />}
-            </font>
-          </div>
-          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
-            Cinematographer
-            {" - "}
-            <font style={{ color: "white" }}>
-              {dict.cinematographer || "N/A"}
-            </font>
-          </div>
-          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
-            Writer(s)
-            {" - "}
-            <font style={{ color: "white" }}>
-              {dict.writer.join(", ") || <Skeleton width="30%" />}
-            </font>
-          </div>
-
-          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
-            Runtime
-            {" - "}
-            <font style={{ color: "white" }}>
-              {this.getRunningTime(this.state.content.runtime) || (
-                <Skeleton width="30%" />
-              )}
-            </font>
-          </div>
-          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
-            Budget
-            {" - "}
-            <font style={{ color: "white" }}>
-              {"$" + this.formatCash(budget) || <Skeleton width="30%" />}
-            </font>
-          </div>
-          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
-            Revenue
-            {" - "}
-            <font style={{ color: "white" }}>
-              {"$" + this.formatCash(revenue) || <Skeleton width="30%" />}
-            </font>
-          </div>
-          <div style={{ padding: "2px 0px", lineHeight: 1.4 }}>
-            Net{" - "}
-            <font
-              style={{ color: revenue - budget > 0 ? "#66BB6A" : "#F44336" }}
-            >
-              {(revenue - budget > 0 ? "+" : "-") +
-                "$" +
-                this.formatCash(Math.abs(revenue - budget)) || (
-                <Skeleton width="30%" />
-              )}
-            </font>
-          </div>
+          {this.getMetaData("Release", released, any)}
+          {this.getMetaData("Director", director, any)}
+          {this.getMetaData("Writer", writer, any)}
+          {this.getMetaData("Runtime", runtime, any)}
+          {this.getMetaData("Budget", budget, any)}
+          {this.getMetaData("Revenue", revenue, any)}
         </div>
       );
     }
@@ -217,11 +167,15 @@ class MobileTitle extends PureComponent {
   }
 
   formatCash(n) {
+    if (!n) {
+      return undefined;
+    }
     if (n < 1e3) return n;
-    if (n >= 1e3 && n < 1e6) return +(n / 1e3).toFixed(0) + "k";
-    if (n >= 1e6 && n < 1e9) return +(n / 1e6).toFixed(0) + "m";
-    if (n >= 1e9 && n < 1e12) return +(n / 1e9).toFixed(0) + "b";
-    if (n >= 1e12) return +(n / 1e12).toFixed(0) + "T";
+    if (n >= 1e3 && n < 1e6) return "$" + (n / 1e3).toFixed(0).toString() + "k";
+    if (n >= 1e6 && n < 1e9) return "$" + (n / 1e6).toFixed(0).toString() + "m";
+    if (n >= 1e9 && n < 1e12)
+      return "$" + (n / 1e9).toFixed(0).toString() + "b";
+    if (n >= 1e12) return "$" + (n / 1e12).toFixed(0).toString() + "T";
   }
 
   getRunningTime = runtime => {
@@ -239,41 +193,42 @@ class MobileTitle extends PureComponent {
         if (this.state.content.status == "Returning Series") {
           return `${this.state.content.first_air_date.slice(0, 4)}-PRESENT`;
         } else {
-          return `${this.state.content.first_air_date.slice(
-            0,
-            4
-          )}-${this.state.content.last_air_date.slice(0, 4)}`;
+          return `${this.state.content.first_air_date.slice(0, 4)}-${
+            this.state.content.last_air_date
+          }`;
         }
       } else {
-        return `${this.state.content.release_date.slice(0, 4)}`;
+        return `${this.state.content.release_date}`;
       }
     }
   };
 
   getChip() {
-    return (
-      <Chip
-        size="small"
-        variant="outlined"
-        label={
-          this.state.content.vote_average
-            ? this.state.content.vote_average.toFixed(1)
-            : ""
-        }
-        className="mobile-vue-rating-chip"
-        style={{
-          color: this.getRatingColor(this.state.content.vote_average)
-        }}
-        icon={
-          <StarIcon
-            style={{
-              width: "12px",
-              color: this.getRatingColor(this.state.content.vote_average)
-            }}
-          />
-        }
-      />
-    );
+    if (this.state.content.vote_average) {
+      return (
+        <Chip
+          size="small"
+          variant="outlined"
+          label={
+            this.state.content.vote_average
+              ? this.state.content.vote_average.toFixed(1)
+              : ""
+          }
+          className="mobile-vue-rating-chip"
+          style={{
+            color: this.getRatingColor(this.state.content.vote_average)
+          }}
+          icon={
+            <StarIcon
+              style={{
+                width: "12px",
+                color: this.getRatingColor(this.state.content.vote_average)
+              }}
+            />
+          }
+        />
+      );
+    }
   }
 
   getGenreChip(genre) {
@@ -291,6 +246,7 @@ class MobileTitle extends PureComponent {
           fontWeight: 300,
           fontSize: 11,
           marginTop: "1px",
+          marginBottom: "5px",
           textTransform: "uppercase"
         }}
         className="title-rating-chip"

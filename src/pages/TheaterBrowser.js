@@ -87,7 +87,18 @@ export default class MovieBrowser extends PureComponent {
   displayHeader = () => {
     return (
       <div className="head">
-        <div className="header">In Theaters</div>
+        <div className="header">{"New & Upcoming"}</div>
+        <div
+          className="header"
+          style={{
+            color: "gray",
+            marginTop: "30px",
+            fontSize: "20px",
+            fontWeight: 400
+          }}
+        >
+          {"Results limited to one page... for now"}
+        </div>
       </div>
     );
   };
@@ -153,7 +164,7 @@ export default class MovieBrowser extends PureComponent {
               );
             })}
           </div>
-          {this.displayPagination()}
+          {/*this.displayPagination()*/}
           <div className="mobile-card-grid">
             {this.props.theaterBrowserState.content_list.map(media => {
               return (
@@ -164,7 +175,7 @@ export default class MovieBrowser extends PureComponent {
               );
             })}
           </div>
-          {this.displayNextPage()}
+          {/*this.displayNextPage()*/}
           <div></div>
         </div>
       </div>

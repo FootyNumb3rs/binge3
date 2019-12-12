@@ -118,7 +118,7 @@ $mainFont: Inter;
         }
 
         .view-genres {
-          display: none;
+          //display: none;
           margin-top: 7px;
           width: 100%;
           font-size: 14px;
@@ -175,7 +175,7 @@ $mainFont: Inter;
       justify-content: center;
       font-family: Inter;
       font-size: 12.5px;
-      color: lightgray;
+      color: gray;
       margin-bottom: 50px;
       margin-top: 80px;
     }
@@ -228,6 +228,7 @@ $mainFont: Inter;
       font-size: 14px;
       color: gray;
       margin: 65px;
+      margin-top: 80px;
     }
 
     .showcase-div {
@@ -291,6 +292,7 @@ $mainFont: Inter;
       font-size: 14px;
       color: gray;
       margin: 65px;
+      margin-top: 80px;
     }
 
     .showcase-div {
@@ -354,7 +356,7 @@ $mainFont: Inter;
       font-family: Inter;
       font-size: 14px;
       color: gray;
-      margin: 65px;
+      margin-top: 150px;
     }
 
     .showcase-div {

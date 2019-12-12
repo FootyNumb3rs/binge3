@@ -13,23 +13,6 @@ import Chip from "@material-ui/core/Chip";
 import Button from "@material-ui/core/Button";
 import Fab from "@material-ui/core/Fab";
 
-/*
-const useStyles = makeStyles(theme => ({
-  log: { display: "flex", height: "100%" },
-
-  button: {
-    marginRight: theme.spacing(1.2),
-    marginTop: 10,
-    borderRadius: 20,
-    height: "30px",
-    fontSize: 12,
-    textAlign: "left"
-  }
-}));
-
-const classes = useStyles();
-*/
-
 export default class Title extends PureComponent {
   constructor(props) {
     super(props);
@@ -106,7 +89,6 @@ export default class Title extends PureComponent {
   }
 
   getReleaseDate = () => {
-    //console.log(this.state);
     if (this.state.content.id) {
       if (this.props.match.params.media_type == "tv") {
         if (this.state.content.status == "Returning Series") {
@@ -118,38 +100,40 @@ export default class Title extends PureComponent {
           )}-${this.state.content.last_air_date.slice(0, 4)}`;
         }
       } else {
-        return `${this.state.content.release_date.slice(0, 4)}`;
+        return `${this.state.content.release_date}`;
       }
     }
   };
 
   getChip() {
-    return (
-      <Chip
-        size="medium"
-        variant="outlined"
-        label={
-          this.state.content.vote_average
-            ? this.state.content.vote_average.toFixed(1)
-            : ""
-        }
-        className="title-rating-chip"
-        style={{
-          color: this.getRatingColor(this.state.content.vote_average),
-          //borderRadius: "100%",
-          backgroundColor: "#1a1a1a",
-          fontSize: 15
-        }}
-        icon={
-          <StarIcon
-            style={{
-              width: "16px",
-              color: this.getRatingColor(this.state.content.vote_average)
-            }}
-          />
-        }
-      />
-    );
+    if (this.state.content.vote_average) {
+      return (
+        <Chip
+          size="medium"
+          variant="outlined"
+          label={
+            this.state.content.vote_average
+              ? this.state.content.vote_average.toFixed(1)
+              : ""
+          }
+          className="title-rating-chip"
+          style={{
+            color: this.getRatingColor(this.state.content.vote_average),
+            //borderRadius: "100%",
+            backgroundColor: "#1a1a1a",
+            fontSize: 15
+          }}
+          icon={
+            <StarIcon
+              style={{
+                width: "16px",
+                color: this.getRatingColor(this.state.content.vote_average)
+              }}
+            />
+          }
+        />
+      );
+    }
   }
 
   getGenreChip(genre) {
@@ -186,11 +170,11 @@ export default class Title extends PureComponent {
     if (n >= 1e12) return "$" + (n / 1e12).toFixed(0).toString() + "T";
   }
 
-  getMetadata(header, data) {
+  getMetadata(header, data, any) {
     return (
       <div style={{ marginBottom: "15px" }}>
         <div className="info-header" style={{ lineHeight: 1.2 }}>
-          {data ? header : <Skeleton width="150px" />}
+          {any ? header : <Skeleton width="150px" />}
           <font
             style={{
               fontWeight: 350,
@@ -204,7 +188,7 @@ export default class Title extends PureComponent {
           </font>
           <font className="info-data" style={{ lineHeight: 1.45 }}>
             {" "}
-            {data || ""}{" "}
+            {any ? data : ""}{" "}
           </font>
         </div>
       </div>
@@ -224,9 +208,8 @@ export default class Title extends PureComponent {
 
   displayMovieDetails() {
     if (this.state.credits.crew) {
-      const budget = this.state.content.budget;
-      const revenue = this.state.content.revenue;
       const dict = { director: [], writer: [], cinematographer: [] };
+
       this.state.credits.crew.map(d => {
         switch (d.job) {
           case "Director of Photography":
@@ -276,24 +259,25 @@ export default class Title extends PureComponent {
             }
         }
       });
+
+      var released = new Date(this.getReleaseDate());
+      released = released.toDateString();
+      released = `${released.slice(4, 7)} ${released.slice(11, 15)}`;
+      const runtime = this.getRunningTime(this.state.content.runtime);
+      const budget = this.formatCash(this.state.content.budget);
+      const revenue = this.formatCash(this.state.content.revenue);
+      const director = dict.director.join(", ");
+      const writer = dict.writer.join(", ");
+      const any = director || writer || runtime || budget || revenue;
+
       return (
         <div className="info-left">
-          {this.getMetadata("Released", +this.getReleaseDate())}
-          {this.getMetadata("Director", dict.director.join(", "))}
-          {this.getMetadata("Writer", dict.writer.join(", "))}
-          {this.getMetadata(
-            "Runtime",
-            this.getRunningTime(this.state.content.runtime)
-          )}
-
-          {this.getMetadata(
-            "Budget",
-            this.formatCash(this.state.content.budget)
-          )}
-          {this.getMetadata(
-            "Revenue",
-            this.formatCash(this.state.content.revenue)
-          )}
+          {this.getMetadata("Release", released, any)}
+          {this.getMetadata("Director", director, any)}
+          {this.getMetadata("Writer", writer, any)}
+          {this.getMetadata("Runtime", runtime, any)}
+          {this.getMetadata("Budget", budget, any)}
+          {this.getMetadata("Revenue", revenue, any)}
         </div>
       );
     }
@@ -301,27 +285,44 @@ export default class Title extends PureComponent {
 
   displayShowDetails() {
     if (this.state.content.created_by) {
-      const created_by = this.state.content.created_by.map(d => {
-        return d.name;
-      });
-      const episode_run_time = this.state.content.episode_run_time[0];
-      const status =
-        this.state.content.status == "Returning Series" ? "Ongoing" : "Ended";
+      const created_by = this.state.content.created_by
+        .map(d => {
+          return d.name;
+        })
+        .join(", ");
+      const networks = this.state.content.networks
+        .map(d => {
+          return d.name;
+        })
+        .join(", ");
+      var first_air = new Date(this.state.content.first_air_date);
+      first_air = first_air.toDateString();
+      first_air = `${first_air.slice(4, 7)} ${first_air.slice(11, 15)}`;
       const num_seasons = this.state.content.number_of_seasons;
       const num_episodes = this.state.content.number_of_episodes;
-      const first_air = new Date(this.state.content.first_air_date);
-      const networks = this.state.content.networks.map(d => {
-        return d.name;
-      });
+      const length = `${num_seasons} ${
+        num_seasons > 1 ? "Seasons" : "Season"
+      }, ${num_episodes} Episodes`;
+
+      const status =
+        this.state.content.status == "Returning Series" ? "Ongoing" : "Ended";
+
+      var any =
+        created_by ||
+        networks ||
+        first_air ||
+        num_seasons ||
+        num_episodes ||
+        length ||
+        status;
 
       return (
         <div className="info-left">
-          {this.getMetadata("Creator", created_by.join(", "))}
-
-          {this.getMetadata("Networks", networks.join(", "))}
-          {this.getMetadata("Debut", first_air.toDateString().slice(4))}
-          {this.getMetadata("Seasons", num_seasons)}
-          {this.getMetadata("Episodes", num_episodes)}
+          {this.getMetadata("Creator", created_by, any)}
+          {this.getMetadata("Networks", networks, any)}
+          {this.getMetadata("Debut", first_air, any)}
+          {this.getMetadata("Length", length, any)}
+          {this.getMetadata("Status", status, any)}
         </div>
       );
     }

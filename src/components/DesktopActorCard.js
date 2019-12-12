@@ -14,6 +14,8 @@ export default class DesktopActorCard extends PureComponent {
               style={{
                 // Doesnt' work on CSS for some reason
                 width: "110px",
+                height: "110px",
+                //backgroundColor: "darkgray",
                 objectFit: "cover",
                 objectPosition: "0 -20.5px"
               }}

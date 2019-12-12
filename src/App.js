@@ -124,7 +124,8 @@ function App() {
             show={showBar}
             setPage={setPage}
             page={page}
-
+            setBrowserState={setSearchBrowserState}
+            browserState={searchBrowserState}
             //handleDrawerOpen={toggleDrawer("right", true)}
           />
 
@@ -132,7 +133,8 @@ function App() {
             show={showBar}
             setPage={setPage}
             page={page}
-
+            setBrowserState={setSearchBrowserState}
+            browserState={searchBrowserState}
             //handleDrawerOpen={toggleDrawer("right", true)}
           />
 

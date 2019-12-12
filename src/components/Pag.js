@@ -12,7 +12,11 @@ export default function Pag({ changePage, browserState, setBrowserState }) {
   //const [offset, changeOffset] = useState(0);
 
   function handleClick(offset) {
-    setBrowserState({ ...browserState, paginationPage: offset + 1 });
+    setBrowserState({
+      ...browserState,
+      paginationPage: offset + 1,
+      content_list: []
+    });
   }
 
   const useStyles = makeStyles(theme => ({
