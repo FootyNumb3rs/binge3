@@ -98,7 +98,9 @@ export default function MediaCard({ media_, openDialogue }) {
                     icon={
                       <StarIcon
                         style={{
-                          height: "77%", // Do this
+                          height: "80%", // Do this
+                          width: "50%",
+                          marginBottom: "3%",
                           //margin: 0,
                           marginLeft: "0%",
                           color: getRatingColor(rating)
