@@ -353,7 +353,7 @@ class MobileTitle extends PureComponent {
                   : ""}
               </div>
             </div>
-            <div className="title-divider" />
+            <div className="title-divider" style={{ marginTop: "10px" }} />
             <div>
               <div className="mobile-title-header">Trailer</div>
               <div className="video">

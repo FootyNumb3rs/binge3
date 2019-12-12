@@ -25,7 +25,7 @@
             justify-content: space-between;
     padding-bottom: 17px;
     padding-right: 17px;
-    padding-left: 23px;
+    padding-left: 20px;
     font-family: "Inter";
   }
   .carousel-header .carousel-title {
@@ -35,7 +35,7 @@
   }
   .carousel-header .carousel-see-all {
     color: gray;
-    font-size: 15.5px;
+    font-size: 15px;
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;

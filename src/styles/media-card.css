@@ -4,7 +4,7 @@
 /* Extra Small Devices, Phones */
 @media (max-width: 620px) {
   .card-container {
-    padding-left: 23px;
+    padding-left: 20px;
     padding-right: 0px;
   }
   .card-container div {
@@ -40,7 +40,7 @@
   }
   .card-container div .cardText .genres {
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 550;
     margin-top: 1.5px;
     line-height: 1.3;
     color: gray;
