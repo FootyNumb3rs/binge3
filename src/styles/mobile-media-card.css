@@ -19,15 +19,6 @@
   padding: 7px 11px 7px 10px;
 }
 
-.mobile-card-div .mobile-vue-rating-chip {
-  margin-bottom: 1.5;
-  background-color: #1a1a1a;
-  color: lightgreen;
-  border-color: #1a1a1a;
-  font-size: 3.2vw;
-  font-weight: 500;
-}
-
 .mobile-card-div .mobile-card-img-div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -50,9 +41,9 @@
 }
 
 .mobile-card-div .mobile-card-text-div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -60,32 +51,53 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  max-width: 100%;
   width: 100%;
+  max-height: 13vh;
+  font-size: 1.82vh;
 }
 
 .mobile-card-div .mobile-card-text-div .mobile-card-title {
   font-family: Inter;
   color: white;
-  padding: 0.8vw 10px;
-  font-size: 3.2vw;
+  margin: 0%;
+  font-size: 100%;
   font-weight: 500;
-  padding-bottom: 0.5px;
+  padding: 0.15em 0.7em;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .mobile-card-div .mobile-card-text-div .mobile-card-genres {
   font-family: Inter;
   color: #929191;
-  padding: 0.8vw 10px;
-  font-size: 3.2vw;
+  padding: 0.15em 0.7em;
+  font-size: 97%;
   font-weight: 400;
 }
 
 .mobile-card-div .mobile-card-text-div .mobile-card-etc {
   font-family: Inter;
   color: white;
-  padding: 0.8vw 10px;
-  font-size: 3.2vw;
+  padding: 0.15em 0.7em;
+  font-size: 97%;
+  font-weight: 400;
+}
+
+.mobile-card-div .mobile-card-text-div .mobile-vue-rating-chip {
+  padding: 0.15em 0em;
+  background-color: #1a1a1a;
+  color: lightgreen;
+  border-color: #1a1a1a;
+  font-size: 100%;
   font-weight: 500;
+  height: 1.8em;
+  width: 3.8em;
+}
+
+.mobile-card-div .mobile-card-text-div .mobile-vue-rating-chip .MuiChip-label {
+  margin: 0;
+  padding: 0% 15%;
 }
 
 /*

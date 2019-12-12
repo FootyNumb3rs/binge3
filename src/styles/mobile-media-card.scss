@@ -21,16 +21,6 @@ $cardWidth: (2/3) * $cardHeight;
   //padding-right: 0px;
   //height: 100%;
 
-  .mobile-vue-rating-chip {
-    //margin-left: 8px;
-    margin-bottom: 1.5;
-    background-color: #1a1a1a;
-    color: lightgreen;
-    border-color: #1a1a1a;
-    font-size: 3.2vw;
-    font-weight: 500;
-  }
-
   .mobile-card-img-div {
     display: flex;
     justify-content: center;
@@ -46,34 +36,60 @@ $cardWidth: (2/3) * $cardHeight;
   }
 
   .mobile-card-text-div {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 100%;
     width: 100%;
+    max-height: $cardHeight;
+    font-size: $cardHeight * 0.14;
+    //max-height: 100%;
 
     .mobile-card-title {
       font-family: $mainFont;
       color: white;
-      padding: 0.8vw 10px;
-      font-size: 3.2vw;
+      margin: 0%;
+      font-size: 100%;
       font-weight: 500;
-      padding-bottom: 0.5px;
+      padding: 0.15em 0.7em;
+      max-height: 100%;
+      max-width: 100%;
+      //padding-bottom: 50%;
     }
 
     .mobile-card-genres {
+      //display: none;
       font-family: $mainFont;
       color: rgb(146, 145, 145);
-      padding: 0.8vw 10px;
-      font-size: 3.2vw;
+      padding: 0.15em 0.7em;
+      font-size: 97%;
       font-weight: 400;
     }
 
     .mobile-card-etc {
       font-family: $mainFont;
       color: white;
-      padding: 0.8vw 10px;
-      font-size: 3.2vw;
+      padding: 0.15em 0.7em;
+      font-size: 97%;
+      font-weight: 400;
+      //display: none;
+    }
+
+    .mobile-vue-rating-chip {
+      //margin-left: 8px;
+      padding: 0.15em 0em;
+      background-color: #1a1a1a;
+      color: lightgreen;
+      border-color: #1a1a1a;
+      font-size: 100%;
       font-weight: 500;
+      height: 1.8em;
+      width: 3.8em;
+
+      .MuiChip-label {
+        margin: 0;
+        padding: 0% 15%;
+      }
     }
   }
 }

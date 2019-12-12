@@ -92,13 +92,15 @@ export default function MediaCard({ media_, openDialogue }) {
                   <Chip
                     size="small"
                     variant="outlined"
-                    label={rating}
+                    label={rating.toFixed(1)}
                     className="mobile-vue-rating-chip"
                     style={{ color: getRatingColor(rating) }}
                     icon={
                       <StarIcon
                         style={{
-                          width: "3.2vw", // Do this
+                          height: "77%", // Do this
+                          //margin: 0,
+                          marginLeft: "0%",
                           color: getRatingColor(rating)
                         }}
                       />
