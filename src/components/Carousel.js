@@ -81,7 +81,7 @@ function Carousel({
           onClick={() => history.push(`/browse/${type}`)}
           className="carousel-see-all"
         >
-          SEE ALL
+          See All
         </div>
       </div>
       <Slider ref={exampleRef} {...settings}>

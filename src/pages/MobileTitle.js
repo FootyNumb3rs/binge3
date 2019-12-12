@@ -243,7 +243,7 @@ class MobileTitle extends PureComponent {
           color: "#bdbdbd",
           marginRight: "6px",
           borderRadius: "5px",
-          fontWeight: 300,
+          fontWeight: 400,
           fontSize: 11,
           marginTop: "1px",
           marginBottom: "5px",

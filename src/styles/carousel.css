@@ -34,12 +34,12 @@
     font-weight: 550;
   }
   .carousel-header .carousel-see-all {
-    color: #999999;
+    color: gray;
     font-size: 15px;
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
-    font-weight: 300;
+    font-weight: 500;
     padding-top: 2px;
     cursor: pointer;
   }
