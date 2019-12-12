@@ -106,7 +106,7 @@ $mainFont: Inter;
         justify-content: center;
 
         img {
-          width: 90vw;
+          width: 92.5vw;
           border-radius: 15px;
           opacity: 0.5;
         }
@@ -188,7 +188,7 @@ $mainFont: Inter;
       justify-content: center;
       width: 100%;
       padding-bottom: 40px;
-      padding-top: 0px;
+      padding-top: 5px;
       //padding-top: 0;
       //overflow: hidden;
     }
@@ -202,8 +202,8 @@ $mainFont: Inter;
         rgba(0, 0, 0, 0) 100%
       );
       //opacity: 0.15;
-      opacity: 0.15;
-      margin: 35px 20px;
+      opacity: 0;
+      margin: 30px 20px;
       // margin-top: 35px; ----------
       //-bottom: 35px; ----------
       //margin-left: 30px; ---------
