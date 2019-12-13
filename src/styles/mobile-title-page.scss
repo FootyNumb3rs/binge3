@@ -21,9 +21,14 @@ $height: $width/1.7777;
 }
 
 .title-divider {
-  height: 0.5px;
+  height: 1px;
   max-width: 100vw;
-  background: white;
+  background: radial-gradient(
+    circle,
+    rgba(247, 243, 243, 1) 73%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  //opacity: 0.15;
   opacity: 0.15;
   margin: 25px 0px;
 }
