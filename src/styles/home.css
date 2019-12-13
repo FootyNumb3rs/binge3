@@ -91,7 +91,7 @@
 }
 
 /* Extra small devices (phones, 600px and down) */
-@media (max-width: 768px) {
+@media (max-width: 740px) {
   .root {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -261,7 +261,10 @@
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media (min-width: 768px) {
+@media (min-width: 740px) {
+  .slider-container-1 .slick-next {
+    right: 3%;
+  }
   .root {
     display: -webkit-box;
     display: -ms-flexbox;

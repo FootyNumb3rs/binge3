@@ -239,15 +239,15 @@ class MobileTitle extends PureComponent {
         label={genre}
         style={{
           backgroundColor: "#1a1a1a",
-          borderColor: "#1a1a1a",
+          borderColor: "transparent",
           color: "gray",
           marginRight: "6px",
           borderRadius: "5px",
           fontWeight: 400,
-          fontSize: 11,
+          fontSize: 13,
           marginTop: "1px",
-          marginBottom: "5px",
-          textTransform: "uppercase"
+          marginBottom: "5px"
+          //textTransform: "uppercase"
         }}
         className="title-rating-chip"
       />

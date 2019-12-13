@@ -213,7 +213,7 @@ export default class Home extends PureComponent {
             //style={{ width: "100vw", height: "56.17977vw" }}
           >
             {this.props.carouselMedia.preview_movies[0] ? (
-              this.props.carouselMedia.preview_movies.map(media => {
+              this.props.carouselMedia.preview_movies.slice(0, 4).map(media => {
                 return this.getViewPanel(media);
               })
             ) : (

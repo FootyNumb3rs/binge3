@@ -1,6 +1,6 @@
 $mainFont: Inter;
 
-@media (max-width: 768px) {
+@media (max-width: 730px) {
   .desktop-pagination {
     display: none;
   }
@@ -52,7 +52,7 @@ $mainFont: Inter;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 730px) {
   .browser-container {
     margin-top: 84px;
     display: flex;

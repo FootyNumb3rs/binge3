@@ -30,7 +30,7 @@
   }
   .carousel-header .carousel-title {
     color: white;
-    font-size: 23px;
+    font-size: 22.5px;
     font-weight: 600;
   }
   .carousel-header .carousel-see-all {
@@ -140,7 +140,7 @@
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
-    font-weight: 300;
+    font-weight: 400;
     padding-top: 2px;
     cursor: pointer;
   }

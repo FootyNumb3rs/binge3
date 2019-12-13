@@ -78,7 +78,7 @@ $mainFont: Inter;
 }
 
 /* Extra small devices (phones, 600px and down) */
-@media (max-width: 768px) {
+@media (max-width: 740px) {
   .root {
     display: flex;
     background: $background;
@@ -239,10 +239,16 @@ $mainFont: Inter;
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media (min-width: 768px) {
+@media (min-width: 740px) {
   $background: #0d0d0d;
 
   $mainFont: Roboto;
+
+  .slider-container-1 {
+    .slick-next {
+      right: 3%;
+    }
+  }
 
   .root {
     display: flex;

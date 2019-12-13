@@ -145,13 +145,13 @@ export default class Title extends PureComponent {
         style={{
           backgroundColor: "#1a1a1a",
           borderColor: "#1a1a1a",
-          color: "#bdbdbd",
+          color: "gray",
           marginRight: "9px",
           borderRadius: "5px",
-          fontWeight: 300,
-          fontSize: 13,
-          marginTop: "1px",
-          textTransform: "uppercase"
+          fontWeight: 400,
+          fontSize: 15,
+          marginTop: "1px"
+          //textTransform: "uppercase"
         }}
         className="title-rating-chip"
       />
@@ -178,7 +178,7 @@ export default class Title extends PureComponent {
           <font
             style={{
               fontWeight: 350,
-              fontSize: 7,
+              fontSize: 6,
               opacity: 0,
               color: "gray",
               paddingBottom: "10px"
