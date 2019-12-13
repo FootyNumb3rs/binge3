@@ -240,10 +240,10 @@ class MobileTitle extends PureComponent {
         style={{
           backgroundColor: "#1a1a1a",
           borderColor: "transparent",
-          color: "gray",
+          color: "gainsboro",
           marginRight: "6px",
           borderRadius: "5px",
-          fontWeight: 450,
+          fontWeight: 500,
           fontSize: 13,
           marginTop: "1px",
           marginBottom: "5px"
