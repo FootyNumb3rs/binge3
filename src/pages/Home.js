@@ -234,7 +234,7 @@ export default class Home extends PureComponent {
     }
 
     const settings = {
-      autoplaySpeed: 3000,
+      autoplaySpeed: 4000,
       autoplay: true,
       dots: true,
       infinite: true,
