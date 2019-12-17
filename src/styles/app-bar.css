@@ -36,7 +36,7 @@
   .title-div .app-title {
     font-size: 25px;
     font-family: Inter;
-    font-weight: 500;
+    font-weight: 650;
     cursor: pointer;
     margin-bottom: 0px;
   }
@@ -120,11 +120,9 @@
 }
 
 /*
-
 **********
 DESKTOP VERSION 
 **********
-
 */
 @media (min-width: 620px) {
   .menu-button-container {

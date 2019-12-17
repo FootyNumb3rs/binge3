@@ -3,7 +3,6 @@ $mainFont: Inter;
 @import url("https://rsms.me/inter/inter.css");
 
 /* NEEDS FURTHER REFACTORING */
-
 .mobile-title {
   display: none;
   font-family: "DM Serif Display";
@@ -33,7 +32,7 @@ $mainFont: Inter;
       //display: "flex";
       font-size: 25px;
       font-family: Inter;
-      font-weight: 500;
+      font-weight: 650;
       cursor: pointer;
       margin-bottom: 0px;
       //font-style: italic;
@@ -104,11 +103,9 @@ $mainFont: Inter;
 }
 
 /*
-
 **********
 DESKTOP VERSION 
 **********
-
 */
 
 @media (min-width: 620px) {

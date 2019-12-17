@@ -266,7 +266,7 @@ class MobileTitle extends PureComponent {
           <div className="mobile-vue-cover-img-div">
             <div className="mobile-vue-cover-img">
               {this.state.content.backdrop_path ? (
-                <img src={this.state.content.backdrop_path} alt="lolz" />
+                <img src={this.state.content.backdrop_path} />
               ) : (
                 <Skeleton width="100%" height="100%" />
               )}

@@ -361,7 +361,6 @@ export default class Title extends PureComponent {
                 <img
                   className="cover-img"
                   src={this.state.content.backdrop_path}
-                  alt=""
                 />
               ) : (
                 <Skeleton height="450px" width="100vw" />

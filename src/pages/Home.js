@@ -92,7 +92,7 @@ export default class Home extends PureComponent {
             style={{
               //width: "100%",
               //height: "100%",
-              opacity: 0.3,
+              opacity: 0.4,
               backgroundColor: "#424242"
             }}
             src={`https://image.tmdb.org/t/p/original/${media.backdrop_path}`}
