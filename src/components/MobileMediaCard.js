@@ -9,7 +9,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "../styles/mobile-media-card.css";
 
 //const _ = require("lodash");
-const cardHeight = "90px";
+const cardHeight = "110px";
 const cardWidth = (2 / 3) * cardHeight;
 
 const useStyles = makeStyles(theme => ({
