@@ -277,8 +277,8 @@ class MobileTitle extends PureComponent {
                   //display: "none",
                   backgroundColor: "black",
                   display: "inline-flex",
-                  width: "11vw",
-                  height: "11vw",
+                  width: "13vw",
+                  height: "13vw",
                   borderRadius: "100%",
                   justifyContent: "center",
                   alignItems: "center",
@@ -288,7 +288,7 @@ class MobileTitle extends PureComponent {
                   this.props.history.go(-1);
                 }}
               >
-                <KeyboardArrowLeft style={{ width: "7vw", height: "7vw" }} />
+                <KeyboardArrowLeft style={{ width: "8vw", height: "8vw" }} />
               </div>
             </div>
           </div>
