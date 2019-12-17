@@ -84,6 +84,7 @@
 .mobile-vue-cover-img-div .mobile-vue-cover-img img {
   width: 100vw;
   height: 56.25246vw;
+  opacity: 0.6;
 }
 
 .mobile-vue-info-main-div {
@@ -176,9 +177,9 @@
       -ms-flex-direction: row;
           flex-direction: row;
   max-width: 100%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
   margin-bottom: 5px;
 }
 

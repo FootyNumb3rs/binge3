@@ -97,11 +97,10 @@ export default function MediaCard({ media_, openDialogue }) {
                     style={{ color: getRatingColor(rating) }}
                     icon={
                       <StarIcon
+                        className="star-icon"
                         style={{
-                          height: "77%", // Do this
+                          height: "77%",
                           width: "50%",
-                          //marginBottom: "3%",
-                          //margin: 0,
                           marginLeft: "0%",
                           color: getRatingColor(rating)
                         }}

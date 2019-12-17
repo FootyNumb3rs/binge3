@@ -9,6 +9,7 @@ import MediaCard from "../components/MediaCard.js";
 import Pag from "../components/Pag.js";
 import MobileMediaCard from "../components/MobileMediaCard.js";
 import "../styles/browse.css";
+import ErrorPage from "../pages/ErrorPage.js";
 
 export default class MovieBrowser extends PureComponent {
   // Constructor
@@ -16,19 +17,26 @@ export default class MovieBrowser extends PureComponent {
     super(props);
 
     this.state = {
-      genres: {}
+      genres: {},
+      error: null
     };
 
     props.setBar_(true);
     window.scrollTo(0, 0);
 
     if (this.props.theaterBrowserState.content_list.length == 0) {
-      getGenres().then(data => {
-        var genres_ = Object.assign(data[0], data[1]);
-        this.setState({ genres: genres_ });
+      getGenres()
+        .then(data => {
+          var genres_ = Object.assign(data[0], data[1]);
+          this.setState({ genres: genres_ });
 
-        this.displayTheaters();
-      });
+          this.displayTheaters();
+        })
+        .catch(error => {
+          console.log(error);
+          console.log("there was an error");
+          this.setState({ error: error });
+        });
     }
 
     //console.log("yo");
@@ -92,8 +100,8 @@ export default class MovieBrowser extends PureComponent {
           className="header"
           style={{
             color: "gray",
-            marginTop: "30px",
-            fontSize: "20px",
+            marginTop: "20px",
+            fontSize: "17px",
             fontWeight: 400
           }}
         >
@@ -147,6 +155,9 @@ export default class MovieBrowser extends PureComponent {
   }
 
   render(props) {
+    if (this.state.error) {
+      return <ErrorPage />;
+    }
     //console.log(this.state);
     this.props.setPage("theaters");
     //console.log(this.props.theaterBrowserState.next_page);

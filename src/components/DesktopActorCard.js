@@ -10,17 +10,17 @@ export default class DesktopActorCard extends PureComponent {
         <div className="img-cover-div">
           {this.props.profile.profile_path ? (
             <img
-              alt="actor"
+              //alt="actor"
               style={{
-                // Doesnt' work on CSS for some reason
+                //  Doesnt' work on CSS for some reason
                 width: "110px",
                 height: "110px",
-                //backgroundColor: "darkgray",
+                // backgroundColor: "darkgray",
                 objectFit: "cover",
                 objectPosition: "0 -20.5px"
               }}
               src={`https://image.tmdb.org/t/p/w300_and_h450_face/${this.props.profile.profile_path}`}
-              className="actor-pic"
+              //className="actor-pic"
             />
           ) : (
             <Skeleton height="110px" width="110px" circle={true} />

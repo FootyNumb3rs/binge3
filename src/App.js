@@ -12,6 +12,8 @@ import MovieBrowser from "./pages/MovieBrowser";
 import ShowBrowser from "./pages/ShowBrowser";
 import TheaterBrowser from "./pages/TheaterBrowser";
 import SearchBrowser from "./pages/SearchBrowser";
+import ErrorPage from "./pages/ErrorPage";
+import ErrorBoundary from "./pages/ErrorBoundary";
 import { makeStyles } from "@material-ui/core/styles";
 
 import ScrollMemory from "react-router-scroll-memory";
@@ -97,10 +99,12 @@ function App() {
         content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
       ></meta>
 
-      <link
-        rel="stylesheet"
-        href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
-      />
+      {
+        <link
+          rel="stylesheet"
+          href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
+        />
+      }
 
       <link
         rel="stylesheet"
@@ -147,66 +151,68 @@ function App() {
             <SideDrawer />
           </SwipeableDrawer>
           */}
-          <Switch>
-            <Route
-              path="/"
-              exact
-              render={props => (
-                <Home
-                  {...props}
-                  setBar_={setBar}
-                  setPage={setPage}
-                  setCarouselMedia={setCarouselMedia}
-                  carouselMedia={carouselMedia}
-                  carouselState={carouselState}
-                  setCarouselState={setCarouselState}
-                />
-              )}
-            />
 
-            <Route
-              path="/browse/movie"
-              exact
-              render={props => (
-                <MovieBrowser
-                  {...props}
-                  setBar_={setBar}
-                  setPage={setPage}
-                  movieBrowserState={movieBrowserState}
-                  setMovieBrowserState={setMovieBrowserState}
-                />
-              )}
-            />
+          <ErrorBoundary>
+            <Switch>
+              <Route
+                path="/"
+                exact
+                render={props => (
+                  <Home
+                    {...props}
+                    setBar_={setBar}
+                    setPage={setPage}
+                    setCarouselMedia={setCarouselMedia}
+                    carouselMedia={carouselMedia}
+                    carouselState={carouselState}
+                    setCarouselState={setCarouselState}
+                  />
+                )}
+              />
 
-            <Route
-              path="/browse/tv"
-              exact
-              render={props => (
-                <ShowBrowser
-                  {...props}
-                  setBar_={setBar}
-                  setPage={setPage}
-                  showBrowserState={showBrowserState}
-                  setShowBrowserState={setShowBrowserState}
-                />
-              )}
-            />
+              <Route
+                path="/browse/movie"
+                exact
+                render={props => (
+                  <MovieBrowser
+                    {...props}
+                    setBar_={setBar}
+                    setPage={setPage}
+                    movieBrowserState={movieBrowserState}
+                    setMovieBrowserState={setMovieBrowserState}
+                  />
+                )}
+              />
 
-            <Route
-              path="/browse/theaters"
-              exact
-              render={props => (
-                <TheaterBrowser
-                  {...props}
-                  setBar_={setBar}
-                  setPage={setPage}
-                  theaterBrowserState={theaterBrowserState}
-                  setTheaterBrowserState={setTheaterBrowserState}
-                />
-              )}
-            />
+              <Route
+                path="/browse/tv"
+                exact
+                render={props => (
+                  <ShowBrowser
+                    {...props}
+                    setBar_={setBar}
+                    setPage={setPage}
+                    showBrowserState={showBrowserState}
+                    setShowBrowserState={setShowBrowserState}
+                  />
+                )}
+              />
 
-            {/*
+              <Route
+                path="/browse/theaters"
+                exact
+                render={props => (
+                  <TheaterBrowser
+                    {...props}
+                    setBar_={setBar}
+                    setPage={setPage}
+                    theaterBrowserState={theaterBrowserState}
+                    setTheaterBrowserState={setTheaterBrowserState}
+                  />
+                )}
+              />
+
+              {/*
             <Route
               path="/browse/:media_type"
               exact
@@ -222,25 +228,28 @@ function App() {
             />
               */}
 
-            <Route
-              path="/search/:search_query"
-              exact
-              render={props => (
-                <SearchBrowser
-                  {...props}
-                  setBar_={setBar}
-                  setPage={setPage}
-                  searchBrowserState={searchBrowserState}
-                  setSearchBrowserState={setSearchBrowserState}
-                />
-              )}
-            />
+              <Route
+                path="/search/:search_query"
+                exact
+                render={props => (
+                  <SearchBrowser
+                    {...props}
+                    setBar_={setBar}
+                    setPage={setPage}
+                    searchBrowserState={searchBrowserState}
+                    setSearchBrowserState={setSearchBrowserState}
+                  />
+                )}
+              />
 
-            <Route
-              path="/title/:media_type/:id"
-              render={props => <Title {...props} setBar_={setBar} />}
-            />
-          </Switch>
+              <Route
+                path="/title/:media_type/:id"
+                render={props => <Title {...props} setBar_={setBar} />}
+              />
+
+              {/*<Route render={props => <ErrorPage />} />*/}
+            </Switch>
+          </ErrorBoundary>
         </Router>
       </React.Fragment>
     </div>

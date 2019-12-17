@@ -80,11 +80,7 @@ function MobileSearchBar({
           onKeyPress={ev => {
             //console.log(`Pressed keyCode ${ev.key}`);
             if (ev.key === "Enter") {
-              setBrowserState({
-                ...browserState,
-                content_list: []
-              });
-              if (search.length > 0) history.push(`/search/${search}`);
+              if (search.trim().length > 0) history.push(`/search/${search}`);
               //setBar(!barOpen);
               ev.preventDefault();
             }

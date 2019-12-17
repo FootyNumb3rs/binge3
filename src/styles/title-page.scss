@@ -67,6 +67,7 @@ $mainFont: Inter;
     object-fit: cover;
     object-position: top;
     opacity: 0.6;
+    background-color: rgb(22, 22, 22);
   }
 
   .cover-details {
@@ -75,7 +76,27 @@ $mainFont: Inter;
     width: 100%;
     padding-left: 0px;
     z-index: 1000;
-    bottom: 60px;
+    top: 45px;
+    padding-left: 40px;
+
+    .back-button {
+      background-color: black;
+      display: inline-flex;
+      width: 65px;
+      height: 65px;
+      border-radius: 100%;
+      justify-content: center;
+      align-items: center;
+      opacity: 0.9;
+      cursor: pointer;
+    }
+
+    .back-button:hover {
+      opacity: 0.65;
+      transition-duration: 0.15s;
+      transition-timing-function: linear;
+      //transition-delay: 1s;
+    }
 
     .title {
       display: flex;

@@ -127,7 +127,7 @@
     font-size: 30px;
     height: 100%;
     width: 100%;
-    line-height: auto;
+    line-height: 1.2;
   }
   .browser-container .browse-div .card-grid {
     display: -ms-grid;

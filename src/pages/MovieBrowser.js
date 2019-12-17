@@ -12,6 +12,7 @@ import "../styles/browse.css";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import Pagination from "material-ui-flat-pagination";
+import ErrorPage from "../pages/ErrorPage.js";
 
 export default class MovieBrowser extends PureComponent {
   // Constructor
@@ -19,19 +20,26 @@ export default class MovieBrowser extends PureComponent {
     super(props);
 
     this.state = {
-      genres: {}
+      genres: {},
+      error: null
     };
 
     props.setBar_(true);
     window.scrollTo(0, 0);
 
-    getGenres().then(data => {
-      var genres_ = Object.assign(data[0], data[1]);
-      this.setState({ genres: genres_ });
-      if (this.props.movieBrowserState.content_list.length == 0) {
-        this.displayMovies();
-      }
-    });
+    getGenres()
+      .then(data => {
+        var genres_ = Object.assign(data[0], data[1]);
+        this.setState({ genres: genres_ });
+        if (this.props.movieBrowserState.content_list.length == 0) {
+          this.displayMovies();
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        console.log("there was an error");
+        this.setState({ error: error });
+      });
 
     //console.log("yo");
   }
@@ -135,9 +143,12 @@ export default class MovieBrowser extends PureComponent {
   }
 
   render(props) {
-    //console.log(this.state);
+    if (this.state.error) {
+      return <ErrorPage />;
+    }
+
     this.props.setPage("movie");
-    //console.log(this.props.movieBrowserState.next_page);
+
     console.log(this.state);
 
     return (

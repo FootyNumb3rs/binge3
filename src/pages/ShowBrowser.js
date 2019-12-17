@@ -12,6 +12,7 @@ import "../styles/browse.css";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import Pagination from "material-ui-flat-pagination";
+import ErrorPage from "../pages/ErrorPage.js";
 
 export default class ShowBrowser extends PureComponent {
   // Constructor
@@ -19,19 +20,26 @@ export default class ShowBrowser extends PureComponent {
     super(props);
 
     this.state = {
-      genres: {}
+      genres: {},
+      error: null
     };
 
     props.setBar_(true);
     window.scrollTo(0, 0);
 
-    getGenres().then(data => {
-      var genres_ = Object.assign(data[0], data[1]);
-      this.setState({ genres: genres_ });
-      if (this.props.showBrowserState.content_list.length == 0) {
-        this.displayShows();
-      }
-    });
+    getGenres()
+      .then(data => {
+        var genres_ = Object.assign(data[0], data[1]);
+        this.setState({ genres: genres_ });
+        if (this.props.showBrowserState.content_list.length == 0) {
+          this.displayShows();
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        console.log("there was an error");
+        this.setState({ error: error });
+      });
 
     //console.log("yo");
   }
@@ -136,6 +144,10 @@ export default class ShowBrowser extends PureComponent {
   }
 
   render(props) {
+    if (this.state.error) {
+      return <ErrorPage />;
+    }
+
     console.log(this.props.showBrowseState);
     //console.log(this.state);
     this.props.setPage("tv");

@@ -12,6 +12,8 @@ import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import Chip from "@material-ui/core/Chip";
 import Button from "@material-ui/core/Button";
 import Fab from "@material-ui/core/Fab";
+import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
+import ErrorBoundary from "../pages/ErrorBoundary";
 
 export default class Title extends PureComponent {
   constructor(props) {
@@ -343,7 +345,18 @@ export default class Title extends PureComponent {
 
           <div className="title-container">
             <div className="cover-img-div">
-              <div className="cover-details"></div>
+              <div className="cover-details">
+                <div
+                  className="back-button"
+                  onClick={() => {
+                    this.props.history.go(-1);
+                  }}
+                >
+                  <KeyboardArrowLeft
+                    style={{ width: "35px", height: "35px" }}
+                  />
+                </div>
+              </div>
               {this.state.content.backdrop_path ? (
                 <img
                   className="cover-img"
@@ -381,28 +394,11 @@ export default class Title extends PureComponent {
                 </div>
 
                 <div className="video-div">
-                  {/*
-                  {this.state.videoContent.link &&
-                  this.state.videoContent.site == "YouTube" ? (
-                    <Fab
-                      color="secondary"
-                      href={`https://www.youtube.com/watch?v=${this.state.videoContent.link}`}
-                      target="_blank"
-                      style={{
-                        marginRight: "16px"
-                      }}
-                    >
-                      <PlayArrowIcon />
-                    </Fab>
-                  ) : (
-                    <div />
-                  )} */}
-
                   {this.getTrailer()}
 
                   {this.state.content.homepage ? (
                     <Fab
-                      color="primary"
+                      //color="primary"
                       aria-label="home"
                       href={this.state.content.homepage}
                       target="_blank"
@@ -473,3 +469,20 @@ export default class Title extends PureComponent {
     );
   }
 }
+
+/*
+                  {this.state.videoContent.link &&
+                  this.state.videoContent.site == "YouTube" ? (
+                    <Fab
+                      color="secondary"
+                      href={`https://www.youtube.com/watch?v=${this.state.videoContent.link}`}
+                      target="_blank"
+                      style={{
+                        marginRight: "16px"
+                      }}
+                    >
+                      <PlayArrowIcon />
+                    </Fab>
+                  ) : (
+                    <div />
+                  )} */

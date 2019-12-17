@@ -52,7 +52,7 @@ function SearchBar({ searchSubmit, history, setBrowserState, browserState }) {
     setSearch(e.target.value);
   };
 
-  console.log(setBrowserState);
+  //console.log(setBrowserState);
 
   return (
     <div className="search-bar">
@@ -67,11 +67,13 @@ function SearchBar({ searchSubmit, history, setBrowserState, browserState }) {
           onChange={onChange}
           onKeyPress={ev => {
             console.log(`Pressed keyCode ${ev.key}`);
-            if (ev.key === "Enter") {
+            if (ev.key === "Enter" && search.trim().length > 0) {
+              /*
               setBrowserState({
                 ...browserState,
                 content_list: []
               });
+              */
               history.push(`/search/${search}`);
               ev.preventDefault();
             }

@@ -9,9 +9,8 @@ import MediaCard from "../components/MediaCard.js";
 import Pag from "../components/Pag.js";
 import MobileMediaCard from "../components/MobileMediaCard.js";
 import "../styles/browse.css";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
-import Pagination from "material-ui-flat-pagination";
+import ErrorPage from "../pages/ErrorPage.js";
 
 export default class SearchBrowser extends PureComponent {
   // Constructor
@@ -19,22 +18,24 @@ export default class SearchBrowser extends PureComponent {
     super(props);
 
     this.state = {
-      genres: {}
+      genres: {},
+      error: null
     };
 
     props.setBar_(true);
     window.scrollTo(0, 0);
 
-    getGenres().then(data => {
-      var genres_ = Object.assign(data[0], data[1]);
-      this.setState({ genres: genres_ });
-
-      this.displaySearch(props.match.params.search_query);
-
-      // this.displaySearch();
-    });
-
-    //console.log("yo");
+    getGenres()
+      .then(data => {
+        var genres_ = Object.assign(data[0], data[1]);
+        this.setState({ genres: genres_ });
+        this.displaySearch(props.match.params.search_query);
+      })
+      .catch(error => {
+        console.log(error);
+        console.log("there was an error");
+        this.setState({ error: error });
+      });
   }
 
   // If only props change
@@ -45,6 +46,11 @@ export default class SearchBrowser extends PureComponent {
   }
 
   displaySearch = (search_query, page = 1, add = false) => {
+    this.props.setSearchBrowserState({
+      ...this.props.searchBrowserState,
+      content_list: []
+      //total_pages: data[0].total_pages
+    });
     getSearch(this.state.genres, search_query, page).then(data => {
       var all_data = [];
       console.log(data[0]);
@@ -129,6 +135,10 @@ export default class SearchBrowser extends PureComponent {
   }
 
   render(props) {
+    if (this.state.error) {
+      return <ErrorPage />;
+    }
+
     //console.log(this.state);
     this.props.setPage("search");
     //console.log(this.props.searchBrowserState.next_page);

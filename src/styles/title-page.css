@@ -89,6 +89,7 @@
   -o-object-position: top;
      object-position: top;
   opacity: 0.6;
+  background-color: #161616;
 }
 
 .cover-img-div .cover-details {
@@ -97,7 +98,34 @@
   width: 100%;
   padding-left: 0px;
   z-index: 1000;
-  bottom: 60px;
+  top: 45px;
+  padding-left: 40px;
+}
+
+.cover-img-div .cover-details .back-button {
+  background-color: black;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 65px;
+  height: 65px;
+  border-radius: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.cover-img-div .cover-details .back-button:hover {
+  opacity: 0.65;
+  -webkit-transition-duration: 0.15s;
+          transition-duration: 0.15s;
+  -webkit-transition-timing-function: linear;
+          transition-timing-function: linear;
 }
 
 .cover-img-div .cover-details .title {

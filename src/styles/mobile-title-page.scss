@@ -75,6 +75,7 @@ $height: $width/1.7777;
     img {
       width: $width;
       height: $height;
+      opacity: 0.6;
     }
   }
 }
@@ -157,7 +158,7 @@ $height: $width/1.7777;
     display: flex;
     flex-direction: row;
     max-width: 100%;
-    justify-content: space-between;
+    justify-content: left;
     margin-bottom: 5px;
   }
 }

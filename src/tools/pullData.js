@@ -22,7 +22,7 @@ export function getGenres() {
           return genres;
         })
         .catch(err => {
-          console.log(err);
+          //console.log(err);
         })
     );
   });
@@ -52,7 +52,7 @@ export function getById(genres, media_id, media_type) {
         return res.data;
       })
       .catch(err => {
-        console.log(err);
+        //console.log(err);
       })
   );
 
@@ -89,7 +89,7 @@ export function getInTheaters(genres, page = 1) {
         return res.data;
       })
       .catch(err => {
-        console.log(err);
+        //console.log(err);
       })
   );
 
@@ -127,7 +127,7 @@ export function getTrending(genres, media_type, page = 1) {
         return res.data;
       })
       .catch(err => {
-        console.log(err);
+        //console.log(err);
       })
   );
 
@@ -172,7 +172,7 @@ export function getSearch(genres, search, page = 1) {
         return res.data;
       })
       .catch(err => {
-        console.log(err);
+        //console.log(err);
       })
   );
   return axios.all(promises);
@@ -190,7 +190,7 @@ export function getCredits(media_id, media_type) {
         return res.data;
       })
       .catch(err => {
-        console.log(err);
+        //console.log(err);
       })
   );
 
@@ -217,7 +217,32 @@ export function getDialogContent(id, type) {
         return needed;
       })
       .catch(err => {
-        console.log(err);
+        //console.log(err);
+      })
+  );
+
+  return axios.all(promises);
+}
+
+export function getFeaturedBackdrop(id, type) {
+  var promises = [];
+
+  promises.push(
+    axios
+      .get(
+        `https://api.themoviedb.org/3/${type}/${String(
+          id
+        )}/videos?api_key=${api_key}&language=en-US`
+      )
+      .then(res => {
+        var vid_dic = res.data.results[0];
+        var needed = {};
+        needed["link"] = vid_dic.key;
+        needed["site"] = vid_dic.site;
+        return needed;
+      })
+      .catch(err => {
+        //console.log(err);
       })
   );
 

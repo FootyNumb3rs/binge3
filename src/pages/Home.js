@@ -8,6 +8,7 @@ import Slider from "react-slick";
 import Chip from "@material-ui/core/Chip";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import ErrorPage from "../pages/ErrorPage.js";
 
 export default class Home extends PureComponent {
   constructor(props) {
@@ -16,37 +17,85 @@ export default class Home extends PureComponent {
     this.state = {
       preview_movies: [],
       preview_shows: [],
-      preview_in_theaters: []
+      preview_in_theaters: [],
+      error: null,
+      featured: [
+        {
+          id: 466272,
+          backdrop_path: "/c6YyKddg8iVDYRRVZLDEd3m22RI.jpg",
+          genres: ["Drama", "Comedy", "Thriller"],
+          title: "Once Upon a Time… in Hollywood",
+          release: "2019-07-25"
+        },
+        {
+          id: 330457,
+          backdrop_path: "/aPSX29AIwAuP54cwrigmxSnPnhn.jpg",
+          genres: ["Animation", "Family", "Music"],
+          title: "Frozen II",
+          release: "2019-07-25"
+        },
+        {
+          id: 512200,
+          backdrop_path: "/oLma4sWjqlXVr0E3jpaXQCytuG9.jpg",
+          genres: ["Adventure", "Comedy", "Fantasy"],
+          title: "Jumanji: The Next Level",
+          release: "2019-12-04"
+        },
+        {
+          id: 419704,
+          backdrop_path: "/p3TCqUDoVsrIm8fHK9KOTfWnDjZ.jpg",
+          genres: ["Science Fiction", "Drama", "Mystery"],
+          title: "Ad Astra",
+          release: "2019-07-25"
+        }
+      ]
     };
 
     props.setBar_(true);
 
     this.exampleRef = React.createRef();
 
-    getGenres().then(data => {
-      var genres_ = Object.assign(data[0], data[1]);
+    getGenres()
+      .then(data => {
+        var genres_ = Object.assign(data[0], data[1]);
 
-      this.setState({ genres: genres_ });
+        this.setState({ genres: genres_ });
 
-      if (this.props.carouselMedia.preview_shows.length == 0) {
-        this.previewMovies();
-      }
-      if (this.props.carouselMedia.preview_shows.length == 0) {
-        this.previewShows();
-      }
-      if (this.props.carouselMedia.preview_shows.length == 0) {
-        this.previewInTheaters();
-      }
-    });
+        if (this.props.carouselMedia.preview_shows.length == 0) {
+          this.previewMovies();
+        }
+        if (this.props.carouselMedia.preview_shows.length == 0) {
+          this.previewShows();
+        }
+        if (this.props.carouselMedia.preview_shows.length == 0) {
+          this.previewInTheaters();
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        console.log("there was an error");
+        this.setState({ error: error });
+      });
   }
 
   getViewPanel = media => {
     return (
       <div>
+        {/*  <Link
+          className="link"
+          to={{
+            pathname: `/title/${media.media_type}/${media.id}`
+          }}
+        >  */}
         <div className="view-panel-container">
           <img
-            /*style={{ width: "100%", opacity: 0.3, backgroundColor: "#424242" }}*/
-            src={media.backdropLink}
+            style={{
+              //width: "100%",
+              //height: "100%",
+              opacity: 0.3,
+              backgroundColor: "#424242"
+            }}
+            src={`https://image.tmdb.org/t/p/original/${media.backdrop_path}`}
           />
 
           <div className="view-panel-div">
@@ -63,17 +112,19 @@ export default class Home extends PureComponent {
             <div className="view-button">
               <Link
                 to={{
-                  pathname: `/title/${media.media_type}/${media.id}`
+                  pathname: `/title/movie/${media.id}`
                 }}
               >
-                {/*
-                <Button variant="contained" color="primary">
-                  SEE MORE
-              </Button> */}
+                {
+                  <Button variant="contained" color="primary">
+                    SEE MORE
+                  </Button>
+                }
               </Link>
             </div>
           </div>
         </div>
+        {/* </Link>*/}
       </div>
     );
   };
@@ -172,23 +223,29 @@ export default class Home extends PureComponent {
   }
 
   render(props) {
-    console.log(this.props.carouselState);
+    //console.log(this.props.carouselState);
 
-    console.log(this.exampleRef.current);
+    if (this.state.error) {
+      return <ErrorPage />;
+    }
 
     const settings = {
-      dots: false,
+      autoplaySpeed: 3000,
+      autoplay: true,
+      dots: true,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
+
       responsive: [
         {
-          breakpoint: 768,
+          breakpoint: 740,
           settings: {
+            dots: true,
+            touchThreshold: 15,
             //initialSlide: carouselState,
             //afterChange: (current, next) => setCarouselState(current),
-
             arrows: false
           }
         }
@@ -210,10 +267,10 @@ export default class Home extends PureComponent {
             ref={this.exampleRef}
             className="slider-container"
             {...settings}
-            //style={{ width: "100vw", height: "56.17977vw" }}
+            style={{ width: "100vw", height: "56.17977vw" }}
           >
-            {this.props.carouselMedia.preview_movies[0] ? (
-              this.props.carouselMedia.preview_movies.slice(0, 4).map(media => {
+            {this.state.featured ? (
+              this.state.featured.map(media => {
                 return this.getViewPanel(media);
               })
             ) : (

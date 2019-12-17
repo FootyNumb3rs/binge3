@@ -4,6 +4,7 @@ import Chip from "@material-ui/core/Chip";
 import "../styles/mobile-title-page.css";
 import StarIcon from "@material-ui/icons/Star";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import ActorCard from "../components/ActorCard.js";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
@@ -287,15 +288,17 @@ class MobileTitle extends PureComponent {
                   this.props.history.go(-1);
                 }}
               >
-                <ArrowBackIcon />
+                <KeyboardArrowLeft style={{ width: "7vw", height: "7vw" }} />
               </div>
             </div>
           </div>
           <div className="mobile-vue-info-main-div">
             <div className="mobile-vue-title">
-              {this.state.content.title || this.state.content.original_name || (
-                <Skeleton width="60%" height={20} />
-              )}
+              {this.state.content.original_title ||
+                this.state.content.title ||
+                this.state.content.original_name || (
+                  <Skeleton width="60%" height={20} />
+                )}
               {this.getChip()}
             </div>
             <div className="mobile-vue-genres">
