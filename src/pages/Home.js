@@ -116,7 +116,11 @@ export default class Home extends PureComponent {
                 }}
               >
                 {
-                  <Button variant="contained" color="primary">
+                  <Button
+                    style={{ fontWeight: 500 }}
+                    variant="contained"
+                    color="primary"
+                  >
                     SEE MORE
                   </Button>
                 }
