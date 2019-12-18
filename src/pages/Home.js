@@ -29,7 +29,7 @@ export default class Home extends PureComponent {
         },
         {
           id: 466272,
-          backdrop_path: "/c6YyKddg8iVDYRRVZLDEd3m22RI.jpg",
+          backdrop_path: "/iqrHHdrX0sSaF9Curyefli5XjkS.jpg",
           genres: ["Drama", "Comedy", "Thriller"],
           title: "Once Upon a Time… in Hollywood",
           release: "2019-07-25"
