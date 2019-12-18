@@ -21,6 +21,13 @@ export default class Home extends PureComponent {
       error: null,
       featured: [
         {
+          id: 512200,
+          backdrop_path: "/oLma4sWjqlXVr0E3jpaXQCytuG9.jpg",
+          genres: ["Adventure", "Comedy", "Fantasy"],
+          title: "Jumanji: The Next Level",
+          release: "2019-12-04"
+        },
+        {
           id: 466272,
           backdrop_path: "/c6YyKddg8iVDYRRVZLDEd3m22RI.jpg",
           genres: ["Drama", "Comedy", "Thriller"],
@@ -33,13 +40,6 @@ export default class Home extends PureComponent {
           genres: ["Animation", "Family", "Music"],
           title: "Frozen II",
           release: "2019-07-25"
-        },
-        {
-          id: 512200,
-          backdrop_path: "/oLma4sWjqlXVr0E3jpaXQCytuG9.jpg",
-          genres: ["Adventure", "Comedy", "Fantasy"],
-          title: "Jumanji: The Next Level",
-          release: "2019-12-04"
         },
         {
           id: 419704,
@@ -329,7 +329,7 @@ export default class Home extends PureComponent {
           </div>
         </div>
         <div className="signature">
-          Made with TMDB and React.js • Ratings from IMDB
+          Made by T. Mungwa with TMDB and React.js
         </div>
       </div>
     );
