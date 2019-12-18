@@ -17,7 +17,7 @@
 }
 
 .title-divider {
-  height: 0.7px;
+  height: 0.9px;
   max-width: 100vw;
   background: radial-gradient(circle, #f7f3f3 91%, rgba(0, 0, 0, 0) 100%);
   opacity: 0.08;
