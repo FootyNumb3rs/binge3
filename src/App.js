@@ -247,7 +247,7 @@ function App() {
                 render={props => <Title {...props} setBar_={setBar} />}
               />
 
-              {/*<Route render={props => <ErrorPage />} />*/}
+              <Route render={props => <ErrorPage />} />
             </Switch>
           </ErrorBoundary>
         </Router>
